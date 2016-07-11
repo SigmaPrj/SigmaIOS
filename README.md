@@ -12,7 +12,7 @@
 
 - **git flow**
 
-    ![git flow 工作流](http://blog.jobbole.com/76867/)
+    [git flow 工作流](http://blog.jobbole.com/76867/)
 
 - **阅读编码规范**
    
@@ -20,7 +20,7 @@
 
 - **浅谈MVVM**
 
-    ![浅谈iOS中MVVM的架构设计与团队协作](http://www.cocoachina.com/ios/20150122/10987.html)
+    [浅谈iOS中MVVM的架构设计与团队协作](http://www.cocoachina.com/ios/20150122/10987.html)
 
 - **第三方库须知**
 
