@@ -17,3 +17,6 @@
 ### Feature
 
 添加 历史消息功能
+
+### PS
+建议颜色不用宏命令，装插件[Color Sense](https://github.com/omz/ColorSense-for-Xcode)可以直接看到颜色，如果用宏命令定义RGB_COLOR(R,G,B)的话显示不了颜色。
