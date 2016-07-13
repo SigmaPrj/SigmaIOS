@@ -13,7 +13,8 @@
 		00FBD28B1D35FF8200CCC8FB /* SAPopularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBD28A1D35FF8200CCC8FB /* SAPopularViewController.m */; };
 		00FBD28E1D35FFAD00CCC8FB /* SAMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBD28D1D35FFAD00CCC8FB /* SAMeViewController.m */; };
 		00FBD2911D36038D00CCC8FB /* SANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FBD2901D36038D00CCC8FB /* SANavigationController.m */; };
-		3A4E4A9ADEFC9026265B2923 /* libPods-Sigmaprj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 247D65DDC63FCA6967FD50D0 /* libPods-Sigmaprj.a */; };
+		7B011BDD1D362FD600CBCAFA /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B011BDC1D362FD600CBCAFA /* CoreAudio.framework */; };
+		7B011BDF1D362FDB00CBCAFA /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B011BDE1D362FDB00CBCAFA /* CoreData.framework */; };
 		AB22500EA77EE469FA3249D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2254D90FA6CEA95919E140 /* ViewController.m */; };
 		AB2250BC144BAE4D9251DDE1 /* SigmaprjUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB225B6F83F852B908968C8C /* SigmaprjUITests.m */; };
 		AB22527C906EE83685BBABA9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB2256D5B5BE1661AA728D89 /* Info.plist */; };
@@ -60,6 +61,8 @@
 		00FBD2901D36038D00CCC8FB /* SANavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SANavigationController.m; sourceTree = "<group>"; };
 		152DBEF5A87E066F32580C0B /* Pods-Sigmaprj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sigmaprj.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sigmaprj/Pods-Sigmaprj.release.xcconfig"; sourceTree = "<group>"; };
 		247D65DDC63FCA6967FD50D0 /* libPods-Sigmaprj.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Sigmaprj.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B011BDC1D362FD600CBCAFA /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		7B011BDE1D362FDB00CBCAFA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A5D9A6E0CFF6D3F9F0CF8F24 /* Pods-Sigmaprj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sigmaprj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sigmaprj/Pods-Sigmaprj.debug.xcconfig"; sourceTree = "<group>"; };
 		AB225007CA55A5E2A7B4D863 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		AB2254D90FA6CEA95919E140 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
@@ -98,7 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A4E4A9ADEFC9026265B2923 /* libPods-Sigmaprj.a in Frameworks */,
+				7B011BDF1D362FDB00CBCAFA /* CoreData.framework in Frameworks */,
+				7B011BDD1D362FD600CBCAFA /* CoreAudio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +432,8 @@
 		8FDF607A6246F686BCEF6999 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7B011BDE1D362FDB00CBCAFA /* CoreData.framework */,
+				7B011BDC1D362FD600CBCAFA /* CoreAudio.framework */,
 				247D65DDC63FCA6967FD50D0 /* libPods-Sigmaprj.a */,
 			);
 			name = Frameworks;
