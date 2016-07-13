@@ -32,6 +32,7 @@
     - AFNetworking
     - SDWebImage
     - pop
+    - [Masonry](http://www.jianshu.com/p/10a250cc5018)
 
 - **新颖可能会用到的技术**
 
