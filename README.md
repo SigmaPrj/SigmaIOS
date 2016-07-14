@@ -48,7 +48,7 @@
 
     - AFNetworking
     - SDWebImage
-    - pop
+    - pop (已有教程，请查阅`POP Tutorial.md`文件)
     - [Masonry](http://www.jianshu.com/p/10a250cc5018)
 
 -   **新颖可能会用到的技术**
