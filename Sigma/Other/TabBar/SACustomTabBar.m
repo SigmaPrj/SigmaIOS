@@ -26,7 +26,7 @@
 /**
 *  plusbtn的延时加载, 中间的加号
 *
-*  @return <#return value description#>
+*  @return plusBtn
 */
 -(UIButton*)plusBtn{
     if (!_plusBtn) {
@@ -74,6 +74,12 @@
 }
 
 
+
+/**
+ *  tabbar 中间的 plusbtn的 点击事件
+ *
+ *  @param sender <#sender description#>
+ */
 -(void)plusBtnClick:(UIButton *)sender{
     self.clickBlock();
 }
