@@ -1,5 +1,6 @@
 //
 //  SARootViewController.m
+//  根控制器负责 tabbr和navigation
 //  Sigma
 //
 //  Created by Terence on 16/7/13.
@@ -15,6 +16,7 @@
 #import "SAPopularViewController.h"
 #import "SANavigationController.h"
 #import "SAViewController.h"
+
 
 
 @interface SARootViewController ()
@@ -42,10 +44,10 @@
     // 标题
     NSArray* titles = @[@"热门", @"社区", @"资讯", @"我的"];
     
-    /**
-     *  类名
-     */
+    // tabbar 上四个对应的viewController的类名
     NSArray* classNames = @[@"SAPopularViewController", @"SACommunityViewController", @"SAEInfomationViewController", @"SAMeViewController"];
+    
+    //
     NSArray* images = @[@"tabbar_home",@"toolbar_compose",@"tabbar_discover",@"tabbar_profile"];
     
     NSMutableArray* mutableArray = [NSMutableArray array];
@@ -58,9 +60,9 @@
     }
     
     self.viewControllers = mutableArray;
-//    self.tabBar.tintColor = [UIColor colorWithRed:1  green:0.510  blue:0 alpha:1];
     self.tabBar.tintColor = SIGMA_COLOR;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -79,10 +81,15 @@
  *  @return NaviviewController
  */
 -(UINavigationController*)viewControllerWithClassName:(NSString*)className image:(UIImage*)image selectedImage:(UIImage*)selectedImage title:(NSString*)title{
+    
     Class class = NSClassFromString(className);
+    
     id pClass = [[class alloc] init];
+    
     [pClass setTabBarItem: [[UITabBarItem alloc] initWithTitle: title image:image selectedImage:selectedImage]];
+    
     [pClass setTitle: title];
+    
     UINavigationController *NaviviewController = [[UINavigationController alloc] initWithRootViewController: pClass];
     return NaviviewController;
 }
@@ -100,10 +107,6 @@
 }
 
 
-
-
-
-
 /*
 #pragma mark - Navigation
 
@@ -113,39 +116,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
