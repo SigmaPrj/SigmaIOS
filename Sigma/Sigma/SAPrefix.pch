@@ -35,5 +35,7 @@
 #define MaxX(v)            CGRectGetMaxX((v).frame) //横坐标加上控件的宽度
 #define MaxY(v)            CGRectGetMaxY((v).frame) //纵坐标加上控件的高度
 
+// Sigma主要颜色
+#define SIGMA_COLOR [UIColor colorWithRed:0.196  green:0.200  blue:0.208 alpha:1]
 
 #endif /* SAPrefix_pch */

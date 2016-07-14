@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SACommunityViewController : UIViewController
+#import "SAViewController.h"
+@interface SACommunityViewController : SAViewController
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "SATabBarViewController.h"
+#import "SARootViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+//    self.window = [[UIWindow alloc] init];
+//    self.window.rootViewController = [[SATabBarViewController alloc] init];
+//
+//    [self.window makeKeyAndVisible];
+    
+    SARootViewController *viewController = [[SARootViewController alloc]init];
+    self.window.rootViewController = viewController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

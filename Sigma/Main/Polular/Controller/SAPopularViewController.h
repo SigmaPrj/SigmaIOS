@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SAPopularViewController : UIViewController
+#import "SAViewController.h"
+@interface SAPopularViewController : SAViewController
 
 @end
