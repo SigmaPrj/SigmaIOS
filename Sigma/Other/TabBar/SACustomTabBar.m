@@ -22,6 +22,15 @@
 }
 */
 
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
+    }
+
+    return self;
+}
+
 
 /**
 *  plusbtn的延时加载, 中间的加号

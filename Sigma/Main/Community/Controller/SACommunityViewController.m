@@ -3,7 +3,8 @@
 //  Sigmaprj
 //
 //  Created by Terence on 16/7/13.
-//  Copyright © 2016年 Terence. All rights reserved.
+//  Copyright © 2016年 Sigma. All rights reserved.
+//  @author : blackcater
 //
 
 #import "SACommunityViewController.h"
@@ -22,6 +23,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
 
 /*

@@ -10,20 +10,20 @@
 #ifndef POP_POP_H
 #define POP_POP_H
 
-#import <POPDefines.h>
+#import "POPDefines.h"
 
-#import <POPAnimatableProperty.h>
-#import <POPAnimation.h>
-#import <POPAnimationEvent.h>
-#import <POPAnimationExtras.h>
-#import <POPAnimationTracer.h>
-#import <POPAnimator.h>
-#import <POPBasicAnimation.h>
-#import <POPCustomAnimation.h>
-#import <POPDecayAnimation.h>
-#import <POPGeometry.h>
-#import <POPLayerExtras.h>
-#import <POPPropertyAnimation.h>
-#import <POPSpringAnimation.h>
+#import "POPAnimatableProperty.h"
+#import "POPAnimation.h"
+#import "POPAnimationEvent.h"
+#import "POPAnimationExtras.h"
+#import "POPAnimationTracer.h"
+#import "POPAnimator.h"
+#import "POPBasicAnimation.h"
+#import "POPCustomAnimation.h"
+#import "POPDecayAnimation.h"
+#import "POPGeometry.h"
+#import "POPLayerExtras.h"
+#import "POPPropertyAnimation.h"
+#import "POPSpringAnimation.h"
 
 #endif /* POP_POP_H */
