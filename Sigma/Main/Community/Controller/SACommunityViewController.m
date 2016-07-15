@@ -8,8 +8,12 @@
 //
 
 #import "SACommunityViewController.h"
+#import "SACommunityTableView.h"
+#import "View+MASAdditions.h"
 
 @interface SACommunityViewController ()
+
+@property (nonatomic, strong) SACommunityTableView *tableView;
 
 @end
 
@@ -27,11 +31,25 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+    [self render];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 }
+
+- (void)render {
+    _tableView = [[SACommunityTableView alloc] init];
+
+
+    [self.view addSubview:_tableView];
+
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *maker) {
+        maker.edges.equalTo(self.view);
+    }];
+}
+
 
 /*
 #pragma mark - Navigation
