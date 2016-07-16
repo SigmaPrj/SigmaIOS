@@ -128,7 +128,7 @@
     if (!_avatarImageView) {
         _avatarImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:self.communityModel.user_avatar]];
         _avatarImageView.layer.borderWidth = COMMUNITY_BORDER_WIDTH;
-        _avatarImageView.layer.borderColor = COMMUNITY_BORDER_COLOR;
+//        _avatarImageView.layer.borderColor = COMMUNITY_BORDER_COLOR;
         _avatarImageView.layer.cornerRadius = COMMUNITY_CELL_AVATAR_SIZE/2;
     }
     return _avatarImageView;

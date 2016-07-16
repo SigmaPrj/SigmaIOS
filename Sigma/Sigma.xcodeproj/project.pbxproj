@@ -113,6 +113,13 @@
 		9E8E8F9F7644A63E991A475C /* POPAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E85B717D75CE9E7F99CD6 /* POPAnimation.mm */; };
 		9E8E8FC894CBFDB7C98AA782 /* SACommunityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E81C57B71CD937D585C4D /* SACommunityModel.m */; };
 		9E8E8FE46328154EFE32C597 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8FD6DE19EFCB157350B4 /* SDWebImageDownloaderOperation.m */; };
+		D023AFF31D3A2AFD0073A3BD /* Mine_Settings_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = D023AFED1D3A2AFD0073A3BD /* Mine_Settings_Gray.png */; };
+		D023AFF41D3A2AFD0073A3BD /* Mine_Settings_Gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D023AFEE1D3A2AFD0073A3BD /* Mine_Settings_Gray@2x.png */; };
+		D023AFF51D3A2AFD0073A3BD /* Mine_Settings_Gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D023AFEF1D3A2AFD0073A3BD /* Mine_Settings_Gray@3x.png */; };
+		D023AFFB1D3A31680073A3BD /* SAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D023AFFA1D3A31680073A3BD /* SAUser.m */; };
+		D023AFFE1D3A317F0073A3BD /* SAMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D023AFFD1D3A317F0073A3BD /* SAMineCell.m */; };
+		D023B0041D3A32530073A3BD /* SAMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D023B0031D3A32530073A3BD /* SAMineTableViewCell.m */; };
+		D023B0071D3A328C0073A3BD /* SAMineViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D023B0061D3A328C0073A3BD /* SAMineViewEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -334,6 +341,17 @@
 		9E8E8FCEBAC744075A8FAD36 /* POPAnimationTracer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPAnimationTracer.mm; sourceTree = "<group>"; };
 		9E8E8FD6DE19EFCB157350B4 /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		9E8E8FE53BDB92A4E8360C96 /* POPAnimationInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimationInternal.h; sourceTree = "<group>"; };
+		D023AFED1D3A2AFD0073A3BD /* Mine_Settings_Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mine_Settings_Gray.png; sourceTree = "<group>"; };
+		D023AFEE1D3A2AFD0073A3BD /* Mine_Settings_Gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mine_Settings_Gray@2x.png"; sourceTree = "<group>"; };
+		D023AFEF1D3A2AFD0073A3BD /* Mine_Settings_Gray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mine_Settings_Gray@3x.png"; sourceTree = "<group>"; };
+		D023AFF91D3A31680073A3BD /* SAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAUser.h; sourceTree = "<group>"; };
+		D023AFFA1D3A31680073A3BD /* SAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUser.m; sourceTree = "<group>"; };
+		D023AFFC1D3A317F0073A3BD /* SAMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineCell.h; sourceTree = "<group>"; };
+		D023AFFD1D3A317F0073A3BD /* SAMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineCell.m; sourceTree = "<group>"; };
+		D023B0021D3A32530073A3BD /* SAMineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineTableViewCell.h; sourceTree = "<group>"; };
+		D023B0031D3A32530073A3BD /* SAMineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineTableViewCell.m; sourceTree = "<group>"; };
+		D023B0051D3A328C0073A3BD /* SAMineViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineViewEngine.h; sourceTree = "<group>"; };
+		D023B0061D3A328C0073A3BD /* SAMineViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineViewEngine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +382,7 @@
 		000250291D36652800B723FA /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D023AFE91D3A2AFD0073A3BD /* Mine_Icons */,
 				009F3D721D36794700F295E9 /* sinaTabbar */,
 				9E8E811A03F6CE475C322F8A /* temp */,
 			);
@@ -488,6 +507,10 @@
 		002F11D71D363F2700474AF9 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				D023B00B1D3A33030073A3BD /* Other */,
+				D023B00A1D3A32FA0073A3BD /* Model */,
+				D023B0091D3A32EE0073A3BD /* View */,
+				D023B0081D3A32E60073A3BD /* Cell */,
 				002F11D81D363F2700474AF9 /* Controller */,
 			);
 			path = Me;
@@ -840,6 +863,52 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		D023AFE91D3A2AFD0073A3BD /* Mine_Icons */ = {
+			isa = PBXGroup;
+			children = (
+				D023AFED1D3A2AFD0073A3BD /* Mine_Settings_Gray.png */,
+				D023AFEE1D3A2AFD0073A3BD /* Mine_Settings_Gray@2x.png */,
+				D023AFEF1D3A2AFD0073A3BD /* Mine_Settings_Gray@3x.png */,
+			);
+			path = Mine_Icons;
+			sourceTree = "<group>";
+		};
+		D023B0081D3A32E60073A3BD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D023AFFC1D3A317F0073A3BD /* SAMineCell.h */,
+				D023AFFD1D3A317F0073A3BD /* SAMineCell.m */,
+				D023B0021D3A32530073A3BD /* SAMineTableViewCell.h */,
+				D023B0031D3A32530073A3BD /* SAMineTableViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		D023B0091D3A32EE0073A3BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D023B00A1D3A32FA0073A3BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D023B0051D3A328C0073A3BD /* SAMineViewEngine.h */,
+				D023B0061D3A328C0073A3BD /* SAMineViewEngine.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D023B00B1D3A33030073A3BD /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				D023AFF91D3A31680073A3BD /* SAUser.h */,
+				D023AFFA1D3A31680073A3BD /* SAUser.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -943,10 +1012,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D023AFF31D3A2AFD0073A3BD /* Mine_Settings_Gray.png in Resources */,
 				009F3D8B1D36794700F295E9 /* camera_close_highlighted@3x.png in Resources */,
 				009F3D8D1D36794700F295E9 /* tabbar_compose_icon_add@2x.png in Resources */,
 				009F3D8F1D36794700F295E9 /* tabbar_discover_highlighted@2x.png in Resources */,
 				009F3D9A1D36794700F295E9 /* tabbar_profile_highlighted@3x.png in Resources */,
+				D023AFF51D3A2AFD0073A3BD /* Mine_Settings_Gray@3x.png in Resources */,
 				009F3D9D1D36794700F295E9 /* toolbar_compose@2x.png in Resources */,
 				009F3D981D36794700F295E9 /* tabbar_profile@3x.png in Resources */,
 				009F3DA91D3684DF00F295E9 /* tabbar_discover@2x.png in Resources */,
@@ -961,6 +1032,7 @@
 				009F3D971D36794700F295E9 /* tabbar_profile@2x.png in Resources */,
 				009F3D901D36794700F295E9 /* tabbar_discover_highlighted@3x.png in Resources */,
 				002F10951D36382900474AF9 /* Main.storyboard in Resources */,
+				D023AFF41D3A2AFD0073A3BD /* Mine_Settings_Gray@2x.png in Resources */,
 				009F3D8E1D36794700F295E9 /* tabbar_compose_icon_add@3x.png in Resources */,
 				009F3D8A1D36794700F295E9 /* camera_close_highlighted@2x.png in Resources */,
 				009F3D9B1D36794700F295E9 /* tabbar_profile_selected@2x.png in Resources */,
@@ -1014,6 +1086,7 @@
 				009F3DA31D36798300F295E9 /* SACustomTabBar.m in Sources */,
 				002F11F11D36615E00474AF9 /* SAViewController.m in Sources */,
 				002F10981D36382900474AF9 /* Sigma.xcdatamodeld in Sources */,
+				D023AFFB1D3A31680073A3BD /* SAUser.m in Sources */,
 				002F11DF1D363F2700474AF9 /* SACommunityViewController.m in Sources */,
 				009F3DA61D367DD500F295E9 /* SARootViewController.m in Sources */,
 				9E8E83FF9A17E27AC96D4B08 /* AFHTTPSessionManager.m in Sources */,
@@ -1039,6 +1112,8 @@
 				9E8E8A041EB424678CFEABA1 /* POPAnimationRuntime.mm in Sources */,
 				9E8E8EE30343B0DF0FC0A01A /* POPAnimationTracer.mm in Sources */,
 				9E8E86327F99339EEAFD7EB1 /* POPAnimator.mm in Sources */,
+				D023B0071D3A328C0073A3BD /* SAMineViewEngine.m in Sources */,
+				D023B0041D3A32530073A3BD /* SAMineTableViewCell.m in Sources */,
 				9E8E862FE06C86C8D8456329 /* POPBasicAnimation.mm in Sources */,
 				9E8E8B22C2089A66450707A0 /* POPCGUtils.mm in Sources */,
 				9E8E896C680023CB8D8BE5AE /* POPCustomAnimation.mm in Sources */,
@@ -1052,6 +1127,7 @@
 				9E8E80AA2523B88020493304 /* TransformationMatrix.cpp in Sources */,
 				9E8E8BA46D5AA980E0F5C7E2 /* MKAnnotationView+WebCache.m in Sources */,
 				9E8E878ECAD5C13EC62B7C04 /* NSData+ImageContentType.m in Sources */,
+				D023AFFE1D3A317F0073A3BD /* SAMineCell.m in Sources */,
 				9E8E862DCCC94EE41933C765 /* SDImageCache.m in Sources */,
 				9E8E86D9505FDFBE1C7AB7F5 /* SDWebImageCompat.m in Sources */,
 				9E8E8F62D5CEAD751FAB059E /* SDWebImageDecoder.m in Sources */,

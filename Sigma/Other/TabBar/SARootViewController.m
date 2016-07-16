@@ -25,6 +25,7 @@
     [super viewDidLoad];
     
     SACustomTabBar* tabBar = [[SACustomTabBar alloc] initWithFrame:self.tabBar.frame];
+    //self.tabBar.frame.size.height为49
     [self setValue:tabBar forKey:@"tabBar"];
     
     

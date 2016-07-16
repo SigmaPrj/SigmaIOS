@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0FA880BDB059C762EAED85FB03022F8871D3145D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0FA880BDB059C762EAED85FB03022F8871D3145D" : 0,
+    "B3B20F127DFA2B0302805E8309DBF52B29B56698" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F7D8395F-2AE2-4908-9F7E-B3004AFFCCDD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0FA880BDB059C762EAED85FB03022F8871D3145D" : "Sigma\/",
+    "B3B20F127DFA2B0302805E8309DBF52B29B56698" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Sigma",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Sigma\/Sigma.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SigmaPrj\/SigmaIOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0FA880BDB059C762EAED85FB03022F8871D3145D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Zihin\/LinkedList-C.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B3B20F127DFA2B0302805E8309DBF52B29B56698"
+    }
+  ]
+}
