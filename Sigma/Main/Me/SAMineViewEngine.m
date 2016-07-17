@@ -60,7 +60,7 @@
 }
 
 -(void)mineSetUser:(SAUser*)user{
-    _user.headImageName=@"head";
+    _user.headImageName=@"Head_Img_Of_HeaderView";
     _user.userName=@"Tsezihin";
     _user.level=1;
     

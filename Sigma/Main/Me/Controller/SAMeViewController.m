@@ -12,13 +12,18 @@
 #import "SAUser.h"
 #import "SAMineViewEngine.h"
 #import "SAMineTableViewCell.h"
+#import "TextEnhance.h"
 
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
-//self.tabBar.frame.size.height为49
-#define HEIGHT_TABBAR 49
+
+#define HEIGHT_TABBAR 49 //self.tabBar.frame.size.height为49
 #define HEIGHT_NAVIGATIONBAR 44
+#define HEIGHT_TABLE_HEADER_VIEW 110+HEIGHT_BASIC_INFO_OF_HEADER_VIEW
+#define MARGIN 15
+#define IMAGE_REC_SIZE 65
+
 
 
 
@@ -29,7 +34,7 @@
 @property(nonatomic,strong)UIView* headerView;
 @property(nonatomic,strong)UIImageView* headImageViewOfHeaderView;
 @property(nonatomic,strong)UILabel* userNameLabelOfHeaderView;
-@property(nonatomic,strong)UIImageView* vipLevelViewOfHeaderView;
+@property(nonatomic,strong)UILabel* vipLevelViewOfHeaderView;
 
 
 @property(nonatomic,strong)UIView *basicInforOfHeaderView;
@@ -100,7 +105,7 @@
         _mineTableView.dataSource = self;
         _mineTableView.delegate = self;
         
-        _mineTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, 192)];
+        _mineTableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, HEIGHT_TABLE_HEADER_VIEW)];
         [_mineTableView.tableHeaderView addSubview:self.headerView];
     }
     return _mineTableView;
@@ -109,29 +114,42 @@
 
 -(UIImageView*)headImageViewOfHeaderView{
     if (!_headImageViewOfHeaderView) {
-        _headImageViewOfHeaderView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 141, 63, 63)];
+        _headImageViewOfHeaderView = [[UIImageView alloc] initWithFrame:CGRectMake(MARGIN*1.5, (HEIGHT_TABLE_HEADER_VIEW-HEIGHT_BASIC_INFO_OF_HEADER_VIEW-IMAGE_REC_SIZE)/2, IMAGE_REC_SIZE, IMAGE_REC_SIZE)];
         _headImageViewOfHeaderView.image = [[UIImage imageNamed:self.user.headImageName] imageWithRenderingMode:UIImageRenderingModeAutomatic];
         
     }
     return _headImageViewOfHeaderView;
 }
 
--(UIImageView*)vipLevelViewOfHeaderView{
+-(UILabel*)vipLevelViewOfHeaderView{
     if (!_vipLevelViewOfHeaderView) {
-        _vipLevelViewOfHeaderView = [[UIImageView alloc] initWithFrame:CGRectMake(90, 175, 78, 21)];
-        _vipLevelViewOfHeaderView.image = [[UIImage imageNamed:[NSString stringWithFormat:@"%@%d", @"v",self.user.level]] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+        _vipLevelViewOfHeaderView = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headImageViewOfHeaderView.frame)+MARGIN, CGRectGetMaxY(self.userNameLabelOfHeaderView.frame)+MARGIN/3, 0, 20)];
+        _vipLevelViewOfHeaderView.layer.borderColor=[UIColor whiteColor].CGColor;
+        _vipLevelViewOfHeaderView.layer.borderWidth=0.5;
+        _vipLevelViewOfHeaderView.layer.cornerRadius=3.f;
+        NSString *str=[NSString stringWithFormat:@"VIP %d",self.user.level];
+        _vipLevelViewOfHeaderView.text=str;
+        _vipLevelViewOfHeaderView.textColor=[UIColor whiteColor];
+        _vipLevelViewOfHeaderView.font=[UIFont systemFontOfSize:10.f];
+        _vipLevelViewOfHeaderView.textAlignment=NSTextAlignmentCenter;
         
+        [TextEnhance resizeUILabelWidth:_vipLevelViewOfHeaderView];
     }
+    
+    
     return _vipLevelViewOfHeaderView;
 }
 
 -(UILabel*)userNameLabelOfHeaderView{
     if (!_userNameLabelOfHeaderView) {
-        _userNameLabelOfHeaderView = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headImageViewOfHeaderView.frame)+18, 146, 90, 30)];
+        _userNameLabelOfHeaderView = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headImageViewOfHeaderView.frame)+MARGIN, CGRectGetMinY(self.headImageViewOfHeaderView.frame)+MARGIN, 0, 30)];
         
         [_userNameLabelOfHeaderView setFont:[UIFont boldSystemFontOfSize:16.f]];
         _userNameLabelOfHeaderView.textColor = [UIColor whiteColor];
         _userNameLabelOfHeaderView.text = self.user.userName;
+        
+        [TextEnhance resizeUILabelWidth:_userNameLabelOfHeaderView];
+
     }
     return _userNameLabelOfHeaderView;
 }
@@ -139,15 +157,15 @@
 -(UIView*)headerView{
     if (!_headerView) {
         
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 192)];
-        UIView* topView = [[UIView alloc] initWithFrame:CGRectMake(0, -100, SCREEN_WIDTH, 225)];
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEIGHT_TABLE_HEADER_VIEW)];
+        UIView* topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEIGHT_TABLE_HEADER_VIEW-HEIGHT_BASIC_INFO_OF_HEADER_VIEW)];
         topView.backgroundColor = COLOR_RGB(219,66,64);
         
         [topView addSubview:self.headImageViewOfHeaderView];
         [topView addSubview:self.vipLevelViewOfHeaderView];
         [topView addSubview:self.userNameLabelOfHeaderView];
         
-        UIImageView* headRightBtn = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-30, 164, 10, 16)];
+        UIImageView* headRightBtn = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-30, 64, 10, 16)];
         headRightBtn.image = [[UIImage imageNamed:@"icon_cell_rightArrow"] imageWithRenderingMode:UIImageRenderingModeAutomatic];
         
         UITapGestureRecognizer* headRightBtnGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headRightBtnClicked:)];
@@ -165,9 +183,7 @@
 -(UIView*)basicInforOfHeaderView{
     if (_basicInforOfHeaderView==nil) {
         
-        _basicInforOfHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 125, SCREEN_WIDTH, HEIGHT_BASIC_INFO_OF_HEADER_VIEW)];
-        
-        //        _buttonsOfHeaderView.backgroundColor = [UIColor yellowColor];
+        _basicInforOfHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headerView.frame)-HEIGHT_BASIC_INFO_OF_HEADER_VIEW, SCREEN_WIDTH, HEIGHT_BASIC_INFO_OF_HEADER_VIEW)];
         
         [_basicInforOfHeaderView addSubview:self.feedsView];
         [_basicInforOfHeaderView addSubview:self.followView];
@@ -183,12 +199,12 @@
         
         _feedsView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/4, HEIGHT_BASIC_INFO_OF_HEADER_VIEW)];
         
-        UILabel* feedsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, SCREEN_WIDTH/4, 20)];
+        UILabel* feedsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, MARGIN, SCREEN_WIDTH/4, 20)];
         feedsLabel.text = @"动态";
         feedsLabel.textAlignment=NSTextAlignmentCenter;
         feedsLabel.font=[UIFont systemFontOfSize:15.f];
         
-        UILabel* numLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 15+20, SCREEN_WIDTH/4, 20)];
+        UILabel* numLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, MARGIN+20, SCREEN_WIDTH/4, 20)];
         numLabel.text = [NSString stringWithFormat:@"%d",self.user.feeds];
         numLabel.textAlignment=NSTextAlignmentCenter;
         numLabel.font=[UIFont systemFontOfSize:15.f];
@@ -212,12 +228,12 @@
     if (!_followView) {
         _followView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/4, 0, SCREEN_WIDTH/4, HEIGHT_BASIC_INFO_OF_HEADER_VIEW)];
         
-        UILabel* followLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, SCREEN_WIDTH/4, 20)];
+        UILabel* followLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, MARGIN, SCREEN_WIDTH/4, 20)];
         followLabel.text = @"关注";
         followLabel.textAlignment=NSTextAlignmentCenter;
         followLabel.font=[UIFont systemFontOfSize:15.f];
         
-        UILabel* numLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 15+20, SCREEN_WIDTH/4, 20)];
+        UILabel* numLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, MARGIN+20, SCREEN_WIDTH/4, 20)];
         numLabel.text = [NSString stringWithFormat:@"%d",self.user.numberOfFollowers];
         numLabel.textAlignment=NSTextAlignmentCenter;
         numLabel.font=[UIFont systemFontOfSize:15.f];
@@ -241,12 +257,12 @@
     if (!_fansView) {
         _fansView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2, 0, SCREEN_WIDTH/4, HEIGHT_BASIC_INFO_OF_HEADER_VIEW)];
         
-        UILabel* followLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, SCREEN_WIDTH/4, 20)];
+        UILabel* followLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, MARGIN, SCREEN_WIDTH/4, 20)];
         followLabel.text = @"粉丝";
         followLabel.textAlignment=NSTextAlignmentCenter;
         followLabel.font=[UIFont systemFontOfSize:15.f];
         
-        UILabel* numLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 15+20, SCREEN_WIDTH/4, 20)];
+        UILabel* numLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, MARGIN+20, SCREEN_WIDTH/4, 20)];
         numLabel.text = [NSString stringWithFormat:@"%d",self.user.numberOfFans];
         numLabel.textAlignment=NSTextAlignmentCenter;
         numLabel.font=[UIFont systemFontOfSize:15.f];
@@ -270,12 +286,12 @@
     if (!_creditsView) {
         _creditsView = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*3/4, 0, SCREEN_WIDTH/4, HEIGHT_BASIC_INFO_OF_HEADER_VIEW)];
         
-        UILabel* creditsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, SCREEN_WIDTH/4, 20)];
+        UILabel* creditsLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, MARGIN, SCREEN_WIDTH/4, 20)];
         creditsLabel.text = @"积分";
         creditsLabel.textAlignment=NSTextAlignmentCenter;
         creditsLabel.font=[UIFont systemFontOfSize:15.f];
         
-        UILabel* numLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 15+20, SCREEN_WIDTH/4, 20)];
+        UILabel* numLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, MARGIN+20, SCREEN_WIDTH/4, 20)];
         numLabel.text = [NSString stringWithFormat:@"%d",self.user.credits];
         numLabel.textAlignment=NSTextAlignmentCenter;
         numLabel.font=[UIFont systemFontOfSize:15.f];
@@ -291,7 +307,9 @@
     return _creditsView;
 }
 
-
+-(void)rightItemTapped{
+    NSLog(@"settings clicked");
+}
 
 #pragma mark- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
