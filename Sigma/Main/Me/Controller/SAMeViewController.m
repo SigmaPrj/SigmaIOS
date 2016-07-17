@@ -14,6 +14,8 @@
 #import "SAMineTableViewCell.h"
 #import "TextEnhance.h"
 
+#import "SAMyCompetitionViewController.h"
+
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
@@ -389,15 +391,74 @@
 
 #pragma mark- UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    if (indexPath.section==0) {
+        switch (indexPath.row) {
+            case 0:
+            {
+                SAMyCompetitionViewController *myCompetitionVC=[[SAMyCompetitionViewController alloc]init];
+                [myCompetitionVC setHidesBottomBarWhenPushed:YES];
+                
+                [self.navigationController pushViewController:myCompetitionVC animated:YES];
+            }
+                break;
+            case 1:
+            {
+                
+            }
+                break;
+            case 2:
+            {
+                
+            }
+                break;
+            case 3:
+            {
+                
+            }
+                break;
+            default:
+                break;
+        }
+    }else if (indexPath.section==1){
+        switch (indexPath.row) {
+            case 0:
+            {
+                
+            }
+                break;
+            case 1:
+            {
+                
+            }
+                break;
+            default:
+                break;
+        }
+        
+    }else if (indexPath.section==2){
+        switch (indexPath.row) {
+            case 0:
+            {
+                
+            }
+                break;
+            default:
+                break;
+        }
+        
+    }
+        
+
+
+
 }
 
 /**
  *  section中header的高度
  *
- *  @param tableView <#tableView description#>
+ *  @param tableView
  *  @param section   <#section description#>
  *
  *  @return <#return value description#>

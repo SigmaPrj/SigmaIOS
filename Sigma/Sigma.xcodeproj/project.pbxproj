@@ -124,6 +124,7 @@
 		D023B0101D3B30EC0073A3BD /* Head_Img_Of_HeaderView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D023B00D1D3B30EC0073A3BD /* Head_Img_Of_HeaderView@2x.png */; };
 		D023B0111D3B30EC0073A3BD /* Head_Img_Of_HeaderView@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D023B00E1D3B30EC0073A3BD /* Head_Img_Of_HeaderView@3x.png */; };
 		D023B0151D3B38380073A3BD /* TextEnhance.m in Sources */ = {isa = PBXBuildFile; fileRef = D023B0141D3B38380073A3BD /* TextEnhance.m */; };
+		D023B0191D3B755E0073A3BD /* SAMyCompetitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D023B0181D3B755E0073A3BD /* SAMyCompetitionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -361,6 +362,8 @@
 		D023B00E1D3B30EC0073A3BD /* Head_Img_Of_HeaderView@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Head_Img_Of_HeaderView@3x.png"; sourceTree = "<group>"; };
 		D023B0131D3B38380073A3BD /* TextEnhance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEnhance.h; sourceTree = "<group>"; };
 		D023B0141D3B38380073A3BD /* TextEnhance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEnhance.m; sourceTree = "<group>"; };
+		D023B0171D3B755E0073A3BD /* SAMyCompetitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMyCompetitionViewController.h; sourceTree = "<group>"; };
+		D023B0181D3B755E0073A3BD /* SAMyCompetitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMyCompetitionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -528,6 +531,7 @@
 		002F11D81D363F2700474AF9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D023B0161D3B75050073A3BD /* SubController */,
 				002F11D91D363F2700474AF9 /* SAMeViewController.h */,
 				002F11DA1D363F2700474AF9 /* SAMeViewController.m */,
 			);
@@ -931,6 +935,15 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		D023B0161D3B75050073A3BD /* SubController */ = {
+			isa = PBXGroup;
+			children = (
+				D023B0171D3B755E0073A3BD /* SAMyCompetitionViewController.h */,
+				D023B0181D3B755E0073A3BD /* SAMyCompetitionViewController.m */,
+			);
+			name = SubController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1148,6 +1161,7 @@
 				9E8E81546C526F563F2A582B /* POPMath.mm in Sources */,
 				9E8E8E4182937C6E51DB9EAA /* POPPropertyAnimation.mm in Sources */,
 				9E8E8928C67FBAA533E0142D /* POPSpringAnimation.mm in Sources */,
+				D023B0191D3B755E0073A3BD /* SAMyCompetitionViewController.m in Sources */,
 				D023B0151D3B38380073A3BD /* TextEnhance.m in Sources */,
 				9E8E85C7E48E266F5B3A39EB /* POPVector.mm in Sources */,
 				9E8E80AA2523B88020493304 /* TransformationMatrix.cpp in Sources */,
