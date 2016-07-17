@@ -91,9 +91,9 @@
  */
 -(void)initData{
     SAPopularModel *model1 = [[SAPopularModel alloc] init];
-    model1.AvataImgName = @"avata.png";
+    model1.AvataImgName = @"avata.jpg";
     model1.nickName = @"不正常人类";
-    model1.cellBackgroundImgName = @"bg.png";
+    model1.cellBackgroundImgName = @"bg.jpg";
     model1.title = @"突破思维局限";
     model1.desc = @"如何突破思维局限？？？？";
     model1.number = 1000;
@@ -101,9 +101,9 @@
     model1.type = 1;
     
     SAPopularModel *model2 = [[SAPopularModel alloc] init];
-    model2.AvataImgName = @"avata.png";
+    model2.AvataImgName = @"avata.jpg";
     model2.nickName = @"IOS开发工程师";
-    model2.cellBackgroundImgName = @"bg1.png";
+    model2.cellBackgroundImgName = @"bg1.jpg";
     model2.title = @"IOS开发指南";
     model2.desc = @"IOS大牛教你开发Apple App";
     model2.number = 50;
@@ -112,9 +112,9 @@
     
     
     SAPopularModel *model3 = [[SAPopularModel alloc] init];
-    model3.AvataImgName = @"avata.png";
+    model3.AvataImgName = @"avata.jpg";
     model3.nickName = @"前端菜鸟";
-    model3.cellBackgroundImgName = @"bg3.png";
+    model3.cellBackgroundImgName = @"bg3.jpg";
     model3.title = @"Javascript高级程序设计";
     model3.desc = @"前端红宝书";
     model3.number = 10;
@@ -123,9 +123,9 @@
     
     
     SAPopularModel *model4 = [[SAPopularModel alloc] init];
-    model4.AvataImgName = @"avata.png";
+    model4.AvataImgName = @"avata.jpg";
     model4.nickName = @"sss";
-    model4.cellBackgroundImgName = @"bg4.png";
+    model4.cellBackgroundImgName = @"bg4.jpg";
     model4.title = @"前端经验分享";
     model4.desc = @"与大神面对面谈技术";
     model4.number = 100;
@@ -252,7 +252,7 @@
         
         
         UIButton* MoreBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 65 , 15, 40, 15)];
-        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.png"] forState:UIControlStateNormal];
+        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.jpg"] forState:UIControlStateNormal];
         [MoreBtn addTarget:self action:@selector(quesBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         [categoryTitle addSubview:leftLine];
@@ -283,7 +283,7 @@
         
         
         UIButton* MoreBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 65 , 15, 40, 15)];
-        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.png"] forState:UIControlStateNormal];
+        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.jpg"] forState:UIControlStateNormal];
         [MoreBtn addTarget:self action:@selector(classBtnClick) forControlEvents:UIControlEventTouchUpInside];
         
         [categoryTitle addSubview:leftLine];
@@ -315,7 +315,7 @@
         
         
         UIButton* MoreBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 65 , 15, 40, 15)];
-        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.png"] forState:UIControlStateNormal];
+        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.jpg"] forState:UIControlStateNormal];
         
         [categoryTitle addSubview:leftLine];
         [categoryTitle addSubview:rightLine];
@@ -345,7 +345,7 @@
         
         
         UIButton* MoreBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 65 , 15, 40, 15)];
-        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.png"] forState:UIControlStateNormal];
+        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.jpg"] forState:UIControlStateNormal];
         
         [categoryTitle addSubview:leftLine];
         [categoryTitle addSubview:rightLine];

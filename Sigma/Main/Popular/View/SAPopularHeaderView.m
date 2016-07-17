@@ -93,7 +93,7 @@
         [label setText:@"问答"];
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
-        [button setImage:[UIImage imageNamed:@"circle.png"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"circle.jpg"] forState:UIControlStateNormal];
 //        button.backgroundColor = [UIColor grayColor];
         [_questionBtnView addSubview:label];
         [_questionBtnView addSubview:button];
@@ -112,7 +112,7 @@
         [label setText:@"课程"];
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
-        [button setImage:[UIImage imageNamed:@"circle.png"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"circle.jpg"] forState:UIControlStateNormal];
 //        button.backgroundColor = [UIColor grayColor];
         [_classBtnView addSubview:label];
         [_classBtnView addSubview:button];
@@ -131,7 +131,7 @@
         [label setText:@"资源"];
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
-        [button setImage:[UIImage imageNamed:@"circle.png"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"circle.jpg"] forState:UIControlStateNormal];
 //        button.backgroundColor = [UIColor grayColor];
         [_resourceBtnView addSubview:label];
         [_resourceBtnView addSubview:button];
@@ -150,7 +150,7 @@
         [label setText:@"活动"];
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
-        [button setImage:[UIImage imageNamed:@"circle.png"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"circle.jpg"] forState:UIControlStateNormal];
 //        button.backgroundColor = [UIColor grayColor];
         [_eventBtnView addSubview:label];
         [_eventBtnView addSubview:button];

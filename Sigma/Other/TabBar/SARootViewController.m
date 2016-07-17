@@ -16,7 +16,7 @@
 #import "SAPopularViewController.h"
 #import "SANavigationController.h"
 #import "SAViewController.h"
-
+#import "SAPublishViewController.h"
 
 
 @interface SARootViewController ()
@@ -39,6 +39,8 @@
     // pluson的点击事件
     tabBar.clickBlock = ^(){
         NSLog(@"plus btn clicked");
+        [self presentViewController:[[SAPublishViewController alloc] init] animated:NO completion:nil];
+
     };
     
     // 标题
