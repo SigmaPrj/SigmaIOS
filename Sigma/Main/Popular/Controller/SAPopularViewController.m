@@ -7,8 +7,11 @@
 //
 
 #import "SAPopularViewController.h"
-
+#import "SAPopularTableView.h"
+#import "Masonry.h"
 @interface SAPopularViewController ()
+
+@property(nonatomic, strong)SAPopularTableView *tableView;
 
 @end
 
@@ -23,6 +26,49 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
+
+
+-(instancetype)init{
+    self = [super init];
+    
+    if (self) {
+        [self initUI];
+    }
+    
+    return self;
+}
+
+-(void)initUI{
+    [self.view addSubview:self.tableView];
+    
+    
+    // 设置tableview布局
+    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT));
+//        make.top.equalTo(self.view.mas_top).offset(100);
+    }];
+   
+}
+
+-(SAPopularTableView*)tableView{
+    if (!_tableView) {
+        _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+//        _tableView.backgroundColor = [UIColor yellowColor];
+        
+    }
+    
+    return _tableView;
+}
+
+
 
 /*
 #pragma mark - Navigation

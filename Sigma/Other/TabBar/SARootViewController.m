@@ -48,10 +48,11 @@
     NSArray* classNames = @[@"SAPopularViewController", @"SACommunityViewController", @"SAEInfomationViewController", @"SAMeViewController"];
     
     //
-    NSArray* images = @[@"tabbar_home",@"toolbar_compose",@"tabbar_discover",@"tabbar_profile"];
+    NSArray* images = @[@"tabbar_home",@"Tabbar_community",@"tabbar_discover",@"tabbar_profile"];
     
     NSMutableArray* mutableArray = [NSMutableArray array];
     
+    // 初始化navigation导航栏
     for (int index = 0; index < classNames.count; index++) {
         NSString* selectedImg = [NSString stringWithFormat:@"%@_selected", [images objectAtIndex:index]];
         id nav = [self viewControllerWithClassName:[classNames objectAtIndex:index] image:[self changeImage:images[index]] selectedImage:[self changeImage:selectedImg] title:[titles objectAtIndex:index]];
