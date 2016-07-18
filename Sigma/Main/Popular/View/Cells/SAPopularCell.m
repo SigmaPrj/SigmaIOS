@@ -56,11 +56,10 @@
 
 -(void)setData:(SAPopularModel *)data{
     _data = data;
-    _data.type = 1;
 }
 
 -(instancetype)initUI{
-    [self addSubview:self.cellBackgroundImg];
+    [self.contentView addSubview:self.cellBackgroundImg];
 //    [self addSubview:self.categoryView];
     [self.cellBackgroundImg addSubview:self.avataImage];
     [self.cellBackgroundImg addSubview:self.nickNameLabel];
@@ -71,45 +70,7 @@
     return self;
 }
 
-/**
- *  类别的View这里是热门问答 --- 该部分已经转到headerForSection中，可以删除
- *
- *  @return <#return value description#>
- */
--(UIView*)categoryView{
-    if (!_categoryView) {
-        _categoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 45)];
-//        _categoryView.backgroundColor = [UIColor purpleColor];
-        
-        UILabel *categoryTitle = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 0, 200, 45)];
-        [categoryTitle setText:@"热门问答"];
-        [categoryTitle setFont:[UIFont systemFontOfSize:15.f]];
-        categoryTitle.textAlignment = NSTextAlignmentCenter;
-//        categoryTitle.backgroundColor = [UIColor yellowColor];
-        
-        UIView* leftLine = [[UIView alloc] initWithFrame:CGRectMake(30, categoryTitle.frame.size.height/2, 20, 1)];
-        leftLine.backgroundColor = [UIColor blackColor];
-        
-        UIView* rightLine = [[UIView alloc] initWithFrame:CGRectMake(150, categoryTitle.frame.size.height/2, 20, 1)];
-        rightLine.backgroundColor = [UIColor blackColor];
-        
-        
-        UIButton* MoreBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-65, (categoryTitle.frame.size.height-20)/2, 50, 20)];
-//        [MoreBtn setTitle:@"More" forState:UIControlStateNormal];
-        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.png"] forState:UIControlStateNormal];
-        
-        [MoreBtn addTarget:self action:@selector(moreBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        
-        [categoryTitle addSubview:leftLine];
-        [categoryTitle addSubview:rightLine];
-        [_categoryView addSubview:categoryTitle];
-        [_categoryView addSubview:MoreBtn];
-    }
-    
-    return _categoryView;
-}
+
 /**
  *  more按钮的点击事件
  *

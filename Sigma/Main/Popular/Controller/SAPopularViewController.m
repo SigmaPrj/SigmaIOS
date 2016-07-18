@@ -8,7 +8,7 @@
 
 #import "SAPopularViewController.h"
 #import "SAPopularTableView.h"
-#import "Masonry.h"
+
 @interface SAPopularViewController ()
 
 @property(nonatomic, strong)SAPopularTableView *tableView;
@@ -48,13 +48,6 @@
 
 -(void)initUI{
     [self.view addSubview:self.tableView];
-    
-    
-    // 设置tableview布局
-    [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT));
-//        make.top.equalTo(self.view.mas_top).offset(100);
-    }];
    
 }
 

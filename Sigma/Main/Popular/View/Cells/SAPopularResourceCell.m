@@ -52,7 +52,7 @@
 }
 
 -(instancetype)initUI{
-    [self addSubview:self.cellBackgroundImg];
+    [self.contentView addSubview:self.cellBackgroundImg];
 //    [self addSubview:self.categoryView];
     [self.cellBackgroundImg addSubview:self.avataImage];
     [self.cellBackgroundImg addSubview:self.nickNameLabel];

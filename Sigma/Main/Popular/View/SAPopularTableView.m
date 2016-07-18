@@ -240,8 +240,6 @@
                 
             }
             return cell;
-            
-            
         }
             break;
             
@@ -256,7 +254,6 @@
                 
             }
             return cell;
-            
         }
             break;
             
@@ -349,7 +346,7 @@
         line.backgroundColor = [UIColor colorWithRed:0.572  green:0.573  blue:0.572 alpha:0.9];
         UILabel *categoryTitle = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 0, 200, 45)];
         categoryTitle.backgroundColor = [UIColor clearColor];
-//        [categoryTitle setText:@"热门课程"];
+
         [categoryTitle setText:[self.titleArray objectAtIndex:1]];
         [categoryTitle setFont:[UIFont systemFontOfSize:15.f]];
         categoryTitle.textAlignment = NSTextAlignmentCenter;
@@ -380,7 +377,7 @@
         line.backgroundColor = [UIColor colorWithRed:0.572  green:0.573  blue:0.572 alpha:0.9];
         UILabel *categoryTitle = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 0, 200, 45)];
         categoryTitle.backgroundColor = [UIColor clearColor];
-//        [categoryTitle setText:@"热门课程"];
+
         
         [categoryTitle setText:[self.titleArray objectAtIndex:2]];
         [categoryTitle setFont:[UIFont systemFontOfSize:15.f]];
@@ -411,7 +408,7 @@
         line.backgroundColor = [UIColor colorWithRed:0.572  green:0.573  blue:0.572 alpha:0.9];
         UILabel *categoryTitle = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 0, 200, 45)];
         categoryTitle.backgroundColor = [UIColor clearColor];
-//        [categoryTitle setText:@"热门课程"];
+
         [categoryTitle setText:[self.titleArray objectAtIndex:3]];
         [categoryTitle setFont:[UIFont systemFontOfSize:15.f]];
         categoryTitle.textAlignment = NSTextAlignmentCenter;
@@ -445,7 +442,6 @@
 -(void)classBtnClick{
     NSLog(@"classmorebtn click");
 }
-
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {

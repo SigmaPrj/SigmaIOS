@@ -84,6 +84,9 @@
     return _pageControl;
 }
 
+/**
+ *  给ScrollView添加图片
+ */
 - (void)addImagesToScrollView {
     int num = (int)self.num;
     for (int i=0; i<num; i++) {

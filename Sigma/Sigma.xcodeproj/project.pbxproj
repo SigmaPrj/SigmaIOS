@@ -94,6 +94,9 @@
 		008761251D3BD3ED00452804 /* circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 008761201D3BD3ED00452804 /* circle.jpg */; };
 		008761271D3BD43F00452804 /* avata.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 008761261D3BD43F00452804 /* avata.jpg */; };
 		008761291D3BD61D00452804 /* morebtn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 008761281D3BD61D00452804 /* morebtn.jpg */; };
+		0087612D1D3CB3FC00452804 /* SAEInformationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0087612C1D3CB3FC00452804 /* SAEInformationTableView.m */; };
+		008761311D3CB8F200452804 /* SAEInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 008761301D3CB8F200452804 /* SAEInformationCell.m */; };
+		008761351D3CB96900452804 /* SAEInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 008761341D3CB96900452804 /* SAEInformationModel.m */; };
 		009504CD1D38CF6A00CAF254 /* TextEnhance.m in Sources */ = {isa = PBXBuildFile; fileRef = 009504CC1D38CF6A00CAF254 /* TextEnhance.m */; };
 		009504D01D38D46600CAF254 /* SAPopularClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009504CF1D38D46600CAF254 /* SAPopularClassCell.m */; };
 		009504D51D38FDA200CAF254 /* SAPopularResourceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 009504D41D38FDA200CAF254 /* SAPopularResourceCell.m */; };
@@ -329,6 +332,12 @@
 		008761201D3BD3ED00452804 /* circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = circle.jpg; sourceTree = "<group>"; };
 		008761261D3BD43F00452804 /* avata.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = avata.jpg; sourceTree = "<group>"; };
 		008761281D3BD61D00452804 /* morebtn.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = morebtn.jpg; sourceTree = "<group>"; };
+		0087612B1D3CB3FC00452804 /* SAEInformationTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAEInformationTableView.h; sourceTree = "<group>"; };
+		0087612C1D3CB3FC00452804 /* SAEInformationTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAEInformationTableView.m; sourceTree = "<group>"; };
+		0087612F1D3CB8F200452804 /* SAEInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAEInformationCell.h; sourceTree = "<group>"; };
+		008761301D3CB8F200452804 /* SAEInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAEInformationCell.m; sourceTree = "<group>"; };
+		008761331D3CB96900452804 /* SAEInformationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAEInformationModel.h; sourceTree = "<group>"; };
+		008761341D3CB96900452804 /* SAEInformationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAEInformationModel.m; sourceTree = "<group>"; };
 		009504CB1D38CF6A00CAF254 /* TextEnhance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEnhance.h; sourceTree = "<group>"; };
 		009504CC1D38CF6A00CAF254 /* TextEnhance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEnhance.m; sourceTree = "<group>"; };
 		009504CE1D38D46600CAF254 /* SAPopularClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPopularClassCell.h; sourceTree = "<group>"; };
@@ -510,6 +519,8 @@
 		002F11D31D363F2700474AF9 /* EInformation */ = {
 			isa = PBXGroup;
 			children = (
+				008761321D3CB91000452804 /* Model */,
+				0087612A1D3CB38800452804 /* View */,
 				002F11D41D363F2700474AF9 /* Controller */,
 			);
 			path = EInformation;
@@ -813,6 +824,34 @@
 			path = PublishImg;
 			sourceTree = "<group>";
 		};
+		0087612A1D3CB38800452804 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0087612E1D3CB87800452804 /* Cells */,
+				0087612B1D3CB3FC00452804 /* SAEInformationTableView.h */,
+				0087612C1D3CB3FC00452804 /* SAEInformationTableView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0087612E1D3CB87800452804 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0087612F1D3CB8F200452804 /* SAEInformationCell.h */,
+				008761301D3CB8F200452804 /* SAEInformationCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		008761321D3CB91000452804 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				008761331D3CB96900452804 /* SAEInformationModel.h */,
+				008761341D3CB96900452804 /* SAEInformationModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		009504E21D3BC32700CAF254 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1074,6 +1113,7 @@
 				00784AC11D372AD600214176 /* UIImage+MultiFormat.m in Sources */,
 				00784AAB1D372AD600214176 /* POPBasicAnimation.mm in Sources */,
 				00784AC21D372AD600214176 /* UIImage+WebP.m in Sources */,
+				0087612D1D3CB3FC00452804 /* SAEInformationTableView.m in Sources */,
 				00784ABA1D372AD600214176 /* SDWebImageDecoder.m in Sources */,
 				00784AB91D372AD600214176 /* SDWebImageCompat.m in Sources */,
 				00784AAE1D372AD600214176 /* POPDecayAnimation.mm in Sources */,
@@ -1093,6 +1133,7 @@
 				002F11E11D363F2700474AF9 /* SAMeViewController.m in Sources */,
 				00784AD21D374C5200214176 /* SAPopularHeaderView.m in Sources */,
 				00784A971D372AD600214176 /* MASCompositeConstraint.m in Sources */,
+				008761351D3CB96900452804 /* SAEInformationModel.m in Sources */,
 				00784A9F1D372AD600214176 /* View+MASAdditions.m in Sources */,
 				00784ABB1D372AD600214176 /* SDWebImageDownloader.m in Sources */,
 				0087611A1D3BC61600452804 /* UIView+SAPublishBtnFrame.m in Sources */,
@@ -1133,6 +1174,7 @@
 				00784A9A1D372AD600214176 /* MASLayoutConstraint.m in Sources */,
 				00784AB11D372AD600214176 /* POPMath.mm in Sources */,
 				00784AB61D372AD600214176 /* MKAnnotationView+WebCache.m in Sources */,
+				008761311D3CB8F200452804 /* SAEInformationCell.m in Sources */,
 				002F11DF1D363F2700474AF9 /* SACommunityViewController.m in Sources */,
 				009F3DA61D367DD500F295E9 /* SARootViewController.m in Sources */,
 				00784AC01D372AD600214176 /* UIImage+GIF.m in Sources */,
