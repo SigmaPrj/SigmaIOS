@@ -70,6 +70,8 @@
 		7839B05DA3BF5BEE02EACFEB5E327D62 /* POPCGUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4899E417F62DBC3506EC8969A43704D4 /* POPCGUtils.mm */; };
 		7AA29C8D13DCC764055A8B2C3311DC32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F630F5DA2B6CB50DB080A04D0D1893A /* LaunchScreen.storyboard */; };
 		7B3BF2E2C63D9794849E63314A5B6D55 /* camera_close_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FCA7F6B47BA6EA6CA9F893B34EB00D7 /* camera_close_highlighted@2x.png */; };
+		7B91FD0E1D3D284500830136 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B91FD0D1D3D284500830136 /* Main.storyboard */; };
+		7B91FD111D3D287200830136 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B91FD101D3D287200830136 /* ViewController.m */; };
 		7B98A051D27F0C588DEE3B296E93E1C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E080FEFC2EC1278C278FB6F4949376D3 /* AppDelegate.m */; };
 		7D860FE3793B5ED9C61CDAF8774DC9E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F1B3C6570A50F6F158C75B4A3273F2 /* main.m */; };
 		8048A5D5121DDDB31F7BFDAD7EFB6EF1 /* POPCustomAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B8AC05079521D9D1336784ECEE72C /* POPCustomAnimation.mm */; };
@@ -268,6 +270,9 @@
 		799E0A6A3F109066A419859E348978D5 /* pop-tvos-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pop-tvos-Info.plist"; sourceTree = "<group>"; };
 		7A9B066E6F9A0E3BC7F6759ECAB8F068 /* POPAnimationTracerInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimationTracerInternal.h; sourceTree = "<group>"; };
 		7B6D1AD1482DAE32ED933D26A67EC5C0 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		7B91FD0D1D3D284500830136 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7B91FD0F1D3D287200830136 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		7B91FD101D3D287200830136 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7C3817A92034EAD744EAA82C36716D67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E5E28D599F13EA3237D82CB4F12BBA6 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
 		7ED694E93F1135D2E745DD179D33F701 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -410,14 +415,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B38F4CB91EE6A025B818E20231F0CF6 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				CFD9D97C53AE995D9C9A18E934DF9ED8 /* PublicDefine.h */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
 		02BCB069D94F309187B6532BE0D3A11C /* pop */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,6 +482,14 @@
 				71EB62316D1E0A9FBF844BE09B1F0021 /* View */,
 			);
 			path = Popular;
+			sourceTree = "<group>";
+		};
+		1B38F4CB91EE6A025B818E20231F0CF6 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CFD9D97C53AE995D9C9A18E934DF9ED8 /* PublicDefine.h */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		21CAA7972188CA3D6C3AB53898E907F0 /* EInformation */ = {
@@ -903,6 +908,9 @@
 				3F630F5DA2B6CB50DB080A04D0D1893A /* LaunchScreen.storyboard */,
 				AD44FBF3CB0C8C9BF8C382404CE84A82 /* SAPrefix.pch */,
 				44D05175ECF45277192CCBFEFE4402C6 /* Sigma.xcdatamodeld */,
+				7B91FD0D1D3D284500830136 /* Main.storyboard */,
+				7B91FD0F1D3D287200830136 /* ViewController.h */,
+				7B91FD101D3D287200830136 /* ViewController.m */,
 			);
 			path = Sigma;
 			sourceTree = "<group>";
@@ -1053,6 +1061,7 @@
 				47529C59F3C26E983D51418BBD8FF55D /* discovery2.jpg in Resources */,
 				3734F1813909EF0291C049C8E6299084 /* discovery3.jpg in Resources */,
 				831B5362623F8A5F12B59BBDF2CFC6B3 /* morebtn.jpg in Resources */,
+				7B91FD0E1D3D284500830136 /* Main.storyboard in Resources */,
 				F4740BE17E7F952CF376B2FDBE8AAD27 /* pop-ios-Info.plist in Resources */,
 				C3DD852B934AD552463B40CC42EFC2F2 /* pop-osx-Info.plist in Resources */,
 				3ADDC568E8ABF65CD87C20AEEB89AFE0 /* pop-tvos-Info.plist in Resources */,
@@ -1114,6 +1123,7 @@
 				1942C7706339639B04A0A126CE5CEF07 /* AFURLRequestSerialization.m in Sources */,
 				64ABECC0B6DC7E3FC4A11BA3C7BBA4FD /* AFURLResponseSerialization.m in Sources */,
 				EF555B202D0C239243ECDDC8ED1D0A55 /* AFURLSessionManager.m in Sources */,
+				7B91FD111D3D287200830136 /* ViewController.m in Sources */,
 				7B98A051D27F0C588DEE3B296E93E1C6 /* AppDelegate.m in Sources */,
 				DD751612644E0B3F1EF0702E1FF1B9B2 /* MASCompositeConstraint.m in Sources */,
 				4D4959A267CCD952663E1C60927D1EB6 /* MASConstraint.m in Sources */,
