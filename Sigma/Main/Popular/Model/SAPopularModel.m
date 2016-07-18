@@ -10,4 +10,24 @@
 
 @implementation SAPopularModel
 
+- (instancetype)initWithDict:(NSDictionary *)dict {
+    self = [super init];
+    if (self) {
+        // key 
+        [self setValuesForKeysWithDictionary:dict];
+        
+    }
+    
+    return self;
+}
+
+
+
++ (instancetype)popularModelWithDict:(NSDictionary *)dict {
+    
+    
+    return [[self alloc] initWithDict:dict];
+}
+
+
 @end

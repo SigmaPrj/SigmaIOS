@@ -93,7 +93,7 @@ static CGFloat SpringDelay = 0.03;
                 
             }];
         }else {
-            CGFloat btnX = col * (middleMargin + btnW) + beginMargin;
+            CGFloat btnX = col * (middleMargin + btnW) + beginMargin + 55;
             CGFloat btnY = row * btnH + btnStartY;
             
             [self.view addSubview:btn];

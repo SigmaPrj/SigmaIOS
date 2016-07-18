@@ -90,55 +90,116 @@
  *  初始化数据
  */
 -(void)initData{
-    SAPopularModel *model1 = [[SAPopularModel alloc] init];
-    model1.AvataImgName = @"avata.jpg";
-    model1.nickName = @"不正常人类";
-    model1.cellBackgroundImgName = @"bg.jpg";
-    model1.title = @"突破思维局限";
-    model1.desc = @"如何突破思维局限？？？？";
-    model1.number = 1000;
-    model1.cellHeight = [self getHeight:model1];
-    model1.type = 1;
+
+    _titleArray = @[@"热门问答", @"热门课程", @"热门资源", @"热门活动"];
     
-    SAPopularModel *model2 = [[SAPopularModel alloc] init];
-    model2.AvataImgName = @"avata.jpg";
-    model2.nickName = @"IOS开发工程师";
-    model2.cellBackgroundImgName = @"bg1.jpg";
-    model2.title = @"IOS开发指南";
-    model2.desc = @"IOS大牛教你开发Apple App";
-    model2.number = 50;
-    model2.cellHeight = [self getHeight:model1];
-    model2.type = 2;
+    NSDictionary* dict1 = @{
+                            @"AvataImgName":@"avata.jpg",
+                            @"nickName":@"ttt",
+                            @"cellBackgroundImgName":@"bg1.jpg",
+                            @"title":@".NET？",
+                            @"desc":@"神秘的.net",
+                            @"number":@"999",
+                            @"type":@"1"
+                   };
     
     
-    SAPopularModel *model3 = [[SAPopularModel alloc] init];
-    model3.AvataImgName = @"avata.jpg";
-    model3.nickName = @"前端菜鸟";
-    model3.cellBackgroundImgName = @"bg3.jpg";
-    model3.title = @"Javascript高级程序设计";
-    model3.desc = @"前端红宝书";
-    model3.number = 10;
-    model3.cellHeight = [self getHeight:model1];
-    model3.type = 3;
+    NSDictionary* dict2 = @{
+                            @"AvataImgName":@"avata.jpg",
+                            @"nickName":@"不正常人类",
+                            @"cellBackgroundImgName":@"bg4.jpg",
+                            @"title":@"突破思维局限",
+                            @"desc":@"如何突破思维局限",
+                            @"number":@"91",
+                            @"type":@"1"
+                            };
+
+    
+    NSDictionary* dict3 = @{
+                            @"AvataImgName":@"avata.jpg",
+                            @"nickName":@"IOS开发工程师",
+                            @"cellBackgroundImgName":@"bg4.jpg",
+                            @"title":@"IOS开发指南",
+                            @"desc":@"5年经验工程师带你开发",
+                            @"number":@"1888",
+                            @"type":@"2"
+                            };
     
     
-    SAPopularModel *model4 = [[SAPopularModel alloc] init];
-    model4.AvataImgName = @"avata.jpg";
-    model4.nickName = @"sss";
-    model4.cellBackgroundImgName = @"bg4.jpg";
-    model4.title = @"前端经验分享";
-    model4.desc = @"与大神面对面谈技术";
-    model4.number = 100;
-    model4.cellHeight = [self getHeight:model1];
-    model4.type = 4;
+    NSDictionary* dict4 = @{
+                            @"AvataImgName":@"avata.jpg",
+                            @"nickName":@"前端大神",
+                            @"cellBackgroundImgName":@"bg4.jpg",
+                            @"title":@"前端开发",
+                            @"desc":@"讲解前端开发的技巧",
+                            @"number":@"666",
+                            @"type":@"2"
+                            };
     
-    NSArray *array1 = @[model1];
-    NSArray *array2 = @[model2];
-    NSArray *array3 = @[model3];
-    NSArray *array4 = @[model4];
+    NSDictionary* dict5 =  @{
+                             @"AvataImgName":@"avata.jpg",
+                             @"nickName":@"Java",
+                             @"cellBackgroundImgName":@"bg3.jpg",
+                             @"title":@"JavaScript高级程序设计",
+                             @"desc":@"必备数据",
+                             @"number":@"666",
+                             @"type":@"3"
+                             };
     
-     _titleArray = @[@"热门问答", @"热门课程", @"热门资源", @"热门活动"];
-    [self.datas addObjectsFromArray:@[array1, array2, array3, array4]];
+    NSDictionary* dict6 = @{
+                            @"AvataImgName":@"avata.jpg",
+                            @"nickName":@"阿里",
+                            @"cellBackgroundImgName":@"bg.jpg",
+                            @"title":@"云计算和分布式",
+                            @"desc":@"当前最火的云计算讲座",
+                            @"number":@"129",
+                            @"type":@"4"
+                            };
+    
+    
+    NSDictionary* dict7 = @{
+                            @"AvataImgName":@"avata.jpg",
+                            @"nickName":@"tx",
+                            @"cellBackgroundImgName":@"bg.jpg",
+                            @"title":@"做好产品经理",
+                            @"desc":@"如何做一个产品经理",
+                            @"number":@"354",
+                            @"type":@"2"
+                            };
+    
+    
+    NSArray* dictArray = @[dict1,dict2,dict3,dict4,dict5,dict6,dict7];
+    
+    NSMutableArray* questionArray = [[NSMutableArray alloc] init];
+    NSMutableArray* classArray = [[NSMutableArray alloc] init];
+    NSMutableArray* resourceArray = [[NSMutableArray alloc] init];
+    NSMutableArray* eventArray = [[NSMutableArray alloc] init];
+    
+    
+    /**
+     *  遍历dictArray取出各部分对应的dict并转换成Model，并加入对应数组
+     */
+    for (int i = 0; i < dictArray.count; i++) {
+        SAPopularModel *model = [[SAPopularModel alloc] initWithDict:[dictArray objectAtIndex:i]];
+        if (model.type == 1) {
+            [questionArray addObject:model];
+            model.cellHeight = [self getHeight:model];
+        }else if (model.type == 2){
+            [classArray addObject:model];
+            model.cellHeight = [self getHeight:model];
+        }else if (model.type == 3){
+            [resourceArray addObject:model];
+            model.cellHeight = [self getHeight:model];
+        }else if (model.type == 4){
+            [eventArray addObject:model];
+            model.cellHeight = [self getHeight:model];
+        }
+    
+    }
+    
+    [self.datas addObjectsFromArray:@[questionArray,classArray,resourceArray,eventArray]];
+    
+
    
     
 }
@@ -149,56 +210,74 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSString *cellIdentifier = @"SAPopularCell";
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
-    
+
     NSInteger section = indexPath.section;
     NSInteger index = indexPath.row;
+    SAPopularModel *cdata = (SAPopularModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
     
-    if (!cell) {
-        if (indexPath.section >=0 && indexPath.row >= 0 && section < self.datas.count && index < [self.datas[(NSUInteger)section] count]) {
-            SAPopularModel *cdata = (SAPopularModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
-
-            switch (cdata.type) {
-                case 1:
-                {
-                    SAPopularCell* popularCell = [[SAPopularCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-                    [popularCell setData:cdata];
-                    cell = [popularCell initUI];
-                }
-                    break;
-                case 2:
-                {
-                    SAPopularClassCell* classCell = [[SAPopularClassCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-                    [classCell setData:cdata];
-                    cell = [classCell initUI];
-                }
-                    break;
-                case 3:
-                {
-                    SAPopularResourceCell* resourceCell = [[SAPopularResourceCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-                    [resourceCell setData:cdata];
-                    cell = [resourceCell initUI];
-                }
-                    break;
-                case 4:
-                {
-                    SAPopularEventCell* eventCell = [[SAPopularEventCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-                    [eventCell setData:cdata];
-                    cell = [eventCell initUI];
-                }
-                default:
-                    break;
+    switch (section) {
+        case 0:
+        {
+            static NSString *cellIdentifier = @"SAPopularQuestionCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil) {
+                SAPopularCell* popularCell = [[SAPopularCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+                [popularCell setData:cdata];
+                cell = [popularCell initUI];
             }
-            
-           
-        }else{
-            cell = nil;
+            return cell;
         }
+            break;
+            
+        case 1:
+        {
+            static NSString *cellIdentifier = @"SAPopularClassCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil) {
+                 SAPopularClassCell* classCell = [[SAPopularClassCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+                [classCell setData:cdata];
+                cell = [classCell initUI];
+                
+            }
+            return cell;
+            
+            
+        }
+            break;
+            
+        case 2:
+        {
+            static NSString *cellIdentifier = @"SAPopularResourceCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil) {
+                SAPopularResourceCell* resourceCell = [[SAPopularResourceCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+                [resourceCell setData:cdata];
+                cell = [resourceCell initUI];
+                
+            }
+            return cell;
+            
+        }
+            break;
+            
+        case 3:
+        {
+            static NSString *cellIdentifier = @"SAPopularEventCell";
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+            if (cell == nil) {
+                SAPopularEventCell* eventCell = [[SAPopularEventCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+                [eventCell setData:cdata];
+                cell = [eventCell initUI];
+            }
+            return cell;
+        }
+            break;
+        default:
+            break;
     }
     
-    return cell;
+    return nil;
+    
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{

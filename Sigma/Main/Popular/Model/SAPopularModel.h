@@ -21,4 +21,10 @@
 
 // 可能有type
 @property(nonatomic, assign)int type;
+
+// 对象方法，初始化
+- (instancetype)initWithDict:(NSDictionary *)dict;
+// 类方法初始化
++ (instancetype)popularModelWithDict:(NSDictionary *)dict;
+
 @end
