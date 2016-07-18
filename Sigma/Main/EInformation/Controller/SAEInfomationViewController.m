@@ -7,8 +7,11 @@
 //
 
 #import "SAEInfomationViewController.h"
+#import "SAEInformationTableView.h"
 
 @interface SAEInfomationViewController ()
+
+@property(nonatomic, strong)SAEInformationTableView* tableView;
 
 @end
 
@@ -24,14 +27,40 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 }
-*/
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
+
+-(instancetype)init{
+    self = [super init];
+    
+    if (self) {
+        [self initUI];
+    }
+    
+    return self;
+}
+
+-(void)initUI{
+    [self.view addSubview:self.tableView];
+}
+
+-(SAEInformationTableView*)tableView{
+    if (!_tableView) {
+        _tableView = [[SAEInformationTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+    }
+    
+    return _tableView;
+}
+
+
+
+
+
+
 
 @end
