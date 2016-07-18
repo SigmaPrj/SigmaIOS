@@ -103,6 +103,16 @@
 		009F3DA61D367DD500F295E9 /* SARootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 009F3DA51D367DD500F295E9 /* SARootViewController.m */; };
 		009F3DA91D3684DF00F295E9 /* tabbar_discover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009F3DA71D3684DF00F295E9 /* tabbar_discover@2x.png */; };
 		009F3DAA1D3684DF00F295E9 /* tabbar_discover@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 009F3DA81D3684DF00F295E9 /* tabbar_discover@3x.png */; };
+		5A96FAB71D372D830058A572 /* SourceSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A96FAB51D372D830058A572 /* SourceSubViewController.m */; };
+		5A96FAB81D372D830058A572 /* SourceSubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96FAB61D372D830058A572 /* SourceSubViewController.xib */; };
+		5A96FABB1D3755930058A572 /* SourceHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A96FABA1D3755930058A572 /* SourceHeadView.m */; };
+		5A96FAC01D3766380058A572 /* SourceHeadCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A96FABF1D3766380058A572 /* SourceHeadCollectionViewCell.m */; };
+		5A96FAC41D377C760058A572 /* SourceEngineInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A96FAC31D377C760058A572 /* SourceEngineInterface.m */; };
+		5A96FAC71D3780FB0058A572 /* SourceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A96FAC61D3780FB0058A572 /* SourceInfo.m */; };
+		5A96FACA1D3B33750058A572 /* SourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A96FAC91D3B33750058A572 /* SourceTableViewCell.m */; };
+		5A96FACD1D3C73CF0058A572 /* leftBottomLabelImage1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A96FACC1D3C73CF0058A572 /* leftBottomLabelImage1@2x.png */; };
+		5A96FACE1D3C7D740058A572 /* SourceSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A96FAB51D372D830058A572 /* SourceSubViewController.m */; };
+		5A96FAD01D3CB2B90058A572 /* rightButtonOfSource@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A96FACF1D3CB2B90058A572 /* rightButtonOfSource@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -310,6 +320,22 @@
 		009F3DA51D367DD500F295E9 /* SARootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SARootViewController.m; sourceTree = "<group>"; };
 		009F3DA71D3684DF00F295E9 /* tabbar_discover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_discover@2x.png"; sourceTree = "<group>"; };
 		009F3DA81D3684DF00F295E9 /* tabbar_discover@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_discover@3x.png"; sourceTree = "<group>"; };
+		5A96FAB41D372D830058A572 /* SourceSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceSubViewController.h; sourceTree = "<group>"; };
+		5A96FAB51D372D830058A572 /* SourceSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceSubViewController.m; sourceTree = "<group>"; };
+		5A96FAB61D372D830058A572 /* SourceSubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SourceSubViewController.xib; sourceTree = "<group>"; };
+		5A96FAB91D3755930058A572 /* SourceHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceHeadView.h; sourceTree = "<group>"; };
+		5A96FABA1D3755930058A572 /* SourceHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceHeadView.m; sourceTree = "<group>"; };
+		5A96FABC1D37606D0058A572 /* SourceCommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceCommonDefine.h; sourceTree = "<group>"; };
+		5A96FABE1D3766380058A572 /* SourceHeadCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceHeadCollectionViewCell.h; sourceTree = "<group>"; };
+		5A96FABF1D3766380058A572 /* SourceHeadCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceHeadCollectionViewCell.m; sourceTree = "<group>"; };
+		5A96FAC21D377C760058A572 /* SourceEngineInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceEngineInterface.h; sourceTree = "<group>"; };
+		5A96FAC31D377C760058A572 /* SourceEngineInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceEngineInterface.m; sourceTree = "<group>"; };
+		5A96FAC51D3780FB0058A572 /* SourceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceInfo.h; sourceTree = "<group>"; };
+		5A96FAC61D3780FB0058A572 /* SourceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceInfo.m; sourceTree = "<group>"; };
+		5A96FAC81D3B33750058A572 /* SourceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceTableViewCell.h; sourceTree = "<group>"; };
+		5A96FAC91D3B33750058A572 /* SourceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceTableViewCell.m; sourceTree = "<group>"; };
+		5A96FACC1D3C73CF0058A572 /* leftBottomLabelImage1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leftBottomLabelImage1@2x.png"; sourceTree = "<group>"; };
+		5A96FACF1D3CB2B90058A572 /* rightButtonOfSource@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightButtonOfSource@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -692,6 +718,8 @@
 		00784AC61D372AE300214176 /* Popular */ = {
 			isa = PBXGroup;
 			children = (
+				5A96FACB1D3C739A0058A572 /* Source */,
+				5A96FAC11D377C1E0058A572 /* Model */,
 				00784AC71D372AE300214176 /* Controller */,
 			);
 			path = Popular;
@@ -700,6 +728,8 @@
 		00784AC71D372AE300214176 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5A96FABD1D3765F80058A572 /* SourceSubViewCell */,
+				5A96FAB31D372D670058A572 /* SourceSubViewController */,
 				00784AC81D372AE300214176 /* SAPopularViewController.h */,
 				00784AC91D372AE300214176 /* SAPopularViewController.m */,
 			);
@@ -736,6 +766,50 @@
 				009F3D891D36794700F295E9 /* toolbar_compose_highlighted@3x.png */,
 			);
 			path = sinaTabbar;
+			sourceTree = "<group>";
+		};
+		5A96FAB31D372D670058A572 /* SourceSubViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5A96FAB41D372D830058A572 /* SourceSubViewController.h */,
+				5A96FAB51D372D830058A572 /* SourceSubViewController.m */,
+				5A96FAB61D372D830058A572 /* SourceSubViewController.xib */,
+				5A96FAB91D3755930058A572 /* SourceHeadView.h */,
+				5A96FABA1D3755930058A572 /* SourceHeadView.m */,
+				5A96FABC1D37606D0058A572 /* SourceCommonDefine.h */,
+			);
+			path = SourceSubViewController;
+			sourceTree = "<group>";
+		};
+		5A96FABD1D3765F80058A572 /* SourceSubViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5A96FABE1D3766380058A572 /* SourceHeadCollectionViewCell.h */,
+				5A96FABF1D3766380058A572 /* SourceHeadCollectionViewCell.m */,
+				5A96FAC81D3B33750058A572 /* SourceTableViewCell.h */,
+				5A96FAC91D3B33750058A572 /* SourceTableViewCell.m */,
+			);
+			path = SourceSubViewCell;
+			sourceTree = "<group>";
+		};
+		5A96FAC11D377C1E0058A572 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A96FAC21D377C760058A572 /* SourceEngineInterface.h */,
+				5A96FAC31D377C760058A572 /* SourceEngineInterface.m */,
+				5A96FAC51D3780FB0058A572 /* SourceInfo.h */,
+				5A96FAC61D3780FB0058A572 /* SourceInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5A96FACB1D3C739A0058A572 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5A96FACF1D3CB2B90058A572 /* rightButtonOfSource@2x.png */,
+				5A96FACC1D3C73CF0058A572 /* leftBottomLabelImage1@2x.png */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -847,10 +921,12 @@
 				009F3D9A1D36794700F295E9 /* tabbar_profile_highlighted@3x.png in Resources */,
 				009F3D9D1D36794700F295E9 /* toolbar_compose@2x.png in Resources */,
 				009F3D981D36794700F295E9 /* tabbar_profile@3x.png in Resources */,
+				5A96FAB81D372D830058A572 /* SourceSubViewController.xib in Resources */,
 				009F3DA91D3684DF00F295E9 /* tabbar_discover@2x.png in Resources */,
 				009F3D9F1D36794700F295E9 /* toolbar_compose_highlighted@2x.png in Resources */,
 				009F3D9E1D36794700F295E9 /* toolbar_compose@3x.png in Resources */,
 				009F3D921D36794700F295E9 /* tabbar_home@3x.png in Resources */,
+				5A96FACD1D3C73CF0058A572 /* leftBottomLabelImage1@2x.png in Resources */,
 				009F3D991D36794700F295E9 /* tabbar_profile_highlighted@2x.png in Resources */,
 				002F109D1D36382900474AF9 /* LaunchScreen.storyboard in Resources */,
 				009F3DA01D36794700F295E9 /* toolbar_compose_highlighted@3x.png in Resources */,
@@ -858,6 +934,7 @@
 				009F3D961D36794700F295E9 /* tabbar_home_selected@3x.png in Resources */,
 				009F3D971D36794700F295E9 /* tabbar_profile@2x.png in Resources */,
 				009F3D901D36794700F295E9 /* tabbar_discover_highlighted@3x.png in Resources */,
+				5A96FAD01D3CB2B90058A572 /* rightButtonOfSource@2x.png in Resources */,
 				00784AA31D372AD600214176 /* pop-tvos-Info.plist in Resources */,
 				00784AA11D372AD600214176 /* pop-ios-Info.plist in Resources */,
 				002F10951D36382900474AF9 /* Main.storyboard in Resources */,
@@ -901,6 +978,7 @@
 				00784A931D372AD600214176 /* AFSecurityPolicy.m in Sources */,
 				002F108F1D36382900474AF9 /* AppDelegate.m in Sources */,
 				00784ACA1D372AE300214176 /* SAPopularViewController.m in Sources */,
+				5A96FAC41D377C760058A572 /* SourceEngineInterface.m in Sources */,
 				00784AA71D372AD600214176 /* POPAnimationExtras.mm in Sources */,
 				002F11EA1D363F7A00474AF9 /* SANavigationController.m in Sources */,
 				00784AC11D372AD600214176 /* UIImage+MultiFormat.m in Sources */,
@@ -910,6 +988,7 @@
 				00784AB91D372AD600214176 /* SDWebImageCompat.m in Sources */,
 				00784AAE1D372AD600214176 /* POPDecayAnimation.mm in Sources */,
 				00784A981D372AD600214176 /* MASConstraint.m in Sources */,
+				5A96FAB71D372D830058A572 /* SourceSubViewController.m in Sources */,
 				00784A9B1D372AD600214176 /* MASViewAttribute.m in Sources */,
 				00784AB71D372AD600214176 /* NSData+ImageContentType.m in Sources */,
 				00784AA91D372AD600214176 /* POPAnimationTracer.mm in Sources */,
@@ -918,15 +997,18 @@
 				00784AC31D372AD600214176 /* UIImageView+HighlightedWebCache.m in Sources */,
 				00784AB51D372AD600214176 /* TransformationMatrix.cpp in Sources */,
 				002F11E11D363F2700474AF9 /* SAMeViewController.m in Sources */,
+				5A96FAC71D3780FB0058A572 /* SourceInfo.m in Sources */,
 				00784A971D372AD600214176 /* MASCompositeConstraint.m in Sources */,
 				00784A9F1D372AD600214176 /* View+MASAdditions.m in Sources */,
 				00784ABB1D372AD600214176 /* SDWebImageDownloader.m in Sources */,
 				00784ABF1D372AD600214176 /* UIButton+WebCache.m in Sources */,
 				002F11E01D363F2700474AF9 /* SAEInfomationViewController.m in Sources */,
+				5A96FABB1D3755930058A572 /* SourceHeadView.m in Sources */,
 				00784AB41D372AD600214176 /* POPVector.mm in Sources */,
 				00784AA81D372AD600214176 /* POPAnimationRuntime.mm in Sources */,
 				00784AB01D372AD600214176 /* POPLayerExtras.mm in Sources */,
 				002F108C1D36382900474AF9 /* main.m in Sources */,
+				5A96FAC01D3766380058A572 /* SourceHeadCollectionViewCell.m in Sources */,
 				00784A941D372AD600214176 /* AFURLRequestSerialization.m in Sources */,
 				002F11EB1D363F7A00474AF9 /* SATabBarViewController.m in Sources */,
 				00784A9D1D372AD600214176 /* NSArray+MASAdditions.m in Sources */,
@@ -957,6 +1039,7 @@
 				002F11DF1D363F2700474AF9 /* SACommunityViewController.m in Sources */,
 				009F3DA61D367DD500F295E9 /* SARootViewController.m in Sources */,
 				00784AC01D372AD600214176 /* UIImage+GIF.m in Sources */,
+				5A96FACA1D3B33750058A572 /* SourceTableViewCell.m in Sources */,
 				00784A911D372AD600214176 /* AFHTTPSessionManager.m in Sources */,
 				00784AAD1D372AD600214176 /* POPCustomAnimation.mm in Sources */,
 			);
@@ -974,6 +1057,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A96FACE1D3C7D740058A572 /* SourceSubViewController.m in Sources */,
 				002F10B31D36382900474AF9 /* SigmaUITests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
