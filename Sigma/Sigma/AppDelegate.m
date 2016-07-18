@@ -16,14 +16,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-//    self.window = [[UIWindow alloc] init];
-//    self.window.rootViewController = [[SATabBarViewController alloc] init];
-//
-//    [self.window makeKeyAndVisible];
-    
+
+    self.window = [[UIWindow alloc] init];
+
     SARootViewController *viewController = [[SARootViewController alloc]init];
+
     self.window.rootViewController = viewController;
+
     [self.window makeKeyAndVisible];
     
     return YES;
