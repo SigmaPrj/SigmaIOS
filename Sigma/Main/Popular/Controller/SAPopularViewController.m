@@ -7,11 +7,18 @@
 //
 
 #import "SAPopularViewController.h"
+<<<<<<< HEAD
 #import "SAPopularTableView.h"
 
 @interface SAPopularViewController ()
 
 @property(nonatomic, strong)SAPopularTableView *tableView;
+=======
+#import "SourceSubViewController.h"
+
+@interface SAPopularViewController ()
+
+>>>>>>> real
 
 @end
 
@@ -27,6 +34,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+<<<<<<< HEAD
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 }
@@ -62,6 +70,8 @@
 }
 
 
+=======
+>>>>>>> real
 
 /*
 #pragma mark - Navigation
