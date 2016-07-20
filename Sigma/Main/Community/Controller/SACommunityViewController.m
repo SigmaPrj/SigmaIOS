@@ -8,8 +8,14 @@
 //
 
 #import "SACommunityViewController.h"
+#import "SACommunityTableView.h"
+
+#define COMMUNITY_TOP 64
+#define COMMUNITY_BOTTOM 44
 
 @interface SACommunityViewController ()
+
+@property (nonatomic, strong) SACommunityTableView *tableView;
 
 @end
 
@@ -18,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self render];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,14 +41,17 @@
     [super viewWillDisappear:animated];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)render {
+    [self.view addSubview:self.tableView];
 }
-*/
+
+// 惰性加载
+- (SACommunityTableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[SACommunityTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (SCREEN_HEIGHT-COMMUNITY_BOTTOM)) style:UITableViewStylePlain];
+        _tableView.backgroundColor = [UIColor redColor];
+    }
+    return _tableView;
+}
 
 @end
