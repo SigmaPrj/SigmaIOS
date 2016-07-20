@@ -35,6 +35,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+    [self render];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -42,6 +44,7 @@
 }
 
 - (void)render {
+
     [self.view addSubview:self.tableView];
 }
 
