@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class SACommunityUserModel;
+
 @interface SACommunityTableHeaderView : UIView
+
+@property (nonatomic, strong) SACommunityUserModel *userModel;
 
 @end

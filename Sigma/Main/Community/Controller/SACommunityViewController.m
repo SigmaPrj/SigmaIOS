@@ -52,7 +52,6 @@
 - (SACommunityTableView *)tableView {
     if (!_tableView) {
         _tableView = [[SACommunityTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (SCREEN_HEIGHT-COMMUNITY_BOTTOM)) style:UITableViewStylePlain];
-        _tableView.backgroundColor = [UIColor redColor];
     }
     return _tableView;
 }

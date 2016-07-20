@@ -40,7 +40,10 @@
 #define COMMUNITY_PADDING 15
 #define COMMUNITY_BORDER_WIDTH 1
 #define COMMUNITY_HEADER_VIEW_HEIGHT 170
-#define COMMUNITY_BORDER_COLOR COLOR_RGB(208, 208, 208)
-
+#define COMMUNITY_APPROVED_IMAGE @"avatar_vip"
+#define COMMUNITY_APPROVED_IMAGE_SIZE 14
+#define COMMUNITY_BORDER_COLOR [UIColor colorWithRed:0.82 green:0.82 blue:0.82 alpha:1.00]
+#define COMMUNITY_APPROVED_NAME_COLOR [UIColor colorWithRed:1.00 green:0.69 blue:0.00 alpha:1.00]
+#define COMMUNITY_TEXT_COLOR [UIColor blackColor];
 
 #endif /* PublicDefine_h */

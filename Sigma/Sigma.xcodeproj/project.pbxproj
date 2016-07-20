@@ -82,6 +82,7 @@
 		7BCC69021D3F087400670B00 /* community_test_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCC68FC1D3F087400670B00 /* community_test_bg@2x.png */; };
 		7BCC69031D3F087400670B00 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 7BCC68FD1D3F087400670B00 /* README.md */; };
 		7BCC69051D3F088E00670B00 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCC69041D3F088E00670B00 /* bg.png */; };
+		7BCC69081D3F09B600670B00 /* SACommunityUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BCC69071D3F09B600670B00 /* SACommunityUserModel.m */; };
 		7D860FE3793B5ED9C61CDAF8774DC9E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 78F1B3C6570A50F6F158C75B4A3273F2 /* main.m */; };
 		8048A5D5121DDDB31F7BFDAD7EFB6EF1 /* POPCustomAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F1B8AC05079521D9D1336784ECEE72C /* POPCustomAnimation.mm */; };
 		831B5362623F8A5F12B59BBDF2CFC6B3 /* morebtn.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6CEC8D5E060D30FAE9205BA36243D3C7 /* morebtn.jpg */; };
@@ -293,6 +294,8 @@
 		7BCC68FC1D3F087400670B00 /* community_test_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "community_test_bg@2x.png"; sourceTree = "<group>"; };
 		7BCC68FD1D3F087400670B00 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7BCC69041D3F088E00670B00 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		7BCC69061D3F09B600670B00 /* SACommunityUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACommunityUserModel.h; sourceTree = "<group>"; };
+		7BCC69071D3F09B600670B00 /* SACommunityUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACommunityUserModel.m; sourceTree = "<group>"; };
 		7C3817A92034EAD744EAA82C36716D67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E5E28D599F13EA3237D82CB4F12BBA6 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
 		7ED694E93F1135D2E745DD179D33F701 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -629,6 +632,8 @@
 		7BB30F081D3F0136004DA0E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7BCC69061D3F09B600670B00 /* SACommunityUserModel.h */,
+				7BCC69071D3F09B600670B00 /* SACommunityUserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1290,6 +1295,7 @@
 				EF8E292E1338898D730DB1028410F8DA /* UIView+WebCacheOperation.m in Sources */,
 				D8519D848DE83CCFD0220503A5941011 /* View+MASAdditions.m in Sources */,
 				01C2DF0E722355FFF25DE21868A60FD8 /* ViewController+MASAdditions.m in Sources */,
+				7BCC69081D3F09B600670B00 /* SACommunityUserModel.m in Sources */,
 				7D860FE3793B5ED9C61CDAF8774DC9E9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
