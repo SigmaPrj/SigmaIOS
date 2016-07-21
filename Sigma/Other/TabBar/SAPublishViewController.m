@@ -10,6 +10,8 @@
 #import "SAPublishViewButton.h"
 #import "POP.h"
 #import "UIView+SAPublishBtnFrame.h"
+#import "SARootViewController.h"
+#import "SACollectionViewController.h"
 
 @interface SAPublishViewController ()
 
@@ -87,6 +89,8 @@ static CGFloat SpringDelay = 0.03;
             anima.beginTime = CACurrentMediaTime() + i * SpringDelay;
             
             [btn pop_addAnimation:anima forKey:nil];
+            
+            
             
             // 动画完成的回调
             [anima setCompletionBlock:^(POPAnimation *anima, BOOL finish) {
@@ -194,13 +198,17 @@ static CGFloat SpringDelay = 0.03;
         
         [view pop_addAnimation:anima forKey:nil];
         
+        
+        __weak typeof(self) weakself = self;
         if (i == self.view.subviews.count - 1) { // 最后一个动画完成时
             
             [anima setCompletionBlock:^(POPAnimation *anima, BOOL finish) {
                 
-                [self dismissViewControllerAnimated:NO completion:nil];
-                
+    
+//                [weakself dismissViewControllerAnimated:NO completion:nil];
                 block();
+                
+                
             }];
         }
         
@@ -232,6 +240,64 @@ static CGFloat SpringDelay = 0.03;
     
     [btn pop_addAnimation:anima forKey:nil];
     
+    __weak typeof(self) weakself = self;
+    
+//    [UIView animateWithDuration:1. animations:^{
+//        [anima setCompletionBlock:^(POPAnimation *anima, BOOL finish) {
+//            POPBasicAnimation *anima2 = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
+//            
+//            anima2.toValue = @(0);
+//            
+//            [btn pop_addAnimation:anima2 forKey:nil];
+//            
+//        }];
+//
+//        
+//        [weakself cancelWithCompletionBlock:^{
+//            [weakself dismissViewControllerAnimated:NO completion:nil];
+//        }];
+//        
+//        
+//    }completion:^(BOOL f){
+//        
+//        
+//        switch (btn.tag) {
+//            case 0:
+//            {
+//                
+//            }
+//                break;
+//            case 1:
+//            {
+//                SACollectionViewController *savc = [[SACollectionViewController alloc] init];
+//                [self presentViewController:savc animated:YES completion:nil];
+//            }
+//                break;
+//            case 2:
+//            {
+//                
+//            }
+//                break;
+//            case 3:
+//            {
+//                
+//            }
+//                break;
+//            case 4:
+//            {
+//                
+//            }
+//                break;
+//                
+//            default:
+//                break;
+//        }
+//       
+//    }];
+    
+    
+
+  #if 0
     [anima setCompletionBlock:^(POPAnimation *anima, BOOL finish) {
         
         
@@ -241,22 +307,126 @@ static CGFloat SpringDelay = 0.03;
         
         [btn pop_addAnimation:anima2 forKey:nil];
         
+        [anima setCompletionBlock:^(POPAnimation *anima, BOOL finish){
+            [self dismissViewControllerAnimated:NO completion:nil];
+            
+            [anima setCompletionBlock:^(POPAnimation *anima, BOOL finish){
+                switch (btn.tag) {
+                    case 0:
+                    {
+                        
+                    }
+                        break;
+                    case 1:
+                    {
+                        SACollectionViewController *savc = [[SACollectionViewController alloc] init];
+                        [self presentViewController:savc animated:YES completion:nil];
+                    }
+                        break;
+                    case 2:
+                    {
+                        
+                    }
+                        break;
+                    case 3:
+                    {
+                        
+                    }
+                        break;
+                    case 4:
+                    {
+                        
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
+                
+            }];
+            
+        }];
+        
+       
+
+        
+        [self cancelWithCompletionBlock:^{
+            
+            switch (btn.tag) {
+                case 0:
+                {
+                    
+                }
+                    break;
+                case 1:
+                {
+                    SACollectionViewController *savc = [[SACollectionViewController alloc] init];
+                    [self presentViewController:savc animated:YES completion:nil];
+                }
+                    break;
+                case 2:
+                {
+                    
+                }
+                    break;
+                case 3:
+                {
+                    
+                }
+                    break;
+                case 4:
+                {
+                    
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+        
+        }];
+#endif
+        
+        POPBasicAnimation *anima2 = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
+        
+        anima2.toValue = @(0);
+        
+        [btn pop_addAnimation:anima2 forKey:nil];
+        
         [anima2 setCompletionBlock:^(POPAnimation *anima, BOOL finish) {
+            
             
             [self cancelWithCompletionBlock:^{
                 // 切换对应控制器
                 if (btn.tag == 0) {
                     NSLog(@"go to 0");
+                    [weakself dismissViewControllerAnimated:NO completion:nil];
+                    
                 }else if (btn.tag == 1){
                     NSLog(@"go to 1");
+                    
+                    SACollectionViewController *savc = [[SACollectionViewController alloc] init];
+                    
+                    
+                    
+//                    [weakself presentViewController:savc animated:YES completion:nil];
+                    
+                    [weakself dismissViewControllerAnimated:NO completion:nil];
+                    
+                    NSLog(@"aaa");
+                }else if (btn.tag == 2){
+                   
+                }else if (btn.tag == 3){
+                    [weakself dismissViewControllerAnimated:NO completion:nil];
+                }else if (btn.tag == 4){
+                    [weakself dismissViewControllerAnimated:NO completion:nil];
                 }
             }];
         }];
+
         
-    }];
-    
-    
-    
+//    }];
+
     
 }
 
@@ -266,16 +436,11 @@ static CGFloat SpringDelay = 0.03;
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)showBtn{
-    
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 
 
