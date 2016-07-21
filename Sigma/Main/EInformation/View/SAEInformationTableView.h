@@ -10,6 +10,10 @@
 
 @interface SAEInformationTableView : UITableView
 
+@property(nonatomic, strong)NSMutableArray* data;
 
+//-(void)initData;
+
+-(void)initData:(NSArray*)dictArray;
 
 @end

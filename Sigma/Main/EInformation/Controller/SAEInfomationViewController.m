@@ -9,6 +9,7 @@
 #import "SAEInfomationViewController.h"
 #import "SAEInformationTableView.h"
 #import "EInformationTopBarView.h"
+#import "MJRefresh.h"
 
 @interface SAEInfomationViewController () <EInformationTopBarViewDelegate>
 
@@ -44,10 +45,17 @@
     if (self) {
         self.view.backgroundColor = [UIColor whiteColor];
         [self initUI];
+        
+        
     }
     
     return self;
 }
+
+-(void)loadNewData{
+    
+}
+
 
 -(void)initUI{
     
@@ -86,7 +94,121 @@
 
 #pragma mark - EInformationTopBarViewDelegate
 -(void)btnClickedWithTag:(int)tag{
-    NSLog(@"%d",tag);
+//    NSLog(@"%d",tag);
+    if (tag == 1000) {
+        NSDictionary* dict1 = @{
+                                @"desc":@"第八届全国大学生数学竞赛111",
+                                @"mainImgName":@"competition1.png",
+                                @"number":@"198"
+                                };
+                                
+                                
+        NSDictionary* dict2 = @{
+                                @"desc":@"2016携程云海大数据算法竞赛",
+                                @"mainImgName":@"competition2.png",
+                                @"number":@"2000"
+                                };
+                                
+        NSDictionary* dict3 = @{
+                                @"desc":@"全国大学生数学建模竞赛",
+                                @"mainImgName":@"competition3.png",
+                                @"number":@"10000"
+                                };
+                                
+        NSDictionary* dict4 = @{
+                                @"desc":@"\"华为杯\"东南大学第12届大学生程序设计大赛",
+                                @"mainImgName":@"competition6.png",
+                                @"number":@"100"
+                                };
+                                    
+                                    
+        NSDictionary* dict5 = @{
+                                @"desc":@"2016年第12届百度之星编程大赛",
+                                @"mainImgName":@"competition5.png",
+                                @"number":@"2000"
+                                };
+                                    
+        NSDictionary* dict6 = @{
+                                @"desc":@"2016年第五届软件杯设计大赛选拔赛",
+                                @"mainImgName":@"competition4.png",
+                                @"number":@"2000"
+                                };
+                                
+//                                    
+        NSArray* dictArray = @[dict1, dict2, dict3, dict4, dict5, dict6];
+        
+        
+        
+        [self.tableView initData:dictArray];
+        
+    }else if (tag == 1001) {
+        NSDictionary* dict1 = @{
+                                @"desc":@"营销比赛1",
+                                @"mainImgName":@"competition2.png",
+                                @"number":@"211"
+                                };
+        
+        
+        NSDictionary* dict2 = @{
+                                @"desc":@"营销2",
+                                @"mainImgName":@"competition1.png",
+                                @"number":@"123"
+                                };
+        
+        NSDictionary* dict3 = @{
+                                @"desc":@"营销3",
+                                @"mainImgName":@"competition4.png",
+                                @"number":@"1120"
+                                };
+        
+        NSDictionary* dict4 = @{
+                                @"desc":@"营销4",
+                                @"mainImgName":@"competition3.png",
+                                @"number":@"100"
+                                };
+        
+//        
+//        
+        NSArray* dictArray = @[dict1, dict2, dict3, dict4];
+
+        
+        [self.tableView initData:dictArray];
+//        [self.tableView reloadData];
+      
+        
+    }else if (tag == 1002){
+        NSDictionary* dict1 = @{
+                                @"desc":@"软件1",
+                                @"mainImgName":@"competition2.png",
+                                @"number":@"211"
+                                };
+        
+        
+        NSDictionary* dict2 = @{
+                                @"desc":@"软件2",
+                                @"mainImgName":@"competition1.png",
+                                @"number":@"123"
+                                };
+        
+        NSDictionary* dict3 = @{
+                                @"desc":@"软件3",
+                                @"mainImgName":@"competition4.png",
+                                @"number":@"1120"
+                                };
+        
+        NSDictionary* dict4 = @{
+                                @"desc":@"软件4",
+                                @"mainImgName":@"competition3.png",
+                                @"number":@"100"
+                                };
+        
+        //
+        //
+        NSArray* dictArray = @[dict1, dict2, dict3, dict4];
+        [self.tableView initData:dictArray];
+    }
+    
+    [self.tableView reloadData];
 }
 
 
