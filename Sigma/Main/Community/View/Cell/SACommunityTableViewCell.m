@@ -7,7 +7,6 @@
 //
 
 #import "SACommunityTableViewCell.h"
-#import "SACommunityTableViewCellRepostView.h"
 #import "SACommunityTableViewCellFooter.h"
 
 @interface SACommunityTableViewCell()
