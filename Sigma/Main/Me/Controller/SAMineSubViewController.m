@@ -1,18 +1,18 @@
 //
-//  SAMyCompetitionViewController.m
+//  SAMineSubViewController.m
 //  Sigma
 //
 //  Created by Ace Hsieh on 7/17/16.
 //  Copyright © 2016 Terence. All rights reserved.
 //
 
-#import "SAMyCompetitionViewController.h"
+#import "SAMineSubViewController.h"
 
-@interface SAMyCompetitionViewController ()
+@interface SAMineSubViewController ()
 
 @end
 
-@implementation SAMyCompetitionViewController
+@implementation SAMineSubViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,8 +21,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.title=self.titleLabel;
     
-    self.view.backgroundColor=[UIColor blueColor];
+    self.view.backgroundColor=[UIColor grayColor];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{

@@ -14,8 +14,9 @@
 #import "SAMineTableViewCell.h"
 #import "TextEnhance.h"
 
-#import "SAMyCompetitionViewController.h"
+#import "SAMineSubViewController.h"
 
+//#import "SettingViewController.h"
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
@@ -397,25 +398,38 @@
         switch (indexPath.row) {
             case 0:
             {
-                SAMyCompetitionViewController *myCompetitionVC=[[SAMyCompetitionViewController alloc]init];
-                [myCompetitionVC setHidesBottomBarWhenPushed:YES];
+                SAMineSubViewController *vc=[[SAMineSubViewController alloc]init];
+                vc.titleLabel=@"我的赛事";
+                [vc setHidesBottomBarWhenPushed:YES];
                 
-                [self.navigationController pushViewController:myCompetitionVC animated:YES];
+                [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 1:
             {
+                SAMineSubViewController *vc=[[SAMineSubViewController alloc]init];
+                vc.titleLabel=@"我的课程";
+                [vc setHidesBottomBarWhenPushed:YES];
                 
+                [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 2:
             {
+                SAMineSubViewController *vc=[[SAMineSubViewController alloc]init];
+                vc.titleLabel=@"我的问答";
+                [vc setHidesBottomBarWhenPushed:YES];
                 
+                [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             case 3:
             {
+                SAMineSubViewController *vc=[[SAMineSubViewController alloc]init];
+                vc.titleLabel=@"我的消息";
+                [vc setHidesBottomBarWhenPushed:YES];
                 
+                [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
             default:
@@ -442,6 +456,12 @@
             case 0:
             {
                 
+//                SettingViewController *vc=[[SettingViewController alloc]init];
+////                vc.titleLabel=@"我的消息";
+//                [vc setHidesBottomBarWhenPushed:YES];
+//                
+//                [self.navigationController pushViewController:vc animated:YES];
+
             }
                 break;
             default:

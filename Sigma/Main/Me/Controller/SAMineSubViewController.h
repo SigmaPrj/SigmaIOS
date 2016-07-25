@@ -1,5 +1,5 @@
 //
-//  SAMyCompetitionViewController.h
+//  SAMineSubViewController.h
 //  Sigma
 //
 //  Created by Ace Hsieh on 7/17/16.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SAMyCompetitionViewController : UIViewController
+@interface SAMineSubViewController : UIViewController
+
+@property(nonatomic,copy)NSString* titleLabel;
 
 @end

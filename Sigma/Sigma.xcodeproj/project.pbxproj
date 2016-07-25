@@ -124,7 +124,7 @@
 		D023B0101D3B30EC0073A3BD /* Head_Img_Of_HeaderView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D023B00D1D3B30EC0073A3BD /* Head_Img_Of_HeaderView@2x.png */; };
 		D023B0111D3B30EC0073A3BD /* Head_Img_Of_HeaderView@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D023B00E1D3B30EC0073A3BD /* Head_Img_Of_HeaderView@3x.png */; };
 		D023B0151D3B38380073A3BD /* TextEnhance.m in Sources */ = {isa = PBXBuildFile; fileRef = D023B0141D3B38380073A3BD /* TextEnhance.m */; };
-		D023B0191D3B755E0073A3BD /* SAMyCompetitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D023B0181D3B755E0073A3BD /* SAMyCompetitionViewController.m */; };
+		D023B0191D3B755E0073A3BD /* SAMineSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D023B0181D3B755E0073A3BD /* SAMineSubViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -362,8 +362,8 @@
 		D023B00E1D3B30EC0073A3BD /* Head_Img_Of_HeaderView@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Head_Img_Of_HeaderView@3x.png"; sourceTree = "<group>"; };
 		D023B0131D3B38380073A3BD /* TextEnhance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEnhance.h; sourceTree = "<group>"; };
 		D023B0141D3B38380073A3BD /* TextEnhance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEnhance.m; sourceTree = "<group>"; };
-		D023B0171D3B755E0073A3BD /* SAMyCompetitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMyCompetitionViewController.h; sourceTree = "<group>"; };
-		D023B0181D3B755E0073A3BD /* SAMyCompetitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMyCompetitionViewController.m; sourceTree = "<group>"; };
+		D023B0171D3B755E0073A3BD /* SAMineSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineSubViewController.h; sourceTree = "<group>"; };
+		D023B0181D3B755E0073A3BD /* SAMineSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineSubViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -519,6 +519,7 @@
 		002F11D71D363F2700474AF9 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				D023B0121D3B38290073A3BD /* Utils */,
 				D023B00B1D3A33030073A3BD /* Other */,
 				D023B00A1D3A32FA0073A3BD /* Model */,
 				D023B0091D3A32EE0073A3BD /* View */,
@@ -541,7 +542,6 @@
 		002F11E31D363F7A00474AF9 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				D023B0121D3B38290073A3BD /* Utils */,
 				002F11EE1D36612800474AF9 /* Basic */,
 				002F11E41D363F7A00474AF9 /* Navigation */,
 				002F11E71D363F7A00474AF9 /* TabBar */,
@@ -933,13 +933,14 @@
 				D023B0141D3B38380073A3BD /* TextEnhance.m */,
 			);
 			name = Utils;
+			path = ../../Other;
 			sourceTree = "<group>";
 		};
 		D023B0161D3B75050073A3BD /* SubController */ = {
 			isa = PBXGroup;
 			children = (
-				D023B0171D3B755E0073A3BD /* SAMyCompetitionViewController.h */,
-				D023B0181D3B755E0073A3BD /* SAMyCompetitionViewController.m */,
+				D023B0171D3B755E0073A3BD /* SAMineSubViewController.h */,
+				D023B0181D3B755E0073A3BD /* SAMineSubViewController.m */,
 			);
 			name = SubController;
 			sourceTree = "<group>";
@@ -1161,7 +1162,7 @@
 				9E8E81546C526F563F2A582B /* POPMath.mm in Sources */,
 				9E8E8E4182937C6E51DB9EAA /* POPPropertyAnimation.mm in Sources */,
 				9E8E8928C67FBAA533E0142D /* POPSpringAnimation.mm in Sources */,
-				D023B0191D3B755E0073A3BD /* SAMyCompetitionViewController.m in Sources */,
+				D023B0191D3B755E0073A3BD /* SAMineSubViewController.m in Sources */,
 				D023B0151D3B38380073A3BD /* TextEnhance.m in Sources */,
 				9E8E85C7E48E266F5B3A39EB /* POPVector.mm in Sources */,
 				9E8E80AA2523B88020493304 /* TransformationMatrix.cpp in Sources */,
