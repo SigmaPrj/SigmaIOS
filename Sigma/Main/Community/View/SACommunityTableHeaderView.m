@@ -8,6 +8,7 @@
 
 #import "SACommunityTableHeaderView.h"
 #import "SACommunityUserModel.h"
+#import "UIImageView+WebCache.h"
 
 #define COMMUNITY_HEADER_VIEW_AVATAR_SIZE 60
 #define COMMUNITY_HEADER_VIEW_PADDING 10
@@ -18,6 +19,7 @@
 
 @interface SACommunityTableHeaderView()
 
+@property (nonatomic, strong) UIImageView *bgImageView;
 @property (nonatomic, strong) UIImageView *avatarImageView;
 @property (nonatomic, strong) UILabel *nickNameLabel;
 @property (nonatomic, strong) UIImageView *approvedImageView;
@@ -36,9 +38,10 @@
 
 - (void) render {
     // 设置其他组件
-    [self addSubview:self.avatarImageView];
-    [self addSubview:self.approvedImageView];
-    [self addSubview:self.nickNameLabel];
+    [self addSubview:self.bgImageView];
+    [self.bgImageView addSubview:self.avatarImageView];
+    [self.bgImageView addSubview:self.approvedImageView];
+    [self.bgImageView addSubview:self.nickNameLabel];
 }
 
 - (void)setUserModel:(SACommunityUserModel *)userModel {
@@ -50,11 +53,20 @@
 // 给组件添加内容和修改frame
 - (void)renderData {
     // 设置背景图片
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:self.userModel.bgImage ofType:nil];
-    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:filePath]];
+    NSURL *bgImageUrl = [NSURL URLWithString:self.userModel.bgImage];
+    [self.bgImageView sd_setImageWithURL:bgImageUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (!error) {
+            _bgImageView.image = image;
+        }
+    }];
     
     // 设置avatarImageView frame
-    self.avatarImageView.image = [UIImage imageNamed:_userModel.image];
+    NSURL *avatarImageUrl = [NSURL URLWithString:self.userModel.image];
+    [self.avatarImageView sd_setImageWithURL:avatarImageUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (!error) {
+            _avatarImageView.image = image;
+        }
+    }];
     
     // 设置approvedImageView frame
     if (self.userModel.is_approved == 1) {
@@ -77,6 +89,15 @@
         self.nickNameLabel.frame = newNickNameLabelFrame;
         _nickNameLabel.textColor = COMMUNITY_TEXT_COLOR;
     }
+}
+
+- (UIImageView *)bgImageView {
+    if (!_bgImageView) {
+        _bgImageView  = [[UIImageView alloc] init];
+        _bgImageView.frame = self.frame;
+    }
+    
+    return _bgImageView;
 }
 
 - (UIImageView *)avatarImageView {

@@ -13,5 +13,9 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import "PublicDefine.h"
+// 定义所有通知名称
+#import "NotificationDefine.h"
+// 定义所有第三方平台或库使用到的参数
+#import "VendorDefine.h"
 
 #endif /* SAPrefix_pch */

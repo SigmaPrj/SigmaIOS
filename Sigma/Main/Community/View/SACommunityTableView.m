@@ -9,13 +9,16 @@
 #import "SACommunityTableView.h"
 #import "SACommunityUserModel.h"
 #import "SACommunityTableHeaderView.h"
+#import "SADynamicModel.h"
+#import "SADynamicFrameModel.h"
 
 @interface SACommunityTableView()
 
 @property (nonatomic, strong) SACommunityTableHeaderView *headerView;
 
 @property (nonatomic, strong) NSDictionary* userDict; // 头部用户数据
-@property (nonatomic, strong) NSArray* dynamicArray; // 动态内容数据
+
+@property (nonatomic, strong) NSMutableArray* dynamicArray; // 动态内容数据
 
 @end
 
@@ -26,27 +29,36 @@
     
     if (self) {
         self.tableHeaderView = self.headerView;
-        
-        // 加载数据
-        [self initData];
     }
     
     return self;
 }
 
-- (void)initData {
-    // 加载用户数据
-    _userDict = @{@"user_id":@1, @"nickname": @"blackcater", @"image":@"community_test_avatar.png", @"bgImage":@"community_test_bg.png", @"is_approved":@1};
+- (void)setHeaderData:(NSDictionary *)dict {
+    _userDict = dict;
     
-    // 加载动态数据
-    
-    // 显示数据
-    [self renderData];
+    [self renderHeaderData];
+}
+
+- (void)setDynamicData:(NSArray *)dynamicArray {
+    for (int i = 0; i < dynamicArray.count; ++i) {
+        SADynamicModel *dynamicModel = [SADynamicModel dynamicWithDict:dynamicArray[(NSUInteger)i]];
+        SADynamicFrameModel *frameModel = [[SADynamicFrameModel alloc] init];
+        frameModel.dynamicModel = dynamicModel;
+        [self.dynamicArray addObject:frameModel];
+    }
 }
 
 // 构造模型，显示数据和布局
-- (void)renderData {
+- (void)renderHeaderData {
     self.headerView.userModel = [SACommunityUserModel userModelWithDict:self.userDict];
+}
+
+- (NSMutableArray *)dynamicArray {
+    if (!_dynamicArray) {
+        _dynamicArray = [NSMutableArray array];
+    }
+    return _dynamicArray;
 }
 
 - (SACommunityTableHeaderView *)headerView {

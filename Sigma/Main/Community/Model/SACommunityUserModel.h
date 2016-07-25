@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *image;
 @property (nonatomic, copy) NSString *bgImage;
 @property (nonatomic, assign) int is_approved;
+@property (nonatomic, assign) int user_level;
 
 - (instancetype) initWithDict:(NSDictionary *)dict;
 

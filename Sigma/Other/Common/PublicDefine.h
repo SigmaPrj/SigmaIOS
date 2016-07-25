@@ -45,5 +45,7 @@
 #define COMMUNITY_BORDER_COLOR [UIColor colorWithRed:0.82 green:0.82 blue:0.82 alpha:1.00]
 #define COMMUNITY_APPROVED_NAME_COLOR [UIColor colorWithRed:1.00 green:0.69 blue:0.00 alpha:1.00]
 #define COMMUNITY_TEXT_COLOR [UIColor blackColor];
+// 动态cell
+#define DYNAMIC_USERNAME_FONT_SIZE 18
 
 #endif /* PublicDefine_h */

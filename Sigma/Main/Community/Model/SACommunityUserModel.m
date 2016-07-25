@@ -14,7 +14,12 @@
     self = [super init];
     
     if (self) {
-        [self setValuesForKeysWithDictionary:dict];
+        [self setValue:dict[@"id"] forKey:@"user_id"];
+        [self setValue:dict[@"nickname"] forKey:@"nickname"];
+        [self setValue:dict[@"image"] forKey:@"image"];
+        [self setValue:dict[@"bgImage"] forKey:@"bgImage"];
+        [self setValue:dict[@"is_approved"] forKey:@"is_approved"];
+        [self setValue:dict[@"user_level"] forKey:@"user_level"];
     }
     
     return self;
