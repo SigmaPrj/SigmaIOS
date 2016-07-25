@@ -121,6 +121,11 @@
 		D023B0111D3B30EC0073A3BD /* Head_Img_Of_HeaderView@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D023B00E1D3B30EC0073A3BD /* Head_Img_Of_HeaderView@3x.png */; };
 		D023B0151D3B38380073A3BD /* TextEnhance.m in Sources */ = {isa = PBXBuildFile; fileRef = D023B0141D3B38380073A3BD /* TextEnhance.m */; };
 		D023B0191D3B755E0073A3BD /* SAMineSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D023B0181D3B755E0073A3BD /* SAMineSubViewController.m */; };
+		D0622D1E1D45E291003BC9DB /* SASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0622D1D1D45E291003BC9DB /* SASettingViewController.m */; };
+		D0622D231D45E5F8003BC9DB /* SASettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0622D221D45E5F8003BC9DB /* SASettingCell.m */; };
+		D0622D2A1D45E66B003BC9DB /* SASettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0622D291D45E66B003BC9DB /* SASettingTableViewCell.m */; };
+		D0622D2E1D45E71D003BC9DB /* SASettingViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D0622D2D1D45E71D003BC9DB /* SASettingViewEngine.m */; };
+		D0622D321D4635F7003BC9DB /* SASettingAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0622D311D4635F7003BC9DB /* SASettingAboutViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -352,6 +357,16 @@
 		D023B0141D3B38380073A3BD /* TextEnhance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEnhance.m; sourceTree = "<group>"; };
 		D023B0171D3B755E0073A3BD /* SAMineSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineSubViewController.h; sourceTree = "<group>"; };
 		D023B0181D3B755E0073A3BD /* SAMineSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineSubViewController.m; sourceTree = "<group>"; };
+		D0622D1C1D45E291003BC9DB /* SASettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SASettingViewController.h; path = Controller/SASettingViewController.h; sourceTree = "<group>"; };
+		D0622D1D1D45E291003BC9DB /* SASettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SASettingViewController.m; path = Controller/SASettingViewController.m; sourceTree = "<group>"; };
+		D0622D211D45E5F8003BC9DB /* SASettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingCell.h; sourceTree = "<group>"; };
+		D0622D221D45E5F8003BC9DB /* SASettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingCell.m; sourceTree = "<group>"; };
+		D0622D281D45E66B003BC9DB /* SASettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingTableViewCell.h; sourceTree = "<group>"; };
+		D0622D291D45E66B003BC9DB /* SASettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingTableViewCell.m; sourceTree = "<group>"; };
+		D0622D2C1D45E71D003BC9DB /* SASettingViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingViewEngine.h; sourceTree = "<group>"; };
+		D0622D2D1D45E71D003BC9DB /* SASettingViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingViewEngine.m; sourceTree = "<group>"; };
+		D0622D301D4635F7003BC9DB /* SASettingAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingAboutViewController.h; sourceTree = "<group>"; };
+		D0622D311D4635F7003BC9DB /* SASettingAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingAboutViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -503,12 +518,8 @@
 		002F11D71D363F2700474AF9 /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				D023B0121D3B38290073A3BD /* Utils */,
-				D023B00B1D3A33030073A3BD /* Other */,
-				D023B00A1D3A32FA0073A3BD /* Model */,
-				D023B0091D3A32EE0073A3BD /* View */,
-				D023B0081D3A32E60073A3BD /* Cell */,
-				002F11D81D363F2700474AF9 /* Controller */,
+				D0622D201D45E43E003BC9DB /* Setting */,
+				D0622D1F1D45E431003BC9DB /* Mine */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -893,6 +904,60 @@
 			name = SubController;
 			sourceTree = "<group>";
 		};
+		D0622D1F1D45E431003BC9DB /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				D023B0121D3B38290073A3BD /* Utils */,
+				D023B00B1D3A33030073A3BD /* Other */,
+				D023B00A1D3A32FA0073A3BD /* Model */,
+				D023B0091D3A32EE0073A3BD /* View */,
+				D023B0081D3A32E60073A3BD /* Cell */,
+				002F11D81D363F2700474AF9 /* Controller */,
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
+		D0622D201D45E43E003BC9DB /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D0622D2F1D4635BA003BC9DB /* SubController */,
+				D0622D2B1D45E701003BC9DB /* Model */,
+				D0622D271D45E62E003BC9DB /* Cell */,
+				D0622D1C1D45E291003BC9DB /* SASettingViewController.h */,
+				D0622D1D1D45E291003BC9DB /* SASettingViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		D0622D271D45E62E003BC9DB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D0622D211D45E5F8003BC9DB /* SASettingCell.h */,
+				D0622D221D45E5F8003BC9DB /* SASettingCell.m */,
+				D0622D281D45E66B003BC9DB /* SASettingTableViewCell.h */,
+				D0622D291D45E66B003BC9DB /* SASettingTableViewCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		D0622D2B1D45E701003BC9DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D0622D2C1D45E71D003BC9DB /* SASettingViewEngine.h */,
+				D0622D2D1D45E71D003BC9DB /* SASettingViewEngine.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D0622D2F1D4635BA003BC9DB /* SubController */ = {
+			isa = PBXGroup;
+			children = (
+				D0622D301D4635F7003BC9DB /* SASettingAboutViewController.h */,
+				D0622D311D4635F7003BC9DB /* SASettingAboutViewController.m */,
+			);
+			name = SubController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1102,6 +1167,8 @@
 				D023B0071D3A328C0073A3BD /* SAMineViewEngine.m in Sources */,
 				D023B0041D3A32530073A3BD /* SAMineTableViewCell.m in Sources */,
 				9E8E862FE06C86C8D8456329 /* POPBasicAnimation.mm in Sources */,
+				D0622D1E1D45E291003BC9DB /* SASettingViewController.m in Sources */,
+				D0622D2A1D45E66B003BC9DB /* SASettingTableViewCell.m in Sources */,
 				9E8E8B22C2089A66450707A0 /* POPCGUtils.mm in Sources */,
 				9E8E896C680023CB8D8BE5AE /* POPCustomAnimation.mm in Sources */,
 				9E8E88AC7678AC9D7F3DF102 /* POPDecayAnimation.mm in Sources */,
@@ -1112,6 +1179,7 @@
 				9E8E8928C67FBAA533E0142D /* POPSpringAnimation.mm in Sources */,
 				D023B0191D3B755E0073A3BD /* SAMineSubViewController.m in Sources */,
 				D023B0151D3B38380073A3BD /* TextEnhance.m in Sources */,
+				D0622D231D45E5F8003BC9DB /* SASettingCell.m in Sources */,
 				9E8E85C7E48E266F5B3A39EB /* POPVector.mm in Sources */,
 				9E8E80AA2523B88020493304 /* TransformationMatrix.cpp in Sources */,
 				9E8E8BA46D5AA980E0F5C7E2 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1125,11 +1193,13 @@
 				9E8E89911FC67DACA64A9744 /* SDWebImageManager.m in Sources */,
 				9E8E86651AB4FE3FCE2322EB /* SDWebImagePrefetcher.m in Sources */,
 				9E8E82D1568585AC0F254C59 /* UIButton+WebCache.m in Sources */,
+				D0622D321D4635F7003BC9DB /* SASettingAboutViewController.m in Sources */,
 				9E8E8C91EAA907B15384366A /* UIImage+GIF.m in Sources */,
 				9E8E888CBD5C5ECC2F498138 /* UIImage+MultiFormat.m in Sources */,
 				9E8E8606C04EB56C6588D437 /* UIImage+WebP.m in Sources */,
 				9E8E84D10C31FEF9D2AF6764 /* UIImageView+HighlightedWebCache.m in Sources */,
 				9E8E8950309876CC171ED1D9 /* UIImageView+WebCache.m in Sources */,
+				D0622D2E1D45E71D003BC9DB /* SASettingViewEngine.m in Sources */,
 				9E8E8DD57E1F0FB0989FDC9F /* UIView+WebCacheOperation.m in Sources */,
 				9E8E872335B58299D00434FB /* README.md in Sources */,
 			);

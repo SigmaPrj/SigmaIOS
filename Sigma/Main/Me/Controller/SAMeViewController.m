@@ -16,7 +16,7 @@
 
 #import "SAMineSubViewController.h"
 
-//#import "SettingViewController.h"
+#import "SASettingViewController.h"
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
@@ -99,9 +99,8 @@
 
 -(UITableView*)mineTableView{
     if (!_mineTableView) {
-        _mineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-HEIGHT_TABBAR-HEIGHT_NAVIGATIONBAR) style:UITableViewStylePlain];
+        _mineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-HEIGHT_TABBAR-HEIGHT_NAVIGATIONBAR) style:UITableViewStyleGrouped];
         
-//        _mineTableView.backgroundColor=[UIColor yellowColor];
         _mineTableView.showsHorizontalScrollIndicator = NO;
         _mineTableView.showsVerticalScrollIndicator = YES;
         
@@ -162,7 +161,7 @@
         
         _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEIGHT_TABLE_HEADER_VIEW)];
         UIView* topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEIGHT_TABLE_HEADER_VIEW-HEIGHT_BASIC_INFO_OF_HEADER_VIEW)];
-        topView.backgroundColor = COLOR_RGB(219,66,64);
+        topView.backgroundColor = [UIColor colorWithRed:0.859 green:0.259 blue:0.251 alpha:1.000];
         
         [topView addSubview:self.headImageViewOfHeaderView];
         [topView addSubview:self.vipLevelViewOfHeaderView];
@@ -187,6 +186,7 @@
     if (_basicInforOfHeaderView==nil) {
         
         _basicInforOfHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headerView.frame)-HEIGHT_BASIC_INFO_OF_HEADER_VIEW, SCREEN_WIDTH, HEIGHT_BASIC_INFO_OF_HEADER_VIEW)];
+        _basicInforOfHeaderView.backgroundColor=[UIColor whiteColor];
         
         [_basicInforOfHeaderView addSubview:self.feedsView];
         [_basicInforOfHeaderView addSubview:self.followView];
@@ -310,9 +310,7 @@
     return _creditsView;
 }
 
--(void)rightItemTapped{
-    NSLog(@"settings clicked");
-}
+
 
 #pragma mark- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -456,11 +454,11 @@
             case 0:
             {
                 
-//                SettingViewController *vc=[[SettingViewController alloc]init];
-////                vc.titleLabel=@"我的消息";
-//                [vc setHidesBottomBarWhenPushed:YES];
-//                
-//                [self.navigationController pushViewController:vc animated:YES];
+                SASettingViewController *vc=[[SASettingViewController alloc]init];
+
+                [vc setHidesBottomBarWhenPushed:YES];
+                
+                [self.navigationController pushViewController:vc animated:YES];
 
             }
                 break;
@@ -520,7 +518,7 @@
     return 44;
 }
 
-#pragma mark - Clicked Event
+#pragma mark - Click/Tap Event
 
 -(void)feedsViewClicked:(id)sender{
     if (sender && [sender isKindOfClass:[UITapGestureRecognizer class]]) {
@@ -552,5 +550,12 @@
     }
 }
 
+-(void)rightItemTapped{
+    SASettingViewController *vc=[[SASettingViewController alloc]init];
+    
+    [vc setHidesBottomBarWhenPushed:YES];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+}
 
 @end
