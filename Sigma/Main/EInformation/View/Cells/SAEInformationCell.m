@@ -94,7 +94,7 @@
         [_descLabel setFont:[UIFont systemFontOfSize:14.f]];
 //        _descLabel.text = @"第八届全国大学生数学竞赛";
         _descLabel.text = self.data.desc;
-        _descLabel.textAlignment = NSTextAlignmentCenter;
+        _descLabel.textAlignment = NSTextAlignmentLeft;
         //自动折行设置
         _descLabel.lineBreakMode = NSLineBreakByWordWrapping;
 //        _descLabel.lineBreakMode = NSLineBreakByClipping;

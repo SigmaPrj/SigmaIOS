@@ -9,6 +9,7 @@
 #import "SAPopularViewController.h"
 #import "SAPopularTableView.h"
 #import "SAPublishViewController.h"
+#import "testController.h"
 
 @interface SAPopularViewController ()
 
@@ -21,6 +22,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UIBarButtonItem *b = [[UIBarButtonItem alloc] initWithTitle:@"test" style:UIBarButtonItemStylePlain target:self action:@selector(pop)];
+    self.navigationItem.rightBarButtonItem = b;
+    
+
+}
+
+-(void)pop{
+    NSLog(@"pop");
+    
+    
+    testController* tvc = [[testController alloc] init];
+    tvc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:tvc animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
