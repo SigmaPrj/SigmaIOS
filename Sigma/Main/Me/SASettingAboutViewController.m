@@ -12,6 +12,7 @@
 
 #define MARGIN 15
 
+#define HEIGHT_NAVIGATIONBAR 64
 
 #define IMAGE_NAME @"Head_Img_Of_HeaderView"
 #define IMAGE_REC_SIZE 80
@@ -49,7 +50,7 @@
 -(UIImageView*)logoImgView{
     if (!_logoImgView) {
         _logoImgView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:IMAGE_NAME]];
-        _logoImgView.frame=CGRectMake((SCREEN_WIDTH-IMAGE_REC_SIZE)/2, IMAGE_REC_SIZE/2, IMAGE_REC_SIZE, IMAGE_REC_SIZE);
+        _logoImgView.frame=CGRectMake((SCREEN_WIDTH-IMAGE_REC_SIZE)/2, IMAGE_REC_SIZE/2+HEIGHT_NAVIGATIONBAR, IMAGE_REC_SIZE, IMAGE_REC_SIZE);
     }
     return _logoImgView;
 }
