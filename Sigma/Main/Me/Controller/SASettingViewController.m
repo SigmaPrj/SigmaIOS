@@ -13,6 +13,9 @@
 
 #import "SASettingAboutViewController.h"
 
+#import <MessageUI/MessageUI.h>
+
+
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
 
@@ -22,7 +25,7 @@
 #define MARGIN 15
 #define IMAGE_REC_SIZE 65
 
-@interface SASettingViewController ()<UITableViewDataSource, UITableViewDelegate,SASettingTableViewCellDelegate>
+@interface SASettingViewController ()<UITableViewDataSource, UITableViewDelegate,MFMessageComposeViewControllerDelegate,SASettingTableViewCellDelegate>
 
 @property(nonatomic,strong)UITableView* settingTableView;
 
@@ -97,9 +100,7 @@
 
 -(UIView*)footerView{
     if (!_footerView) {
-        
         _footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEIGHT_NAVIGATIONBAR)];
-//        _footerView.backgroundColor=[UIColor redColor];
         
         [_footerView addSubview:self.exitButton];
     }
@@ -109,25 +110,43 @@
 - (UIButton*)exitButton{
     if (!_exitButton) {
         
-        _exitButton = [[UIButton alloc] initWithFrame:CGRectMake(MARGIN,0, SCREEN_WIDTH-MARGIN*2, HEIGHT_NAVIGATIONBAR)];
-        _exitButton.backgroundColor=[UIColor colorWithRed:1.000 green:0.400 blue:0.400 alpha:1.000];
+        _exitButton=[UIButton buttonWithType:UIButtonTypeCustom];
+        _exitButton.frame=CGRectMake(MARGIN,0, SCREEN_WIDTH-MARGIN*2, HEIGHT_NAVIGATIONBAR);
         
-        _exitButton.layer.borderColor = [UIColor colorWithRed:1.000 green:0.400 blue:0.400 alpha:1.000].CGColor;
-        _exitButton.layer.borderWidth = 2;
         _exitButton.layer.cornerRadius = 20;
 
         [_exitButton setTitle:@"退出" forState:UIControlStateNormal];
-        [_exitButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [_exitButton setBackgroundColor:[UIColor colorWithRed:1.000 green:0.400 blue:0.400 alpha:0.900]];
+//        [_exitButton setTitleColor:[UIColor colorWithWhite:0.702 alpha:1.000] forState:UIControlStateHighlighted];
+        _exitButton.showsTouchWhenHighlighted=YES;
         
         [_exitButton addTarget:self action:@selector(exitBtnClickHandler:) forControlEvents:UIControlEventTouchUpInside];
-        
         
     }
     return _exitButton;
 }
 
-
-
+-(void)showMessageView:(NSArray *)phones title:(NSString *)title body:(NSString *)body
+{
+    if( [MFMessageComposeViewController canSendText] )
+    {
+        MFMessageComposeViewController * controller = [[MFMessageComposeViewController alloc] init];
+        controller.recipients = phones;
+        controller.navigationBar.tintColor = [UIColor redColor];
+        controller.body = body;
+        controller.messageComposeDelegate = self;
+        [self presentViewController:controller animated:YES completion:nil];
+        [[[[controller viewControllers] lastObject] navigationItem] setTitle:title];//修改短信界面标题
+    }
+    else
+    {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示信息" message:@"该设备不支持短信功能!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* cancleAction=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+        
+        [alert addAction:cancleAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
 
 #pragma mark- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -205,6 +224,7 @@
     return 3;
 }
 
+
 #pragma mark- UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -213,7 +233,7 @@
         switch (indexPath.row) {
             case 0:
             {
-
+                
             }
                 break;
             default:
@@ -231,6 +251,11 @@
                 
             }
                 break;
+            case 2:
+            {
+                [self showMessageView:nil title:@"Share" body:@"New Sigma app available! http://www.baidu.com"];
+            }
+                break;
             default:
                 break;
         }
@@ -239,14 +264,24 @@
         switch (indexPath.row) {
             case 0:
             {
+                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"你确定要清除缓存吗？" message:@"缓存数据有助于再次浏览或离线查看" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction* cancleAction=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *cancleAction){
+                    NSLog(@"Cancle");
+                }];
                 
+                UIAlertAction* yesAction=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *yesAction){
+                    NSLog(@"Yes");
+                }];
+                [alert addAction:cancleAction];
+                [alert addAction:yesAction];
                 
-                
+                [self presentViewController:alert animated:YES completion:nil];
             }
                 break;
             case 1:
             {
-                
+                //                WebViewController *webVc = [WebViewController webVCWithUrlStr:@"/help/doc/mobile/index.html"];
+                //                [self.navigationController pushViewController:webVc animated:YES];
             }
                 break;
             case 2:
@@ -259,12 +294,7 @@
             default:
                 break;
         }
-        
     }
-    
-    
-    
-    
 }
 
 /**
@@ -312,11 +342,46 @@
     return 44;
 }
 
+#pragma mark - MFMessageComposeViewController
+
+-(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    switch (result) {
+        case MessageComposeResultSent:
+            //信息传送成功
+            
+            break;
+        case MessageComposeResultFailed:
+            //信息传送失败
+            
+            break;
+        case MessageComposeResultCancelled:
+            //信息被用户取消传送
+            
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - Click/Tap Event
 
 - (void)exitBtnClickHandler:(id)sender {
     if (sender && [sender isKindOfClass:[UIButton class]]) {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"确定退出吗？" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* cancleAction=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *cancleAction){
+            NSLog(@"Cancle");
+        }];
         
+        
+        UIAlertAction* yesAction=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *yesAction){
+            NSLog(@"Yes");
+        }];
+        [alert addAction:cancleAction];
+        [alert addAction:yesAction];
+        
+        [self presentViewController:alert animated:YES completion:nil];
         
     }
 }

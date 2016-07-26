@@ -57,11 +57,11 @@
 -(UILabel*)nameLabel{
     if (!_nameLabel) {
         _nameLabel=[[UILabel alloc]init];
-        _nameLabel.text=@"Sigma-让竞赛更简单";
-        [_nameLabel setFont:[UIFont systemFontOfSize:15.f]];
-        [_nameLabel setTextAlignment:NSTextAlignmentCenter];
         _nameLabel.frame=CGRectMake(0, CGRectGetMaxY(self.logoImgView.frame)+MARGIN, SCREEN_WIDTH, 20);
         
+        _nameLabel.text=@"Sigma-让竞赛更简单";
+        [_nameLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15]];
+        [_nameLabel setTextAlignment:NSTextAlignmentCenter];
     }
     return _nameLabel;
     
