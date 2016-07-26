@@ -25,7 +25,7 @@
 #define MARGIN 15
 #define IMAGE_REC_SIZE 65
 
-@interface SASettingViewController ()<UITableViewDataSource, UITableViewDelegate,MFMessageComposeViewControllerDelegate,SASettingTableViewCellDelegate>
+@interface SASettingViewController ()<UITableViewDataSource, UITableViewDelegate,MFMessageComposeViewControllerDelegate,MFMailComposeViewControllerDelegate,SASettingTableViewCellDelegate>
 
 @property(nonatomic,strong)UITableView* settingTableView;
 
@@ -148,6 +148,28 @@
     }
 }
 
+-(void)showMailView:(NSArray *)mail subject:(NSString *)subject body:(NSString *)body
+{
+    if( [MFMailComposeViewController canSendMail] )
+    {
+        MFMailComposeViewController *mailCompose = [[MFMailComposeViewController alloc] init];
+        [mailCompose setMailComposeDelegate:self];
+        [mailCompose setSubject:subject];
+        [mailCompose setToRecipients:mail];
+        [mailCompose setMessageBody:body isHTML:NO];
+
+        [self presentViewController:mailCompose animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示信息" message:@"该设备不支持邮件功能!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* cancleAction=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDestructive handler:nil];
+        
+        [alert addAction:cancleAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
 #pragma mark- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
@@ -243,7 +265,18 @@
         switch (indexPath.row) {
             case 0:
             {
-                
+//                NSMutableString *mailUrl = [[NSMutableString alloc]init];
+//                [mailUrl appendString:@"mailto:411311603@qq.com"];
+//                //添加主题
+//                [mailUrl appendString:@"?subject=意见反馈"];
+//                
+//                //添加邮件内容
+//                [mailUrl appendString:@"&body=xx部分存在问题"];
+//                
+//                NSString* email = [mailUrl stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+//                [[UIApplication sharedApplication] openURL: [NSURL URLWithString:email]];
+
+                [self showMailView:[NSArray arrayWithObject: @"411311603@qq.com"] subject:@"Feedback" body:@"Problem"];
             }
                 break;
             case 1:
@@ -363,6 +396,30 @@
         default:
             break;
     }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled: // 用户取消编辑
+            NSLog(@"Mail send canceled...");
+            break;
+        case MFMailComposeResultSaved: // 用户保存邮件
+            NSLog(@"Mail saved...");
+            break;
+        case MFMailComposeResultSent: // 用户点击发送
+            NSLog(@"Mail sent...");
+            break;
+        case MFMailComposeResultFailed: // 用户尝试保存或发送邮件失败
+            NSLog(@"Mail send errored: %@...", [error localizedDescription]);
+            break;
+    }
+    // 关闭邮件发送视图
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Click/Tap Event
