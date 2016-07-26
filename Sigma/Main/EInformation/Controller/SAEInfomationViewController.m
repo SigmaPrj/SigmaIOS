@@ -10,12 +10,16 @@
 #import "SAEInformationTableView.h"
 #import "EInformationTopBarView.h"
 #import "MJRefresh.h"
+#import "SAEinfoDetailViewController.h"
+#import "SAEInformationCell.h"
+#import "SAEInformationModel.h"
 
-@interface SAEInfomationViewController () <EInformationTopBarViewDelegate>
+@interface SAEInfomationViewController () <EInformationTopBarViewDelegate, UITableViewDelegate>
 
 @property (nonatomic, strong)SAEInformationTableView* tableView;
 @property (nonatomic, strong)EInformationTopBarView* topbarview;
 @property (nonatomic, strong) NSArray *categories;
+@property(nonatomic, strong) NSMutableArray* datas;
 
 @end
 
@@ -74,7 +78,9 @@
 -(SAEInformationTableView*)tableView{
     if (!_tableView) {
         _tableView = [[SAEInformationTableView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, (SCREEN_HEIGHT-50)) style:UITableViewStylePlain];
-//        _tableView.backgroundColor = [UIColor yellowColor];
+        _tableView.delegate = self;
+//        _tableView.dataSource = self;
+
     }
     
     return _tableView;
@@ -206,10 +212,123 @@
         //
         NSArray* dictArray = @[dict1, dict2, dict3, dict4];
         [self.tableView initData:dictArray];
+    }else if(tag == 1003){
+        NSDictionary* dict1 = @{
+                                @"desc":@"演讲1",
+                                @"mainImgName":@"competition2.png",
+                                @"number":@"211"
+                                };
+        
+        
+        NSDictionary* dict2 = @{
+                                @"desc":@"演讲2",
+                                @"mainImgName":@"competition1.png",
+                                @"number":@"123"
+                                };
+        
+        NSDictionary* dict3 = @{
+                                @"desc":@"演讲3",
+                                @"mainImgName":@"competition4.png",
+                                @"number":@"1120"
+                                };
+        
+        NSDictionary* dict4 = @{
+                                @"desc":@"演讲4",
+                                @"mainImgName":@"competition3.png",
+                                @"number":@"100"
+                                };
+        
+        //
+        //
+        NSArray* dictArray = @[dict1, dict2, dict3, dict4];
+        [self.tableView initData:dictArray];
+    }else if (tag == 1004){
+        NSDictionary* dict1 = @{
+                                @"desc":@"游戏1",
+                                @"mainImgName":@"competition2.png",
+                                @"number":@"211"
+                                };
+        
+        
+        NSDictionary* dict2 = @{
+                                @"desc":@"游戏2",
+                                @"mainImgName":@"competition1.png",
+                                @"number":@"123"
+                                };
+        
+        NSDictionary* dict3 = @{
+                                @"desc":@"游戏3",
+                                @"mainImgName":@"competition4.png",
+                                @"number":@"1120"
+                                };
+        
+        NSDictionary* dict4 = @{
+                                @"desc":@"游戏4",
+                                @"mainImgName":@"competition3.png",
+                                @"number":@"100"
+                                };
+        
+        NSArray* dictArray = @[dict1, dict2, dict3, dict4];
+        [self.tableView initData:dictArray];
+
+    }else if(tag == 1005){
+        NSDictionary* dict1 = @{
+                                @"desc":@"建模1",
+                                @"mainImgName":@"competition2.png",
+                                @"number":@"211"
+                                };
+        
+        
+        NSDictionary* dict2 = @{
+                                @"desc":@"建模2",
+                                @"mainImgName":@"competition1.png",
+                                @"number":@"123"
+                                };
+        
+        NSDictionary* dict3 = @{
+                                @"desc":@"建模3",
+                                @"mainImgName":@"competition4.png",
+                                @"number":@"1120"
+                                };
+        
+        NSDictionary* dict4 = @{
+                                @"desc":@"建模4",
+                                @"mainImgName":@"competition3.png",
+                                @"number":@"100"
+                                };
+        
+        NSArray* dictArray = @[dict1, dict2, dict3, dict4];
+        [self.tableView initData:dictArray];
     }
     
     [self.tableView reloadData];
 }
+
+#pragma mark - UITableViewDelegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    SAEinfoDetailViewController* detailvc = [[SAEinfoDetailViewController alloc]init];
+    detailvc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detailvc animated:YES];
+    
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    UILabel* descLabel = [cell.contentView viewWithTag:1000];
+}
+
+/**
+ *  cell有多高
+ *
+ *  @param tableView <#tableView description#>
+ *  @param indexPath <#indexPath description#>
+ *
+ *  @return <#return value description#>
+ */
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 120;
+}
+
+
 
 
 @end

@@ -10,6 +10,8 @@
 #import "SAEInformationCell.h"
 #import "SAEInformationModel.h"
 #import "EInformationTopBarView.h"
+#import "SAEinfoDetailViewController.h"
+
 
 @interface SAEInformationTableView () <UITableViewDelegate, UITableViewDataSource>
 
@@ -32,12 +34,10 @@
         self.showsVerticalScrollIndicator = NO;
         
         self.dataSource = self;
-        self.delegate = self;
+
         
         // 不要cell间的分割线
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
-        
-//        [self initData];
     }
     
     return self;
@@ -53,62 +53,14 @@
 }
 
 
-//-(void)initData{
-//    NSDictionary* dict1 = @{
-//                            @"desc":@"第八届全国大学生数学竞赛",
-//                            @"mainImgName":@"competition1.png",
-//                            @"number":@"198"
-//                            };
-//    
-//    
-//    NSDictionary* dict2 = @{
-//                            @"desc":@"2016携程云海大数据算法竞赛",
-//                            @"mainImgName":@"competition2.png",
-//                            @"number":@"2000"
-//                            };
-//    
-//    NSDictionary* dict3 = @{
-//                            @"desc":@"全国大学生数学建模竞赛",
-//                            @"mainImgName":@"competition3.png",
-//                            @"number":@"10000"
-//                            };
-//    
-//    NSDictionary* dict4 = @{
-//                            @"desc":@"\"华为杯\"东南大学第12届大学生程序设计大赛",
-//                            @"mainImgName":@"competition6.png",
-//                            @"number":@"100"
-//                            };
-//    
-//    
-//    NSDictionary* dict5 = @{
-//                            @"desc":@"2016年第12届百度之星编程大赛",
-//                            @"mainImgName":@"competition5.png",
-//                            @"number":@"2000"
-//                            };
-//    
-//    NSDictionary* dict6 = @{
-//                            @"desc":@"2016年第五届软件杯设计大赛选拔赛",
-//                            @"mainImgName":@"competition4.png",
-//                            @"number":@"2000"
-//                            };
-//
-//    
-//    NSArray* dictArray = @[dict1, dict2, dict3, dict4, dict5, dict6];
-//    
-//    NSMutableArray* modelArray = [[NSMutableArray alloc]init];
-//    
-//    for (int i = 0; i < dictArray.count; i++) {
-//        SAEInformationModel* saModel = [[SAEInformationModel alloc]initWithDict:dictArray[i]];
-//        [modelArray addObject:saModel];
-//    }
-//    
-//    [self.datas addObjectsFromArray:@[modelArray]];
-//}
-
-
+/**
+ *  初始化数据
+ *
+ *  @param dictArray <#dictArray description#>
+ */
 -(void)initData:(NSArray*)dictArray{
     
-//    NSLog(@"%@",dictArray);
+
     NSMutableArray* modelArray = [[NSMutableArray alloc]init];
     
     for (int i = 0; i < dictArray.count; i++) {
@@ -123,25 +75,6 @@
 }
 
 
-
-#pragma mark - 
-#pragma mark UITableViewDelegate
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-}
-
-/**
- *  cell有多高
- *
- *  @param tableView <#tableView description#>
- *  @param indexPath <#indexPath description#>
- *
- *  @return <#return value description#>
- */
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 120;
-}
 
 #pragma mark - 
 #pragma mark UITableViewDataSource
@@ -182,6 +115,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return [[UIView alloc] initWithFrame:CGRectZero];
 }
+
 
 
 

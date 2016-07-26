@@ -14,9 +14,10 @@
 #import "SACollectionViewController.h"
 #import "SADownloadViewController.h"
 #import "SAComposeViewController.h"
+#import "SAQuestionViewController.h"
 
 
-@interface SAPublishViewController ()<SAPDelegate,SADownloadViewControllerDelegate,SAComposevcDelegate>
+@interface SAPublishViewController ()<SAPDelegate,SADownloadViewControllerDelegate,SAComposevcDelegate,SAQuestionvcDelegate>
 
 @property(nonatomic, weak)UIImageView* imageView;
 
@@ -220,7 +221,12 @@ static CGFloat SpringDelay = 0.03;
                     
                 }else if (btn.tag == 1){
                     NSLog(@"go to 1");                    
-                    [weakself dismissViewControllerAnimated:NO completion:nil];
+//                    [weakself dismissViewControllerAnimated:NO completion:nil];
+
+                    SAQuestionViewController* questionvc = [[SAQuestionViewController alloc] init];
+                    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:questionvc];
+                    [weakself presentViewController:nav animated:YES completion:nil];
+                    questionvc.delegate = self;
                    
                     NSLog(@"aaa");
                 }else if (btn.tag == 2){
@@ -278,6 +284,11 @@ static CGFloat SpringDelay = 0.03;
 
 #pragma mark - SAComposevcDelegate
 -(void)ComposeDismisssViewController{
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
+#pragma mark - SAQuestionvcDelegate
+-(void)questionDismissViewController{
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 

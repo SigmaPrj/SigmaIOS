@@ -99,6 +99,7 @@
         _descLabel.lineBreakMode = NSLineBreakByWordWrapping;
 //        _descLabel.lineBreakMode = NSLineBreakByClipping;
 //        _descLabel.lineBreakMode = UILineBreakModeWordWrap;
+        _descLabel.tag = 1000;
         
         _descLabel.numberOfLines = 0;
         

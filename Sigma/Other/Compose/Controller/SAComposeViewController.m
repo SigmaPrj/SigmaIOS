@@ -17,6 +17,7 @@
 @property(nonatomic, weak)SAComposeView* textView;
 @property(nonatomic, weak)SAComposeToolBar* toolbar;
 @property(nonatomic, weak)SAComposePhotosView* photosView;
+@property(nonatomic, strong) UIBarButtonItem* rightItem;
 
 @end
 
@@ -118,10 +119,11 @@
     // 获取选中图片
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
+     _photosView.image = image;
+    
     [self dismissViewControllerAnimated:YES completion:nil];
     
-    _photosView.image = image;
-    
+    _rightItem.enabled = YES;
 }
 
 
@@ -144,7 +146,7 @@
 
 #pragma mark - 开始拖拽
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    [self.view endEditing:YES];
+    [self.view endEditing:NO];
 }
 
 -(void)setUpNavigationBar{
@@ -159,18 +161,33 @@
     [self.navigationItem.leftBarButtonItem setTitleTextAttributes:titleAttr forState:UIControlStateNormal];
     
     // right
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(compose:)];
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn addTarget:self action:@selector(compose:) forControlEvents:UIControlEventTouchUpInside];
+    [btn setTitle:@"发送" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor colorWithRed:0.192  green:0.211  blue:0.232 alpha:1]forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateSelected];
+    
+    
+    [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    [btn sizeToFit];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc]initWithCustomView:btn];
+    self.navigationItem.rightBarButtonItem = rightItem;
+    rightItem.enabled = NO;
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:titleAttr forState:UIControlStateNormal];
+    _rightItem = rightItem;
     
     
 }
 
+#pragma mark - 文字改变时候调用
 -(void)textChange:(id)sender{
     // 判断textView有没有内容
     if (_textView.text.length) { //有内容
         _textView.hidePlaceHolder = YES;
+        _rightItem.enabled = YES;
     }else{
         _textView.hidePlaceHolder = NO;
+        _rightItem.enabled = NO;
     }
     
 }
@@ -195,7 +212,7 @@
 
 // 发送动态
 -(void)compose:(id)sender{
-    if (sender && [sender isKindOfClass:[UIBarButtonItem class]]) {
+    if (sender && [sender isKindOfClass:[UIButton class]]) {
         NSLog(@"send");
     }
 }
