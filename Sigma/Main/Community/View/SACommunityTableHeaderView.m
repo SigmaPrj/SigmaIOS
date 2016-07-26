@@ -38,6 +38,9 @@
 
 - (void) render {
     // 设置其他组件
+    /*UIView *loadView = [[UIView alloc] initWithFrame:CGRectMake(0, -40, SCREEN_WIDTH, 40)];
+    loadView.backgroundColor = [UIColor yellowColor];
+    [self addSubview:loadView];*/
     [self addSubview:self.bgImageView];
     [self.bgImageView addSubview:self.avatarImageView];
     [self.bgImageView addSubview:self.approvedImageView];
@@ -54,19 +57,11 @@
 - (void)renderData {
     // 设置背景图片
     NSURL *bgImageUrl = [NSURL URLWithString:self.userModel.bgImage];
-    [self.bgImageView sd_setImageWithURL:bgImageUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        if (!error) {
-            _bgImageView.image = image;
-        }
-    }];
+    [self.bgImageView sd_setImageWithURL:bgImageUrl placeholderImage:nil options:SDWebImageRetryFailed | SDWebImageProgressiveDownload];
     
     // 设置avatarImageView frame
     NSURL *avatarImageUrl = [NSURL URLWithString:self.userModel.image];
-    [self.avatarImageView sd_setImageWithURL:avatarImageUrl completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        if (!error) {
-            _avatarImageView.image = image;
-        }
-    }];
+    [self.avatarImageView sd_setImageWithURL:avatarImageUrl placeholderImage:[UIImage imageNamed:@"avatar60"] options:SDWebImageRetryFailed | SDWebImageProgressiveDownload];
     
     // 设置approvedImageView frame
     if (self.userModel.is_approved == 1) {

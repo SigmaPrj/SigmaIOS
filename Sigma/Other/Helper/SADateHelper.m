@@ -21,17 +21,17 @@
     NSDateComponents *dateComponents = [calendar components:unitFlags fromDate:date];
 
     if ([nowComponents year] != [dateComponents year]) {
-        // 显示 年 月 日
-        return [NSString stringWithFormat:@"%d年%d月%d日", [dateComponents year], [dateComponents month], [dateComponents day]];
+        // 显示 年 月 日u
+        return [NSString stringWithFormat:@"%ld年%ld月%ld日", [dateComponents year], [dateComponents month], [dateComponents day]];
     } else if ([nowComponents month] != [dateComponents month]) {
         // 显示 月 日
-        return [NSString stringWithFormat:@"%d月%d日", [dateComponents month], [dateComponents day]];
+        return [NSString stringWithFormat:@"%ld月%ld日", [dateComponents month], [dateComponents day]];
     } else if ([nowComponents day] == [dateComponents day]) {
-        return [NSString stringWithFormat:@"%d:%d", [dateComponents hour], [dateComponents minute]];
+        return [NSString stringWithFormat:@"%ld:%ld", [dateComponents hour], [dateComponents minute]];
     } else if ([nowComponents day] == ([dateComponents day]+1)) {
-        return [NSString stringWithFormat:@"昨天 %d:%d", [dateComponents hour], [dateComponents minute]];
+        return [NSString stringWithFormat:@"昨天 %ld:%ld", [dateComponents hour], [dateComponents minute]];
     } else {
-        return [NSString stringWithFormat:@"%d月%d日", [dateComponents month], [dateComponents day]];
+        return [NSString stringWithFormat:@"%ld月%ld日", [dateComponents month], [dateComponents day]];
     }
 }
 

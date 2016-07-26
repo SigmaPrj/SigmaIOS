@@ -15,8 +15,8 @@
     [request sendRequest];
 }
 
-+ (void)requestDynamics:(NSDictionary *)dict token:(NSString *)token{
-    NSString *url = @"dynamic";
++ (void)requestDynamics:(NSDictionary *)dict user_id:(NSUInteger)uid token:(NSString *)token{
+    NSString *url = [NSString stringWithFormat:@"friend/%ld/dynamic", uid];
     SARequestBase *request = [self requestWithPath:url method:@"GET" parameters:dict token:token notification:NOTI_COMMUNITY_DYNAMICS_DATA];
     [request sendRequest];
 }

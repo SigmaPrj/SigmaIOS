@@ -10,7 +10,7 @@
 
 + (void)requestHeaderUserData:(int)user_id;
 
-+ (void)requestDynamics:(NSDictionary *)dict token:(NSString *)token;
++ (void)requestDynamics:(NSDictionary *)dict user_id:(NSUInteger)id token:(NSString *)token;
 
 + (void)requestCommentsWithDynamicId:(int)dynamic_id options:(NSDictionary *)dict;
 

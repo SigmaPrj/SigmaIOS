@@ -15,11 +15,11 @@
 // 一些frame
 @property (nonatomic, assign, readonly) CGRect avatarFrame; // 头像显示位置
 @property (nonatomic, assign, readonly) CGRect nicknameFrame; // 昵称显示位置
+@property (nonatomic, assign, readonly) CGRect approvedFrame; // 认证图片位置
 @property (nonatomic, assign, readonly) CGRect schoolFrame; // 学校显示位置
-@property (nonatomic, assign, readonly) CGRect levelFrame; // 等级显示位置
 @property (nonatomic, assign, readonly) CGRect contentFrame; // 内容位置
 @property (nonatomic, assign, readonly) CGRect dateFrame; // 日期显示位置
-@property (nonatomic, assign, readonly) CGRect imagesFrame; // 6张图片组成的view的位置
+@property (nonatomic, strong) NSMutableArray *imagesFrame; // 6张图片组成的view的位置
 
 @property (nonatomic, assign, readonly) CGRect lookBtnFrame; // 多少人浏览
 @property (nonatomic, assign, readonly) CGRect praiseBtnFrame; // 点赞
@@ -30,5 +30,11 @@
 
 // dynamic model
 @property (nonatomic, strong) SADynamicModel *dynamicModel;
+
+/*!
+ * 获取cell高度
+ * @return
+ */
+- (CGFloat)getTotalHeight;
 
 @end

@@ -25,7 +25,6 @@
 @property (nonatomic, assign) int is_approved; // 用户是否被认证
 @property (nonatomic, assign) int user_type; // 用户类型
 @property (nonatomic, assign) int has_topic; // 是否和动态相关联
-@property (nonatomic, assign) int level; // 用户等级
 @property (nonatomic, assign) int praise; // 多少人赞
 @property (nonatomic, assign) int look; // 多少人浏览
 

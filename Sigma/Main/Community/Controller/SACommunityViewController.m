@@ -11,8 +11,7 @@
 #import "SACommunityTableView.h"
 #import "SACommunityRequest.h"
 
-#define COMMUNITY_TOP 64
-#define COMMUNITY_BOTTOM 44
+#define COMMUNITY_BOTTOM 64
 
 @interface SACommunityViewController ()
 
@@ -51,7 +50,6 @@
 }
 
 - (void)render {
-    
     [self.view addSubview:self.communityTableView];
 }
 
@@ -59,17 +57,24 @@
 - (SACommunityTableView *)communityTableView {
     if (!_communityTableView) {
         _communityTableView = [[SACommunityTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (SCREEN_HEIGHT-COMMUNITY_BOTTOM)) style:UITableViewStylePlain];
+        _communityTableView.showsHorizontalScrollIndicator = NO;
+        _communityTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return _communityTableView;
 }
 
 - (void)sendRequest {
     // 发送请求
-    [SACommunityRequest requestHeaderUserData:1];
+    
+    // 请求用户数据
+    [SACommunityRequest requestHeaderUserData:28];
+    
+    // 请求dynamic数据
+    [SACommunityRequest requestDynamics:nil user_id:28 token:@"b42754e673e94f5eaef972c4ae4a4c06"];
 }
 
-# pragma -
-# pragma 通知
+#pragma mark -
+#pragma mark 通知
 - (void) addAllNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_COMMUNITY_USER_DATA object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_COMMUNITY_DYNAMICS_DATA object:nil];
@@ -81,20 +86,31 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+/*!
+ * 从服务器获取数据成功
+ * @param noti
+ */
 - (void)receiveDataSuccessHandler:(NSNotification *)noti {
-    NSLog(@"%@", noti);
     // table view header数据
     if ([noti.name isEqualToString:NOTI_COMMUNITY_USER_DATA]) {
-        [self.communityTableView setHeaderData:noti.userInfo];
+        if ([noti.userInfo[@"status"] intValue] == 1) {
+            // 加载用户数据成功
+            [self.communityTableView setHeaderData:noti.userInfo[@"data"]];
+        }
     }
     
     if ([noti.name isEqualToString:NOTI_COMMUNITY_DYNAMICS_DATA]) {
-        NSLog(@"请求的动态数据: %@", noti.userInfo);
-        // TODO : 设置数据
-//        [self.communityTableView setDynamicData:];
+        if ([noti.userInfo[@"status"] intValue] == 1) {
+            // 加载动态数据成功
+            [self.communityTableView setDynamicData:noti.userInfo[@"data"]];
+        }
     }
 }
 
+/*!
+ * 从服务器获取数据失败
+ * @param notification
+ */
 - (void)receiveDataErrorHandler:(NSNotification *)notification {
     NSLog(@"数据加载失败!");
 }

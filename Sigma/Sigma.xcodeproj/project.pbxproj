@@ -70,8 +70,6 @@
 		7B3740951D3F21940083A05B /* SADynamicFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3740941D3F21940083A05B /* SADynamicFrameModel.m */; };
 		7B3BF2E2C63D9794849E63314A5B6D55 /* camera_close_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4FCA7F6B47BA6EA6CA9F893B34EB00D7 /* camera_close_highlighted@2x.png */; };
 		7B98A051D27F0C588DEE3B296E93E1C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E080FEFC2EC1278C278FB6F4949376D3 /* AppDelegate.m */; };
-		7BA6D7581D4122B800F9770C /* SACommunityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA6D7571D4122B800F9770C /* SACommunityTableViewCell.m */; };
-		7BA6D75B1D41234800F9770C /* SACommunityTableViewCellFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BA6D75A1D41234800F9770C /* SACommunityTableViewCellFooter.m */; };
 		7BB30F101D3F01A9004DA0E9 /* SACommunityTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB30F0F1D3F01A9004DA0E9 /* SACommunityTableHeaderView.m */; };
 		7BB30F131D3F0269004DA0E9 /* SACommunityTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB30F121D3F0269004DA0E9 /* SACommunityTableView.m */; };
 		7BCC68FE1D3F087400670B00 /* community_test_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BCC68F81D3F087400670B00 /* community_test_avatar.png */; };
@@ -100,6 +98,7 @@
 		9E8E807F81AFAA904A5810BC /* SACommunityRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E876D3D9A47C448FAA058 /* SACommunityRequest.m */; };
 		9E8E80BD33AB3E98DFF35C2D /* SARequestBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8E8EA4FFF0116E87F3EA /* SARequestBase.m */; };
 		9E8E810F6F76E4B0B53FF881 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8B8D442F9629BAF41D79 /* AFSecurityPolicy.m */; };
+		9E8E86A4B5B1C05608A3B224 /* SADynamicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E820A6B89C0CFA887823D /* SADynamicTableViewCell.m */; };
 		9E8E873A269426886A1BB940 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E83BDB7F56EEFD58A901B /* AFNetworkReachabilityManager.m */; };
 		9E8E87453DF07E772AB02C8D /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8DF697EBA665C44DE2D5 /* AFURLSessionManager.m */; };
 		9E8E88CE413C7F5E8D22BB68 /* SADateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E87DAAC2E79D36579C544 /* SADateHelper.m */; };
@@ -282,10 +281,6 @@
 		7B3740931D3F21940083A05B /* SADynamicFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SADynamicFrameModel.h; sourceTree = "<group>"; };
 		7B3740941D3F21940083A05B /* SADynamicFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SADynamicFrameModel.m; sourceTree = "<group>"; };
 		7B6D1AD1482DAE32ED933D26A67EC5C0 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
-		7BA6D7561D4122B800F9770C /* SACommunityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SACommunityTableViewCell.h; path = Main/Community/View/Cell/SACommunityTableViewCell.h; sourceTree = SOURCE_ROOT; };
-		7BA6D7571D4122B800F9770C /* SACommunityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SACommunityTableViewCell.m; path = Main/Community/View/Cell/SACommunityTableViewCell.m; sourceTree = SOURCE_ROOT; };
-		7BA6D7591D41234800F9770C /* SACommunityTableViewCellFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SACommunityTableViewCellFooter.h; path = Main/Community/View/Cell/SACommunityTableViewCellFooter.h; sourceTree = SOURCE_ROOT; };
-		7BA6D75A1D41234800F9770C /* SACommunityTableViewCellFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SACommunityTableViewCellFooter.m; path = Main/Community/View/Cell/SACommunityTableViewCellFooter.m; sourceTree = SOURCE_ROOT; };
 		7BB30F0E1D3F01A9004DA0E9 /* SACommunityTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACommunityTableHeaderView.h; sourceTree = "<group>"; };
 		7BB30F0F1D3F01A9004DA0E9 /* SACommunityTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACommunityTableHeaderView.m; sourceTree = "<group>"; };
 		7BB30F111D3F0269004DA0E9 /* SACommunityTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACommunityTableView.h; sourceTree = "<group>"; };
@@ -319,6 +314,7 @@
 		9995135EE69B3588BA25DE7D7AAE627D /* tabbar_home_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_home_highlighted@2x.png"; sourceTree = "<group>"; };
 		9B420534F1DEA5E66885F46610C92C21 /* SAPopularClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPopularClassCell.m; sourceTree = "<group>"; };
 		9E8E804BFC7BCE84BE5E8A93 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		9E8E820A6B89C0CFA887823D /* SADynamicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SADynamicTableViewCell.m; sourceTree = "<group>"; };
 		9E8E82AF2553181C03876BFF /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		9E8E833B4B2A8582CC59DE21 /* SACommunityRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACommunityRequest.h; sourceTree = "<group>"; };
 		9E8E83BDB7F56EEFD58A901B /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
@@ -331,6 +327,7 @@
 		9E8E876D3D9A47C448FAA058 /* SACommunityRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACommunityRequest.m; sourceTree = "<group>"; };
 		9E8E877D7E5D24E85CC15CA5 /* NotificationDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDefine.h; sourceTree = "<group>"; };
 		9E8E87DAAC2E79D36579C544 /* SADateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SADateHelper.m; sourceTree = "<group>"; };
+		9E8E8A1BF2043E98E796865E /* SADynamicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SADynamicTableViewCell.h; sourceTree = "<group>"; };
 		9E8E8B8492394507B9792A91 /* SADateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SADateHelper.h; sourceTree = "<group>"; };
 		9E8E8B8D442F9629BAF41D79 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
 		9E8E8CD36A6379E9764BC195 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -640,18 +637,6 @@
 			path = Me;
 			sourceTree = "<group>";
 		};
-		7BB30F071D3F0136004DA0E9 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				7BA6D7591D41234800F9770C /* SACommunityTableViewCellFooter.h */,
-				7BA6D75A1D41234800F9770C /* SACommunityTableViewCellFooter.m */,
-				7BA6D7561D4122B800F9770C /* SACommunityTableViewCell.h */,
-				7BA6D7571D4122B800F9770C /* SACommunityTableViewCell.m */,
-			);
-			name = Cell;
-			path = ../Cell;
-			sourceTree = "<group>";
-		};
 		7BB30F081D3F0136004DA0E9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,11 +653,11 @@
 		7BB30F0A1D3F0136004DA0E9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7BB30F071D3F0136004DA0E9 /* Cell */,
 				7BB30F0E1D3F01A9004DA0E9 /* SACommunityTableHeaderView.h */,
 				7BB30F0F1D3F01A9004DA0E9 /* SACommunityTableHeaderView.m */,
 				7BB30F111D3F0269004DA0E9 /* SACommunityTableView.h */,
 				7BB30F121D3F0269004DA0E9 /* SACommunityTableView.m */,
+				9E8E86FB315E20878D4227E9 /* cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -787,6 +772,15 @@
 				9E8E87DAAC2E79D36579C544 /* SADateHelper.m */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		9E8E86FB315E20878D4227E9 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8A1BF2043E98E796865E /* SADynamicTableViewCell.h */,
+				9E8E820A6B89C0CFA887823D /* SADynamicTableViewCell.m */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		9E8E8DE93AF73FCF84F99D5F /* Http */ = {
@@ -1302,7 +1296,6 @@
 				2D914114D654E71F7C3CD5B335684327 /* SAPopularCell.m in Sources */,
 				3A9E891E65903BF8DEA347F8B40C7A22 /* SAPopularClassCell.m in Sources */,
 				EC66A2D97D6DA17D598E85DC01C14A3B /* SAPopularEventCell.m in Sources */,
-				7BA6D75B1D41234800F9770C /* SACommunityTableViewCellFooter.m in Sources */,
 				524ED2D5907E105205C877B62291C4CA /* SAPopularHeaderView.m in Sources */,
 				CA9F61DBD9F99D25BDCB6CBCA6423A1C /* SAPopularModel.m in Sources */,
 				1FB1DBDAA5BFBE1EBFBA5FF90607004E /* SAPopularResourceCell.m in Sources */,
@@ -1329,7 +1322,6 @@
 				FBFB2F22259B8B045569B79ECD6113DB /* UIImage+GIF.m in Sources */,
 				AB647194B35B96E12E7F7CB787ED0974 /* UIImage+MultiFormat.m in Sources */,
 				186BF9F4FCDF7D9F4AD18F40CD582B6D /* UIImage+WebP.m in Sources */,
-				7BA6D7581D4122B800F9770C /* SACommunityTableViewCell.m in Sources */,
 				D474B846BFBDA26D5D71428517AAD6C4 /* UIImageView+HighlightedWebCache.m in Sources */,
 				402731E3A17EC2E994D118B011FF31A6 /* UIImageView+WebCache.m in Sources */,
 				15155C1E9BC01D0FFEFC104FE6C8EB35 /* UIView+SAPublishBtnFrame.m in Sources */,
@@ -1347,6 +1339,7 @@
 				9E8E873A269426886A1BB940 /* AFNetworkReachabilityManager.m in Sources */,
 				9E8E807F81AFAA904A5810BC /* SACommunityRequest.m in Sources */,
 				9E8E88CE413C7F5E8D22BB68 /* SADateHelper.m in Sources */,
+				9E8E86A4B5B1C05608A3B224 /* SADynamicTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1394,6 +1387,7 @@
 				INFOPLIST_FILE = Sigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1505,6 +1499,7 @@
 				INFOPLIST_FILE = Sigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

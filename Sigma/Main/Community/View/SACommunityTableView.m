@@ -11,8 +11,9 @@
 #import "SACommunityTableHeaderView.h"
 #import "SADynamicModel.h"
 #import "SADynamicFrameModel.h"
+#import "SADynamicTableViewCell.h"
 
-@interface SACommunityTableView()
+@interface SACommunityTableView() <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) SACommunityTableHeaderView *headerView;
 
@@ -29,6 +30,8 @@
     
     if (self) {
         self.tableHeaderView = self.headerView;
+        self.dataSource = self;
+        self.delegate = self;
     }
     
     return self;
@@ -47,6 +50,8 @@
         frameModel.dynamicModel = dynamicModel;
         [self.dynamicArray addObject:frameModel];
     }
+
+    [self reloadData];
 }
 
 // 构造模型，显示数据和布局
@@ -67,6 +72,36 @@
     }
     
     return _headerView;
+}
+
+#pragma mark -
+#pragma mark UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SADynamicFrameModel *frameModel = self.dynamicArray[(NSUInteger)indexPath.row];
+    return [frameModel getTotalHeight];
+}
+
+#pragma mark -
+#pragma mark UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dynamicArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"DynamicCell";
+
+    SADynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+
+    if (cell == nil) {
+        cell = [[SADynamicTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    }
+    cell.frameModel = self.dynamicArray[(NSUInteger)indexPath.row];
+
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
 @end
