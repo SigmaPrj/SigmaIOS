@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SATabBarViewController.h"
+#import "SATabbarViewController.h"
 
-@interface SARootViewController : SATabBarViewController
+@interface SARootViewController : SATabbarViewController
 
 @end

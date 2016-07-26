@@ -22,7 +22,7 @@
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
 
 #define HEIGHT_TABBAR 49 //self.tabBar.frame.size.height为49
-#define HEIGHT_NAVIGATIONBAR 44
+#define HEIGHT_NAVIGATIONBAR 64
 #define HEIGHT_TABLE_HEADER_VIEW 110+HEIGHT_BASIC_INFO_OF_HEADER_VIEW
 #define MARGIN 15
 #define IMAGE_REC_SIZE 65
@@ -99,7 +99,7 @@
 
 -(UITableView*)mineTableView{
     if (!_mineTableView) {
-        _mineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-HEIGHT_TABBAR-HEIGHT_NAVIGATIONBAR) style:UITableViewStyleGrouped];
+        _mineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, HEIGHT_NAVIGATIONBAR, SCREEN_WIDTH, SCREEN_HEIGHT-HEIGHT_TABBAR-HEIGHT_NAVIGATIONBAR) style:UITableViewStyleGrouped];
         
         _mineTableView.showsHorizontalScrollIndicator = NO;
         _mineTableView.showsVerticalScrollIndicator = YES;
@@ -129,7 +129,7 @@
         _vipLevelViewOfHeaderView.layer.borderColor=[UIColor whiteColor].CGColor;
         _vipLevelViewOfHeaderView.layer.borderWidth=0.5;
         _vipLevelViewOfHeaderView.layer.cornerRadius=3.f;
-        NSString *str=[NSString stringWithFormat:@"VIP %d",self.user.level];
+        NSString *str=[NSString stringWithFormat:@" VIP %d  ",self.user.level];
         _vipLevelViewOfHeaderView.text=str;
         _vipLevelViewOfHeaderView.textColor=[UIColor whiteColor];
         _vipLevelViewOfHeaderView.font=[UIFont systemFontOfSize:10.f];

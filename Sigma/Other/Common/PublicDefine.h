@@ -35,12 +35,4 @@
 // Sigma主色调
 #define SIGMA_COLOR [UIColor colorWithRed:0.196  green:0.200  blue:0.208 alpha:1]
 
-
-// Community社区页面常用值
-#define COMMUNITY_PADDING 15
-#define COMMUNITY_BORDER_WIDTH 1
-#define COMMUNITY_HEADER_VIEW_HEIGHT 170
-#define COMMUNITY_BORDER_COLOR COLOR_RGB(208, 208, 208)
-
-
 #endif /* PublicDefine_h */

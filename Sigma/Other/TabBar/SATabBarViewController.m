@@ -1,21 +1,20 @@
 //
-//  SATabBarViewController.m
-//  Sigmaprj
+//  SATabbarViewController.m
+//  Sigma
 //
-//  <该文件可被删除了，采用新的自定义tabbar>
-//
-//  Created by Terence on 16/7/13.
+//  Created by Terence on 16/7/18.
 //  Copyright © 2016年 Terence. All rights reserved.
 //
 
-#import "SATabBarViewController.h"
 
-@interface SATabBarViewController ()
+#import "SATabbarViewController.h"
+
+@interface SATabbarViewController ()
 
 
 @end
 
-@implementation SATabBarViewController
+@implementation SATabbarViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

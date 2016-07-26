@@ -20,7 +20,8 @@
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
 
 #define HEIGHT_TABBAR 49 //self.tabBar.frame.size.height为49
-#define HEIGHT_NAVIGATIONBAR 44
+#define HEIGHT_NAVIGATIONBAR 64
+#define HEIGHT_BUTTON 44
 #define HEIGHT_TABLE_HEADER_VIEW 110+HEIGHT_BASIC_INFO_OF_HEADER_VIEW
 #define MARGIN 15
 #define IMAGE_REC_SIZE 65
@@ -82,7 +83,7 @@
 
 -(UITableView*)settingTableView{
     if (!_settingTableView) {
-        _settingTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-HEIGHT_NAVIGATIONBAR) style:UITableViewStyleGrouped];
+        _settingTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, HEIGHT_NAVIGATIONBAR, SCREEN_WIDTH, SCREEN_HEIGHT-HEIGHT_NAVIGATIONBAR) style:UITableViewStyleGrouped];
         
         _settingTableView.showsHorizontalScrollIndicator = NO;
         _settingTableView.showsVerticalScrollIndicator = YES;
@@ -111,7 +112,7 @@
     if (!_exitButton) {
         
         _exitButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        _exitButton.frame=CGRectMake(MARGIN,0, SCREEN_WIDTH-MARGIN*2, HEIGHT_NAVIGATIONBAR);
+        _exitButton.frame=CGRectMake(MARGIN,0, SCREEN_WIDTH-MARGIN*2, HEIGHT_BUTTON);
         
         _exitButton.layer.cornerRadius = 20;
 

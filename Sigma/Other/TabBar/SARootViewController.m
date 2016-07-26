@@ -10,6 +10,9 @@
 #import "SARootViewController.h"
 #import "SACustomTabBar.h"
 #import "SANavigationController.h"
+#import "SAViewController.h"
+#import "SAPublishViewController.h"
+
 
 @interface SARootViewController ()
 
@@ -25,13 +28,14 @@
     [super viewDidLoad];
     
     SACustomTabBar* tabBar = [[SACustomTabBar alloc] initWithFrame:self.tabBar.frame];
-    //self.tabBar.frame.size.height为49
     [self setValue:tabBar forKey:@"tabBar"];
     
     
     // pluson的点击事件
     tabBar.clickBlock = ^(){
         NSLog(@"plus btn clicked");
+        [self presentViewController:[[SAPublishViewController alloc] init] animated:NO completion:nil];
+
     };
     
     // 标题
@@ -41,10 +45,11 @@
     NSArray* classNames = @[@"SAPopularViewController", @"SACommunityViewController", @"SAEInfomationViewController", @"SAMeViewController"];
     
     //
-    NSArray* images = @[@"tabbar_home",@"toolbar_compose",@"tabbar_discover",@"tabbar_profile"];
+    NSArray* images = @[@"tabbar_home",@"Tabbar_community",@"tabbar_discover",@"tabbar_profile"];
     
     NSMutableArray* mutableArray = [NSMutableArray array];
     
+    // 初始化navigation导航栏
     for (int index = 0; index < classNames.count; index++) {
         NSString* selectedImg = [NSString stringWithFormat:@"%@_selected", images[(NSUInteger) index]];
         id nav = [self viewControllerWithClassName:classNames[(NSUInteger) index] image:[self changeImage:images[(NSUInteger) index]] selectedImage:[self changeImage:selectedImg] title:titles[(NSUInteger) index]];

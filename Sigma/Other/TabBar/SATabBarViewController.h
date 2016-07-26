@@ -1,9 +1,8 @@
 //
-//  SATabBarViewController.h
-//  Sigmaprj
-//  <文件可删除>
+//  SATabbarViewController.h
+//  Sigma
 //
-//  Created by Terence on 16/7/13.
+//  Created by Terence on 16/7/18.
 //  Copyright © 2016年 Terence. All rights reserved.
 //
 
@@ -11,7 +10,7 @@
 
 @class SAViewController;
 
-@interface SATabBarViewController : UITabBarController
+@interface SATabbarViewController : UITabBarController
 
 
 
