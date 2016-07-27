@@ -35,24 +35,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    UIBarButtonItem *b = [[UIBarButtonItem alloc] initWithTitle:@"test" style:UIBarButtonItemStylePlain target:self action:@selector(pop)];
-    self.navigationItem.rightBarButtonItem = b;
     
 //    [self.view addSubview:self.tableView];
     
     [self initUI];
     [self initData];
-}
-
--(void)pop{
-    NSLog(@"pop");
-    
-    
-    testController* tvc = [[testController alloc] init];
-    tvc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:tvc animated:YES];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -325,7 +312,7 @@
     if (section == 0) {
         
         UIView* view = [[UIView alloc] initWithFrame:CGRectMake(HEADER_OF_SECTION_X, HEADER_OF_SECTION_Y, SCREEN_WIDTH, 100)];
-        view.backgroundColor = [UIColor yellowColor];
+        view.backgroundColor = [UIColor whiteColor];
         
         
         UIView* line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];

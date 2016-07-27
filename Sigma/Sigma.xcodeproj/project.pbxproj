@@ -103,7 +103,6 @@
 		85528079D649B1ED6CF4B8245EA1F67B /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 304D2AAAE56F2C4243541CE428CFCED4 /* SDWebImagePrefetcher.m */; };
 		89DB01DF29B1B37683E7CEFD7236B567 /* TransformationMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9306EC4AE44EC51C79B1523E351A5D18 /* TransformationMatrix.cpp */; };
 		8AE082AE02285297D5CBDA924C891CC5 /* tabbar_discover_highlighted@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0A6A0CD713FE5070AC51663CDED43EE /* tabbar_discover_highlighted@3x.png */; };
-		8DF15FCB9827EDCAA7A88E42CC0AFAF0 /* testController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D740F6E179B2D8D9495EBA430DEAE5 /* testController.m */; };
 		8F28A6A2B8DBDB7D86DBDE00C7240F0B /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B6D1AD1482DAE32ED933D26A67EC5C0 /* MASViewConstraint.m */; };
 		90A8B822505E64E075871F19FFE408AF /* SAPopularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86434FC21F7F2D62860D8FF14A25100B /* SAPopularViewController.m */; };
 		946145186B4A8E28EA31135E85F89ABD /* competition1.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E68B21F8AD77F717E10EC80E22A3D61 /* competition1.png */; };
@@ -398,7 +397,6 @@
 		B0E1F8A322D88878230D865C2ABE67CC /* SAEinfoDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAEinfoDetailViewController.h; sourceTree = "<group>"; };
 		B13443DC986BCD92C73EC5E1D225BCA2 /* SACollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACollectionViewController.m; sourceTree = "<group>"; };
 		B14AE9D2569C829CAE65D4F14A1A284B /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
-		B1D740F6E179B2D8D9495EBA430DEAE5 /* testController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testController.m; sourceTree = "<group>"; };
 		B299EECDCFE44FC4A6C0371420A99E68 /* POPMath.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPMath.mm; sourceTree = "<group>"; };
 		B4426752CDFD1D06E7885336A157DBC5 /* POPAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPAnimator.h; sourceTree = "<group>"; };
 		B54AB0C7D27B4D05A50F7C351CA3AAF5 /* SAPopularShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SAPopularShowView.h; path = Cells/SAPopularShowView.h; sourceTree = "<group>"; };
@@ -426,7 +424,6 @@
 		C21D9F55E4090AE25C121A3FAB6BC201 /* SAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAViewController.h; sourceTree = "<group>"; };
 		C465FFD656DF70910C434EDB49C9BE6F /* popular3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popular3.png; sourceTree = "<group>"; };
 		C485655A3F13F89DDB2E96C056887038 /* popular2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popular2.png; sourceTree = "<group>"; };
-		C4925F139270CFFC95D4D0BCFCD8CBC1 /* testController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testController.h; sourceTree = "<group>"; };
 		C5A68D2B05B61C19B67A5F02443B02E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5F198164958C9B22AB1D2FC8DDD3227 /* toolbar_compose_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar_compose_highlighted@2x.png"; sourceTree = "<group>"; };
 		C671FA5455A913FD7E6314E8BACE744C /* SAPopularModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPopularModel.h; sourceTree = "<group>"; };
@@ -1002,8 +999,6 @@
 				C875F5D7E6365F734ADD174ECABBBC0A /* SADownloadViewController.m */,
 				C08D90CD96491A8217617D34AABF4C9F /* SAPopularViewController.h */,
 				86434FC21F7F2D62860D8FF14A25100B /* SAPopularViewController.m */,
-				C4925F139270CFFC95D4D0BCFCD8CBC1 /* testController.h */,
-				B1D740F6E179B2D8D9495EBA430DEAE5 /* testController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1531,7 +1526,6 @@
 				01C2DF0E722355FFF25DE21868A60FD8 /* ViewController+MASAdditions.m in Sources */,
 				D99C6937BAF7F0C5C06F04E721685209 /* ViewController.m in Sources */,
 				7D860FE3793B5ED9C61CDAF8774DC9E9 /* main.m in Sources */,
-				8DF15FCB9827EDCAA7A88E42CC0AFAF0 /* testController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
