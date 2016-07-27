@@ -9,11 +9,6 @@
 
 #import "SARootViewController.h"
 #import "SACustomTabBar.h"
-#import "SACommunityViewController.h"
-#import "SAEInfomationViewController.h"
-#import "SAViewController.h"
-#import "SAMeViewController.h"
-#import "SAPopularViewController.h"
 #import "SANavigationController.h"
 #import "SAViewController.h"
 #import "SAPublishViewController.h"
@@ -51,7 +46,7 @@
     };
     
     // 标题
-    NSArray* titles = @[@"热门", @"社区", @"资讯", @"我的"];
+    NSArray* titles = @[@"热门", @"动态", @"资讯", @"我的"];
     
     // tabbar 上四个对应的viewController的类名
     NSArray* classNames = @[@"SAPopularViewController", @"SACommunityViewController", @"SAEInfomationViewController", @"SAMeViewController"];
@@ -63,8 +58,8 @@
     
     // 初始化navigation导航栏
     for (int index = 0; index < classNames.count; index++) {
-        NSString* selectedImg = [NSString stringWithFormat:@"%@_selected", [images objectAtIndex:index]];
-        id nav = [self viewControllerWithClassName:[classNames objectAtIndex:index] image:[self changeImage:images[index]] selectedImage:[self changeImage:selectedImg] title:[titles objectAtIndex:index]];
+        NSString* selectedImg = [NSString stringWithFormat:@"%@_selected", images[(NSUInteger) index]];
+        id nav = [self viewControllerWithClassName:classNames[(NSUInteger) index] image:[self changeImage:images[(NSUInteger) index]] selectedImage:[self changeImage:selectedImg] title:titles[(NSUInteger) index]];
         
         [mutableArray addObject:nav];
     }
@@ -100,7 +95,7 @@
     
     [pClass setTitle: title];
     
-    UINavigationController *NaviviewController = [[UINavigationController alloc] initWithRootViewController: pClass];
+    UINavigationController *NaviviewController = [[SANavigationController alloc] initWithRootViewController: pClass];
     return NaviviewController;
 }
 

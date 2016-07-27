@@ -9,7 +9,6 @@
 #import "SAEInfomationViewController.h"
 #import "SAEInformationTableView.h"
 #import "EInformationTopBarView.h"
-#import "MJRefresh.h"
 #import "SAEinfoDetailViewController.h"
 #import "SAEInformationCell.h"
 #import "SAEInformationModel.h"
@@ -77,7 +76,7 @@
 
 -(SAEInformationTableView*)tableView{
     if (!_tableView) {
-        _tableView = [[SAEInformationTableView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, (SCREEN_HEIGHT-50)) style:UITableViewStylePlain];
+        _tableView = [[SAEInformationTableView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, (SCREEN_HEIGHT-120)) style:UITableViewStylePlain];
         _tableView.delegate = self;
 //        _tableView.dataSource = self;
 
@@ -89,7 +88,7 @@
 -(EInformationTopBarView*)topbarview{
     if (!_topbarview) {
         
-        _topbarview = [[EInformationTopBarView alloc] initWithFrame:CGRectMake(0, 63, SCREEN_WIDTH, 42) categoreis:self.categories];
+        _topbarview = [[EInformationTopBarView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 42) categoreis:self.categories];
         _topbarview.backgroundColor = [UIColor whiteColor];
         _topbarview.delegate = self;
     }
@@ -312,8 +311,8 @@
     [self.navigationController pushViewController:detailvc animated:YES];
     
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    UILabel* descLabel = [cell.contentView viewWithTag:1000];
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    UILabel* descLabel = [cell.contentView viewWithTag:1000];
 }
 
 /**

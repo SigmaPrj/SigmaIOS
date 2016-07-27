@@ -8,6 +8,7 @@
 
 #import "SAPopularViewController.h"
 #import "SAPopularTableView.h"
+#import "SourceSubViewController.h"
 #import "SAPublishViewController.h"
 #import "SAPopularCell.h"
 #import "SAPopularModel.h"
@@ -46,6 +47,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 }
@@ -81,7 +83,7 @@
 
 -(SAPopularTableView*)tableView{
     if (!_tableView) {
-        _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+        _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-50) style:UITableViewStyleGrouped];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
