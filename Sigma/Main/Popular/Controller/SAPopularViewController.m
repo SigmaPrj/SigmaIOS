@@ -9,7 +9,6 @@
 #import "SAPopularViewController.h"
 #import "SAPopularTableView.h"
 #import "SAPublishViewController.h"
-#import "testController.h"
 #import "SAPopularCell.h"
 #import "SAPopularModel.h"
 #import "SAPopularClassCell.h"
