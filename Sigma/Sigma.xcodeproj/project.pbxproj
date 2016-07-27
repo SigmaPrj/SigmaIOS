@@ -215,6 +215,10 @@
 		D007A25F1D483E8A0064505B /* SASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2501D483E8A0064505B /* SASettingViewController.m */; };
 		D007A2601D483E8A0064505B /* SASettingAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2531D483E8A0064505B /* SASettingAboutViewController.m */; };
 		D007A2611D483E8A0064505B /* SASettingViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2561D483E8A0064505B /* SASettingViewEngine.m */; };
+		D007A2791D48D5D30064505B /* SAQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2701D48D5D30064505B /* SAQuestionCell.m */; };
+		D007A27A1D48D5D30064505B /* SAQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2721D48D5D30064505B /* SAQuestionTableViewCell.m */; };
+		D007A27B1D48D5D30064505B /* SAQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2751D48D5D30064505B /* SAQuestionViewController.m */; };
+		D007A27C1D48D5D30064505B /* SAQuestionViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2781D48D5D30064505B /* SAQuestionViewEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -579,6 +583,14 @@
 		D007A2531D483E8A0064505B /* SASettingAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingAboutViewController.m; sourceTree = "<group>"; };
 		D007A2551D483E8A0064505B /* SASettingViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingViewEngine.h; sourceTree = "<group>"; };
 		D007A2561D483E8A0064505B /* SASettingViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingViewEngine.m; sourceTree = "<group>"; };
+		D007A26F1D48D5D30064505B /* SAQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAQuestionCell.h; sourceTree = "<group>"; };
+		D007A2701D48D5D30064505B /* SAQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAQuestionCell.m; sourceTree = "<group>"; };
+		D007A2711D48D5D30064505B /* SAQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAQuestionTableViewCell.h; sourceTree = "<group>"; };
+		D007A2721D48D5D30064505B /* SAQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAQuestionTableViewCell.m; sourceTree = "<group>"; };
+		D007A2741D48D5D30064505B /* SAQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAQuestionViewController.h; sourceTree = "<group>"; };
+		D007A2751D48D5D30064505B /* SAQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAQuestionViewController.m; sourceTree = "<group>"; };
+		D007A2771D48D5D30064505B /* SAQuestionViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAQuestionViewEngine.h; sourceTree = "<group>"; };
+		D007A2781D48D5D30064505B /* SAQuestionViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAQuestionViewEngine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1399,6 +1411,9 @@
 		D007A2471D483E8A0064505B /* Question */ = {
 			isa = PBXGroup;
 			children = (
+				D007A26E1D48D5D30064505B /* Cell */,
+				D007A2731D48D5D30064505B /* Controller */,
+				D007A2761D48D5D30064505B /* Model */,
 			);
 			path = Question;
 			sourceTree = "<group>";
@@ -1448,6 +1463,35 @@
 			children = (
 				D007A2551D483E8A0064505B /* SASettingViewEngine.h */,
 				D007A2561D483E8A0064505B /* SASettingViewEngine.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D007A26E1D48D5D30064505B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D007A26F1D48D5D30064505B /* SAQuestionCell.h */,
+				D007A2701D48D5D30064505B /* SAQuestionCell.m */,
+				D007A2711D48D5D30064505B /* SAQuestionTableViewCell.h */,
+				D007A2721D48D5D30064505B /* SAQuestionTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D007A2731D48D5D30064505B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2741D48D5D30064505B /* SAQuestionViewController.h */,
+				D007A2751D48D5D30064505B /* SAQuestionViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D007A2761D48D5D30064505B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2771D48D5D30064505B /* SAQuestionViewEngine.h */,
+				D007A2781D48D5D30064505B /* SAQuestionViewEngine.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1698,6 +1742,7 @@
 				7BB831891D477B730044E704 /* SourceHeadView.m in Sources */,
 				7BB8315F1D477B730044E704 /* NSData+ImageContentType.m in Sources */,
 				7BB831451D477B730044E704 /* NSArray+MASAdditions.m in Sources */,
+				D007A27C1D48D5D30064505B /* SAQuestionViewEngine.m in Sources */,
 				7BB8316F1D477B730044E704 /* SACommunityRequest.m in Sources */,
 				D007A2611D483E8A0064505B /* SASettingViewEngine.m in Sources */,
 				7BB8318A1D477B730044E704 /* SourceSubViewController.m in Sources */,
@@ -1705,6 +1750,7 @@
 				D007A2591D483E8A0064505B /* SAMeViewController.m in Sources */,
 				7BB8319B1D477B730044E704 /* SARequestBase.m in Sources */,
 				7BB831951D477B730044E704 /* SAPopularShowView.m in Sources */,
+				D007A2791D48D5D30064505B /* SAQuestionCell.m in Sources */,
 				7BB8313B1D477B730044E704 /* AFSecurityPolicy.m in Sources */,
 				7BB831921D477B730044E704 /* SAPopularClassCell.m in Sources */,
 				7BB831621D477B730044E704 /* SDWebImageDecoder.m in Sources */,
@@ -1737,6 +1783,7 @@
 				7BB831941D477B730044E704 /* SAPopularResourceCell.m in Sources */,
 				7BB8314D1D477B730044E704 /* POPAnimation.mm in Sources */,
 				7BB831431D477B730044E704 /* MASViewAttribute.m in Sources */,
+				D007A27B1D48D5D30064505B /* SAQuestionViewController.m in Sources */,
 				7BB831511D477B730044E704 /* POPAnimationTracer.mm in Sources */,
 				7BB831571D477B730044E704 /* POPGeometry.mm in Sources */,
 				7BB831421D477B730044E704 /* MASLayoutConstraint.m in Sources */,
@@ -1785,6 +1832,7 @@
 				7BB8319F1D477B730044E704 /* SARootViewController.m in Sources */,
 				7BB831521D477B730044E704 /* POPAnimator.mm in Sources */,
 				9E8E8D812BA1C28EE6B38A9D /* SAImageHelper.m in Sources */,
+				D007A27A1D48D5D30064505B /* SAQuestionTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
