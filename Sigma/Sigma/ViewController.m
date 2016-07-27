@@ -2,7 +2,7 @@
 //  ViewController.m
 //  Sigma
 //
-//  Created by Terence on 16/7/18.
+//  Created by 汤轶侬 on 16/7/18.
 //  Copyright © 2016年 Terence. All rights reserved.
 //
 

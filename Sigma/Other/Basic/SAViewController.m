@@ -53,4 +53,36 @@
 -(void)addSearchBarButton {
 
 }
+
+/**
+ *  右上角添加按钮
+ *
+ *  @param title     文字说明
+ *  @param imageName    图片名称
+ */
+- (void)setRightNavigationItemWithTitle:(NSString *)title imageName:(NSString *)imageName
+{
+    if(imageName)
+    {
+        UIImage *rightImage = [UIImage imageNamed:imageName];
+        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [rightButton setImage:rightImage forState:UIControlStateNormal];
+        rightButton.frame = CGRectMake(0, 0, rightImage.size.width, rightImage.size.height);
+        [rightButton addTarget:self action:@selector(rightItemTapped) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+        self.navigationItem.rightBarButtonItem = rightItem;
+        return;
+    }
+    if(title)
+    {
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(rightItemTapped)];
+        self.navigationItem.rightBarButtonItem = rightItem;
+    }
+    
+}
+
+-(void)rightItemTapped{
+    NSLog(@"rightItemTapped clicked");
+}
+
 @end

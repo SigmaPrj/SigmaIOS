@@ -1,18 +1,18 @@
 //
-//  SAMeViewController.m
-//  Sigmaprj
+//  ViewController.m
+//  Sigma
 //
-//  Created by Terence on 16/7/13.
+//  Created by Terence on 16/7/18.
 //  Copyright © 2016年 Terence. All rights reserved.
 //
 
-#import "SAMeViewController.h"
+#import "ViewController.h"
 
-@interface SAMeViewController ()
+@interface ViewController ()
 
 @end
 
-@implementation SAMeViewController
+@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

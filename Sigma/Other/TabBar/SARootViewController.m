@@ -39,7 +39,7 @@
     };
     
     // 标题
-    NSArray* titles = @[@"热门", @"社区", @"资讯", @"我的"];
+    NSArray* titles = @[@"热门", @"动态", @"资讯", @"我的"];
     
     // tabbar 上四个对应的viewController的类名
     NSArray* classNames = @[@"SAPopularViewController", @"SACommunityViewController", @"SAEInfomationViewController", @"SAMeViewController"];

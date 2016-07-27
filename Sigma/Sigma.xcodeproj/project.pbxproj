@@ -640,19 +640,80 @@
 				F05116A00E2A724E56749C552FBB514B /* Sigma */,
 				9459C6E0F92CB3D235AA55F26DAB263A /* SigmaTests */,
 				C12D995B37DBC307751DE075F6984532 /* SigmaUITests */,
+=======
+		7BB830B01D477B730044E704 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830B11D477B730044E704 /* SAViewController.h */,
+				7BB830B21D477B730044E704 /* SAViewController.m */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		7BB830B31D477B730044E704 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830B41D477B730044E704 /* NotificationDefine.h */,
+				7BB830B51D477B730044E704 /* PublicDefine.h */,
+				7BB830B61D477B730044E704 /* VendorDefine.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		7BB830B71D477B730044E704 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830B81D477B730044E704 /* SADateHelper.h */,
+				7BB830B91D477B730044E704 /* SADateHelper.m */,
+				9E8E8274258A577FB3DCED86 /* SAImageHelper.h */,
+				9E8E83B837200441B2EB8F8B /* SAImageHelper.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		7BB830BA1D477B730044E704 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830BB1D477B730044E704 /* SARequestBase.h */,
+				7BB830BC1D477B730044E704 /* SARequestBase.m */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		7BB830BD1D477B730044E704 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830BE1D477B730044E704 /* SANavigationController.h */,
+				7BB830BF1D477B730044E704 /* SANavigationController.m */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		A43001D594A9E227C99414B24A9E812B /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				DF6EE91D0E2AB062C678CE4F6C35F663 /* Sigma.app */,
 				88A9E02D741C80D1099E74F95E327682 /* SigmaTests.xctest */,
 				724872083682EC28104730814DBF4B20 /* SigmaUITests.xctest */,
+=======
+		7BB830C01D477B730044E704 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830C11D477B730044E704 /* SACustomTabBar.h */,
+				7BB830C21D477B730044E704 /* SACustomTabBar.m */,
+				7BB830C31D477B730044E704 /* SAPublishViewController.h */,
+				7BB830C41D477B730044E704 /* SAPublishViewController.m */,
+				7BB830C51D477B730044E704 /* SARootViewController.h */,
+				7BB830C61D477B730044E704 /* SARootViewController.m */,
+				7BB830C71D477B730044E704 /* SATabbarViewController.h */,
+				7BB830C81D477B730044E704 /* SATabbarViewController.m */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		A82BD30A1EBAE37A0A82A354DE61C5CC /* sinaTabbar */ = {
 			isa = PBXGroup;
 			children = (
@@ -774,19 +835,173 @@
 			children = (
 				C08D90CD96491A8217617D34AABF4C9F /* SAPopularViewController.h */,
 				86434FC21F7F2D62860D8FF14A25100B /* SAPopularViewController.m */,
+=======
+		7BB830C91D477B730044E704 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830CA1D477B730044E704 /* Category */,
+				7BB830CD1D477B730044E704 /* SAPublishViewButton.h */,
+				7BB830CE1D477B730044E704 /* SAPublishViewButton.m */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
+		7BB830CA1D477B730044E704 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830CB1D477B730044E704 /* UIView+SAPublishBtnFrame.h */,
+				7BB830CC1D477B730044E704 /* UIView+SAPublishBtnFrame.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		7BB830CF1D477B730044E704 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830D01D477B730044E704 /* ChatHome */,
+				7BB830DD1D477B730044E704 /* LaunchImage */,
+				7BB830DE1D477B730044E704 /* Mine_Icons */,
+				7BB830E51D477B730044E704 /* PublishImg */,
+				7BB831011D477B730044E704 /* sinaTabbar */,
+				7BB8312E1D477B730044E704 /* temp */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		7BB830D01D477B730044E704 /* ChatHome */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830D11D477B730044E704 /* chat_bottom_bg@2x.png */,
+				7BB830D21D477B730044E704 /* chat_bottom_smile_nor@2x.png */,
+				7BB830D31D477B730044E704 /* chat_bottom_smile_press@2x.png */,
+				7BB830D41D477B730044E704 /* chat_bottom_textfield@2x.png */,
+				7BB830D51D477B730044E704 /* chat_bottom_up_nor@2x.png */,
+				7BB830D61D477B730044E704 /* chat_bottom_up_press@2x.png */,
+				7BB830D71D477B730044E704 /* chat_bottom_voice_nor@2x.png */,
+				7BB830D81D477B730044E704 /* chat_bottom_voice_press@2x.png */,
+				7BB830D91D477B730044E704 /* chat_recive_nor@2x.png */,
+				7BB830DA1D477B730044E704 /* chat_recive_press_pic@2x.png */,
+				7BB830DB1D477B730044E704 /* chat_send_nor@2x.png */,
+				7BB830DC1D477B730044E704 /* chat_send_press_pic@2x.png */,
+			);
+			path = ChatHome;
+			sourceTree = "<group>";
+		};
+		7BB830DD1D477B730044E704 /* LaunchImage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LaunchImage;
+			sourceTree = "<group>";
+		};
+<<<<<<< HEAD
 		BADE14780ED584EF20DFBCC4608DA96E /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				394E6E044B7CDD1B8294957D0F489D45 /* PublishImg */,
 				A82BD30A1EBAE37A0A82A354DE61C5CC /* sinaTabbar */,
+=======
+		7BB830DE1D477B730044E704 /* Mine_Icons */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830DF1D477B730044E704 /* Head_Img_Of_HeaderView.png */,
+				7BB830E01D477B730044E704 /* Head_Img_Of_HeaderView@2x.png */,
+				7BB830E11D477B730044E704 /* Head_Img_Of_HeaderView@3x.png */,
+				7BB830E21D477B730044E704 /* Mine_Settings_Gray.png */,
+				7BB830E31D477B730044E704 /* Mine_Settings_Gray@2x.png */,
+				7BB830E41D477B730044E704 /* Mine_Settings_Gray@3x.png */,
+			);
+			path = Mine_Icons;
+			sourceTree = "<group>";
+		};
+		7BB830E51D477B730044E704 /* PublishImg */ = {
+			isa = PBXGroup;
+			children = (
+				7BB830E61D477B730044E704 /* camera_video_download@2x.png */,
+				7BB830E71D477B730044E704 /* camera_video_download@3x.png */,
+				7BB830E81D477B730044E704 /* messagescenter_good@2x.png */,
+				7BB830E91D477B730044E704 /* messagescenter_good@3x.png */,
+				7BB830EA1D477B730044E704 /* tabbar_compose_book@2x.png */,
+				7BB830EB1D477B730044E704 /* tabbar_compose_camera@2x.png */,
+				7BB830EC1D477B730044E704 /* tabbar_compose_camera@3x.png */,
+				7BB830ED1D477B730044E704 /* tabbar_compose_friend@2x.png */,
+				7BB830EE1D477B730044E704 /* tabbar_compose_friend@3x.png */,
+				7BB830EF1D477B730044E704 /* tabbar_compose_headlines@2x.png */,
+				7BB830F01D477B730044E704 /* tabbar_compose_headlines@3x.png */,
+				7BB830F11D477B730044E704 /* tabbar_compose_idea@2x.png */,
+				7BB830F21D477B730044E704 /* tabbar_compose_idea@3x.png */,
+				7BB830F31D477B730044E704 /* tabbar_compose_lbs@2x.png */,
+				7BB830F41D477B730044E704 /* tabbar_compose_lbs@3x.png */,
+				7BB830F51D477B730044E704 /* tabbar_compose_music@2x.png */,
+				7BB830F61D477B730044E704 /* tabbar_compose_music@3x.png */,
+				7BB830F71D477B730044E704 /* tabbar_compose_photo@2x.png */,
+				7BB830F81D477B730044E704 /* tabbar_compose_photo@3x.png */,
+				7BB830F91D477B730044E704 /* tabbar_compose_productrelease@2x.png */,
+				7BB830FA1D477B730044E704 /* tabbar_compose_productrelease@3x.png */,
+				7BB830FB1D477B730044E704 /* tabbar_compose_review@2x.png */,
+				7BB830FC1D477B730044E704 /* tabbar_compose_review@3x.png */,
+				7BB830FD1D477B730044E704 /* tabbar_compose_voice@2x.png */,
+				7BB830FE1D477B730044E704 /* tabbar_compose_voice@3x.png */,
+				7BB830FF1D477B730044E704 /* tabbar_compose_weibo@2x.png */,
+				7BB831001D477B730044E704 /* tabbar_compose_weibo@3x.png */,
+			);
+			path = PublishImg;
+			sourceTree = "<group>";
+		};
+		7BB831011D477B730044E704 /* sinaTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				7BB831021D477B730044E704 /* avata.jpg */,
+				7BB831031D477B730044E704 /* bg.jpg */,
+				7BB831041D477B730044E704 /* bg.png */,
+				7BB831051D477B730044E704 /* bg1.jpg */,
+				7BB831061D477B730044E704 /* bg3.jpg */,
+				7BB831071D477B730044E704 /* bg4.jpg */,
+				7BB831081D477B730044E704 /* camera_close_highlighted@2x.png */,
+				7BB831091D477B730044E704 /* camera_close_highlighted@3x.png */,
+				7BB8310A1D477B730044E704 /* circle.jpg */,
+				7BB8310B1D477B730044E704 /* Default-568h@2x 下午2.26.24.png */,
+				7BB8310C1D477B730044E704 /* discovery1.jpg */,
+				7BB8310D1D477B730044E704 /* discovery2.jpg */,
+				7BB8310E1D477B730044E704 /* discovery3.jpg */,
+				7BB8310F1D477B730044E704 /* icon-update-tips-black@2x.png */,
+				7BB831101D477B730044E704 /* icon-update-tips-black@3x.png */,
+				7BB831111D477B730044E704 /* morebtn.jpg */,
+				7BB831121D477B730044E704 /* popular1.png */,
+				7BB831131D477B730044E704 /* popular2.png */,
+				7BB831141D477B730044E704 /* popular3.png */,
+				7BB831151D477B730044E704 /* popular4.png */,
+				7BB831161D477B730044E704 /* popular5.png */,
+				7BB831171D477B730044E704 /* tabbar_compose_icon_add@2x.png */,
+				7BB831181D477B730044E704 /* tabbar_compose_icon_add@3x.png */,
+				7BB831191D477B730044E704 /* tabbar_discover@2x.png */,
+				7BB8311A1D477B730044E704 /* tabbar_discover@3x.png */,
+				7BB8311B1D477B730044E704 /* tabbar_discover_highlighted@2x.png */,
+				7BB8311C1D477B730044E704 /* tabbar_discover_highlighted@3x.png */,
+				7BB8311D1D477B730044E704 /* tabbar_home@2x.png */,
+				7BB8311E1D477B730044E704 /* tabbar_home@3x.png */,
+				7BB8311F1D477B730044E704 /* tabbar_home_highlighted@2x.png */,
+				7BB831201D477B730044E704 /* tabbar_home_highlighted@3x.png */,
+				7BB831211D477B730044E704 /* tabbar_home_selected@2x.png */,
+				7BB831221D477B730044E704 /* tabbar_home_selected@3x.png */,
+				7BB831231D477B730044E704 /* tabbar_profile@2x.png */,
+				7BB831241D477B730044E704 /* tabbar_profile@3x.png */,
+				7BB831251D477B730044E704 /* tabbar_profile_highlighted@2x.png */,
+				7BB831261D477B730044E704 /* tabbar_profile_highlighted@3x.png */,
+				7BB831271D477B730044E704 /* tabbar_profile_selected@2x.png */,
+				7BB831281D477B730044E704 /* tabbar_profile_selected@3x.png */,
+				7BB831291D477B730044E704 /* talks1.png */,
+				7BB8312A1D477B730044E704 /* toolbar_compose@2x.png */,
+				7BB8312B1D477B730044E704 /* toolbar_compose@3x.png */,
+				7BB8312C1D477B730044E704 /* toolbar_compose_highlighted@2x.png */,
+				7BB8312D1D477B730044E704 /* toolbar_compose_highlighted@3x.png */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 			path = Resource;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		C12D995B37DBC307751DE075F6984532 /* SigmaUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -870,10 +1085,37 @@
 				FDB129A7AC742A35395E65270C1B79A3 /* View+MASShorthandAdditions.h */,
 				C7829CD1DFEB21F0894F021C919BC48E /* ViewController+MASAdditions.h */,
 				2955CD4C7DB11242994425E89D3AE728 /* ViewController+MASAdditions.m */,
+=======
+		7BB8312E1D477B730044E704 /* temp */ = {
+			isa = PBXGroup;
+			children = (
+				7BB8312F1D477B730044E704 /* Community */,
 			);
-			path = Masonry;
+			path = temp;
 			sourceTree = "<group>";
 		};
+		7BB8312F1D477B730044E704 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				7BB831301D477B730044E704 /* Home */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		7BB831301D477B730044E704 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7BB831311D477B730044E704 /* ios7-compose-outline.png */,
+				7BB831321D477B730044E704 /* ios7-compose.png */,
+				7BB831331D477B730044E704 /* ios7-contact-outline.png */,
+				7BB831341D477B730044E704 /* ios7-undo-outline.png */,
+				7BB831351D477B730044E704 /* ios7-undo.png */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+<<<<<<< HEAD
 		E7E5A30672D3A1B408F68401F7898216 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -942,11 +1184,119 @@
 				4940553ABB0167D3DEDFA462A9A113AC /* TextEnhance.m */,
 			);
 			path = Cells;
+=======
+		D007A2361D483E8A0064505B /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2371D483E8A0064505B /* Cell */,
+				D007A23C1D483E8A0064505B /* Controller */,
+				D007A2421D483E8A0064505B /* Model */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		D007A2371D483E8A0064505B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2381D483E8A0064505B /* SAMineCell.h */,
+				D007A2391D483E8A0064505B /* SAMineCell.m */,
+				D007A23A1D483E8A0064505B /* SAMineTableViewCell.h */,
+				D007A23B1D483E8A0064505B /* SAMineTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D007A23C1D483E8A0064505B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D007A23D1D483E8A0064505B /* SAMeViewController.h */,
+				D007A23E1D483E8A0064505B /* SAMeViewController.m */,
+				D007A23F1D483E8A0064505B /* SubController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D007A23F1D483E8A0064505B /* SubController */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2401D483E8A0064505B /* SAMineSubViewController.h */,
+				D007A2411D483E8A0064505B /* SAMineSubViewController.m */,
+			);
+			path = SubController;
+			sourceTree = "<group>";
+		};
+		D007A2421D483E8A0064505B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2431D483E8A0064505B /* SAMineViewEngine.h */,
+				D007A2441D483E8A0064505B /* SAMineViewEngine.m */,
+				D007A2451D483E8A0064505B /* SAUser.h */,
+				D007A2461D483E8A0064505B /* SAUser.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D007A2471D483E8A0064505B /* Question */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		D007A2481D483E8A0064505B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2491D483E8A0064505B /* Cell */,
+				D007A24E1D483E8A0064505B /* Controller */,
+				D007A2541D483E8A0064505B /* Model */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		D007A2491D483E8A0064505B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D007A24A1D483E8A0064505B /* SASettingCell.h */,
+				D007A24B1D483E8A0064505B /* SASettingCell.m */,
+				D007A24C1D483E8A0064505B /* SASettingTableViewCell.h */,
+				D007A24D1D483E8A0064505B /* SASettingTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D007A24E1D483E8A0064505B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D007A24F1D483E8A0064505B /* SASettingViewController.h */,
+				D007A2501D483E8A0064505B /* SASettingViewController.m */,
+				D007A2511D483E8A0064505B /* SubController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D007A2511D483E8A0064505B /* SubController */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2521D483E8A0064505B /* SASettingAboutViewController.h */,
+				D007A2531D483E8A0064505B /* SASettingAboutViewController.m */,
+			);
+			path = SubController;
+			sourceTree = "<group>";
+		};
+		D007A2541D483E8A0064505B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2551D483E8A0064505B /* SASettingViewEngine.h */,
+				D007A2561D483E8A0064505B /* SASettingViewEngine.m */,
+			);
+			path = Model;
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+<<<<<<< HEAD
 		4BFC682771E8BFF46FCFD6C161984309 /* SigmaUITests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C0EC6CBF25E01E61452C5BE4AA40A64 /* Build configuration list for PBXNativeTarget "SigmaUITests" */;
@@ -954,12 +1304,22 @@
 				DC2BFEF49EDFD634A04769CBEDBB19BC /* Sources */,
 				DF44AB89434178570947CD8B25EC6EC9 /* Frameworks */,
 				47547E506757FF402A7FA599BC57C6EA /* Resources */,
+=======
+		7BB82F851D477B3F0044E704 /* Sigma */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BB82FB31D477B3F0044E704 /* Build configuration list for PBXNativeTarget "Sigma" */;
+			buildPhases = (
+				7BB82F821D477B3F0044E704 /* Sources */,
+				7BB82F831D477B3F0044E704 /* Frameworks */,
+				7BB82F841D477B3F0044E704 /* Resources */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 			buildRules = (
 			);
 			dependencies = (
 				2E9129B9DDE281A10E7D952759DD0E0F /* PBXTargetDependency */,
 			);
+<<<<<<< HEAD
 			name = SigmaUITests;
 			productName = SigmaUITests;
 			productReference = 724872083682EC28104730814DBF4B20 /* SigmaUITests.xctest */;
@@ -972,10 +1332,25 @@
 				9E56F4DCF51DE3CC69D20DF06660C0FF /* Sources */,
 				CD15B65CB554DF3B8D2F6A07ED741869 /* Frameworks */,
 				15282CCC3530351C534585191E6EB811 /* Resources */,
+=======
+			name = Sigma;
+			productName = Sigma;
+			productReference = 7BB82F861D477B3F0044E704 /* Sigma.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7BB82F9E1D477B3F0044E704 /* SigmaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BB82FB61D477B3F0044E704 /* Build configuration list for PBXNativeTarget "SigmaTests" */;
+			buildPhases = (
+				7BB82F9B1D477B3F0044E704 /* Sources */,
+				7BB82F9C1D477B3F0044E704 /* Frameworks */,
+				7BB82F9D1D477B3F0044E704 /* Resources */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 			buildRules = (
 			);
 			dependencies = (
+<<<<<<< HEAD
 			);
 			name = Sigma;
 			productName = Sigma;
@@ -989,30 +1364,64 @@
 				D1E9EF8AC6264D0F8A383D861699DCD5 /* Sources */,
 				D7986CA22CCA6B87BC585822FC8EDA76 /* Frameworks */,
 				9067B995B81E7297EC7E678BA0E48E19 /* Resources */,
+=======
+				7BB82FA11D477B3F0044E704 /* PBXTargetDependency */,
+			);
+			name = SigmaTests;
+			productName = SigmaTests;
+			productReference = 7BB82F9F1D477B3F0044E704 /* SigmaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7BB82FA91D477B3F0044E704 /* SigmaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BB82FB91D477B3F0044E704 /* Build configuration list for PBXNativeTarget "SigmaUITests" */;
+			buildPhases = (
+				7BB82FA61D477B3F0044E704 /* Sources */,
+				7BB82FA71D477B3F0044E704 /* Frameworks */,
+				7BB82FA81D477B3F0044E704 /* Resources */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 			buildRules = (
 			);
 			dependencies = (
+<<<<<<< HEAD
 				984937D70B78C6FEB60B00231D752559 /* PBXTargetDependency */,
 			);
 			name = SigmaTests;
 			productName = SigmaTests;
 			productReference = 88A9E02D741C80D1099E74F95E327682 /* SigmaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+=======
+				7BB82FAC1D477B3F0044E704 /* PBXTargetDependency */,
+			);
+			name = SigmaUITests;
+			productName = SigmaUITests;
+			productReference = 7BB82FAA1D477B3F0044E704 /* SigmaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
+<<<<<<< HEAD
 		F8778D29259034CD4DC65B930F1BBA85 /* Project object */ = {
+=======
+		7BB82F7E1D477B3F0044E704 /* Project object */ = {
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = Terence;
+				ORGANIZATIONNAME = blackcater;
 				TargetAttributes = {
+<<<<<<< HEAD
 					4BFC682771E8BFF46FCFD6C161984309 = {
+=======
+					7BB82F851D477B3F0044E704 = {
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 						CreatedOnToolsVersion = 7.3.1;
 						TestTargetID = 7B33081A28DF44796D46A43C816C487C;
 					};
+<<<<<<< HEAD
 					7B33081A28DF44796D46A43C816C487C = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
@@ -1023,6 +1432,19 @@
 				};
 			};
 			buildConfigurationList = CDFBC4C3B7B4635CE54E4F133A7B9704 /* Build configuration list for PBXProject "Sigma" */;
+=======
+					7BB82F9E1D477B3F0044E704 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 7BB82F851D477B3F0044E704;
+					};
+					7BB82FA91D477B3F0044E704 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 7BB82F851D477B3F0044E704;
+					};
+				};
+			};
+			buildConfigurationList = 7BB82F811D477B3F0044E704 /* Build configuration list for PBXProject "Sigma" */;
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1030,6 +1452,7 @@
 				en,
 				Base,
 			);
+<<<<<<< HEAD
 			mainGroup = 9972C8D85BE50B37B0C76431A01F83CE;
 			productRefGroup = A43001D594A9E227C99414B24A9E812B /* Products */;
 			projectDirPath = "";
@@ -1038,11 +1461,22 @@
 				7B33081A28DF44796D46A43C816C487C /* Sigma */,
 				B3190FB272B073A25322D9B342B4DF03 /* SigmaTests */,
 				4BFC682771E8BFF46FCFD6C161984309 /* SigmaUITests */,
+=======
+			mainGroup = 7BB82F7D1D477B3F0044E704;
+			productRefGroup = 7BB82F871D477B3F0044E704 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7BB82F851D477B3F0044E704 /* Sigma */,
+				7BB82F9E1D477B3F0044E704 /* SigmaTests */,
+				7BB82FA91D477B3F0044E704 /* SigmaUITests */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+<<<<<<< HEAD
 		15282CCC3530351C534585191E6EB811 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1098,13 +1532,130 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		47547E506757FF402A7FA599BC57C6EA /* Resources */ = {
+=======
+		7BB82F841D477B3F0044E704 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BB831FC1D477B730044E704 /* ios7-compose-outline.png in Resources */,
+				7BB831D41D477B730044E704 /* bg3.jpg in Resources */,
+				7BB831C81D477B730044E704 /* tabbar_compose_productrelease@2x.png in Resources */,
+				7BB831CC1D477B730044E704 /* tabbar_compose_voice@2x.png in Resources */,
+				7BB831B41D477B730044E704 /* Mine_Settings_Gray@3x.png in Resources */,
+				7BB831B11D477B730044E704 /* Head_Img_Of_HeaderView@3x.png in Resources */,
+				7BB831B91D477B730044E704 /* tabbar_compose_book@2x.png in Resources */,
+				7BB831DA1D477B730044E704 /* discovery1.jpg in Resources */,
+				7BB831F51D477B730044E704 /* tabbar_profile_selected@2x.png in Resources */,
+				7BB831D91D477B730044E704 /* Default-568h@2x 下午2.26.24.png in Resources */,
+				7BB831AD1D477B730044E704 /* chat_send_nor@2x.png in Resources */,
+				7BB832001D477B730044E704 /* ios7-undo.png in Resources */,
+				7B2601631D47921500318CC8 /* Launch Screen.storyboard in Resources */,
+				7BB831E81D477B730044E704 /* tabbar_discover@3x.png in Resources */,
+				7BB831A91D477B730044E704 /* chat_bottom_voice_nor@2x.png in Resources */,
+				7BB831D01D477B730044E704 /* avata.jpg in Resources */,
+				7BB831E61D477B730044E704 /* tabbar_compose_icon_add@3x.png in Resources */,
+				7BB831F41D477B730044E704 /* tabbar_profile_highlighted@3x.png in Resources */,
+				7BB831FE1D477B730044E704 /* ios7-contact-outline.png in Resources */,
+				7BB831D71D477B730044E704 /* camera_close_highlighted@3x.png in Resources */,
+				7BB831F01D477B730044E704 /* tabbar_home_selected@3x.png in Resources */,
+				7BB831A51D477B730044E704 /* chat_bottom_smile_press@2x.png in Resources */,
+				7BB831FB1D477B730044E704 /* toolbar_compose_highlighted@3x.png in Resources */,
+				7BB831A31D477B730044E704 /* chat_bottom_bg@2x.png in Resources */,
+				7BB831B71D477B730044E704 /* messagescenter_good@2x.png in Resources */,
+				7BB831DB1D477B730044E704 /* discovery2.jpg in Resources */,
+				7BB831BE1D477B730044E704 /* tabbar_compose_headlines@2x.png in Resources */,
+				7BB831D31D477B730044E704 /* bg1.jpg in Resources */,
+				7BB831AC1D477B730044E704 /* chat_recive_press_pic@2x.png in Resources */,
+				7BB831AE1D477B730044E704 /* chat_send_press_pic@2x.png in Resources */,
+				7BB831E11D477B730044E704 /* popular2.png in Resources */,
+				7BB831DE1D477B730044E704 /* icon-update-tips-black@3x.png in Resources */,
+				7BB831D21D477B730044E704 /* bg.png in Resources */,
+				7BB831C71D477B730044E704 /* tabbar_compose_photo@3x.png in Resources */,
+				7BB831F21D477B730044E704 /* tabbar_profile@3x.png in Resources */,
+				7BB831C11D477B730044E704 /* tabbar_compose_idea@3x.png in Resources */,
+				7BB831C41D477B730044E704 /* tabbar_compose_music@2x.png in Resources */,
+				7BB831BD1D477B730044E704 /* tabbar_compose_friend@3x.png in Resources */,
+				7BB831F11D477B730044E704 /* tabbar_profile@2x.png in Resources */,
+				7BB831B61D477B730044E704 /* camera_video_download@3x.png in Resources */,
+				7BB831F61D477B730044E704 /* tabbar_profile_selected@3x.png in Resources */,
+				7BB831EA1D477B730044E704 /* tabbar_discover_highlighted@3x.png in Resources */,
+				7BB8314B1D477B730044E704 /* pop-tvos-Info.plist in Resources */,
+				7BB831E21D477B730044E704 /* popular3.png in Resources */,
+				7BB831491D477B730044E704 /* pop-ios-Info.plist in Resources */,
+				7BB831EF1D477B730044E704 /* tabbar_home_selected@2x.png in Resources */,
+				7BB831CA1D477B730044E704 /* tabbar_compose_review@2x.png in Resources */,
+				7BB831E51D477B730044E704 /* tabbar_compose_icon_add@2x.png in Resources */,
+				7BB831E31D477B730044E704 /* popular4.png in Resources */,
+				7BB831BB1D477B730044E704 /* tabbar_compose_camera@3x.png in Resources */,
+				7BB831C91D477B730044E704 /* tabbar_compose_productrelease@3x.png in Resources */,
+				7BB831CD1D477B730044E704 /* tabbar_compose_voice@3x.png in Resources */,
+				7BB831BC1D477B730044E704 /* tabbar_compose_friend@2x.png in Resources */,
+				7BB831C31D477B730044E704 /* tabbar_compose_lbs@3x.png in Resources */,
+				7BB831F31D477B730044E704 /* tabbar_profile_highlighted@2x.png in Resources */,
+				7BB831DF1D477B730044E704 /* morebtn.jpg in Resources */,
+				7BB831FF1D477B730044E704 /* ios7-undo-outline.png in Resources */,
+				7BB831D61D477B730044E704 /* camera_close_highlighted@2x.png in Resources */,
+				7B2601611D47920200318CC8 /* Main.storyboard in Resources */,
+				7BB831BA1D477B730044E704 /* tabbar_compose_camera@2x.png in Resources */,
+				7BB831AF1D477B730044E704 /* Head_Img_Of_HeaderView.png in Resources */,
+				7BB831CE1D477B730044E704 /* tabbar_compose_weibo@2x.png in Resources */,
+				7BB831A41D477B730044E704 /* chat_bottom_smile_nor@2x.png in Resources */,
+				7BB831E71D477B730044E704 /* tabbar_discover@2x.png in Resources */,
+				7BB831A71D477B730044E704 /* chat_bottom_up_nor@2x.png in Resources */,
+				7BB831B81D477B730044E704 /* messagescenter_good@3x.png in Resources */,
+				7BB831CF1D477B730044E704 /* tabbar_compose_weibo@3x.png in Resources */,
+				7BB831EE1D477B730044E704 /* tabbar_home_highlighted@3x.png in Resources */,
+				7BB831CB1D477B730044E704 /* tabbar_compose_review@3x.png in Resources */,
+				7BB831EC1D477B730044E704 /* tabbar_home@3x.png in Resources */,
+				7BB831ED1D477B730044E704 /* tabbar_home_highlighted@2x.png in Resources */,
+				7BB82F961D477B3F0044E704 /* Assets.xcassets in Resources */,
+				7BB831C61D477B730044E704 /* tabbar_compose_photo@2x.png in Resources */,
+				7BB831B51D477B730044E704 /* camera_video_download@2x.png in Resources */,
+				7BB831A61D477B730044E704 /* chat_bottom_textfield@2x.png in Resources */,
+				7BB831AB1D477B730044E704 /* chat_recive_nor@2x.png in Resources */,
+				7BB831C51D477B730044E704 /* tabbar_compose_music@3x.png in Resources */,
+				7BB8318B1D477B730044E704 /* SourceSubViewController.xib in Resources */,
+				7BB8318F1D477B730044E704 /* leftBottomLabelImage1@2x.png in Resources */,
+				7BB831C21D477B730044E704 /* tabbar_compose_lbs@2x.png in Resources */,
+				7BB831901D477B730044E704 /* rightButtonOfSource@2x.png in Resources */,
+				7BB831D11D477B730044E704 /* bg.jpg in Resources */,
+				7BB831B31D477B730044E704 /* Mine_Settings_Gray@2x.png in Resources */,
+				7BB831D81D477B730044E704 /* circle.jpg in Resources */,
+				7BB831D51D477B730044E704 /* bg4.jpg in Resources */,
+				7BB831DD1D477B730044E704 /* icon-update-tips-black@2x.png in Resources */,
+				7BB831B21D477B730044E704 /* Mine_Settings_Gray.png in Resources */,
+				7BB831BF1D477B730044E704 /* tabbar_compose_headlines@3x.png in Resources */,
+				7BB831B01D477B730044E704 /* Head_Img_Of_HeaderView@2x.png in Resources */,
+				7BB831F81D477B730044E704 /* toolbar_compose@2x.png in Resources */,
+				7BB831E41D477B730044E704 /* popular5.png in Resources */,
+				7BB831FD1D477B730044E704 /* ios7-compose.png in Resources */,
+				7BB8314A1D477B730044E704 /* pop-osx-Info.plist in Resources */,
+				7BB831A81D477B730044E704 /* chat_bottom_up_press@2x.png in Resources */,
+				7BB831AA1D477B730044E704 /* chat_bottom_voice_press@2x.png in Resources */,
+				7BB831EB1D477B730044E704 /* tabbar_home@2x.png in Resources */,
+				7BB831FA1D477B730044E704 /* toolbar_compose_highlighted@2x.png in Resources */,
+				7BB831C01D477B730044E704 /* tabbar_compose_idea@2x.png in Resources */,
+				7BB831E91D477B730044E704 /* tabbar_discover_highlighted@2x.png in Resources */,
+				7BB831F91D477B730044E704 /* toolbar_compose@3x.png in Resources */,
+				7BB831F71D477B730044E704 /* talks1.png in Resources */,
+				7BB831DC1D477B730044E704 /* discovery3.jpg in Resources */,
+				7BB831E01D477B730044E704 /* popular1.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BB82F9D1D477B3F0044E704 /* Resources */ = {
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+<<<<<<< HEAD
 		9067B995B81E7297EC7E678BA0E48E19 /* Resources */ = {
+=======
+		7BB82FA81D477B3F0044E704 /* Resources */ = {
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1114,6 +1665,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+<<<<<<< HEAD
 		9E56F4DCF51DE3CC69D20DF06660C0FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1212,12 +1764,138 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A88AD6EA27E2864E406B32C42338834 /* SigmaUITests.m in Sources */,
+=======
+		7BB82F821D477B3F0044E704 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BB831691D477B730044E704 /* UIImage+MultiFormat.m in Sources */,
+				7BB8318C1D477B730044E704 /* SAPopularModel.m in Sources */,
+				7BB8319D1D477B730044E704 /* SACustomTabBar.m in Sources */,
+				7BB831631D477B730044E704 /* SDWebImageDownloader.m in Sources */,
+				7BB8316A1D477B730044E704 /* UIImage+WebP.m in Sources */,
+				7BB831911D477B730044E704 /* SAPopularCell.m in Sources */,
+				7BB8314E1D477B730044E704 /* POPAnimationEvent.mm in Sources */,
+				7BB831581D477B730044E704 /* POPLayerExtras.mm in Sources */,
+				7BB8318D1D477B730044E704 /* SourceEngineInterface.m in Sources */,
+				7BB831981D477B730044E704 /* SAPopularTableView.m in Sources */,
+				7BB8315A1D477B730044E704 /* POPPropertyAnimation.mm in Sources */,
+				7BB831931D477B730044E704 /* SAPopularEventCell.m in Sources */,
+				7BB831781D477B730044E704 /* SAEInformationModel.m in Sources */,
+				7BB831891D477B730044E704 /* SourceHeadView.m in Sources */,
+				7BB8315F1D477B730044E704 /* NSData+ImageContentType.m in Sources */,
+				7BB831451D477B730044E704 /* NSArray+MASAdditions.m in Sources */,
+				7BB8316F1D477B730044E704 /* SACommunityRequest.m in Sources */,
+				D007A2611D483E8A0064505B /* SASettingViewEngine.m in Sources */,
+				7BB8318A1D477B730044E704 /* SourceSubViewController.m in Sources */,
+				7BB831641D477B730044E704 /* SDWebImageDownloaderOperation.m in Sources */,
+				D007A2591D483E8A0064505B /* SAMeViewController.m in Sources */,
+				7BB8319B1D477B730044E704 /* SARequestBase.m in Sources */,
+				7BB831951D477B730044E704 /* SAPopularShowView.m in Sources */,
+				7BB8313B1D477B730044E704 /* AFSecurityPolicy.m in Sources */,
+				7BB831921D477B730044E704 /* SAPopularClassCell.m in Sources */,
+				7BB831621D477B730044E704 /* SDWebImageDecoder.m in Sources */,
+				7BB831461D477B730044E704 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				D007A25A1D483E8A0064505B /* SAMineSubViewController.m in Sources */,
+				D007A2601D483E8A0064505B /* SASettingAboutViewController.m in Sources */,
+				7BB8319C1D477B730044E704 /* SANavigationController.m in Sources */,
+				7BB8317A1D477B730044E704 /* SAEInformationTableView.m in Sources */,
+				7BB831531D477B730044E704 /* POPBasicAnimation.mm in Sources */,
+				7BB831551D477B730044E704 /* POPCustomAnimation.mm in Sources */,
+				7BB8315E1D477B730044E704 /* MKAnnotationView+WebCache.m in Sources */,
+				7BB8316B1D477B730044E704 /* UIImageView+HighlightedWebCache.m in Sources */,
+				7BB831A21D477B730044E704 /* SAPublishViewButton.m in Sources */,
+				7BB8315B1D477B730044E704 /* POPSpringAnimation.mm in Sources */,
+				7BB831871D477B730044E704 /* SourceHeadCollectionViewCell.m in Sources */,
+				D007A25E1D483E8A0064505B /* SASettingTableViewCell.m in Sources */,
+				D007A2581D483E8A0064505B /* SAMineTableViewCell.m in Sources */,
+				7BB831671D477B730044E704 /* UIButton+WebCache.m in Sources */,
+				7BB831721D477B730044E704 /* SADynamicModel.m in Sources */,
+				7BB831561D477B730044E704 /* POPDecayAnimation.mm in Sources */,
+				7BB831961D477B730044E704 /* TextEnhance.m in Sources */,
+				7BB831701D477B730044E704 /* SACommunityUserModel.m in Sources */,
+				7BB8316C1D477B730044E704 /* UIImageView+WebCache.m in Sources */,
+				7BB831711D477B730044E704 /* SADynamicFrameModel.m in Sources */,
+				D007A25F1D483E8A0064505B /* SASettingViewController.m in Sources */,
+				7BB831A11D477B730044E704 /* UIView+SAPublishBtnFrame.m in Sources */,
+				7BB831971D477B730044E704 /* SAPopularHeaderView.m in Sources */,
+				7BB831751D477B730044E704 /* SACommunityTableHeaderView.m in Sources */,
+				D007A25B1D483E8A0064505B /* SAMineViewEngine.m in Sources */,
+				7BB831941D477B730044E704 /* SAPopularResourceCell.m in Sources */,
+				7BB8314D1D477B730044E704 /* POPAnimation.mm in Sources */,
+				7BB831431D477B730044E704 /* MASViewAttribute.m in Sources */,
+				7BB831511D477B730044E704 /* POPAnimationTracer.mm in Sources */,
+				7BB831571D477B730044E704 /* POPGeometry.mm in Sources */,
+				7BB831421D477B730044E704 /* MASLayoutConstraint.m in Sources */,
+				7BB8313F1D477B730044E704 /* MASCompositeConstraint.m in Sources */,
+				7BB8313D1D477B730044E704 /* AFURLResponseSerialization.m in Sources */,
+				7BB82F911D477B3F0044E704 /* ViewController.m in Sources */,
+				7BB831591D477B730044E704 /* POPMath.mm in Sources */,
+				7BB831881D477B730044E704 /* SourceTableViewCell.m in Sources */,
+				7BB831441D477B730044E704 /* MASViewConstraint.m in Sources */,
+				7BB82F8E1D477B3F0044E704 /* AppDelegate.m in Sources */,
+				7BB831A01D477B730044E704 /* SATabbarViewController.m in Sources */,
+				7BB831501D477B730044E704 /* POPAnimationRuntime.mm in Sources */,
+				7BB8319E1D477B730044E704 /* SAPublishViewController.m in Sources */,
+				7BB8314F1D477B730044E704 /* POPAnimationExtras.mm in Sources */,
+				7BB8315C1D477B730044E704 /* POPVector.mm in Sources */,
+				7BB831681D477B730044E704 /* UIImage+GIF.m in Sources */,
+				7BB831761D477B730044E704 /* SACommunityTableView.m in Sources */,
+				7BB831791D477B730044E704 /* SAEInformationCell.m in Sources */,
+				7BB8319A1D477B730044E704 /* SADateHelper.m in Sources */,
+				D007A25C1D483E8A0064505B /* SAUser.m in Sources */,
+				7BB831541D477B730044E704 /* POPCGUtils.mm in Sources */,
+				7BB831741D477B730044E704 /* SADynamicTableViewCell.m in Sources */,
+				7BB831651D477B730044E704 /* SDWebImageManager.m in Sources */,
+				7BB831391D477B730044E704 /* AFHTTPSessionManager.m in Sources */,
+				7BB831991D477B730044E704 /* SAViewController.m in Sources */,
+				7BB8315D1D477B730044E704 /* TransformationMatrix.cpp in Sources */,
+				7BB8314C1D477B730044E704 /* POPAnimatableProperty.mm in Sources */,
+				7BB831611D477B730044E704 /* SDWebImageCompat.m in Sources */,
+				7BB831771D477B730044E704 /* SAEInfomationViewController.m in Sources */,
+				7BB8313C1D477B730044E704 /* AFURLRequestSerialization.m in Sources */,
+				7BB8313E1D477B730044E704 /* AFURLSessionManager.m in Sources */,
+				7BB831481D477B730044E704 /* ViewController+MASAdditions.m in Sources */,
+				7BB831411D477B730044E704 /* MASConstraintMaker.m in Sources */,
+				D007A2571D483E8A0064505B /* SAMineCell.m in Sources */,
+				7BB8313A1D477B730044E704 /* AFNetworkReachabilityManager.m in Sources */,
+				7BB831661D477B730044E704 /* SDWebImagePrefetcher.m in Sources */,
+				7BB831401D477B730044E704 /* MASConstraint.m in Sources */,
+				7BB82F8B1D477B3F0044E704 /* main.m in Sources */,
+				7BB8316D1D477B730044E704 /* UIView+WebCacheOperation.m in Sources */,
+				7BB831861D477B730044E704 /* SAPopularViewController.m in Sources */,
+				7BB8316E1D477B730044E704 /* SACommunityViewController.m in Sources */,
+				D007A25D1D483E8A0064505B /* SASettingCell.m in Sources */,
+				7BB8318E1D477B730044E704 /* SourceInfo.m in Sources */,
+				7BB831601D477B730044E704 /* SDImageCache.m in Sources */,
+				7BB831471D477B730044E704 /* View+MASAdditions.m in Sources */,
+				7BB8319F1D477B730044E704 /* SARootViewController.m in Sources */,
+				7BB831521D477B730044E704 /* POPAnimator.mm in Sources */,
+				9E8E8D812BA1C28EE6B38A9D /* SAImageHelper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BB82F9B1D477B3F0044E704 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BB82FA41D477B3F0044E704 /* SigmaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BB82FA61D477B3F0044E704 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BB82FAF1D477B3F0044E704 /* SigmaUITests.m in Sources */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+<<<<<<< HEAD
 		2E9129B9DDE281A10E7D952759DD0E0F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7B33081A28DF44796D46A43C816C487C /* Sigma */;
@@ -1260,6 +1938,22 @@
 			name = Release;
 		};
 		23FDFAB61B25B10925717A8FF926D14D /* Release */ = {
+=======
+		7BB82FA11D477B3F0044E704 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BB82F851D477B3F0044E704 /* Sigma */;
+			targetProxy = 7BB82FA01D477B3F0044E704 /* PBXContainerItemProxy */;
+		};
+		7BB82FAC1D477B3F0044E704 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BB82F851D477B3F0044E704 /* Sigma */;
+			targetProxy = 7BB82FAB1D477B3F0044E704 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7BB82FB11D477B3F0044E704 /* Debug */ = {
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1297,7 +1991,11 @@
 			};
 			name = Release;
 		};
+<<<<<<< HEAD
 		2BDD7D105FA7FFE15A7EF3BA91440DAA /* Debug */ = {
+=======
+		7BB82FB21D477B3F0044E704 /* Release */ = {
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1341,64 +2039,108 @@
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		6D4DAE235F1B7C91F9F4D97C37BFAB74 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = SigmaUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ter.SigmaUITests;
+=======
+		7BB82FB41D477B3F0044E704 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Sigma/SAPrefix.pch;
+				INFOPLIST_FILE = Sigma/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = win.blackcater.Sigma;
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = Sigma;
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		77870C0E6BC012448F25151E93708828 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+=======
+		7BB82FB51D477B3F0044E704 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sigma/SAPrefix.pch;
 				INFOPLIST_FILE = Sigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.sigma;
+				PRODUCT_BUNDLE_IDENTIFIER = win.blackcater.Sigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		BA14409A2E0555940DEBE636BC0352C0 /* Debug */ = {
+=======
+		7BB82FB71D477B3F0044E704 /* Debug */ = {
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SigmaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ter.SigmaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = win.blackcater.SigmaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sigma.app/Sigma";
 			};
 			name = Debug;
 		};
+<<<<<<< HEAD
 		DB8847D1DD2A0B9BB03959AD35BF9EDE /* Release */ = {
+=======
+		7BB82FB81D477B3F0044E704 /* Release */ = {
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = SigmaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ter.SigmaTests;
+				PRODUCT_BUNDLE_IDENTIFIER = win.blackcater.SigmaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sigma.app/Sigma";
 			};
 			name = Release;
 		};
+<<<<<<< HEAD
 		FEA5195D20C74A09EDF1CB7C57D202F2 /* Release */ = {
+=======
+		7BB82FBA1D477B3F0044E704 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = SigmaUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ter.SigmaUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = win.blackcater.SigmaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Sigma;
+			};
+			name = Debug;
+		};
+		7BB82FBB1D477B3F0044E704 /* Release */ = {
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = SigmaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = win.blackcater.SigmaUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = Sigma;
 			};
@@ -1407,43 +2149,76 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+<<<<<<< HEAD
 		2C0EC6CBF25E01E61452C5BE4AA40A64 /* Build configuration list for PBXNativeTarget "SigmaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6D4DAE235F1B7C91F9F4D97C37BFAB74 /* Debug */,
 				FEA5195D20C74A09EDF1CB7C57D202F2 /* Release */,
+=======
+		7BB82F811D477B3F0044E704 /* Build configuration list for PBXProject "Sigma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BB82FB11D477B3F0044E704 /* Debug */,
+				7BB82FB21D477B3F0044E704 /* Release */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+<<<<<<< HEAD
 		7B4177D7EB223B155FC7E8BE1F0487D1 /* Build configuration list for PBXNativeTarget "SigmaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA14409A2E0555940DEBE636BC0352C0 /* Debug */,
 				DB8847D1DD2A0B9BB03959AD35BF9EDE /* Release */,
+=======
+		7BB82FB31D477B3F0044E704 /* Build configuration list for PBXNativeTarget "Sigma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BB82FB41D477B3F0044E704 /* Debug */,
+				7BB82FB51D477B3F0044E704 /* Release */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+<<<<<<< HEAD
 		CDFBC4C3B7B4635CE54E4F133A7B9704 /* Build configuration list for PBXProject "Sigma" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BDD7D105FA7FFE15A7EF3BA91440DAA /* Debug */,
 				23FDFAB61B25B10925717A8FF926D14D /* Release */,
+=======
+		7BB82FB61D477B3F0044E704 /* Build configuration list for PBXNativeTarget "SigmaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BB82FB71D477B3F0044E704 /* Debug */,
+				7BB82FB81D477B3F0044E704 /* Release */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+<<<<<<< HEAD
 		D6C55FE8F401C766A626E2A0181E20AB /* Build configuration list for PBXNativeTarget "Sigma" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				77870C0E6BC012448F25151E93708828 /* Debug */,
 				118201AE49588D847D4AB01A98AA97BC /* Release */,
+=======
+		7BB82FB91D477B3F0044E704 /* Build configuration list for PBXNativeTarget "SigmaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BB82FBA1D477B3F0044E704 /* Debug */,
+				7BB82FBB1D477B3F0044E704 /* Release */,
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+<<<<<<< HEAD
 
 /* Begin XCVersionGroup section */
 		44D05175ECF45277192CCBFEFE4402C6 /* Sigma.xcdatamodeld */ = {
@@ -1459,4 +2234,8 @@
 /* End XCVersionGroup section */
 	};
 	rootObject = F8778D29259034CD4DC65B930F1BBA85 /* Project object */;
+=======
+	};
+	rootObject = 7BB82F7E1D477B3F0044E704 /* Project object */;
+>>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 }

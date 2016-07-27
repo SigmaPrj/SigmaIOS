@@ -12,5 +12,6 @@
 
 -(void)addSearchBarButton;
 
+- (void)setRightNavigationItemWithTitle:(NSString *)title imageName:(NSString *)imageName;
 
 @end
