@@ -17,6 +17,10 @@
 #import "SAPopularEventCell.h"
 
 
+#define HEADER_OF_SECTION_X 0
+#define HEADER_OF_SECTION_Y 0
+
+
 @interface SAPopularViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property(nonatomic, strong)SAPopularTableView *tableView;
@@ -320,8 +324,8 @@
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         
-        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
-        view.backgroundColor = [UIColor whiteColor];
+        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(HEADER_OF_SECTION_X, HEADER_OF_SECTION_Y, SCREEN_WIDTH, 100)];
+        view.backgroundColor = [UIColor yellowColor];
         
         
         UIView* line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
@@ -353,7 +357,7 @@
         [view addSubview:MoreBtn];
         return view;
     }else if(section == 1){
-        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
+        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(HEADER_OF_SECTION_X, HEADER_OF_SECTION_Y, SCREEN_WIDTH, 100)];
         view.backgroundColor = [UIColor whiteColor];
         
         
@@ -384,7 +388,7 @@
         [view addSubview:MoreBtn];
         return view;
     }else if(section == 2){
-        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
+        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(HEADER_OF_SECTION_X, HEADER_OF_SECTION_Y, SCREEN_WIDTH, 100)];
         view.backgroundColor = [UIColor whiteColor];
         
         
@@ -415,7 +419,7 @@
         [view addSubview:MoreBtn];
         return view;
     }else if(section == 3){
-        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
+        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(HEADER_OF_SECTION_X, HEADER_OF_SECTION_Y, SCREEN_WIDTH, 100)];
         view.backgroundColor = [UIColor whiteColor];
         
         
