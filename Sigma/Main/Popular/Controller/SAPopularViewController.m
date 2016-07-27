@@ -8,10 +8,7 @@
 
 #import "SAPopularViewController.h"
 #import "SAPopularTableView.h"
-<<<<<<< HEAD
-=======
 //#import "SourceSubViewController.h"
->>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 
 @interface SAPopularViewController ()
 
@@ -31,10 +28,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> d787fbe2857bff1496d4f47df3a1564cffaaa46d
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 }

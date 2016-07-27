@@ -1,5 +1,5 @@
 //
-//  SAEInformationTableView.h
+//  SATabbarViewController.h
 //  Sigma
 //
 //  Created by Terence on 16/7/18.
@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SAEInformationTableView : UITableView
+@class SAViewController;
+
+@interface SATabbarViewController : UITabBarController
+
+
 
 @end
