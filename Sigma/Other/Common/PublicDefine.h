@@ -35,6 +35,10 @@
 // Sigma主色调
 #define SIGMA_COLOR [UIColor colorWithRed:0.196  green:0.200  blue:0.208 alpha:1]
 
+// loading
+#define LOADING_HEADER_VIEW_HEIGHT 100
+#define FOOTER_VIEW_LOADING_HEIGHT 50
+
 // Community社区页面常用值
 #define COMMUNITY_PADDING 15
 #define COMMUNITY_BORDER_WIDTH 1

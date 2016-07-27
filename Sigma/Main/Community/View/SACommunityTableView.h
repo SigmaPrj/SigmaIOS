@@ -11,4 +11,6 @@
 
 - (void)setDynamicData:(NSArray *)dynamicArray;
 
+- (void)stopLoading;
+
 @end

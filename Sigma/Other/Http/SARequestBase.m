@@ -24,7 +24,9 @@
     if (self) {
         // 参数
         _notificationName = noti;
-        _manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        sessionConfiguration.timeoutIntervalForRequest = 5;
+        _manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:sessionConfiguration];
         _requestSerializer = [AFHTTPRequestSerializer serializer];
         // 设置HTTP头
         [_requestSerializer setValue:SIGMA_API_VALUE forHTTPHeaderField:SIGMA_API_NAME];

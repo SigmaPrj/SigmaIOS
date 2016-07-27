@@ -214,7 +214,11 @@
 		7BB831FE1D477B730044E704 /* ios7-contact-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB831331D477B730044E704 /* ios7-contact-outline.png */; };
 		7BB831FF1D477B730044E704 /* ios7-undo-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB831341D477B730044E704 /* ios7-undo-outline.png */; };
 		7BB832001D477B730044E704 /* ios7-undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB831351D477B730044E704 /* ios7-undo.png */; };
+		9E8E817AF35A131723C4277B /* SAFooterLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8270229646E91AB4A9BA /* SAFooterLoadingView.m */; };
+		9E8E83E50308D77EE099F350 /* JCRBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E837F4C15607441D8E6E8 /* JCRBlurView.m */; };
+		9E8E84D19C4F6D36A7619F09 /* SAHeaderLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8FCFE132D88F1DA7F700 /* SAHeaderLoadingView.m */; };
 		9E8E8D812BA1C28EE6B38A9D /* SAImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E83B837200441B2EB8F8B /* SAImageHelper.m */; };
+		9E8E8FC4F8EC9F2CB31AFC13 /* SACommunityTableFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E87CB91A884BA3355CD96 /* SACommunityTableFooterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -577,8 +581,16 @@
 		7BB831341D477B730044E704 /* ios7-undo-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-undo-outline.png"; sourceTree = "<group>"; };
 		7BB831351D477B730044E704 /* ios7-undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-undo.png"; sourceTree = "<group>"; };
 		7BB832011D477B9C0044E704 /* SAPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAPrefix.pch; sourceTree = "<group>"; };
+		9E8E8174C645F5B588B65243 /* JCRBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCRBlurView.h; sourceTree = "<group>"; };
+		9E8E82614EF11C9185E0F501 /* SACommunityTableFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACommunityTableFooterView.h; sourceTree = "<group>"; };
+		9E8E8270229646E91AB4A9BA /* SAFooterLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAFooterLoadingView.m; sourceTree = "<group>"; };
 		9E8E8274258A577FB3DCED86 /* SAImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAImageHelper.h; sourceTree = "<group>"; };
+		9E8E837A67BD9E6AB73409E1 /* SAHeaderLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAHeaderLoadingView.h; sourceTree = "<group>"; };
+		9E8E837F4C15607441D8E6E8 /* JCRBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCRBlurView.m; sourceTree = "<group>"; };
 		9E8E83B837200441B2EB8F8B /* SAImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAImageHelper.m; sourceTree = "<group>"; };
+		9E8E87CB91A884BA3355CD96 /* SACommunityTableFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACommunityTableFooterView.m; sourceTree = "<group>"; };
+		9E8E8B8F1E231B2A10278E5B /* SAFooterLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAFooterLoadingView.h; sourceTree = "<group>"; };
+		9E8E8FCFE132D88F1DA7F700 /* SAHeaderLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAHeaderLoadingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -680,6 +692,7 @@
 				7BB82FCF1D477B730044E704 /* Masonry */,
 				7BB82FE91D477B730044E704 /* pop */,
 				7BB830221D477B730044E704 /* SDWebImage */,
+				9E8E8D445ED97B58CF105B1D /* iOS-blur */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -915,6 +928,8 @@
 				7BB8305B1D477B730044E704 /* SACommunityTableHeaderView.m */,
 				7BB8305C1D477B730044E704 /* SACommunityTableView.h */,
 				7BB8305D1D477B730044E704 /* SACommunityTableView.m */,
+				9E8E82614EF11C9185E0F501 /* SACommunityTableFooterView.h */,
+				9E8E87CB91A884BA3355CD96 /* SACommunityTableFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1194,6 +1209,7 @@
 				7BB830CA1D477B730044E704 /* Category */,
 				7BB830CD1D477B730044E704 /* SAPublishViewButton.h */,
 				7BB830CE1D477B730044E704 /* SAPublishViewButton.m */,
+				9E8E8DF9DF2A7F6F7FB14353 /* Loading */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1372,6 +1388,26 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		9E8E8D445ED97B58CF105B1D /* iOS-blur */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8174C645F5B588B65243 /* JCRBlurView.h */,
+				9E8E837F4C15607441D8E6E8 /* JCRBlurView.m */,
+			);
+			path = "iOS-blur";
+			sourceTree = "<group>";
+		};
+		9E8E8DF9DF2A7F6F7FB14353 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E837A67BD9E6AB73409E1 /* SAHeaderLoadingView.h */,
+				9E8E8FCFE132D88F1DA7F700 /* SAHeaderLoadingView.m */,
+				9E8E8B8F1E231B2A10278E5B /* SAFooterLoadingView.h */,
+				9E8E8270229646E91AB4A9BA /* SAFooterLoadingView.m */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1439,6 +1475,7 @@
 				TargetAttributes = {
 					7BB82F851D477B3F0044E704 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 6KCRP269BC;
 					};
 					7BB82F9E1D477B3F0044E704 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1705,6 +1742,10 @@
 				7BB8319F1D477B730044E704 /* SARootViewController.m in Sources */,
 				7BB831521D477B730044E704 /* POPAnimator.mm in Sources */,
 				9E8E8D812BA1C28EE6B38A9D /* SAImageHelper.m in Sources */,
+				9E8E8FC4F8EC9F2CB31AFC13 /* SACommunityTableFooterView.m in Sources */,
+				9E8E83E50308D77EE099F350 /* JCRBlurView.m in Sources */,
+				9E8E84D19C4F6D36A7619F09 /* SAHeaderLoadingView.m in Sources */,
+				9E8E817AF35A131723C4277B /* SAFooterLoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1827,6 +1868,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sigma/SAPrefix.pch;
 				INFOPLIST_FILE = Sigma/Info.plist;
@@ -1841,6 +1883,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sigma/SAPrefix.pch;
 				INFOPLIST_FILE = Sigma/Info.plist;

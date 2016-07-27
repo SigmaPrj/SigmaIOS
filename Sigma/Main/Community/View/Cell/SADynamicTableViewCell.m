@@ -137,6 +137,8 @@
     // 用户被认证, 修改用户的昵称颜色
     if (self.frameModel.isApproved) {
         self.nicknameLabel.textColor = DYNAMIC_NICKNAME_APPROVED_COLOR;
+    } else {
+        self.nicknameLabel.textColor = DYNAMIC_NICKNAME_COLOR;
     }
 
     // 设置日期
@@ -151,9 +153,9 @@
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"#%@#%@", dynamicModel.topic, dynamicModel.content]];
         NSUInteger topicLen = dynamicModel.topic.length+2;
         [attributedString addAttribute:NSForegroundColorAttributeName value:DYNAMIC_TOPIC_COLOR range:NSMakeRange(0, topicLen)];
-        [attributedString addAttribute:NSForegroundColorAttributeName value:DYNAMIC_CONTENT_COLOR range:NSMakeRange((topicLen+1), (attributedString.length-topicLen-1))];
+        [attributedString addAttribute:NSForegroundColorAttributeName value:DYNAMIC_CONTENT_COLOR range:NSMakeRange(topicLen+1, attributedString.length-topicLen-1)];
 
-        self.contentLabel.text = [attributedString string];
+        self.contentLabel.attributedText = attributedString;
     } else {
         // 没评
         self.contentLabel.text = dynamicModel.content;
