@@ -80,17 +80,6 @@
 		7BB831781D477B730044E704 /* SAEInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB830641D477B730044E704 /* SAEInformationModel.m */; };
 		7BB831791D477B730044E704 /* SAEInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB830681D477B730044E704 /* SAEInformationCell.m */; };
 		7BB8317A1D477B730044E704 /* SAEInformationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8306A1D477B730044E704 /* SAEInformationTableView.m */; };
-		7BB8317B1D477B730044E704 /* SAMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8306E1D477B730044E704 /* SAMeViewController.m */; };
-		7BB8317C1D477B730044E704 /* SAMineSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB830701D477B730044E704 /* SAMineSubViewController.m */; };
-		7BB8317D1D477B730044E704 /* SASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB830721D477B730044E704 /* SASettingViewController.m */; };
-		7BB8317E1D477B730044E704 /* SAMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB830741D477B730044E704 /* SAMineCell.m */; };
-		7BB8317F1D477B730044E704 /* SAMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB830761D477B730044E704 /* SAMineTableViewCell.m */; };
-		7BB831801D477B730044E704 /* SAMineViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB830781D477B730044E704 /* SAMineViewEngine.m */; };
-		7BB831811D477B730044E704 /* SASettingAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8307A1D477B730044E704 /* SASettingAboutViewController.m */; };
-		7BB831821D477B730044E704 /* SASettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8307C1D477B730044E704 /* SASettingCell.m */; };
-		7BB831831D477B730044E704 /* SASettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8307E1D477B730044E704 /* SASettingTableViewCell.m */; };
-		7BB831841D477B730044E704 /* SASettingViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB830801D477B730044E704 /* SASettingViewEngine.m */; };
-		7BB831851D477B730044E704 /* SAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB830821D477B730044E704 /* SAUser.m */; };
 		7BB831861D477B730044E704 /* SAPopularViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB830861D477B730044E704 /* SAPopularViewController.m */; };
 		7BB831871D477B730044E704 /* SourceHeadCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB830891D477B730044E704 /* SourceHeadCollectionViewCell.m */; };
 		7BB831881D477B730044E704 /* SourceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8308B1D477B730044E704 /* SourceTableViewCell.m */; };
@@ -215,6 +204,17 @@
 		7BB831FF1D477B730044E704 /* ios7-undo-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB831341D477B730044E704 /* ios7-undo-outline.png */; };
 		7BB832001D477B730044E704 /* ios7-undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BB831351D477B730044E704 /* ios7-undo.png */; };
 		9E8E8D812BA1C28EE6B38A9D /* SAImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E83B837200441B2EB8F8B /* SAImageHelper.m */; };
+		D007A2571D483E8A0064505B /* SAMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2391D483E8A0064505B /* SAMineCell.m */; };
+		D007A2581D483E8A0064505B /* SAMineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A23B1D483E8A0064505B /* SAMineTableViewCell.m */; };
+		D007A2591D483E8A0064505B /* SAMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A23E1D483E8A0064505B /* SAMeViewController.m */; };
+		D007A25A1D483E8A0064505B /* SAMineSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2411D483E8A0064505B /* SAMineSubViewController.m */; };
+		D007A25B1D483E8A0064505B /* SAMineViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2441D483E8A0064505B /* SAMineViewEngine.m */; };
+		D007A25C1D483E8A0064505B /* SAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2461D483E8A0064505B /* SAUser.m */; };
+		D007A25D1D483E8A0064505B /* SASettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A24B1D483E8A0064505B /* SASettingCell.m */; };
+		D007A25E1D483E8A0064505B /* SASettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A24D1D483E8A0064505B /* SASettingTableViewCell.m */; };
+		D007A25F1D483E8A0064505B /* SASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2501D483E8A0064505B /* SASettingViewController.m */; };
+		D007A2601D483E8A0064505B /* SASettingAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2531D483E8A0064505B /* SASettingAboutViewController.m */; };
+		D007A2611D483E8A0064505B /* SASettingViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D007A2561D483E8A0064505B /* SASettingViewEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -401,28 +401,6 @@
 		7BB830681D477B730044E704 /* SAEInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAEInformationCell.m; sourceTree = "<group>"; };
 		7BB830691D477B730044E704 /* SAEInformationTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAEInformationTableView.h; sourceTree = "<group>"; };
 		7BB8306A1D477B730044E704 /* SAEInformationTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAEInformationTableView.m; sourceTree = "<group>"; };
-		7BB8306D1D477B730044E704 /* SAMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMeViewController.h; sourceTree = "<group>"; };
-		7BB8306E1D477B730044E704 /* SAMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMeViewController.m; sourceTree = "<group>"; };
-		7BB8306F1D477B730044E704 /* SAMineSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineSubViewController.h; sourceTree = "<group>"; };
-		7BB830701D477B730044E704 /* SAMineSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineSubViewController.m; sourceTree = "<group>"; };
-		7BB830711D477B730044E704 /* SASettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingViewController.h; sourceTree = "<group>"; };
-		7BB830721D477B730044E704 /* SASettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingViewController.m; sourceTree = "<group>"; };
-		7BB830731D477B730044E704 /* SAMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineCell.h; sourceTree = "<group>"; };
-		7BB830741D477B730044E704 /* SAMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineCell.m; sourceTree = "<group>"; };
-		7BB830751D477B730044E704 /* SAMineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineTableViewCell.h; sourceTree = "<group>"; };
-		7BB830761D477B730044E704 /* SAMineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineTableViewCell.m; sourceTree = "<group>"; };
-		7BB830771D477B730044E704 /* SAMineViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineViewEngine.h; sourceTree = "<group>"; };
-		7BB830781D477B730044E704 /* SAMineViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineViewEngine.m; sourceTree = "<group>"; };
-		7BB830791D477B730044E704 /* SASettingAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingAboutViewController.h; sourceTree = "<group>"; };
-		7BB8307A1D477B730044E704 /* SASettingAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingAboutViewController.m; sourceTree = "<group>"; };
-		7BB8307B1D477B730044E704 /* SASettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingCell.h; sourceTree = "<group>"; };
-		7BB8307C1D477B730044E704 /* SASettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingCell.m; sourceTree = "<group>"; };
-		7BB8307D1D477B730044E704 /* SASettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingTableViewCell.h; sourceTree = "<group>"; };
-		7BB8307E1D477B730044E704 /* SASettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingTableViewCell.m; sourceTree = "<group>"; };
-		7BB8307F1D477B730044E704 /* SASettingViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingViewEngine.h; sourceTree = "<group>"; };
-		7BB830801D477B730044E704 /* SASettingViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingViewEngine.m; sourceTree = "<group>"; };
-		7BB830811D477B730044E704 /* SAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAUser.h; sourceTree = "<group>"; };
-		7BB830821D477B730044E704 /* SAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUser.m; sourceTree = "<group>"; };
 		7BB830851D477B730044E704 /* SAPopularViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPopularViewController.h; sourceTree = "<group>"; };
 		7BB830861D477B730044E704 /* SAPopularViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPopularViewController.m; sourceTree = "<group>"; };
 		7BB830881D477B730044E704 /* SourceHeadCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceHeadCollectionViewCell.h; sourceTree = "<group>"; };
@@ -579,6 +557,28 @@
 		7BB832011D477B9C0044E704 /* SAPrefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAPrefix.pch; sourceTree = "<group>"; };
 		9E8E8274258A577FB3DCED86 /* SAImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAImageHelper.h; sourceTree = "<group>"; };
 		9E8E83B837200441B2EB8F8B /* SAImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAImageHelper.m; sourceTree = "<group>"; };
+		D007A2381D483E8A0064505B /* SAMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineCell.h; sourceTree = "<group>"; };
+		D007A2391D483E8A0064505B /* SAMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineCell.m; sourceTree = "<group>"; };
+		D007A23A1D483E8A0064505B /* SAMineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineTableViewCell.h; sourceTree = "<group>"; };
+		D007A23B1D483E8A0064505B /* SAMineTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineTableViewCell.m; sourceTree = "<group>"; };
+		D007A23D1D483E8A0064505B /* SAMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMeViewController.h; sourceTree = "<group>"; };
+		D007A23E1D483E8A0064505B /* SAMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMeViewController.m; sourceTree = "<group>"; };
+		D007A2401D483E8A0064505B /* SAMineSubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineSubViewController.h; sourceTree = "<group>"; };
+		D007A2411D483E8A0064505B /* SAMineSubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineSubViewController.m; sourceTree = "<group>"; };
+		D007A2431D483E8A0064505B /* SAMineViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMineViewEngine.h; sourceTree = "<group>"; };
+		D007A2441D483E8A0064505B /* SAMineViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineViewEngine.m; sourceTree = "<group>"; };
+		D007A2451D483E8A0064505B /* SAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAUser.h; sourceTree = "<group>"; };
+		D007A2461D483E8A0064505B /* SAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUser.m; sourceTree = "<group>"; };
+		D007A24A1D483E8A0064505B /* SASettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingCell.h; sourceTree = "<group>"; };
+		D007A24B1D483E8A0064505B /* SASettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingCell.m; sourceTree = "<group>"; };
+		D007A24C1D483E8A0064505B /* SASettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingTableViewCell.h; sourceTree = "<group>"; };
+		D007A24D1D483E8A0064505B /* SASettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingTableViewCell.m; sourceTree = "<group>"; };
+		D007A24F1D483E8A0064505B /* SASettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingViewController.h; sourceTree = "<group>"; };
+		D007A2501D483E8A0064505B /* SASettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingViewController.m; sourceTree = "<group>"; };
+		D007A2521D483E8A0064505B /* SASettingAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingAboutViewController.h; sourceTree = "<group>"; };
+		D007A2531D483E8A0064505B /* SASettingAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingAboutViewController.m; sourceTree = "<group>"; };
+		D007A2551D483E8A0064505B /* SASettingViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingViewEngine.h; sourceTree = "<group>"; };
+		D007A2561D483E8A0064505B /* SASettingViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingViewEngine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -978,38 +978,11 @@
 		7BB8306B1D477B730044E704 /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				7BB8306C1D477B730044E704 /* Controller */,
-				7BB830731D477B730044E704 /* SAMineCell.h */,
-				7BB830741D477B730044E704 /* SAMineCell.m */,
-				7BB830751D477B730044E704 /* SAMineTableViewCell.h */,
-				7BB830761D477B730044E704 /* SAMineTableViewCell.m */,
-				7BB830771D477B730044E704 /* SAMineViewEngine.h */,
-				7BB830781D477B730044E704 /* SAMineViewEngine.m */,
-				7BB830791D477B730044E704 /* SASettingAboutViewController.h */,
-				7BB8307A1D477B730044E704 /* SASettingAboutViewController.m */,
-				7BB8307B1D477B730044E704 /* SASettingCell.h */,
-				7BB8307C1D477B730044E704 /* SASettingCell.m */,
-				7BB8307D1D477B730044E704 /* SASettingTableViewCell.h */,
-				7BB8307E1D477B730044E704 /* SASettingTableViewCell.m */,
-				7BB8307F1D477B730044E704 /* SASettingViewEngine.h */,
-				7BB830801D477B730044E704 /* SASettingViewEngine.m */,
-				7BB830811D477B730044E704 /* SAUser.h */,
-				7BB830821D477B730044E704 /* SAUser.m */,
+				D007A2361D483E8A0064505B /* Mine */,
+				D007A2471D483E8A0064505B /* Question */,
+				D007A2481D483E8A0064505B /* Setting */,
 			);
 			path = Me;
-			sourceTree = "<group>";
-		};
-		7BB8306C1D477B730044E704 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				7BB8306D1D477B730044E704 /* SAMeViewController.h */,
-				7BB8306E1D477B730044E704 /* SAMeViewController.m */,
-				7BB8306F1D477B730044E704 /* SAMineSubViewController.h */,
-				7BB830701D477B730044E704 /* SAMineSubViewController.m */,
-				7BB830711D477B730044E704 /* SASettingViewController.h */,
-				7BB830721D477B730044E704 /* SASettingViewController.m */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		7BB830831D477B730044E704 /* Popular */ = {
@@ -1372,6 +1345,113 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		D007A2361D483E8A0064505B /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2371D483E8A0064505B /* Cell */,
+				D007A23C1D483E8A0064505B /* Controller */,
+				D007A2421D483E8A0064505B /* Model */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		D007A2371D483E8A0064505B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2381D483E8A0064505B /* SAMineCell.h */,
+				D007A2391D483E8A0064505B /* SAMineCell.m */,
+				D007A23A1D483E8A0064505B /* SAMineTableViewCell.h */,
+				D007A23B1D483E8A0064505B /* SAMineTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D007A23C1D483E8A0064505B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D007A23D1D483E8A0064505B /* SAMeViewController.h */,
+				D007A23E1D483E8A0064505B /* SAMeViewController.m */,
+				D007A23F1D483E8A0064505B /* SubController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D007A23F1D483E8A0064505B /* SubController */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2401D483E8A0064505B /* SAMineSubViewController.h */,
+				D007A2411D483E8A0064505B /* SAMineSubViewController.m */,
+			);
+			path = SubController;
+			sourceTree = "<group>";
+		};
+		D007A2421D483E8A0064505B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2431D483E8A0064505B /* SAMineViewEngine.h */,
+				D007A2441D483E8A0064505B /* SAMineViewEngine.m */,
+				D007A2451D483E8A0064505B /* SAUser.h */,
+				D007A2461D483E8A0064505B /* SAUser.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D007A2471D483E8A0064505B /* Question */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		D007A2481D483E8A0064505B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2491D483E8A0064505B /* Cell */,
+				D007A24E1D483E8A0064505B /* Controller */,
+				D007A2541D483E8A0064505B /* Model */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		D007A2491D483E8A0064505B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D007A24A1D483E8A0064505B /* SASettingCell.h */,
+				D007A24B1D483E8A0064505B /* SASettingCell.m */,
+				D007A24C1D483E8A0064505B /* SASettingTableViewCell.h */,
+				D007A24D1D483E8A0064505B /* SASettingTableViewCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D007A24E1D483E8A0064505B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D007A24F1D483E8A0064505B /* SASettingViewController.h */,
+				D007A2501D483E8A0064505B /* SASettingViewController.m */,
+				D007A2511D483E8A0064505B /* SubController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D007A2511D483E8A0064505B /* SubController */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2521D483E8A0064505B /* SASettingAboutViewController.h */,
+				D007A2531D483E8A0064505B /* SASettingAboutViewController.m */,
+			);
+			path = SubController;
+			sourceTree = "<group>";
+		};
+		D007A2541D483E8A0064505B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D007A2551D483E8A0064505B /* SASettingViewEngine.h */,
+				D007A2561D483E8A0064505B /* SASettingViewEngine.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1619,15 +1699,18 @@
 				7BB8315F1D477B730044E704 /* NSData+ImageContentType.m in Sources */,
 				7BB831451D477B730044E704 /* NSArray+MASAdditions.m in Sources */,
 				7BB8316F1D477B730044E704 /* SACommunityRequest.m in Sources */,
+				D007A2611D483E8A0064505B /* SASettingViewEngine.m in Sources */,
 				7BB8318A1D477B730044E704 /* SourceSubViewController.m in Sources */,
 				7BB831641D477B730044E704 /* SDWebImageDownloaderOperation.m in Sources */,
+				D007A2591D483E8A0064505B /* SAMeViewController.m in Sources */,
 				7BB8319B1D477B730044E704 /* SARequestBase.m in Sources */,
 				7BB831951D477B730044E704 /* SAPopularShowView.m in Sources */,
-				7BB8317D1D477B730044E704 /* SASettingViewController.m in Sources */,
 				7BB8313B1D477B730044E704 /* AFSecurityPolicy.m in Sources */,
 				7BB831921D477B730044E704 /* SAPopularClassCell.m in Sources */,
 				7BB831621D477B730044E704 /* SDWebImageDecoder.m in Sources */,
 				7BB831461D477B730044E704 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				D007A25A1D483E8A0064505B /* SAMineSubViewController.m in Sources */,
+				D007A2601D483E8A0064505B /* SASettingAboutViewController.m in Sources */,
 				7BB8319C1D477B730044E704 /* SANavigationController.m in Sources */,
 				7BB8317A1D477B730044E704 /* SAEInformationTableView.m in Sources */,
 				7BB831531D477B730044E704 /* POPBasicAnimation.mm in Sources */,
@@ -1637,6 +1720,8 @@
 				7BB831A21D477B730044E704 /* SAPublishViewButton.m in Sources */,
 				7BB8315B1D477B730044E704 /* POPSpringAnimation.mm in Sources */,
 				7BB831871D477B730044E704 /* SourceHeadCollectionViewCell.m in Sources */,
+				D007A25E1D483E8A0064505B /* SASettingTableViewCell.m in Sources */,
+				D007A2581D483E8A0064505B /* SAMineTableViewCell.m in Sources */,
 				7BB831671D477B730044E704 /* UIButton+WebCache.m in Sources */,
 				7BB831721D477B730044E704 /* SADynamicModel.m in Sources */,
 				7BB831561D477B730044E704 /* POPDecayAnimation.mm in Sources */,
@@ -1644,43 +1729,37 @@
 				7BB831701D477B730044E704 /* SACommunityUserModel.m in Sources */,
 				7BB8316C1D477B730044E704 /* UIImageView+WebCache.m in Sources */,
 				7BB831711D477B730044E704 /* SADynamicFrameModel.m in Sources */,
+				D007A25F1D483E8A0064505B /* SASettingViewController.m in Sources */,
 				7BB831A11D477B730044E704 /* UIView+SAPublishBtnFrame.m in Sources */,
-				7BB831841D477B730044E704 /* SASettingViewEngine.m in Sources */,
 				7BB831971D477B730044E704 /* SAPopularHeaderView.m in Sources */,
 				7BB831751D477B730044E704 /* SACommunityTableHeaderView.m in Sources */,
+				D007A25B1D483E8A0064505B /* SAMineViewEngine.m in Sources */,
 				7BB831941D477B730044E704 /* SAPopularResourceCell.m in Sources */,
 				7BB8314D1D477B730044E704 /* POPAnimation.mm in Sources */,
-				7BB831811D477B730044E704 /* SASettingAboutViewController.m in Sources */,
 				7BB831431D477B730044E704 /* MASViewAttribute.m in Sources */,
-				7BB8317F1D477B730044E704 /* SAMineTableViewCell.m in Sources */,
 				7BB831511D477B730044E704 /* POPAnimationTracer.mm in Sources */,
-				7BB8317B1D477B730044E704 /* SAMeViewController.m in Sources */,
 				7BB831571D477B730044E704 /* POPGeometry.mm in Sources */,
 				7BB831421D477B730044E704 /* MASLayoutConstraint.m in Sources */,
 				7BB8313F1D477B730044E704 /* MASCompositeConstraint.m in Sources */,
 				7BB8313D1D477B730044E704 /* AFURLResponseSerialization.m in Sources */,
-				7BB831801D477B730044E704 /* SAMineViewEngine.m in Sources */,
 				7BB82F911D477B3F0044E704 /* ViewController.m in Sources */,
 				7BB831591D477B730044E704 /* POPMath.mm in Sources */,
 				7BB831881D477B730044E704 /* SourceTableViewCell.m in Sources */,
-				7BB8317E1D477B730044E704 /* SAMineCell.m in Sources */,
 				7BB831441D477B730044E704 /* MASViewConstraint.m in Sources */,
 				7BB82F8E1D477B3F0044E704 /* AppDelegate.m in Sources */,
 				7BB831A01D477B730044E704 /* SATabbarViewController.m in Sources */,
-				7BB831821D477B730044E704 /* SASettingCell.m in Sources */,
 				7BB831501D477B730044E704 /* POPAnimationRuntime.mm in Sources */,
 				7BB8319E1D477B730044E704 /* SAPublishViewController.m in Sources */,
 				7BB8314F1D477B730044E704 /* POPAnimationExtras.mm in Sources */,
 				7BB8315C1D477B730044E704 /* POPVector.mm in Sources */,
 				7BB831681D477B730044E704 /* UIImage+GIF.m in Sources */,
-				7BB831851D477B730044E704 /* SAUser.m in Sources */,
 				7BB831761D477B730044E704 /* SACommunityTableView.m in Sources */,
 				7BB831791D477B730044E704 /* SAEInformationCell.m in Sources */,
 				7BB8319A1D477B730044E704 /* SADateHelper.m in Sources */,
+				D007A25C1D483E8A0064505B /* SAUser.m in Sources */,
 				7BB831541D477B730044E704 /* POPCGUtils.mm in Sources */,
 				7BB831741D477B730044E704 /* SADynamicTableViewCell.m in Sources */,
 				7BB831651D477B730044E704 /* SDWebImageManager.m in Sources */,
-				7BB831831D477B730044E704 /* SASettingTableViewCell.m in Sources */,
 				7BB831391D477B730044E704 /* AFHTTPSessionManager.m in Sources */,
 				7BB831991D477B730044E704 /* SAViewController.m in Sources */,
 				7BB8315D1D477B730044E704 /* TransformationMatrix.cpp in Sources */,
@@ -1691,7 +1770,7 @@
 				7BB8313E1D477B730044E704 /* AFURLSessionManager.m in Sources */,
 				7BB831481D477B730044E704 /* ViewController+MASAdditions.m in Sources */,
 				7BB831411D477B730044E704 /* MASConstraintMaker.m in Sources */,
-				7BB8317C1D477B730044E704 /* SAMineSubViewController.m in Sources */,
+				D007A2571D483E8A0064505B /* SAMineCell.m in Sources */,
 				7BB8313A1D477B730044E704 /* AFNetworkReachabilityManager.m in Sources */,
 				7BB831661D477B730044E704 /* SDWebImagePrefetcher.m in Sources */,
 				7BB831401D477B730044E704 /* MASConstraint.m in Sources */,
@@ -1699,6 +1778,7 @@
 				7BB8316D1D477B730044E704 /* UIView+WebCacheOperation.m in Sources */,
 				7BB831861D477B730044E704 /* SAPopularViewController.m in Sources */,
 				7BB8316E1D477B730044E704 /* SACommunityViewController.m in Sources */,
+				D007A25D1D483E8A0064505B /* SASettingCell.m in Sources */,
 				7BB8318E1D477B730044E704 /* SourceInfo.m in Sources */,
 				7BB831601D477B730044E704 /* SDImageCache.m in Sources */,
 				7BB831471D477B730044E704 /* View+MASAdditions.m in Sources */,
