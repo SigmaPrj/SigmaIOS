@@ -99,7 +99,7 @@
 
 -(UITableView*)mineTableView{
     if (!_mineTableView) {
-        _mineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, HEIGHT_NAVIGATIONBAR, SCREEN_WIDTH, SCREEN_HEIGHT-HEIGHT_TABBAR-HEIGHT_NAVIGATIONBAR) style:UITableViewStyleGrouped];
+        _mineTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-HEIGHT_TABBAR-HEIGHT_NAVIGATIONBAR) style:UITableViewStyleGrouped];
         
         _mineTableView.showsHorizontalScrollIndicator = NO;
         _mineTableView.showsVerticalScrollIndicator = YES;
