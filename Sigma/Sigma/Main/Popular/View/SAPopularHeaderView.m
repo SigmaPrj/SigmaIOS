@@ -114,11 +114,22 @@
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
         [button setImage:[UIImage imageNamed:@"circle.jpg"] forState:UIControlStateNormal];
+        //添加点击事件
+        [button addTarget:self action:@selector(classBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
 //        button.backgroundColor = [UIColor grayColor];
         [_classBtnView addSubview:label];
         [_classBtnView addSubview:button];
     }
     return _classBtnView;
+}
+
+//实现课程按钮的点击事件
+-(void)classBtnClicked:(id)sender{
+    if(sender && [sender isKindOfClass:[UIButton class]]){
+        if(self.delegate && [self.delegate respondsToSelector:@selector(classButtonClicked)]){
+            [self.delegate classButtonClicked];
+        }
+    }
 }
 
 

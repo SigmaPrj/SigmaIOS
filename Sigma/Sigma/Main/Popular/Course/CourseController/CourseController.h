@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CourseController : UITableViewController
+@class MainPageCellInfo;
+
+@interface CourseController : UIViewController
 
 @end

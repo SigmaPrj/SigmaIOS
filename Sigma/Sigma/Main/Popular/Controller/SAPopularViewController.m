@@ -10,7 +10,9 @@
 #import "SAPopularTableView.h"
 #import "SAPopularHeaderView.h"
 #import "SourceSubViewController.h"
+#import "CourseController.h"
 //#import "SourceSubViewController.h"
+
 
 #define HEADERVIEW_HEIGHT (280)
 
@@ -93,11 +95,21 @@
 */
 
 #pragma mark - SAPopularHeaderViewDelegate
+//资源按钮的点击事件
 -(void)sourceButtonInHeadViewClicked{
     self.hidesBottomBarWhenPushed = YES;
     SourceSubViewController* sourceSubViewController = [[SourceSubViewController alloc] init];
     [self.navigationController pushViewController:sourceSubViewController animated:YES];
     self.hidesBottomBarWhenPushed = NO;
+}
+
+//课程按钮的点击事件
+-(void)classButtonClicked{
+    self.hidesBottomBarWhenPushed = YES;
+    CourseController* courseController = [[CourseController alloc] init];
+    [self.navigationController pushViewController:courseController animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+
 }
 
 @end

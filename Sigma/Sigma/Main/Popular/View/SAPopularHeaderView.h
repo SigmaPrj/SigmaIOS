@@ -12,6 +12,8 @@
 
 -(void)sourceButtonInHeadViewClicked;
 
+-(void)classButtonClicked;
+
 @end
 
 @interface SAPopularHeaderView : UIView

@@ -90,6 +90,24 @@
 		5A9F832D1D41A55E00419554 /* ContentOfSourceHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F832C1D41A55E00419554 /* ContentOfSourceHeadView.m */; };
 		5A9F83301D45989A00419554 /* ContentOfSourceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F832F1D45989A00419554 /* ContentOfSourceInfo.m */; };
 		5A9F83331D45BAAB00419554 /* ContentOfSouceHeadInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F83321D45BAAB00419554 /* ContentOfSouceHeadInfo.m */; };
+		5AAC47E71D48404E00075D70 /* CourseMainPageHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC47E61D48404E00075D70 /* CourseMainPageHeadView.m */; };
+		5AAC47EC1D4843B200075D70 /* CourseEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC47EB1D4843B200075D70 /* CourseEngine.m */; };
+		5AAC47EF1D4845EA00075D70 /* ScrollViewImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC47EE1D4845EA00075D70 /* ScrollViewImageInfo.m */; };
+		5AAC47F81D4847AE00075D70 /* scrollView1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC47F01D4847AE00075D70 /* scrollView1@2x.png */; };
+		5AAC47F91D4847AE00075D70 /* scrollView1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC47F11D4847AE00075D70 /* scrollView1@3x.png */; };
+		5AAC47FA1D4847AE00075D70 /* scrollView2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC47F21D4847AE00075D70 /* scrollView2@2x.png */; };
+		5AAC47FB1D4847AE00075D70 /* scrollView2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC47F31D4847AE00075D70 /* scrollView2@3x.png */; };
+		5AAC47FC1D4847AE00075D70 /* scrollView3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC47F41D4847AE00075D70 /* scrollView3@2x.png */; };
+		5AAC47FD1D4847AE00075D70 /* scrollView3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC47F51D4847AE00075D70 /* scrollView3@3x.png */; };
+		5AAC47FE1D4847AE00075D70 /* scrollView4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC47F61D4847AE00075D70 /* scrollView4@2x.png */; };
+		5AAC47FF1D4847AE00075D70 /* scrollView4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC47F71D4847AE00075D70 /* scrollView4@3x.png */; };
+		5AAC48021D48489A00075D70 /* ScrollViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC48011D48489A00075D70 /* ScrollViewModel.m */; };
+		5AAC48061D48896900075D70 /* MainPageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC48051D48896900075D70 /* MainPageTableCell.m */; };
+		5AAC48091D488DD200075D70 /* MainPageCellInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC48081D488DD200075D70 /* MainPageCellInfo.m */; };
+		5AAC480C1D489A6D00075D70 /* MainPageCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC480B1D489A6D00075D70 /* MainPageCellModel.m */; };
+		5AAC480F1D48A6DC00075D70 /* CourseSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC480E1D48A6DC00075D70 /* CourseSearchViewController.m */; };
+		5AAC48121D48AA9C00075D70 /* CourseSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC48111D48AA9C00075D70 /* CourseSearchModel.m */; };
+		5AAC48151D48ABC900075D70 /* CourseSearchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC48141D48ABC900075D70 /* CourseSearchInfo.m */; };
 		60CF837920AD1659260064F1B46D438F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AF0A2349A12FD513E2EEF4E527B568 /* Assets.xcassets */; };
 		61034129EE9ABA4319FE48203ADBADDC /* bg3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A94A2AAFBB49216BDDA046E21E05819 /* bg3.jpg */; };
 		6183745B3E724542F5EA2D8C45EE86FF /* bg4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D590F8E0820B71BB3AF4F0F86E94FD2A /* bg4.jpg */; };
@@ -326,6 +344,35 @@
 		5A9F832F1D45989A00419554 /* ContentOfSourceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentOfSourceInfo.m; sourceTree = "<group>"; };
 		5A9F83311D45BAAB00419554 /* ContentOfSouceHeadInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentOfSouceHeadInfo.h; sourceTree = "<group>"; };
 		5A9F83321D45BAAB00419554 /* ContentOfSouceHeadInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentOfSouceHeadInfo.m; sourceTree = "<group>"; };
+		5AAC47E51D48404E00075D70 /* CourseMainPageHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseMainPageHeadView.h; sourceTree = "<group>"; };
+		5AAC47E61D48404E00075D70 /* CourseMainPageHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseMainPageHeadView.m; sourceTree = "<group>"; };
+		5AAC47E91D4841DB00075D70 /* CourseCommonDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseCommonDefine.h; sourceTree = "<group>"; };
+		5AAC47EA1D4843B200075D70 /* CourseEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseEngine.h; sourceTree = "<group>"; };
+		5AAC47EB1D4843B200075D70 /* CourseEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseEngine.m; sourceTree = "<group>"; };
+		5AAC47ED1D4845EA00075D70 /* ScrollViewImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewImageInfo.h; sourceTree = "<group>"; };
+		5AAC47EE1D4845EA00075D70 /* ScrollViewImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewImageInfo.m; sourceTree = "<group>"; };
+		5AAC47F01D4847AE00075D70 /* scrollView1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scrollView1@2x.png"; sourceTree = "<group>"; };
+		5AAC47F11D4847AE00075D70 /* scrollView1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scrollView1@3x.png"; sourceTree = "<group>"; };
+		5AAC47F21D4847AE00075D70 /* scrollView2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scrollView2@2x.png"; sourceTree = "<group>"; };
+		5AAC47F31D4847AE00075D70 /* scrollView2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scrollView2@3x.png"; sourceTree = "<group>"; };
+		5AAC47F41D4847AE00075D70 /* scrollView3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scrollView3@2x.png"; sourceTree = "<group>"; };
+		5AAC47F51D4847AE00075D70 /* scrollView3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scrollView3@3x.png"; sourceTree = "<group>"; };
+		5AAC47F61D4847AE00075D70 /* scrollView4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scrollView4@2x.png"; sourceTree = "<group>"; };
+		5AAC47F71D4847AE00075D70 /* scrollView4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scrollView4@3x.png"; sourceTree = "<group>"; };
+		5AAC48001D48489A00075D70 /* ScrollViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollViewModel.h; sourceTree = "<group>"; };
+		5AAC48011D48489A00075D70 /* ScrollViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollViewModel.m; sourceTree = "<group>"; };
+		5AAC48041D48896900075D70 /* MainPageTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageTableCell.h; sourceTree = "<group>"; };
+		5AAC48051D48896900075D70 /* MainPageTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageTableCell.m; sourceTree = "<group>"; };
+		5AAC48071D488DD200075D70 /* MainPageCellInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageCellInfo.h; sourceTree = "<group>"; };
+		5AAC48081D488DD200075D70 /* MainPageCellInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageCellInfo.m; sourceTree = "<group>"; };
+		5AAC480A1D489A6D00075D70 /* MainPageCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainPageCellModel.h; sourceTree = "<group>"; };
+		5AAC480B1D489A6D00075D70 /* MainPageCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainPageCellModel.m; sourceTree = "<group>"; };
+		5AAC480D1D48A6DC00075D70 /* CourseSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSearchViewController.h; sourceTree = "<group>"; };
+		5AAC480E1D48A6DC00075D70 /* CourseSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSearchViewController.m; sourceTree = "<group>"; };
+		5AAC48101D48AA9C00075D70 /* CourseSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSearchModel.h; sourceTree = "<group>"; };
+		5AAC48111D48AA9C00075D70 /* CourseSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSearchModel.m; sourceTree = "<group>"; };
+		5AAC48131D48ABC900075D70 /* CourseSearchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSearchInfo.h; sourceTree = "<group>"; };
+		5AAC48141D48ABC900075D70 /* CourseSearchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSearchInfo.m; sourceTree = "<group>"; };
 		5CE031AE6268A5572858450E8D4D9FB0 /* POPAnimationExtras.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = POPAnimationExtras.mm; sourceTree = "<group>"; };
 		5D79968358DA254D824F70EA84CE5733 /* SDWebImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageDecoder.m; sourceTree = "<group>"; };
 		5E3EA2AF786201A8D897D544612DDD70 /* pop-osx-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "pop-osx-Info.plist"; sourceTree = "<group>"; };
@@ -651,6 +698,8 @@
 		5A88A3401D4749D4002D3040 /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				5AAC48031D48894A00075D70 /* CourseCell */,
+				5AAC47E81D4841C400075D70 /* Common */,
 				5A88A3411D474A92002D3040 /* CourseController */,
 				5A88A3421D474A92002D3040 /* CourseModel */,
 				5A88A3431D474A92002D3040 /* CourseSource */,
@@ -664,6 +713,10 @@
 			children = (
 				5A88A3451D474B9D002D3040 /* CourseController.h */,
 				5A88A3461D474B9D002D3040 /* CourseController.m */,
+				5AAC480D1D48A6DC00075D70 /* CourseSearchViewController.h */,
+				5AAC480E1D48A6DC00075D70 /* CourseSearchViewController.m */,
+				5AAC48131D48ABC900075D70 /* CourseSearchInfo.h */,
+				5AAC48141D48ABC900075D70 /* CourseSearchInfo.m */,
 			);
 			path = CourseController;
 			sourceTree = "<group>";
@@ -671,6 +724,14 @@
 		5A88A3421D474A92002D3040 /* CourseModel */ = {
 			isa = PBXGroup;
 			children = (
+				5AAC47EA1D4843B200075D70 /* CourseEngine.h */,
+				5AAC47EB1D4843B200075D70 /* CourseEngine.m */,
+				5AAC48001D48489A00075D70 /* ScrollViewModel.h */,
+				5AAC48011D48489A00075D70 /* ScrollViewModel.m */,
+				5AAC480A1D489A6D00075D70 /* MainPageCellModel.h */,
+				5AAC480B1D489A6D00075D70 /* MainPageCellModel.m */,
+				5AAC48101D48AA9C00075D70 /* CourseSearchModel.h */,
+				5AAC48111D48AA9C00075D70 /* CourseSearchModel.m */,
 			);
 			path = CourseModel;
 			sourceTree = "<group>";
@@ -678,6 +739,14 @@
 		5A88A3431D474A92002D3040 /* CourseSource */ = {
 			isa = PBXGroup;
 			children = (
+				5AAC47F01D4847AE00075D70 /* scrollView1@2x.png */,
+				5AAC47F11D4847AE00075D70 /* scrollView1@3x.png */,
+				5AAC47F21D4847AE00075D70 /* scrollView2@2x.png */,
+				5AAC47F31D4847AE00075D70 /* scrollView2@3x.png */,
+				5AAC47F41D4847AE00075D70 /* scrollView3@2x.png */,
+				5AAC47F51D4847AE00075D70 /* scrollView3@3x.png */,
+				5AAC47F61D4847AE00075D70 /* scrollView4@2x.png */,
+				5AAC47F71D4847AE00075D70 /* scrollView4@3x.png */,
 			);
 			path = CourseSource;
 			sourceTree = "<group>";
@@ -685,6 +754,10 @@
 		5A88A3441D474A92002D3040 /* CourseView */ = {
 			isa = PBXGroup;
 			children = (
+				5AAC47E51D48404E00075D70 /* CourseMainPageHeadView.h */,
+				5AAC47E61D48404E00075D70 /* CourseMainPageHeadView.m */,
+				5AAC47ED1D4845EA00075D70 /* ScrollViewImageInfo.h */,
+				5AAC47EE1D4845EA00075D70 /* ScrollViewImageInfo.m */,
 			);
 			path = CourseView;
 			sourceTree = "<group>";
@@ -763,6 +836,25 @@
 				5A9F83321D45BAAB00419554 /* ContentOfSouceHeadInfo.m */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		5AAC47E81D4841C400075D70 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5AAC47E91D4841DB00075D70 /* CourseCommonDefine.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5AAC48031D48894A00075D70 /* CourseCell */ = {
+			isa = PBXGroup;
+			children = (
+				5AAC48041D48896900075D70 /* MainPageTableCell.h */,
+				5AAC48051D48896900075D70 /* MainPageTableCell.m */,
+				5AAC48071D488DD200075D70 /* MainPageCellInfo.h */,
+				5AAC48081D488DD200075D70 /* MainPageCellInfo.m */,
+			);
+			path = CourseCell;
 			sourceTree = "<group>";
 		};
 		71EB62316D1E0A9FBF844BE09B1F0021 /* View */ = {
@@ -1276,11 +1368,15 @@
 				5A76D0CE1D4702E40096B406 /* writerComment@2x.png in Resources */,
 				7AA29C8D13DCC764055A8B2C3311DC32 /* LaunchScreen.storyboard in Resources */,
 				FCF1F44EB3CC757D9E2B111FBB51F05A /* avata.jpg in Resources */,
+				5AAC47F81D4847AE00075D70 /* scrollView1@2x.png in Resources */,
 				0C41433047B63BC7FC2329BE4AF29341 /* bg.jpg in Resources */,
 				C3B25D726A6E6C018EA41C6CA4D28FFC /* bg1.jpg in Resources */,
 				61034129EE9ABA4319FE48203ADBADDC /* bg3.jpg in Resources */,
+				5AAC47FB1D4847AE00075D70 /* scrollView2@3x.png in Resources */,
 				5A76D0C61D46F7AB0096B406 /* clickedSupportNumber@3x.png in Resources */,
+				5AAC47FA1D4847AE00075D70 /* scrollView2@2x.png in Resources */,
 				5A9F831D1D405D4600419554 /* putongjieguo@2x.png in Resources */,
+				5AAC47FC1D4847AE00075D70 /* scrollView3@2x.png in Resources */,
 				6183745B3E724542F5EA2D8C45EE86FF /* bg4.jpg in Resources */,
 				7B3BF2E2C63D9794849E63314A5B6D55 /* camera_close_highlighted@2x.png in Resources */,
 				DCCC2514768E7B4EC410DA12346479E8 /* camera_close_highlighted@3x.png in Resources */,
@@ -1289,6 +1385,7 @@
 				A6B923592546666AF932072B590C3D26 /* circle.jpg in Resources */,
 				0257FB72CB6857DF2846C181C320B75E /* discovery1.jpg in Resources */,
 				47529C59F3C26E983D51418BBD8FF55D /* discovery2.jpg in Resources */,
+				5AAC47F91D4847AE00075D70 /* scrollView1@3x.png in Resources */,
 				3734F1813909EF0291C049C8E6299084 /* discovery3.jpg in Resources */,
 				831B5362623F8A5F12B59BBDF2CFC6B3 /* morebtn.jpg in Resources */,
 				7B91FD0E1D3D284500830136 /* Main.storyboard in Resources */,
@@ -1305,6 +1402,7 @@
 				34BC0D720CAB6CE23F4AD591316FF241 /* tabbar_compose_icon_add@3x.png in Resources */,
 				FBDC347865F0B3519D6CE190CBE462A8 /* tabbar_discover@2x.png in Resources */,
 				D3352EBB4993552D1EB223469B58DB85 /* tabbar_discover@3x.png in Resources */,
+				5AAC47FF1D4847AE00075D70 /* scrollView4@3x.png in Resources */,
 				AC62ADD9D2C351BB95A5826F69F1C703 /* tabbar_discover_highlighted@2x.png in Resources */,
 				8AE082AE02285297D5CBDA924C891CC5 /* tabbar_discover_highlighted@3x.png in Resources */,
 				FC3247E14D87C95DE16AF22F7AB45D26 /* tabbar_home@2x.png in Resources */,
@@ -1316,6 +1414,7 @@
 				5A96FAEC1D3DB5C40058A572 /* rightButtonOfSource@2x.png in Resources */,
 				35B52CA9F04A720D78D9598ECBA10371 /* tabbar_profile@2x.png in Resources */,
 				10AC5A44CB279883FB27EECD50733C92 /* tabbar_profile@3x.png in Resources */,
+				5AAC47FD1D4847AE00075D70 /* scrollView3@3x.png in Resources */,
 				5A76D0CA1D46FBF60096B406 /* downloadNumber@3x.png in Resources */,
 				5A9F831E1D405D4600419554 /* putongjieguo@3x.png in Resources */,
 				5A96FAE11D3DB56A0058A572 /* SourceSubViewController.xib in Resources */,
@@ -1325,6 +1424,7 @@
 				0CA9D113965D2D613718AC3E2DEC79AD /* tabbar_profile_selected@3x.png in Resources */,
 				5A76D0C91D46FBF60096B406 /* downloadNumber@2x.png in Resources */,
 				6A80198EE6B351799E425AB92F3AC8CD /* talks1.png in Resources */,
+				5AAC47FE1D4847AE00075D70 /* scrollView4@2x.png in Resources */,
 				5A76D0C11D46F4EF0096B406 /* supportNumber@2x.png in Resources */,
 				AA36C3E6D9C6BFBC715C879E2F3821C9 /* toolbar_compose@2x.png in Resources */,
 				E41FBB20C5755678119B526677F88D00 /* toolbar_compose@3x.png in Resources */,
@@ -1369,6 +1469,7 @@
 				406FD45FB951B72F91C18F73B61ACA04 /* MASConstraintMaker.m in Sources */,
 				4F8118405D72C5D206F6CDD2C6A571AE /* MASLayoutConstraint.m in Sources */,
 				96D063575B50F5CFEEBC040DEC513262 /* MASViewAttribute.m in Sources */,
+				5AAC48121D48AA9C00075D70 /* CourseSearchModel.m in Sources */,
 				8F28A6A2B8DBDB7D86DBDE00C7240F0B /* MASViewConstraint.m in Sources */,
 				044DEFB2501CE5D6AC927B5AADF55D6A /* MKAnnotationView+WebCache.m in Sources */,
 				6D2A421C1361C476EA550EF38B8D2D98 /* NSArray+MASAdditions.m in Sources */,
@@ -1382,6 +1483,7 @@
 				501C6639A35B7B87CF768FBB05B76C0C /* POPAnimationExtras.mm in Sources */,
 				EBDE0EA5BAB0F3A4E115D6C02854A25B /* POPAnimationRuntime.mm in Sources */,
 				5A9F83211D405E5700419554 /* SearchViewOfCategoryController.m in Sources */,
+				5AAC48091D488DD200075D70 /* MainPageCellInfo.m in Sources */,
 				5A9F82511D3DC0E000419554 /* CategoryViewController.m in Sources */,
 				CBAD90FDDB786E59F2894CA2F6B2061A /* POPAnimationTracer.mm in Sources */,
 				D2DC18000D27B0193D601E3F5EEA0640 /* POPAnimator.mm in Sources */,
@@ -1389,6 +1491,7 @@
 				7839B05DA3BF5BEE02EACFEB5E327D62 /* POPCGUtils.mm in Sources */,
 				8048A5D5121DDDB31F7BFDAD7EFB6EF1 /* POPCustomAnimation.mm in Sources */,
 				C6F4F390EAEF4584AA2FC51B38E8C8E5 /* POPDecayAnimation.mm in Sources */,
+				5AAC480F1D48A6DC00075D70 /* CourseSearchViewController.m in Sources */,
 				5A96FAE61D3DB5AE0058A572 /* SourceEngineInterface.m in Sources */,
 				B412347EADD49BD0D851DCEB788F6988 /* POPGeometry.mm in Sources */,
 				9A5B264C29E63987B12337EB44D033DD /* POPLayerExtras.mm in Sources */,
@@ -1398,6 +1501,7 @@
 				5A88A3471D474B9D002D3040 /* CourseController.m in Sources */,
 				46D869EBB7B844336761004411A2B060 /* POPSpringAnimation.mm in Sources */,
 				6A8BD3E22641D93102C69B131FD4021F /* POPVector.mm in Sources */,
+				5AAC47EF1D4845EA00075D70 /* ScrollViewImageInfo.m in Sources */,
 				13E008C0C965D2EF2A4830D2F4697444 /* SACommunityViewController.m in Sources */,
 				21BED4BB28AE9E73D48EB8772450D11B /* SACustomTabBar.m in Sources */,
 				849A2E02036FF1D74A9DE94831A5D1DC /* SAEInfomationViewController.m in Sources */,
@@ -1411,8 +1515,10 @@
 				3A9E891E65903BF8DEA347F8B40C7A22 /* SAPopularClassCell.m in Sources */,
 				5A9F82551D3DEEE400419554 /* CategoryHeadView.m in Sources */,
 				EC66A2D97D6DA17D598E85DC01C14A3B /* SAPopularEventCell.m in Sources */,
+				5AAC48021D48489A00075D70 /* ScrollViewModel.m in Sources */,
 				524ED2D5907E105205C877B62291C4CA /* SAPopularHeaderView.m in Sources */,
 				CA9F61DBD9F99D25BDCB6CBCA6423A1C /* SAPopularModel.m in Sources */,
+				5AAC480C1D489A6D00075D70 /* MainPageCellModel.m in Sources */,
 				1FB1DBDAA5BFBE1EBFBA5FF90607004E /* SAPopularResourceCell.m in Sources */,
 				24482CCD330AEFC7FD992CB1F8D95D53 /* SAPopularShowView.m in Sources */,
 				DC6CE341AA3BBD49EB51BC40145026F2 /* SAPopularTableView.m in Sources */,
@@ -1420,6 +1526,7 @@
 				5A88A33F1D47407E002D3040 /* ContentOfSourceCell.m in Sources */,
 				4383BCE6DE27F54233E1170BA6AB6B1D /* SAPublishViewButton.m in Sources */,
 				5A9F825B1D3E163F00419554 /* CategoryInfo.m in Sources */,
+				5AAC47E71D48404E00075D70 /* CourseMainPageHeadView.m in Sources */,
 				432793872E0E06BE70669D3DBE684376 /* SAPublishViewController.m in Sources */,
 				5A9F83301D45989A00419554 /* ContentOfSourceInfo.m in Sources */,
 				74F2C54EE7EB3CEBD5C687DF05344720 /* SARootViewController.m in Sources */,
@@ -1430,6 +1537,7 @@
 				E6C63DE74A809A6771E00213F8EEAD33 /* SAViewController.m in Sources */,
 				7210A1E5BAE8B69EEDBB38D04E22ED46 /* SDImageCache.m in Sources */,
 				C075A1ED3B778F4FDB05AEBEB75F9F80 /* SDWebImageCompat.m in Sources */,
+				5AAC47EC1D4843B200075D70 /* CourseEngine.m in Sources */,
 				0EDD48A3D9247A6A107C2DA348DC90C1 /* SDWebImageDecoder.m in Sources */,
 				A2FCD76970DF5C15AA7B14E224DCFBC3 /* SDWebImageDownloader.m in Sources */,
 				4A855CCE30219A9BC930250E6426655F /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1439,11 +1547,13 @@
 				5A96FADF1D3DB56A0058A572 /* SourceHeadView.m in Sources */,
 				1C0A48C64D3AFDDE3A2BB9064152DFAF /* Sigma.xcdatamodeld in Sources */,
 				3352DE8F08A776E4345849811408D187 /* TextEnhance.m in Sources */,
+				5AAC48151D48ABC900075D70 /* CourseSearchInfo.m in Sources */,
 				5A9F83241D40786600419554 /* SearchTrendWordsModel.m in Sources */,
 				89DB01DF29B1B37683E7CEFD7236B567 /* TransformationMatrix.cpp in Sources */,
 				5A9F83271D40BF5100419554 /* SearchInfo.m in Sources */,
 				98464250A4C37325F7F468C0042C2483 /* UIButton+WebCache.m in Sources */,
 				FBFB2F22259B8B045569B79ECD6113DB /* UIImage+GIF.m in Sources */,
+				5AAC48061D48896900075D70 /* MainPageTableCell.m in Sources */,
 				AB647194B35B96E12E7F7CB787ED0974 /* UIImage+MultiFormat.m in Sources */,
 				186BF9F4FCDF7D9F4AD18F40CD582B6D /* UIImage+WebP.m in Sources */,
 				D474B846BFBDA26D5D71428517AAD6C4 /* UIImageView+HighlightedWebCache.m in Sources */,
