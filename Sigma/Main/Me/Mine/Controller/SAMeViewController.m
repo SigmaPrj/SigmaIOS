@@ -17,7 +17,7 @@
 #import "SAMineSubViewController.h"
 #import "SASettingViewController.h"
 
-#import "SAQuestionViewController.h"
+#import "SAQuesViewController.h"
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
@@ -62,7 +62,7 @@
     [super viewDidLoad];
     
     [self setRightNavigationItemWithTitle:nil imageName:MINE_SETTINGS_ICON];
-
+    
     self.dataArray1 = [[SAMineViewEngine shareInstance] dataSection1];
     self.dataArray2 = [[SAMineViewEngine shareInstance] dataSection2];
     self.dataArray3 = [[SAMineViewEngine shareInstance] dataSection3];
@@ -152,7 +152,7 @@
         _userNameLabelOfHeaderView.text = self.user.userName;
         
         [TextEnhance resizeUILabelWidth:_userNameLabelOfHeaderView];
-
+        
     }
     return _userNameLabelOfHeaderView;
 }
@@ -415,8 +415,8 @@
                 break;
             case 2:
             {
-                SAQuestionViewController *vc=[[SAQuestionViewController alloc]init];
-                [vc setHidesBottomBarWhenPushed:YES];                
+                SAQuesViewController *vc=[[SAQuesViewController alloc]init];
+                [vc setHidesBottomBarWhenPushed:YES];
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
@@ -454,11 +454,11 @@
             {
                 
                 SASettingViewController *vc=[[SASettingViewController alloc]init];
-
+                
                 [vc setHidesBottomBarWhenPushed:YES];
                 
                 [self.navigationController pushViewController:vc animated:YES];
-
+                
             }
                 break;
             default:
@@ -466,10 +466,10 @@
         }
         
     }
-        
-
-
-
+    
+    
+    
+    
 }
 
 /**

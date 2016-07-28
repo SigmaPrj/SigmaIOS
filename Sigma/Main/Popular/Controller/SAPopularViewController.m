@@ -16,18 +16,22 @@
 #import "SAPopularResourceCell.h"
 #import "SAPopularEventCell.h"
 #import "SAPopularRequest.h"
+#import "SAPopularHeaderView.h"
+#import "SourceSubViewController.h"
+#import "CourseController.h"
+//#import "SourceSubViewController.h"
 
 #define HEADER_OF_SECTION_X 0
 #define HEADER_OF_SECTION_Y 0
+#define HEADERVIEW_HEIGHT (280)
 
-
-@interface SAPopularViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface SAPopularViewController ()<UITableViewDelegate, UITableViewDataSource,SAPopularHeaderViewDelegate>
 
 @property(nonatomic, strong)SAPopularTableView *tableView;
 @property (nonatomic, strong) NSMutableArray* datas;
 @property (nonatomic, strong) NSMutableArray* titleDatas;
-//@property (nonatomic, strong) SAPopularHeaderView* headerView;
 @property (nonatomic ,strong) NSArray* titleArray;
+@property (nonatomic, strong) SAPopularHeaderView* headerView;
 
 @end
 
@@ -89,6 +93,8 @@
         _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-50) style:UITableViewStyleGrouped];
         _tableView.dataSource = self;
         _tableView.delegate = self;
+        
+        _tableView.tableHeaderView = self.headerView;
         
     }
     
@@ -518,6 +524,19 @@
     NSLog(@"quesmorebtn click");
 }
 
+-(SAPopularHeaderView*)headerView{
+    if (!_headerView) {
+        _headerView = [[SAPopularHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEADERVIEW_HEIGHT)];
+                _headerView.delegate = self;
+        
+        //        _headerView.backgroundColor = [UIColor redColor];
+        
+    }
+    
+    return _headerView;
+
+}
+
 -(void)classBtnClick{
     NSLog(@"classmorebtn click");
 }
@@ -535,5 +554,23 @@
     return 40;
 }
 
+
+#pragma mark - SAPopularHeaderViewDelegate
+//资源按钮的点击事件
+-(void)sourceButtonInHeadViewClicked{
+    self.hidesBottomBarWhenPushed = YES;
+    SourceSubViewController* sourceSubViewController = [[SourceSubViewController alloc] init];
+    [self.navigationController pushViewController:sourceSubViewController animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+}
+
+//课程按钮的点击事件
+-(void)classButtonClicked{
+    self.hidesBottomBarWhenPushed = YES;
+    CourseController* courseController = [[CourseController alloc] init];
+    [self.navigationController pushViewController:courseController animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+
+}
 
 @end

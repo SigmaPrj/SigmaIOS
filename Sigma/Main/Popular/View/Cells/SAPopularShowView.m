@@ -49,9 +49,6 @@
     [self addImagesToScrollView];
     [self addSubview:self.scrollView];
     [self addSubview:self.pageControl];
-    
-    // 启动定时器
-    [self startTimer];
 }
 
 
@@ -120,10 +117,7 @@
 #pragma mark 定时器操作
 - (void)startTimer
 {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(changeScrollViewIndex) userInfo:nil repeats:YES];
-    // 将定时器放入事件循环中
-    NSRunLoop *mainRunLoop = [NSRunLoop mainRunLoop];
-    [mainRunLoop addTimer:_timer forMode:NSRunLoopCommonModes];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(changeScrollViewIndex) userInfo:nil repeats:YES];
 }
 
 - (void)stopTimer
