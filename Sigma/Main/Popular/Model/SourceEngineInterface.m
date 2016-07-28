@@ -20,10 +20,26 @@
 
 #import "SourceEngineInterface.h"
 #import "SourceInfo.h"
+#import "CategoryInfo.h"
+#import "SearchTrendWordsModel.h"
+#import "ContentOfSourceInfo.h"
 
 @interface SourceEngineInterface ()
 
+//source界面的数据array
 @property(nonatomic,strong)NSMutableArray* sourceInfoArray;
+
+//category界面的数据array
+@property(nonatomic,strong)NSMutableArray* categoryInfoArray;
+
+//search界面的数据array
+@property(nonatomic,strong)NSMutableArray* searchInfoArray;
+
+//contentOfSource界面的数据array
+@property(nonatomic,strong)NSMutableArray* contentOfSourceInfoArray;
+
+//contentOfSource界面cell的数据array
+@property(nonatomic,strong)NSMutableArray* contentOfSourceCellInfoArray;
 
 @end
 
@@ -46,7 +62,7 @@
         _sourceInfoArray = [NSMutableArray array];
         
         
-        //测试用的数据
+        //source界面测试用的数据
         NSMutableArray* listArray = [NSMutableArray array];
         
         SourceInfo* sourceInfo1 = [[SourceInfo alloc] init];
@@ -91,10 +107,80 @@
  ///////////////////////////////////////////////////////////////////
         
         [self sourcePageWithArray:listArray];
+        
+        
+        _categoryInfoArray = [NSMutableArray array];
+        
+        
+        
+        //category界面测试用的数据
+        NSMutableArray* listArrayForCategory = [NSMutableArray array];
+        
+        NSDictionary* dic1 = @{@"cellName":@"前端开发",
+                              @"imageName1":@"catogorySecondInfo3.png",
+                               @"desLabel1":@"HTML",
+                               @"numLabel1":@"44",
+                               @"imageName2":@"catogorySecondInfo3.png",
+                               @"desLabel2":@"JavaScipt",
+                               @"numLabel2":@"44",
+                               @"imageName3":@"catogorySecondInfo3.png",
+                               @"desLabel3":@"HTML",
+                               @"numLabel3":@"44",
+                               @"imageName4":@"catogorySecondInfo3.png",
+                               @"desLabel4":@"JavaScipt",
+                               @"numLabel4":@"44",
+                               @"imageName5":@"catogorySecondInfo3.png",
+                               @"desLabel5":@"HTML",
+                               @"numLabel5":@"44",
+                               @"imageName6":@"catogorySecondInfo3.png",
+                               @"desLabel6":@"JavaScipt",
+                               @"numLabel6":@"44"
+                              };
+        [listArrayForCategory addObject:dic1];
+    ///////////////////////////////////////////////////////////////////
+        
+        [self categoryPageWithArray:listArrayForCategory];
+        
+        _searchInfoArray = [NSMutableArray array];
+        //source界面测试用的数据
+        NSMutableArray* listArrayForSearch = [NSMutableArray array];
+        NSDictionary* dictForSearch1 = @{@"trendWord":@"前端"};
+        NSDictionary* dictForSearch2 = @{@"trendWord":@"脱口秀"};
+        NSDictionary* dictForSearch3 = @{@"trendWord":@"脱口秀"};
+        NSDictionary* dictForSearch4 = @{@"trendWord":@"脱口秀"};
+        NSDictionary* dictForSearch5 = @{@"trendWord":@"脱口秀"};
+        [listArrayForSearch addObject:dictForSearch1];
+        [listArrayForSearch addObject:dictForSearch2];
+        [listArrayForSearch addObject:dictForSearch3];
+        [listArrayForSearch addObject:dictForSearch4];
+        [listArrayForSearch addObject:dictForSearch5];
+/////////////////////////////////////////////////////////////////////////////
+        
+        [self searchPageWithArray:listArrayForSearch];
+        
+    
+        
+        
     }
     return self;
 }
 
+//初始化ContentOfSource的headView的数据
+-(instancetype)initContentOfSourceHeadView{
+    self = [super init];
+    if(self){
+    //contentOfSource的headview测试用的数据
+    NSMutableArray* listArrayForContentHeadview = [NSMutableArray array];
+    NSDictionary* dictForContent = @{@"sourceName":self.sourceName,
+                                     @"descriptionOfSource":self.descriptionOfSource};
+    [listArrayForContentHeadview addObject:dictForContent];
+    [self contentOfSourcePageWithArray:listArrayForContentHeadview];
+///////////// / / //////////////////////////////////////////////////////////////
+    }
+    return self;
+}
+
+//传入一个array，然后拿到array 中的内容，添加到sourceInfoArray中
 -(void)sourcePageWithArray:(NSArray *)listArray{
     for(int index=0; index<listArray.count; index++){
         //取出listarray中的对象
@@ -107,8 +193,64 @@
     }
 }
 
+//传入一个array，然后拿到array 中的内容，添加到categoryInfoArray中
+-(void)categoryPageWithArray:(NSArray*)listArray{
+    for(int index=0; index<listArray.count; index++){
+        NSDictionary* dic = [listArray objectAtIndex:index];
+        [_categoryInfoArray addObject:dic];
+    }
+}
+
+//传入一个array，然后拿到array 中的内容，添加到searchInfoArray中
+-(void)searchPageWithArray:(NSArray*)listArray{
+    for(int index=0; index<listArray.count; index++){
+        NSDictionary* dic = [listArray objectAtIndex:index];
+        SearchTrendWordsModel* searchInfo = [[SearchTrendWordsModel alloc] initWithDictionary:dic];
+        [_searchInfoArray addObject:searchInfo];
+}}
+
+//传入一个array，然后拿到array 中的内容，添加到contentOfSourceInfoArray中
+-(void)contentOfSourcePageWithArray:(NSArray*)listArray{
+    for(int index=0; index<listArray.count; index++){
+        NSDictionary* dic = [listArray objectAtIndex:index];
+        ContentOfSourceInfo* contentInfo = [[ContentOfSourceInfo alloc] initWithDictionary:dic];
+        [_contentOfSourceInfoArray addObject:contentInfo];
+    }
+}
+
+//一个获得数据的接口
+-(void)getDataFromView:(NSString*)sourceName andSupportNumber:(NSString*)supportNumber andDownloadNumber:(NSString*)downloadNumber{
+    _contentOfSourceInfoArray = [NSMutableArray array];
+    //contentOfSource的headview测试用的数据
+    NSMutableArray* listArrayForContentHeadview = [NSMutableArray array];
+    NSDictionary* dictForContent = @{@"sourceName":sourceName,
+                                     @"descriptionOfSource":@"资源描述。consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.",
+                                     @"supportNumber":supportNumber,
+                                     @"downloadNumber":downloadNumber};
+    [listArrayForContentHeadview addObject:dictForContent];
+    ///////////// / / //////////////////////////////////////////////////////////////
+    [self contentOfSourcePageWithArray:listArrayForContentHeadview];
+}
+
+
 -(NSArray*)sourcePageWithData{
     return self.sourceInfoArray;
+}
+
+-(NSArray*)categoryPageWithData{
+    return self.categoryInfoArray;
+}
+
+-(NSArray*)searchPageWithData{
+    return self.searchInfoArray;
+}
+
+-(NSArray*)contentOfSourcePageWithData{
+    return self.contentOfSourceInfoArray;
+}
+
+-(NSArray*)contentOfSourceCellWithData{
+    return self.contentOfSourceCellInfoArray;
 }
 
 @end

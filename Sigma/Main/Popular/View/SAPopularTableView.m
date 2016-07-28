@@ -53,12 +53,13 @@
         
         // 不要cell间的分割线
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.tableHeaderView = self.headerView;
+//        self.tableHeaderView = self.headerView;
         
     }
     
     return self;
 }
+
 
 
 
@@ -72,5 +73,21 @@
 
 
 
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40;
+}
+
+//#pragma mark - SAPopularHeaderViewDelegate
 
 @end

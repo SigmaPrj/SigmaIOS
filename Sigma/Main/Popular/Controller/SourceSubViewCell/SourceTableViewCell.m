@@ -62,6 +62,7 @@
     if(_sourceNameLabel == nil){
         _sourceNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/2, CELL_HEIGHT/4)];
         _sourceNameLabel.backgroundColor = [UIColor whiteColor];
+        _sourceNameLabel.tag = 1000;
     }
     return _sourceNameLabel;
 }
@@ -82,6 +83,7 @@
         _sourceDescriptionLabel.backgroundColor = [UIColor whiteColor];
         _sourceDescriptionLabel.numberOfLines = 3;
         _sourceDescriptionLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        _sourceDescriptionLabel.tag = 2000;
     }
     return _sourceDescriptionLabel;
 }
@@ -100,6 +102,7 @@
     if(_supportLabel == nil){
         _supportLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2, CELL_HEIGHT*3/4+5, 50, 20)];
         _supportLabel.backgroundColor = [UIColor whiteColor];
+        _supportLabel.tag = 3000;
     }
     return _supportLabel;
 }
@@ -118,6 +121,7 @@
     if(_downloadLabel == nil){
         _downloadLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+130, CELL_HEIGHT*3/4+5, 60, 20)];
         _downloadLabel.backgroundColor = [UIColor whiteColor];
+        _downloadLabel.tag = 4000;
     }
     return _downloadLabel;
 }

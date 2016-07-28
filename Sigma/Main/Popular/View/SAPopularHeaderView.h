@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SAPopularHeaderViewDelegate <NSObject>
+
+-(void)sourceButtonInHeadViewClicked;
+
+-(void)classButtonClicked;
+
+@end
+
 @interface SAPopularHeaderView : UIView
 
+@property(nonatomic,weak)id<SAPopularHeaderViewDelegate> delegate;
 
 @end
