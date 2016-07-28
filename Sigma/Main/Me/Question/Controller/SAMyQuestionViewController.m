@@ -6,14 +6,14 @@
 //  Copyright © 2016年 韩佳成. All rights reserved.
 //
 
-#import "SAQuesViewController.h"
-#import "SAQuestionCell.h"
-#import "SAQuestionTableViewCell.h"
-#import "SAQuestionViewEngine.h"
+#import "SAMyQuestionViewController.h"
+#import "SAMyQuestionCell.h"
+#import "SAMyQuestionTableViewCell.h"
+#import "SAMyQuestionViewEngine.h"
 
 #define MARGIN 15
 
-@interface SAQuesViewController()
+@interface SAMyQuestionViewController()<UITableViewDataSource, UITableViewDelegate,SAMyQuestionTableViewCellDelegate>
 
 @property (nonatomic,strong)UITableView *questionTableView;
 @property (nonatomic, strong)NSArray* dataArray;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation SAQuesViewController
+@implementation SAMyQuestionViewController
 
 
 - (void)viewDidLoad {
@@ -44,7 +44,7 @@
     [self.view addSubview:self.questionTableView];
     
     self.navigationItem.titleView = self.searchBar;
-    self.dataArray = [[SAQuestionViewEngine shareInstance] dataSection];
+    self.dataArray = [[SAMyQuestionViewEngine shareInstance] dataSection];
     if ([self isExisted:self.dataArray]) {
         [self.questionTableView reloadData];
     }
@@ -113,18 +113,18 @@
     
     static NSString *CellIndentifier = @"homeCell";
     
-    SAQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIndentifier];
+    SAMyQuestionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIndentifier];
     
     if (!cell) {
-        cell = [[SAQuestionTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIndentifier];
+        cell = [[SAMyQuestionTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIndentifier];
         
         cell.delegate=self;
     }
     
     if ((indexPath.section >=0) && (indexPath.section < self.dataArray.count)) {
         
-        SAQuestionCell* cellSection = (SAQuestionCell*)[self.dataArray objectAtIndex:indexPath.section];
-        SAQuestionCell* data = [[SAQuestionCell alloc] init];
+        SAMyQuestionCell* cellSection = (SAMyQuestionCell*)[self.dataArray objectAtIndex:indexPath.section];
+        SAMyQuestionCell* data = [[SAMyQuestionCell alloc] init];
         
         data.title = cellSection.title;
         data.detail=cellSection.detail;
@@ -133,7 +133,7 @@
         
         cell.data = data;
         
-        [cell showQuestionCell];
+        [cell showMyQuestionCell];
     }
     
     return cell;

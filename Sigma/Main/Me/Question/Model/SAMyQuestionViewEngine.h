@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SAQuestionViewEngine : NSObject
+@interface SAMyQuestionViewEngine : NSObject
 
 +(instancetype)shareInstance;
 

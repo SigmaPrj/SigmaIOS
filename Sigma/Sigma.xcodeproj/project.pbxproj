@@ -90,9 +90,9 @@
 		5AAC4DC21D4995F100075D70 /* SAMineSubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C3A1D4995F100075D70 /* SAMineSubViewController.m */; };
 		5AAC4DC31D4995F100075D70 /* SAMineViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C3D1D4995F100075D70 /* SAMineViewEngine.m */; };
 		5AAC4DC41D4995F100075D70 /* SAUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C3F1D4995F100075D70 /* SAUser.m */; };
-		5AAC4DC51D4995F100075D70 /* SAQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C431D4995F100075D70 /* SAQuestionCell.m */; };
-		5AAC4DC61D4995F100075D70 /* SAQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C451D4995F100075D70 /* SAQuestionTableViewCell.m */; };
-		5AAC4DC81D4995F100075D70 /* SAQuestionViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C4B1D4995F100075D70 /* SAQuestionViewEngine.m */; };
+		5AAC4DC51D4995F100075D70 /* SAMyQuestionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C431D4995F100075D70 /* SAMyQuestionCell.m */; };
+		5AAC4DC61D4995F100075D70 /* SAMyQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C451D4995F100075D70 /* SAMyQuestionTableViewCell.m */; };
+		5AAC4DC81D4995F100075D70 /* SAMyQuestionViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C4B1D4995F100075D70 /* SAMyQuestionViewEngine.m */; };
 		5AAC4DC91D4995F100075D70 /* SASettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C4F1D4995F100075D70 /* SASettingCell.m */; };
 		5AAC4DCA1D4995F100075D70 /* SASettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C511D4995F100075D70 /* SASettingTableViewCell.m */; };
 		5AAC4DCB1D4995F100075D70 /* SASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4C541D4995F100075D70 /* SASettingViewController.m */; };
@@ -282,7 +282,7 @@
 		5AAC4E831D4995F100075D70 /* ios7-contact-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC4D771D4995F100075D70 /* ios7-contact-outline.png */; };
 		5AAC4E841D4995F100075D70 /* ios7-undo-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC4D781D4995F100075D70 /* ios7-undo-outline.png */; };
 		5AAC4E851D4995F100075D70 /* ios7-undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AAC4D791D4995F100075D70 /* ios7-undo.png */; };
-		5AAC4E891D4998C700075D70 /* SAQuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4E881D4998C700075D70 /* SAQuesViewController.m */; };
+		5AAC4E891D4998C700075D70 /* SAMyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4E881D4998C700075D70 /* SAMyQuestionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -489,12 +489,12 @@
 		5AAC4C3D1D4995F100075D70 /* SAMineViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMineViewEngine.m; sourceTree = "<group>"; };
 		5AAC4C3E1D4995F100075D70 /* SAUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAUser.h; sourceTree = "<group>"; };
 		5AAC4C3F1D4995F100075D70 /* SAUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUser.m; sourceTree = "<group>"; };
-		5AAC4C421D4995F100075D70 /* SAQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAQuestionCell.h; sourceTree = "<group>"; };
-		5AAC4C431D4995F100075D70 /* SAQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAQuestionCell.m; sourceTree = "<group>"; };
-		5AAC4C441D4995F100075D70 /* SAQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAQuestionTableViewCell.h; sourceTree = "<group>"; };
-		5AAC4C451D4995F100075D70 /* SAQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAQuestionTableViewCell.m; sourceTree = "<group>"; };
-		5AAC4C4A1D4995F100075D70 /* SAQuestionViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAQuestionViewEngine.h; sourceTree = "<group>"; };
-		5AAC4C4B1D4995F100075D70 /* SAQuestionViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAQuestionViewEngine.m; sourceTree = "<group>"; };
+		5AAC4C421D4995F100075D70 /* SAMyQuestionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMyQuestionCell.h; sourceTree = "<group>"; };
+		5AAC4C431D4995F100075D70 /* SAMyQuestionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMyQuestionCell.m; sourceTree = "<group>"; };
+		5AAC4C441D4995F100075D70 /* SAMyQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMyQuestionTableViewCell.h; sourceTree = "<group>"; };
+		5AAC4C451D4995F100075D70 /* SAMyQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMyQuestionTableViewCell.m; sourceTree = "<group>"; };
+		5AAC4C4A1D4995F100075D70 /* SAMyQuestionViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMyQuestionViewEngine.h; sourceTree = "<group>"; };
+		5AAC4C4B1D4995F100075D70 /* SAMyQuestionViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMyQuestionViewEngine.m; sourceTree = "<group>"; };
 		5AAC4C4E1D4995F100075D70 /* SASettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingCell.h; sourceTree = "<group>"; };
 		5AAC4C4F1D4995F100075D70 /* SASettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingCell.m; sourceTree = "<group>"; };
 		5AAC4C501D4995F100075D70 /* SASettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingTableViewCell.h; sourceTree = "<group>"; };
@@ -753,8 +753,8 @@
 		5AAC4D781D4995F100075D70 /* ios7-undo-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-undo-outline.png"; sourceTree = "<group>"; };
 		5AAC4D791D4995F100075D70 /* ios7-undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-undo.png"; sourceTree = "<group>"; };
 		5AAC4E861D49961C00075D70 /* SAPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPrefix.pch; sourceTree = "<group>"; };
-		5AAC4E871D4998C700075D70 /* SAQuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAQuesViewController.h; sourceTree = "<group>"; };
-		5AAC4E881D4998C700075D70 /* SAQuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAQuesViewController.m; sourceTree = "<group>"; };
+		5AAC4E871D4998C700075D70 /* SAMyQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMyQuestionViewController.h; sourceTree = "<group>"; };
+		5AAC4E881D4998C700075D70 /* SAMyQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMyQuestionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1225,10 +1225,10 @@
 		5AAC4C411D4995F100075D70 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5AAC4C421D4995F100075D70 /* SAQuestionCell.h */,
-				5AAC4C431D4995F100075D70 /* SAQuestionCell.m */,
-				5AAC4C441D4995F100075D70 /* SAQuestionTableViewCell.h */,
-				5AAC4C451D4995F100075D70 /* SAQuestionTableViewCell.m */,
+				5AAC4C421D4995F100075D70 /* SAMyQuestionCell.h */,
+				5AAC4C431D4995F100075D70 /* SAMyQuestionCell.m */,
+				5AAC4C441D4995F100075D70 /* SAMyQuestionTableViewCell.h */,
+				5AAC4C451D4995F100075D70 /* SAMyQuestionTableViewCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -1236,8 +1236,8 @@
 		5AAC4C461D4995F100075D70 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5AAC4E871D4998C700075D70 /* SAQuesViewController.h */,
-				5AAC4E881D4998C700075D70 /* SAQuesViewController.m */,
+				5AAC4E871D4998C700075D70 /* SAMyQuestionViewController.h */,
+				5AAC4E881D4998C700075D70 /* SAMyQuestionViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1245,8 +1245,8 @@
 		5AAC4C491D4995F100075D70 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5AAC4C4A1D4995F100075D70 /* SAQuestionViewEngine.h */,
-				5AAC4C4B1D4995F100075D70 /* SAQuestionViewEngine.m */,
+				5AAC4C4A1D4995F100075D70 /* SAMyQuestionViewEngine.h */,
+				5AAC4C4B1D4995F100075D70 /* SAMyQuestionViewEngine.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2164,7 +2164,7 @@
 				5AAC4DCD1D4995F100075D70 /* SASettingViewEngine.m in Sources */,
 				5AAC4DC31D4995F100075D70 /* SAMineViewEngine.m in Sources */,
 				5AAC4DA61D4995F100075D70 /* SDWebImageManager.m in Sources */,
-				5AAC4E891D4998C700075D70 /* SAQuesViewController.m in Sources */,
+				5AAC4E891D4998C700075D70 /* SAMyQuestionViewController.m in Sources */,
 				5AAC4DC21D4995F100075D70 /* SAMineSubViewController.m in Sources */,
 				5AAC4DAD1D4995F100075D70 /* UIImageView+WebCache.m in Sources */,
 				5AAC4D831D4995F100075D70 /* MASLayoutConstraint.m in Sources */,
@@ -2228,7 +2228,7 @@
 				5AAC4D9D1D4995F100075D70 /* POPVector.mm in Sources */,
 				5AAC4D901D4995F100075D70 /* POPAnimationExtras.mm in Sources */,
 				5AAC4DE11D4995F100075D70 /* CourseController.m in Sources */,
-				5AAC4DC51D4995F100075D70 /* SAQuestionCell.m in Sources */,
+				5AAC4DC51D4995F100075D70 /* SAMyQuestionCell.m in Sources */,
 				5AAC4D8F1D4995F100075D70 /* POPAnimationEvent.mm in Sources */,
 				5AAC4DF01D4995F100075D70 /* CourseMainPageHeadView.m in Sources */,
 				5AAC4DA81D4995F100075D70 /* UIButton+WebCache.m in Sources */,
@@ -2252,7 +2252,7 @@
 				5AAC4DD11D4995F100075D70 /* CategoryViewController.m in Sources */,
 				5AAC4E191D4995F100075D70 /* SACustomTabBar.m in Sources */,
 				5AAC4E141D4995F100075D70 /* SADateHelper.m in Sources */,
-				5AAC4DC81D4995F100075D70 /* SAQuestionViewEngine.m in Sources */,
+				5AAC4DC81D4995F100075D70 /* SAMyQuestionViewEngine.m in Sources */,
 				5AAC4D9A1D4995F100075D70 /* POPMath.mm in Sources */,
 				5AAC4E0D1D4995F100075D70 /* SAPopularHeaderView.m in Sources */,
 				5AAC4D951D4995F100075D70 /* POPCGUtils.mm in Sources */,
@@ -2264,7 +2264,7 @@
 				5AAC4DA11D4995F100075D70 /* SDImageCache.m in Sources */,
 				5AAC4E1A1D4995F100075D70 /* SAPublishViewController.m in Sources */,
 				5AAC4E091D4995F100075D70 /* SAPopularEventCell.m in Sources */,
-				5AAC4DC61D4995F100075D70 /* SAQuestionTableViewCell.m in Sources */,
+				5AAC4DC61D4995F100075D70 /* SAMyQuestionTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2494,6 +2494,7 @@
 				5AAC4B771D49959600075D70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5AAC4B781D49959600075D70 /* Build configuration list for PBXNativeTarget "SigmaTests" */ = {
 			isa = XCConfigurationList;
@@ -2502,6 +2503,7 @@
 				5AAC4B7A1D49959600075D70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5AAC4B7B1D49959600075D70 /* Build configuration list for PBXNativeTarget "SigmaUITests" */ = {
 			isa = XCConfigurationList;
@@ -2510,6 +2512,7 @@
 				5AAC4B7D1D49959600075D70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

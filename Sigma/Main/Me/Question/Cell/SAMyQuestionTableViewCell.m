@@ -6,15 +6,15 @@
 //  Copyright © 2016 blackcater. All rights reserved.
 //
 
-#import "SAQuestionTableViewCell.h"
+#import "SAMyQuestionTableViewCell.h"
 
-#import "SAQuestionCell.h"
+#import "SAMyQuestionCell.h"
 
 #define MARGIN 15
 #define PADDING 5
 #define IMG_SIZE 40
 
-@interface SAQuestionTableViewCell ()
+@interface SAMyQuestionTableViewCell ()
 
 @property(nonatomic, strong)UIImageView* headImgView;
 @property(nonatomic, strong)UILabel* titleLabel;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation SAQuestionTableViewCell
+@implementation SAMyQuestionTableViewCell
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     
@@ -108,7 +108,7 @@
 }
 
 
--(void)showQuestionCell{
+-(void)showMyQuestionCell{
     self.headImgView.image = [UIImage imageNamed:self.data.headImgName];
     self.titleLabel.text=self.data.title;
     self.detailLabel.text=self.data.detail;
