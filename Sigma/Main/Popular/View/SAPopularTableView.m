@@ -53,7 +53,7 @@
         
         // 不要cell间的分割线
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.tableHeaderView = self.headerView;
+//        self.tableHeaderView = self.headerView;
         
     }
     
@@ -62,6 +62,7 @@
 
 
 
+<<<<<<< HEAD
 -(SAPopularHeaderView*)headerView{
     if (!_headerView) {
         _headerView = [[SAPopularHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEADERVIEW_HEIGHT)];        
@@ -69,8 +70,41 @@
     
     return _headerView;
 }
+=======
+//-(SAPopularHeaderView*)headerView{
+//    if (!_headerView) {
+//        _headerView = [[SAPopularHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEADERVIEW_HEIGHT)];
+////        _headerView.delegate = self;
+//        
+////        _headerView.backgroundColor = [UIColor redColor];
+//        
+//    }
+//    
+//    return _headerView;
+//}
+>>>>>>> real
 
 
 
 
+<<<<<<< HEAD
+=======
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 40;
+}
+
+//#pragma mark - SAPopularHeaderViewDelegate
+//-(void)sourceButtonClicked{
+//    
+//}
+
+>>>>>>> real
 @end

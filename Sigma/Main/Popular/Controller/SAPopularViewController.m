@@ -8,6 +8,7 @@
 
 #import "SAPopularViewController.h"
 #import "SAPopularTableView.h"
+<<<<<<< HEAD
 #import "SourceSubViewController.h"
 #import "SAPublishViewController.h"
 #import "SAPopularCell.h"
@@ -28,6 +29,20 @@
 @property (nonatomic, strong) NSMutableArray* titleDatas;
 //@property (nonatomic, strong) SAPopularHeaderView* headerView;
 @property (nonatomic ,strong) NSArray* titleArray;
+=======
+#import "SAPopularHeaderView.h"
+#import "SourceSubViewController.h"
+#import "CourseController.h"
+//#import "SourceSubViewController.h"
+
+
+#define HEADERVIEW_HEIGHT (280)
+
+@interface SAPopularViewController ()<SAPopularHeaderViewDelegate>
+
+@property(nonatomic, strong)SAPopularTableView *tableView;
+@property (nonatomic, strong) SAPopularHeaderView* headerView;
+>>>>>>> real
 
 @end
 
@@ -90,11 +105,14 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
+        _tableView.tableHeaderView = self.headerView;
+        
     }
     
     return _tableView;
 }
 
+<<<<<<< HEAD
 
 /**
  *  发送请求
@@ -516,6 +534,18 @@
 
 -(void)quesBtnClick{
     NSLog(@"quesmorebtn click");
+=======
+-(SAPopularHeaderView*)headerView{
+    if (!_headerView) {
+        _headerView = [[SAPopularHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEADERVIEW_HEIGHT)];
+                _headerView.delegate = self;
+        
+        //        _headerView.backgroundColor = [UIColor redColor];
+        
+    }
+    
+    return _headerView;
+>>>>>>> real
 }
 
 -(void)classBtnClick{
@@ -535,5 +565,23 @@
     return 40;
 }
 
+
+#pragma mark - SAPopularHeaderViewDelegate
+//资源按钮的点击事件
+-(void)sourceButtonInHeadViewClicked{
+    self.hidesBottomBarWhenPushed = YES;
+    SourceSubViewController* sourceSubViewController = [[SourceSubViewController alloc] init];
+    [self.navigationController pushViewController:sourceSubViewController animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+}
+
+//课程按钮的点击事件
+-(void)classButtonClicked{
+    self.hidesBottomBarWhenPushed = YES;
+    CourseController* courseController = [[CourseController alloc] init];
+    [self.navigationController pushViewController:courseController animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
+
+}
 
 @end

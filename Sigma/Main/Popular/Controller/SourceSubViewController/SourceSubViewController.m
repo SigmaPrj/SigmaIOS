@@ -23,6 +23,9 @@
 #import "SourceTableViewCell.h"
 #import "SourceEngineInterface.h"
 #import "SourceInfo.h"
+#import "CategoryViewController.h"
+#import "ContentOfSourceViewController.h"
+#import "SourceEngineInterface.h"
 
 
 
@@ -110,7 +113,9 @@
 //实现那 navigation上右边按钮的事件
 -(void)rightNavigationBarClicked:(id)sender{
     if(sender && [sender isKindOfClass:[UIBarButtonItem class]]){
-        
+         self.hidesBottomBarWhenPushed = YES;
+        CategoryViewController* categoryViewController = [[CategoryViewController alloc] init];
+        [self.navigationController pushViewController:categoryViewController animated:YES];
     }
 }
 
@@ -118,7 +123,6 @@
 
 //返回cell的个数
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"count = %lu",self.dataArray.count);
     return self.dataArray.count;
 }
 
@@ -144,6 +148,18 @@
 
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ContentOfSourceViewController* contentViewController = [[ContentOfSourceViewController alloc] init];
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:contentViewController animated:YES];
+    //获取当前点击的cell
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    //通过组件的tag，在cell上获取对应的组件
+    UILabel* cellNameLabel = [cell.contentView viewWithTag:1000];
+    UILabel* supportNumber = [cell.contentView viewWithTag:3000];
+    UILabel* downloadNumber = [cell.contentView viewWithTag:4000];
+    
+    //将数据传到engine层
+    [[SourceEngineInterface shareInstances] getDataFromView:cellNameLabel.text andSupportNumber:supportNumber.text andDownloadNumber:downloadNumber.text];
     
 }
 

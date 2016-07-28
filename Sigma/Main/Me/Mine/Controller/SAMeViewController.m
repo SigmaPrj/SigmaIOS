@@ -8,6 +8,7 @@
 
 #import "SAMeViewController.h"
 
+<<<<<<< HEAD:Sigma/Main/Me/Mine/Controller/SAMeViewController.m
 #import "SAMineCell.h"
 #import "SAUser.h"
 #import "SAMineViewEngine.h"
@@ -53,6 +54,9 @@
 @property(nonatomic,strong)NSArray *dataArray2;
 @property(nonatomic,strong)NSArray *dataArray3;
 
+=======
+@interface SAMeViewController ()
+>>>>>>> real:Sigma/Main/Me/Controller/SAMeViewController.m
 
 @end
 
@@ -60,37 +64,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setRightNavigationItemWithTitle:nil imageName:MINE_SETTINGS_ICON];
-
-    self.dataArray1 = [[SAMineViewEngine shareInstance] dataSection1];
-    self.dataArray2 = [[SAMineViewEngine shareInstance] dataSection2];
-    self.dataArray3 = [[SAMineViewEngine shareInstance] dataSection3];
-    
-    self.user = [[SAMineViewEngine shareInstance] mineGetUser];
-    
-    if ([self isExisted:self.dataArray1]&&[self isExisted:self.dataArray2]&&[self isExisted:self.dataArray3]) {
-        [self.mineTableView reloadData];
-    }
+    // Do any additional setup after loading the view.
 }
 
--(BOOL)isExisted:(NSArray*)array{
-    if (array&&array.count>0) {
-        return YES;
-    }else{
-        return NO;
-    }
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self initUI];
-}
-
--(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-}
-
+<<<<<<< HEAD:Sigma/Main/Me/Mine/Controller/SAMeViewController.m
 #pragma mark - Initialize UI
 -(void)initUI{
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -548,13 +530,16 @@
         NSLog(@"headRightBtnClicked");
     }
 }
+=======
+/*
+#pragma mark - Navigation
+>>>>>>> real:Sigma/Main/Me/Controller/SAMeViewController.m
 
--(void)rightItemTapped{
-    SASettingViewController *vc=[[SASettingViewController alloc]init];
-    
-    [vc setHidesBottomBarWhenPushed:YES];
-    
-    [self.navigationController pushViewController:vc animated:YES];
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
+*/
 
 @end
