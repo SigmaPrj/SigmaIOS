@@ -15,8 +15,9 @@
 #import "TextEnhance.h"
 
 #import "SAMineSubViewController.h"
-
 #import "SASettingViewController.h"
+
+#import "SAQuestionViewController.h"
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
@@ -338,7 +339,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString* cellIndentifier = @"mycell";
+    static NSString* cellIndentifier = @"minecell";
     
     SAMineTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
     
@@ -414,10 +415,8 @@
                 break;
             case 2:
             {
-                SAMineSubViewController *vc=[[SAMineSubViewController alloc]init];
-                vc.titleLabel=@"我的问答";
-                [vc setHidesBottomBarWhenPushed:YES];
-                
+                SAQuestionViewController *vc=[[SAQuestionViewController alloc]init];
+                [vc setHidesBottomBarWhenPushed:YES];                
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
