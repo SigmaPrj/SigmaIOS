@@ -235,6 +235,7 @@
 		005F25BF1D4890B300B8D92A /* ios7-contact-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 005F25571D4890B300B8D92A /* ios7-contact-outline.png */; };
 		005F25C01D4890B300B8D92A /* ios7-undo-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 005F25581D4890B300B8D92A /* ios7-undo-outline.png */; };
 		005F25C11D4890B300B8D92A /* ios7-undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 005F25591D4890B300B8D92A /* ios7-undo.png */; };
+		005F25C51D489E8C00B8D92A /* SAPopularRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 005F25C41D489E8C00B8D92A /* SAPopularRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -629,6 +630,8 @@
 		005F25571D4890B300B8D92A /* ios7-contact-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-contact-outline.png"; sourceTree = "<group>"; };
 		005F25581D4890B300B8D92A /* ios7-undo-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-undo-outline.png"; sourceTree = "<group>"; };
 		005F25591D4890B300B8D92A /* ios7-undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-undo.png"; sourceTree = "<group>"; };
+		005F25C31D489E8C00B8D92A /* SAPopularRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPopularRequest.h; sourceTree = "<group>"; };
+		005F25C41D489E8C00B8D92A /* SAPopularRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPopularRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1289,6 +1292,7 @@
 		005F24881D488CE000B8D92A /* Popular */ = {
 			isa = PBXGroup;
 			children = (
+				005F25C21D489E6600B8D92A /* Http */,
 				005F24891D488CE000B8D92A /* Controller */,
 				005F249C1D488CE000B8D92A /* Model */,
 				005F24A31D488CE000B8D92A /* Source */,
@@ -1556,6 +1560,15 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		005F25C21D489E6600B8D92A /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				005F25C31D489E8C00B8D92A /* SAPopularRequest.h */,
+				005F25C41D489E8C00B8D92A /* SAPopularRequest.m */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1799,6 +1812,7 @@
 				005F23F51D488C9A00B8D92A /* UIImageView+HighlightedWebCache.m in Sources */,
 				005F242D1D488CC900B8D92A /* SAComposeView.m in Sources */,
 				005F23CE1D488C9A00B8D92A /* MASViewConstraint.m in Sources */,
+				005F25C51D489E8C00B8D92A /* SAPopularRequest.m in Sources */,
 				005F24D31D488CE000B8D92A /* SASettingViewEngine.m in Sources */,
 				005F242E1D488CC900B8D92A /* SADateHelper.m in Sources */,
 				005F24D11D488CE000B8D92A /* SASettingViewController.m in Sources */,
@@ -2049,9 +2063,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sigma/SAPrefix.pch;
 				INFOPLIST_FILE = Sigma/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ter.Sigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2062,9 +2078,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Sigma/SAPrefix.pch;
 				INFOPLIST_FILE = Sigma/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ter.Sigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2136,6 +2154,7 @@
 				005F23381D488C7300B8D92A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		005F23391D488C7300B8D92A /* Build configuration list for PBXNativeTarget "SigmaTests" */ = {
 			isa = XCConfigurationList;
@@ -2144,6 +2163,7 @@
 				005F233B1D488C7300B8D92A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		005F233C1D488C7300B8D92A /* Build configuration list for PBXNativeTarget "SigmaUITests" */ = {
 			isa = XCConfigurationList;
@@ -2152,6 +2172,7 @@
 				005F233E1D488C7300B8D92A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -19,6 +19,8 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] init];
     
+    self.window.frame = [[UIScreen mainScreen] bounds];
+    
     SARootViewController *viewController = [[SARootViewController alloc]init];
     
     self.window.rootViewController = viewController;
