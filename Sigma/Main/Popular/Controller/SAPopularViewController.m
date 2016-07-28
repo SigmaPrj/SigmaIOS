@@ -8,14 +8,14 @@
 
 #import "SAPopularViewController.h"
 #import "SAPopularTableView.h"
-//#import "SourceSubViewController.h"
+#import "SourceSubViewController.h"
 #import "SAPublishViewController.h"
 #import "SAPopularCell.h"
 #import "SAPopularModel.h"
 #import "SAPopularClassCell.h"
 #import "SAPopularResourceCell.h"
 #import "SAPopularEventCell.h"
-
+#import "SAPopularRequest.h"
 
 #define HEADER_OF_SECTION_X 0
 #define HEADER_OF_SECTION_Y 0
@@ -42,18 +42,21 @@
     [self initData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    // 添加通知
+    [self addAllNotification];
+    
+    // 发送数据请求
+    [self sendRequest];
+    
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [self removeAllNotification];
 }
 
 
@@ -83,7 +86,7 @@
 
 -(SAPopularTableView*)tableView{
     if (!_tableView) {
-        _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStyleGrouped];
+        _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-50) style:UITableViewStyleGrouped];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
@@ -94,11 +97,75 @@
 
 
 /**
+ *  发送请求
+ *
+ *  @return void
+ */
+- (void)sendRequest {
+    
+    // 热门问答请求
+    [SAPopularRequest requestQuestionData];
+    
+    [SAPopularRequest requestVideoData];
+    
+    [SAPopularRequest requestResourceData];
+}
+
+#pragma mark - 添加通知
+- (void) addAllNotification {
+    
+    // 添加热门问答通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_POPULAR_QUESTION_DATA object:nil];
+    
+    // 添加热门课程通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_POPULAR_VIDEO_DATA object:nil];
+    
+    // 添加热门资源通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_POPULAR_RESOURCE_DATA object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataErrorHandler:) name:REQUEST_DATA_ERROR object:nil];
+}
+
+- (void) removeAllNotification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+- (void) receiveDataSuccessHandler:(NSNotification *)noti{
+    if ([noti.name isEqualToString:NOTI_POPULAR_QUESTION_DATA]) {
+        if ([noti.userInfo[@"status"] intValue] == 1) {
+            // 加载用户数据成功
+            NSLog(@"question success");
+        }
+    }
+    
+    if ([noti.name isEqualToString:NOTI_POPULAR_VIDEO_DATA]) {
+        if ([noti.userInfo[@"status"] intValue] == 1) {
+            // 加载用户数据成功
+            NSLog(@"video success");
+        }
+    }
+    
+    if ([noti.name isEqualToString:NOTI_POPULAR_RESOURCE_DATA]) {
+        if ([noti.userInfo[@"status"] intValue] == 1) {
+            // 加载用户数据成功
+            NSLog(@"resource success");
+        }
+    }
+}
+
+
+- (void) receiveDataErrorHandler:notification {
+    NSLog(@"数据加载失败!");
+}
+
+
+/**
  *  初始化数据
  */
 -(void)initData{
     
-    _titleArray = @[@"热门问答", @"热门课程", @"热门资源", @"热门活动"];
+    _titleArray = @[@"热门问答", @"热门课程", @"热门资源"];
     
     NSDictionary* dict1 = @{
                             @"AvataImgName":@"avata.jpg",
@@ -180,7 +247,7 @@
     NSMutableArray* questionArray = [[NSMutableArray alloc] init];
     NSMutableArray* classArray = [[NSMutableArray alloc] init];
     NSMutableArray* resourceArray = [[NSMutableArray alloc] init];
-    NSMutableArray* eventArray = [[NSMutableArray alloc] init];
+//    NSMutableArray* eventArray = [[NSMutableArray alloc] init];
     
     
     /**
@@ -197,14 +264,15 @@
         }else if (model.type == 3){
             [resourceArray addObject:model];
             model.cellHeight = [self getHeight:model];
-        }else if (model.type == 4){
-            [eventArray addObject:model];
-            model.cellHeight = [self getHeight:model];
         }
+//        else if (model.type == 4){
+//            [eventArray addObject:model];
+//            model.cellHeight = [self getHeight:model];
+//        }
         
     }
     
-    [self.datas addObjectsFromArray:@[questionArray,classArray,resourceArray,eventArray]];
+    [self.datas addObjectsFromArray:@[questionArray,classArray,resourceArray]];
     
     
     
@@ -264,18 +332,20 @@
         }
             break;
             
-        case 3:
-        {
-            static NSString *cellIdentifier = @"SAPopularEventCell";
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-            if (cell == nil) {
-                SAPopularEventCell* eventCell = [[SAPopularEventCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-                [eventCell setData:cdata];
-                cell = [eventCell initUI];
-            }
-            return cell;
-        }
-            break;
+            
+//        活动页不放在首页了 
+//        case 3:
+//        {
+//            static NSString *cellIdentifier = @"SAPopularEventCell";
+//            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//            if (cell == nil) {
+//                SAPopularEventCell* eventCell = [[SAPopularEventCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+//                [eventCell setData:cdata];
+//                cell = [eventCell initUI];
+//            }
+//            return cell;
+//        }
+//            break;
         default:
             break;
     }
@@ -287,6 +357,7 @@
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.datas.count;
 }
+
 
 #pragma mark -
 #pragma mark UITableViewDelegate
@@ -406,37 +477,38 @@
         //        [view addSubview:line];
         [view addSubview:MoreBtn];
         return view;
-    }else if(section == 3){
-        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(HEADER_OF_SECTION_X, HEADER_OF_SECTION_Y, SCREEN_WIDTH, 100)];
-        view.backgroundColor = [UIColor whiteColor];
-        
-        
-        UIView* line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
-        line.backgroundColor = [UIColor colorWithRed:0.572  green:0.573  blue:0.572 alpha:0.9];
-        UILabel *categoryTitle = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 0, 200, 45)];
-        categoryTitle.backgroundColor = [UIColor clearColor];
-        
-        [categoryTitle setText:[self.titleArray objectAtIndex:3]];
-        [categoryTitle setFont:[UIFont systemFontOfSize:15.f]];
-        categoryTitle.textAlignment = NSTextAlignmentCenter;
-        
-        UIView* leftLine = [[UIView alloc] initWithFrame:CGRectMake(30, categoryTitle.frame.size.height/2, 20, 1)];
-        leftLine.backgroundColor = [UIColor blackColor];
-        
-        UIView* rightLine = [[UIView alloc] initWithFrame:CGRectMake(150, categoryTitle.frame.size.height/2, 20, 1)];
-        rightLine.backgroundColor = [UIColor blackColor];
-        
-        
-        UIButton* MoreBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 65 , 15, 40, 15)];
-        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.jpg"] forState:UIControlStateNormal];
-        
-        [categoryTitle addSubview:leftLine];
-        [categoryTitle addSubview:rightLine];
-        [view addSubview:categoryTitle];
-        //        [view addSubview:line];
-        [view addSubview:MoreBtn];
-        return view;
     }
+//    else if(section == 3){
+//        UIView* view = [[UIView alloc] initWithFrame:CGRectMake(HEADER_OF_SECTION_X, HEADER_OF_SECTION_Y, SCREEN_WIDTH, 100)];
+//        view.backgroundColor = [UIColor whiteColor];
+//        
+//        
+//        UIView* line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)];
+//        line.backgroundColor = [UIColor colorWithRed:0.572  green:0.573  blue:0.572 alpha:0.9];
+//        UILabel *categoryTitle = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 0, 200, 45)];
+//        categoryTitle.backgroundColor = [UIColor clearColor];
+//        
+//        [categoryTitle setText:[self.titleArray objectAtIndex:3]];
+//        [categoryTitle setFont:[UIFont systemFontOfSize:15.f]];
+//        categoryTitle.textAlignment = NSTextAlignmentCenter;
+//        
+//        UIView* leftLine = [[UIView alloc] initWithFrame:CGRectMake(30, categoryTitle.frame.size.height/2, 20, 1)];
+//        leftLine.backgroundColor = [UIColor blackColor];
+//        
+//        UIView* rightLine = [[UIView alloc] initWithFrame:CGRectMake(150, categoryTitle.frame.size.height/2, 20, 1)];
+//        rightLine.backgroundColor = [UIColor blackColor];
+//        
+//        
+//        UIButton* MoreBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH - 65 , 15, 40, 15)];
+//        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.jpg"] forState:UIControlStateNormal];
+//        
+//        [categoryTitle addSubview:leftLine];
+//        [categoryTitle addSubview:rightLine];
+//        [view addSubview:categoryTitle];
+//        //        [view addSubview:line];
+//        [view addSubview:MoreBtn];
+//        return view;
+//    }
     
     return nil;
 }
