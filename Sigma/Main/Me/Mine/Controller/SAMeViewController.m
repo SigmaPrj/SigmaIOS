@@ -13,10 +13,8 @@
 #import "SAMineViewEngine.h"
 #import "SAMineTableViewCell.h"
 #import "TextEnhance.h"
-
 #import "SAMineSubViewController.h"
 #import "SASettingViewController.h"
-
 #import "SAMyQuestionViewController.h"
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
