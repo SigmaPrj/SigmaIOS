@@ -1,0 +1,17 @@
+//
+//  SAPrefix.pch
+//  Sigma
+//
+//  Created by Terence on 16/7/13.
+//  Copyright © 2016年 Terence. All rights reserved.
+//
+
+#ifndef SAPrefix_pch
+#define SAPrefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "PublicDefine.h"
+
+#endif /* SAPrefix_pch */
