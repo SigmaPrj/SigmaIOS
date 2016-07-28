@@ -12,7 +12,7 @@
 #import "SANavigationController.h"
 #import "SAViewController.h"
 #import "SAPublishViewController.h"
-
+#import "SACollectionViewController.h"
 
 @interface SARootViewController ()
 
@@ -27,19 +27,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    SACustomTabBar* tabBar = [[SACustomTabBar alloc] initWithFrame:self.tabBar.frame];
+    SACustomTabBar* tabBar = [[SACustomTabBar alloc] initWithFrame:self.tabBar.bounds];
+    
     [self setValue:tabBar forKey:@"tabBar"];
     
+//    [self.tabBar addSubview:tabBar];
+    
+    __weak typeof(self) weakself = self;
     
     // pluson的点击事件
     tabBar.clickBlock = ^(){
         NSLog(@"plus btn clicked");
-        [self presentViewController:[[SAPublishViewController alloc] init] animated:NO completion:nil];
+        SAPublishViewController* saPublishViewController = [[SAPublishViewController alloc] init];
+        
+        [weakself presentViewController:saPublishViewController animated:NO completion:nil];
+        
 
     };
     
     // 标题
-    NSArray* titles = @[@"热门", @"社区", @"资讯", @"我的"];
+    NSArray* titles = @[@"热门", @"动态", @"资讯", @"我的"];
     
     // tabbar 上四个对应的viewController的类名
     NSArray* classNames = @[@"SAPopularViewController", @"SACommunityViewController", @"SAEInfomationViewController", @"SAMeViewController"];

@@ -25,7 +25,6 @@
 
 + (instancetype)popularModelWithDict:(NSDictionary *)dict {
     
-    
     return [[self alloc] initWithDict:dict];
 }
 

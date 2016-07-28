@@ -2,16 +2,17 @@
 //  SAPrefix.pch
 //  Sigma
 //
-//  Created by Terence on 16/7/13.
+//  Created by Terence on 16/7/27.
 //  Copyright © 2016年 Terence. All rights reserved.
 //
 
 #ifndef SAPrefix_pch
 #define SAPrefix_pch
 
-// Include any system framework and library headers here that should be included in all compilation units.
-// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
-
 #import "PublicDefine.h"
+// 定义所有通知名称
+#import "NotificationDefine.h"
+// 定义所有第三方平台或库使用到的参数
+#import "VendorDefine.h"
 
 #endif /* SAPrefix_pch */

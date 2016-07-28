@@ -10,8 +10,14 @@
 #import "SAPublishViewButton.h"
 #import "POP.h"
 #import "UIView+SAPublishBtnFrame.h"
+#import "SARootViewController.h"
+#import "SACollectionViewController.h"
+#import "SADownloadViewController.h"
+#import "SAComposeViewController.h"
+#import "SAQuestionViewController.h"
 
-@interface SAPublishViewController ()
+
+@interface SAPublishViewController ()<SAPDelegate,SADownloadViewControllerDelegate,SAComposevcDelegate,SAQuestionvcDelegate>
 
 @property(nonatomic, weak)UIImageView* imageView;
 
@@ -29,12 +35,12 @@ static CGFloat SpringDelay = 0.03;
     
     
     // 初始化btn 图片和title
-    NSArray *images = @[@"tabbar_compose_idea.png", @"messagescenter_good.png", @"camera_video_download.png", @"tabbar_compose_lbs.png", @"tabbar_compose_friend.png"];
-    NSArray *titles = @[@"发布", @"收藏", @"下载", @"签到", @"队友"];
+    NSArray *images = @[@"tabbar_compose_idea.png", @"tabbar_compose_book.png", @"camera_video_download.png", @"tabbar_compose_lbs.png", @"messagescenter_good.png", @"tabbar_compose_friend.png"];
+    NSArray *titles = @[@"发布", @"提问",@"下载", @"签到", @"收藏", @"返回"];
     
     NSUInteger cols = 3;
     CGFloat btnW = 60;
-    CGFloat btnH = btnW + 30;
+    CGFloat btnH = btnW + 50;
     CGFloat beginMargin = 40;
     CGFloat middleMargin = (SCREEN_WIDTH - 2 * beginMargin - cols *btnW)/(cols - 1);
     CGFloat btnStartY = (SCREEN_HEIGHT - 2 * btnH) * 0.5 + 30;
@@ -48,7 +54,6 @@ static CGFloat SpringDelay = 0.03;
         // 当前行数
         NSInteger row = i / cols;
         
-        if (row == 0) {
             CGFloat btnX = col * (middleMargin + btnW) + beginMargin;
             CGFloat btnY = row * btnH + btnStartY;
             
@@ -88,55 +93,13 @@ static CGFloat SpringDelay = 0.03;
             
             [btn pop_addAnimation:anima forKey:nil];
             
-            // 动画完成的回调
-            [anima setCompletionBlock:^(POPAnimation *anima, BOOL finish) {
-                
-            }];
-        }else {
-            CGFloat btnX = col * (middleMargin + btnW) + beginMargin + 55;
-            CGFloat btnY = row * btnH + btnStartY;
             
-            [self.view addSubview:btn];
-            
-            [btn setTitle:titles[i] forState:UIControlStateNormal];
-            
-            [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-            
-            [btn setImage:[UIImage imageNamed:images[i]] forState:UIControlStateNormal];
-            
-            [btn addTarget:self action:@selector(chickBtnDown:) forControlEvents:UIControlEventTouchDown];
-            
-            [btn addTarget:self action:@selector(chickBtnUpInside:) forControlEvents:UIControlEventTouchUpInside];
-            
-            btn.tag = i;
-            
-            CGFloat benginBtnY = btnStartY + SCREEN_HEIGHT;
-            
-            /**
-             *  添加动画
-             *
-             *  @return
-             */
-            
-            POPSpringAnimation *anima = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
-            
-            anima.fromValue = [NSValue valueWithCGRect:CGRectMake(btnX, benginBtnY, btnW, btnH)];
-            
-            anima.toValue = [NSValue valueWithCGRect:CGRectMake(btnX, btnY, btnW, btnH)];
-            
-            anima.springSpeed = SpringFactor;
-            
-            anima.springBounciness = SpringDelay;
-            
-            anima.beginTime = CACurrentMediaTime() + i * SpringDelay;
-            
-            [btn pop_addAnimation:anima forKey:nil];
             
             // 动画完成的回调
             [anima setCompletionBlock:^(POPAnimation *anima, BOOL finish) {
                 
             }];
-        }
+        
     }
     
     /** 添加sloganView指示条 */
@@ -171,6 +134,7 @@ static CGFloat SpringDelay = 0.03;
 }
 
 
+
 - (void)cancelWithCompletionBlock:(void (^)())block
 {
     self.view.userInteractionEnabled = NO;
@@ -194,16 +158,17 @@ static CGFloat SpringDelay = 0.03;
         
         [view pop_addAnimation:anima forKey:nil];
         
+        
+        
         if (i == self.view.subviews.count - 1) { // 最后一个动画完成时
             
             [anima setCompletionBlock:^(POPAnimation *anima, BOOL finish) {
+            block();
                 
-                [self dismissViewControllerAnimated:NO completion:nil];
-                
-                block();
             }];
         }
         
+
         
     }
 }
@@ -232,8 +197,8 @@ static CGFloat SpringDelay = 0.03;
     
     [btn pop_addAnimation:anima forKey:nil];
     
-    [anima setCompletionBlock:^(POPAnimation *anima, BOOL finish) {
-        
+    __weak typeof(self) weakself = self;
+
         
         POPBasicAnimation *anima2 = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
         
@@ -243,21 +208,52 @@ static CGFloat SpringDelay = 0.03;
         
         [anima2 setCompletionBlock:^(POPAnimation *anima, BOOL finish) {
             
+            
             [self cancelWithCompletionBlock:^{
                 // 切换对应控制器
                 if (btn.tag == 0) {
                     NSLog(@"go to 0");
+                    SAComposeViewController* composevc = [[SAComposeViewController alloc] init];
+                    
+                    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:composevc];
+                    [weakself presentViewController:nav animated:YES completion:nil];
+                    composevc.delegate = self;
+                    
                 }else if (btn.tag == 1){
-                    NSLog(@"go to 1");
+                    NSLog(@"go to 1");                    
+//                    [weakself dismissViewControllerAnimated:NO completion:nil];
+
+                    SAQuestionViewController* questionvc = [[SAQuestionViewController alloc] init];
+                    UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:questionvc];
+                    [weakself presentViewController:nav animated:YES completion:nil];
+                    questionvc.delegate = self;
+                   
+                    NSLog(@"aaa");
+                }else if (btn.tag == 2){
+                    SADownloadViewController *sadownVc = [[SADownloadViewController alloc] init];
+                    [weakself presentViewController:sadownVc animated:YES completion:nil];
+                    sadownVc.delegate = self;
+                    
+                }else if (btn.tag == 3){
+                    [weakself dismissViewControllerAnimated:NO completion:nil];
+                }else if (btn.tag == 4){
+                    
+                    // 跳转到收藏界面
+                    SACollectionViewController *savc = [[SACollectionViewController alloc] init];
+                    [weakself presentViewController:savc animated:YES completion:nil];
+                    savc.myDelegate = self;
+                    
+                }else if (btn.tag == 5){
+                    [weakself dismissViewControllerAnimated:NO completion:nil];
                 }
+                
+                
             }];
+            
+            
+            
         }];
-        
-    }];
-    
-    
-    
-    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -266,17 +262,35 @@ static CGFloat SpringDelay = 0.03;
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)showBtn{
-    
+
+-(void)viewDidDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - SAPDelegate collectionviewController的代理，负责dismiss publishViewController
+- (void) CollectionDismissViewController {
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
+
+#pragma mark - SADownloadViewControllerDelegate
+-(void)DownloadDismissViewController{
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
+#pragma mark - SAComposevcDelegate
+-(void)ComposeDismisssViewController{
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
+#pragma mark - SAQuestionvcDelegate
+-(void)questionDismissViewController{
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
 
 
 @end

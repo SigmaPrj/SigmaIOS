@@ -169,7 +169,7 @@
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, 50, 20)];
         [label setFont:[UIFont systemFontOfSize:12.f]];
         label.textAlignment = NSTextAlignmentCenter;
-        [label setText:@"活动"];
+        [label setText:@"队伍"];
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
         [button setImage:[UIImage imageNamed:@"circle.jpg"] forState:UIControlStateNormal];
