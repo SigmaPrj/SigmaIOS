@@ -8,7 +8,6 @@
 
 #import "SAPopularViewController.h"
 #import "SAPopularTableView.h"
-<<<<<<< HEAD
 #import "SourceSubViewController.h"
 #import "SAPublishViewController.h"
 #import "SAPopularCell.h"
@@ -17,32 +16,22 @@
 #import "SAPopularResourceCell.h"
 #import "SAPopularEventCell.h"
 #import "SAPopularRequest.h"
-
-#define HEADER_OF_SECTION_X 0
-#define HEADER_OF_SECTION_Y 0
-
-
-@interface SAPopularViewController ()<UITableViewDelegate, UITableViewDataSource>
-
-@property(nonatomic, strong)SAPopularTableView *tableView;
-@property (nonatomic, strong) NSMutableArray* datas;
-@property (nonatomic, strong) NSMutableArray* titleDatas;
-//@property (nonatomic, strong) SAPopularHeaderView* headerView;
-@property (nonatomic ,strong) NSArray* titleArray;
-=======
 #import "SAPopularHeaderView.h"
 #import "SourceSubViewController.h"
 #import "CourseController.h"
 //#import "SourceSubViewController.h"
 
-
+#define HEADER_OF_SECTION_X 0
+#define HEADER_OF_SECTION_Y 0
 #define HEADERVIEW_HEIGHT (280)
 
-@interface SAPopularViewController ()<SAPopularHeaderViewDelegate>
+@interface SAPopularViewController ()<UITableViewDelegate, UITableViewDataSource,SAPopularHeaderViewDelegate>
 
 @property(nonatomic, strong)SAPopularTableView *tableView;
+@property (nonatomic, strong) NSMutableArray* datas;
+@property (nonatomic, strong) NSMutableArray* titleDatas;
+@property (nonatomic ,strong) NSArray* titleArray;
 @property (nonatomic, strong) SAPopularHeaderView* headerView;
->>>>>>> real
 
 @end
 
@@ -112,7 +101,6 @@
     return _tableView;
 }
 
-<<<<<<< HEAD
 
 /**
  *  发送请求
@@ -534,7 +522,8 @@
 
 -(void)quesBtnClick{
     NSLog(@"quesmorebtn click");
-=======
+}
+
 -(SAPopularHeaderView*)headerView{
     if (!_headerView) {
         _headerView = [[SAPopularHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEADERVIEW_HEIGHT)];
@@ -545,7 +534,7 @@
     }
     
     return _headerView;
->>>>>>> real
+
 }
 
 -(void)classBtnClick{

@@ -8,7 +8,6 @@
 
 #import "SAMeViewController.h"
 
-<<<<<<< HEAD:Sigma/Main/Me/Mine/Controller/SAMeViewController.m
 #import "SAMineCell.h"
 #import "SAUser.h"
 #import "SAMineViewEngine.h"
@@ -18,7 +17,7 @@
 #import "SAMineSubViewController.h"
 #import "SASettingViewController.h"
 
-#import "SAQuestionViewController.h"
+#import "SAQuesViewController.h"
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
@@ -54,9 +53,6 @@
 @property(nonatomic,strong)NSArray *dataArray2;
 @property(nonatomic,strong)NSArray *dataArray3;
 
-=======
-@interface SAMeViewController ()
->>>>>>> real:Sigma/Main/Me/Controller/SAMeViewController.m
 
 @end
 
@@ -64,15 +60,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self setRightNavigationItemWithTitle:nil imageName:MINE_SETTINGS_ICON];
+    
+    self.dataArray1 = [[SAMineViewEngine shareInstance] dataSection1];
+    self.dataArray2 = [[SAMineViewEngine shareInstance] dataSection2];
+    self.dataArray3 = [[SAMineViewEngine shareInstance] dataSection3];
+    
+    self.user = [[SAMineViewEngine shareInstance] mineGetUser];
+    
+    if ([self isExisted:self.dataArray1]&&[self isExisted:self.dataArray2]&&[self isExisted:self.dataArray3]) {
+        [self.mineTableView reloadData];
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(BOOL)isExisted:(NSArray*)array{
+    if (array&&array.count>0) {
+        return YES;
+    }else{
+        return NO;
+    }
 }
 
-<<<<<<< HEAD:Sigma/Main/Me/Mine/Controller/SAMeViewController.m
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self initUI];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
+
 #pragma mark - Initialize UI
 -(void)initUI{
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -134,7 +152,7 @@
         _userNameLabelOfHeaderView.text = self.user.userName;
         
         [TextEnhance resizeUILabelWidth:_userNameLabelOfHeaderView];
-
+        
     }
     return _userNameLabelOfHeaderView;
 }
@@ -397,8 +415,8 @@
                 break;
             case 2:
             {
-                SAQuestionViewController *vc=[[SAQuestionViewController alloc]init];
-                [vc setHidesBottomBarWhenPushed:YES];                
+                SAQuesViewController *vc=[[SAQuesViewController alloc]init];
+                [vc setHidesBottomBarWhenPushed:YES];
                 [self.navigationController pushViewController:vc animated:YES];
             }
                 break;
@@ -436,11 +454,11 @@
             {
                 
                 SASettingViewController *vc=[[SASettingViewController alloc]init];
-
+                
                 [vc setHidesBottomBarWhenPushed:YES];
                 
                 [self.navigationController pushViewController:vc animated:YES];
-
+                
             }
                 break;
             default:
@@ -448,10 +466,10 @@
         }
         
     }
-        
-
-
-
+    
+    
+    
+    
 }
 
 /**
@@ -530,16 +548,13 @@
         NSLog(@"headRightBtnClicked");
     }
 }
-=======
-/*
-#pragma mark - Navigation
->>>>>>> real:Sigma/Main/Me/Controller/SAMeViewController.m
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)rightItemTapped{
+    SASettingViewController *vc=[[SASettingViewController alloc]init];
+    
+    [vc setHidesBottomBarWhenPushed:YES];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
-*/
 
 @end

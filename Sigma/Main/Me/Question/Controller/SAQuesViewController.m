@@ -1,28 +1,29 @@
 //
-//  SAQuestionViewController.m
+//  SAQuesViewController.m
 //  Sigma
 //
-//  Created by Ace Hsieh on 7/27/16.
-//  Copyright © 2016 blackcater. All rights reserved.
+//  Created by 韩佳成 on 16/7/28.
+//  Copyright © 2016年 韩佳成. All rights reserved.
 //
 
-#import "SAQuestionViewController.h"
+#import "SAQuesViewController.h"
 #import "SAQuestionCell.h"
 #import "SAQuestionTableViewCell.h"
 #import "SAQuestionViewEngine.h"
 
 #define MARGIN 15
 
-
-@interface SAQuestionViewController ()<UITableViewDataSource, UITableViewDelegate,SAQuestionTableViewCellDelegate>
+@interface SAQuesViewController()
 
 @property (nonatomic,strong)UITableView *questionTableView;
 @property (nonatomic, strong)NSArray* dataArray;
 @property(nonatomic,strong)UISearchBar *searchBar;
 
+
 @end
 
-@implementation SAQuestionViewController
+@implementation SAQuesViewController
+
 
 - (void)viewDidLoad {
     [self initUI];
@@ -121,7 +122,7 @@
     }
     
     if ((indexPath.section >=0) && (indexPath.section < self.dataArray.count)) {
-
+        
         SAQuestionCell* cellSection = (SAQuestionCell*)[self.dataArray objectAtIndex:indexPath.section];
         SAQuestionCell* data = [[SAQuestionCell alloc] init];
         

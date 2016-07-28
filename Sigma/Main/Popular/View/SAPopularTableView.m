@@ -62,7 +62,7 @@
 
 
 
-<<<<<<< HEAD
+
 -(SAPopularHeaderView*)headerView{
     if (!_headerView) {
         _headerView = [[SAPopularHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEADERVIEW_HEIGHT)];        
@@ -70,25 +70,12 @@
     
     return _headerView;
 }
-=======
-//-(SAPopularHeaderView*)headerView{
-//    if (!_headerView) {
-//        _headerView = [[SAPopularHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEADERVIEW_HEIGHT)];
-////        _headerView.delegate = self;
-//        
-////        _headerView.backgroundColor = [UIColor redColor];
-//        
-//    }
-//    
-//    return _headerView;
-//}
->>>>>>> real
 
 
 
 
-<<<<<<< HEAD
-=======
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 1;
 }
@@ -102,9 +89,5 @@
 }
 
 //#pragma mark - SAPopularHeaderViewDelegate
-//-(void)sourceButtonClicked{
-//    
-//}
 
->>>>>>> real
 @end
