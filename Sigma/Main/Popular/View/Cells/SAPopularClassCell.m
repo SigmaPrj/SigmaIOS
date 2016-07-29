@@ -121,11 +121,12 @@
  */
 -(UIImageView*)cellBackgroundImg{
     if (!_cellBackgroundImg) {
+//        _cellBackgroundImg = [[UIImageView alloc] initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH-30, 250)];
+//        _cellBackgroundImg.image = [UIImage imageNamed:self.data.cellBackgroundImgName];
         _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:self.data.cellBackgroundImgName]];
         _cellBackgroundImg.frame = CGRectMake(15, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2);
         
         UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2)];
-        
         view.backgroundColor = COLOR_RGBA(0, 0, 0, 0.4);
         [_cellBackgroundImg addSubview:view];
 

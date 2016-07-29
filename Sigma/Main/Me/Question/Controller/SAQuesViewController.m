@@ -13,7 +13,7 @@
 
 #define MARGIN 15
 
-@interface SAQuesViewController()
+@interface SAQuesViewController() <UITableViewDelegate,UITableViewDataSource,SAQuestionTableViewCellDelegate>
 
 @property (nonatomic,strong)UITableView *questionTableView;
 @property (nonatomic, strong)NSArray* dataArray;

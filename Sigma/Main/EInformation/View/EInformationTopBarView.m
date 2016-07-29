@@ -78,6 +78,7 @@
     if (!_underline) {
         _underline = [[UIView alloc] initWithFrame:CGRectMake(0, (self.frame.size.height-1), SCREEN_WIDTH, 1)];
         _underline.backgroundColor = COLOR_RGB(243, 243, 243);
+
         //        _underline.backgroundColor = [UIColor colorWithRed:0.192  green:0.211  blue:0.232 alpha:1];
     }
     
@@ -87,7 +88,9 @@
 - (UIView *)categoryLine {
     if (!_categoryLine) {
         _categoryLine = [[UIView alloc] initWithFrame:CGRectMake(10, (self.frame.size.height-2), 200, 1)];
-        _categoryLine.backgroundColor = COLOR_RGB(255, 77, 100);
+//      _categoryLine.backgroundColor = COLOR_RGB(255, 77, 100);
+        _categoryLine.backgroundColor = [UIColor blackColor];
+
         //        _categoryLine.backgroundColor = [UIColor colorWithRed:0.192  green:0.211  blue:0.232 alpha:1];
     }
     
@@ -115,8 +118,11 @@
         button.titleLabel.font = [UIFont systemFontOfSize:13];
         
         [button setTitle:title forState:UIControlStateNormal];
-        [button setTitleColor:COLOR_RGB(80, 80, 90) forState:UIControlStateNormal];
-        [button setTitleColor:COLOR_RGB(255, 77, 100) forState:UIControlStateSelected];
+//        [button setTitleColor:COLOR_RGB(80, 80, 90) forState:UIControlStateNormal];
+//        [button setTitleColor:COLOR_RGB(255, 77, 100) forState:UIControlStateSelected];
+        
+        [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
         
         button.tag = 1000+i;
         [button addTarget:self action:@selector(categoryBtnClickHandler:) forControlEvents:UIControlEventTouchUpInside];

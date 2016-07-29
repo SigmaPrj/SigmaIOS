@@ -39,7 +39,6 @@
 
 - (void)setHeaderData:(NSDictionary *)dict {
     _userDict = dict;
-    
     [self renderHeaderData];
 }
 

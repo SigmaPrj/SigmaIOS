@@ -14,4 +14,6 @@
 
 - (void)setRightNavigationItemWithTitle:(NSString *)title imageName:(NSString *)imageName;
 
+- (void)setLeftNavigationItemWithTitle:(NSString *)title imageName:(NSString *)imageName;
+
 @end

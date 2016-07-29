@@ -19,7 +19,7 @@
 #import "SAPopularHeaderView.h"
 #import "SourceSubViewController.h"
 #import "CourseController.h"
-//#import "SourceSubViewController.h"
+#import "SAPopularQuestionModel.h"
 
 #define HEADER_OF_SECTION_X 0
 #define HEADER_OF_SECTION_Y 0
@@ -27,11 +27,15 @@
 
 @interface SAPopularViewController ()<UITableViewDelegate, UITableViewDataSource,SAPopularHeaderViewDelegate>
 
-@property(nonatomic, strong)SAPopularTableView *tableView;
+@property (nonatomic, strong)SAPopularTableView *tableView;
 @property (nonatomic, strong) NSMutableArray* datas;
-@property (nonatomic, strong) NSMutableArray* titleDatas;
-@property (nonatomic ,strong) NSArray* titleArray;
+@property (nonatomic, strong) NSArray* titleArray;
 @property (nonatomic, strong) SAPopularHeaderView* headerView;
+@property (nonatomic, strong) NSDictionary* questionDict;
+
+@property (nonatomic, strong) NSMutableArray* quesArray;
+
+
 
 @end
 
@@ -142,6 +146,13 @@
         if ([noti.userInfo[@"status"] intValue] == 1) {
             // 加载用户数据成功
             NSLog(@"question success");
+            [self setQuesData:noti.userInfo[@"data"]];
+//            [self.tableView reloadData];
+//            NSLog(@"%@",noti.userInfo[@"data"]);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.tableView reloadData];
+
+            });            
         }
     }
     
@@ -165,6 +176,34 @@
     NSLog(@"数据加载失败!");
 }
 
+
+- (void)setQuesData:(NSArray *)quesArray{
+    for (int i = 0; i < quesArray.count-2; i++) {
+        SAPopularQuestionModel *quesModel = [SAPopularQuestionModel quesWithDict:quesArray[(NSInteger)i]];
+        [self.quesArray addObject:quesModel];
+        NSLog(@"%@",quesModel.nickname);
+    }
+}
+
+- (NSMutableArray*)quesArray{
+    if (!_quesArray) {
+        _quesArray = [NSMutableArray array];
+    }
+    return _quesArray;
+}
+
+
+
+//- (void)setDynamicData:(NSArray *)dynamicArray {
+//    for (int i = 0; i < dynamicArray.count; ++i) {
+//        SADynamicModel *dynamicModel = [SADynamicModel dynamicWithDict:dynamicArray[(NSUInteger)i]];
+//        SADynamicFrameModel *frameModel = [[SADynamicFrameModel alloc] init];
+//        frameModel.dynamicModel = dynamicModel;
+//        [self.dynamicArray addObject:frameModel];
+//    }
+//    
+//    [self reloadData];
+//}
 
 /**
  *  初始化数据
@@ -240,11 +279,11 @@
     NSDictionary* dict7 = @{
                             @"AvataImgName":@"avata.jpg",
                             @"nickName":@"tx",
-                            @"cellBackgroundImgName":@"bg.jpg",
+                            @"cellBackgroundImgName":@"bg1.jpg",
                             @"title":@"做好产品经理",
                             @"desc":@"如何做一个产品经理",
                             @"number":@"354",
-                            @"type":@"2"
+                            @"type":@"2",
                             };
     
     
@@ -262,8 +301,8 @@
     for (int i = 0; i < dictArray.count; i++) {
         SAPopularModel *model = [[SAPopularModel alloc] initWithDict:[dictArray objectAtIndex:i]];
         if (model.type == 1) {
-            [questionArray addObject:model];
-            model.cellHeight = [self getHeight:model];
+//            [questionArray addObject:model];
+//            model.cellHeight = [self getHeight:model];
         }else if (model.type == 2){
             [classArray addObject:model];
             model.cellHeight = [self getHeight:model];
@@ -278,11 +317,7 @@
         
     }
     
-    [self.datas addObjectsFromArray:@[questionArray,classArray,resourceArray]];
-    
-    
-    
-    
+    [self.datas addObjectsFromArray:@[self.quesArray,classArray,resourceArray]];
 }
 
 #pragma mark- UITableViewDataSource
@@ -296,6 +331,10 @@
     NSInteger index = indexPath.row;
     SAPopularModel *cdata = (SAPopularModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
     
+    // 问答model
+    SAPopularQuestionModel *qdata = [self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
+
+    
     switch (section) {
         case 0:
         {
@@ -303,7 +342,8 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
             if (cell == nil) {
                 SAPopularCell* popularCell = [[SAPopularCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
-                [popularCell setData:cdata];
+//                [popularCell setData:cdata];
+                [popularCell setQuesData:qdata];
                 cell = [popularCell initUI];
             }
             return cell;
@@ -369,8 +409,16 @@
 #pragma mark UITableViewDelegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    SAPopularModel *model = [self.datas[indexPath.section] objectAtIndex:indexPath.row];
-    return model.cellHeight;
+    
+    if (indexPath.section == 0) {
+        // 取得section0中cell的高度
+        UIImageView* view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
+        return (view.frame.size.height/2 + 20);
+        
+    }else{
+        SAPopularModel *model = [self.datas[indexPath.section] objectAtIndex:indexPath.row];
+        return model.cellHeight;
+    }
 }
 
 - (double)getHeight:(SAPopularModel *)model {
