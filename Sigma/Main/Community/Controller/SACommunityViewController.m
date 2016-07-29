@@ -25,6 +25,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // 添加通知
+    [self addAllNotification];
+    
+    // 发送数据请求
+    [self sendRequest];
+    
     [self render];
 }
 
@@ -37,11 +43,7 @@
     [super viewWillAppear:animated];
     [self render];
     
-    // 添加通知
-    [self addAllNotification];
     
-    // 发送数据请求
-    [self sendRequest];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

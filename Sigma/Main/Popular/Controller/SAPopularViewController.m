@@ -20,6 +20,8 @@
 #import "SourceSubViewController.h"
 #import "CourseController.h"
 #import "SAPopularQuestionModel.h"
+#import "SAPopularClassModel.h"
+#import "SAPopularResourceModel.h"
 
 #define HEADER_OF_SECTION_X 0
 #define HEADER_OF_SECTION_Y 0
@@ -31,9 +33,11 @@
 @property (nonatomic, strong) NSMutableArray* datas;
 @property (nonatomic, strong) NSArray* titleArray;
 @property (nonatomic, strong) SAPopularHeaderView* headerView;
-@property (nonatomic, strong) NSDictionary* questionDict;
 
 @property (nonatomic, strong) NSMutableArray* quesArray;
+@property (nonatomic, strong) NSMutableArray* classArray;
+@property (nonatomic, strong) NSMutableArray* resourcArray;
+
 
 
 
@@ -46,12 +50,6 @@
     
 //    [self.view addSubview:self.tableView];
     
-    [self initUI];
-    [self initData];
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
     
     // 添加通知
     [self addAllNotification];
@@ -59,7 +57,12 @@
     // 发送数据请求
     [self sendRequest];
     
-    
+    [self initUI];
+    [self initData];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -82,6 +85,7 @@
     [self.view addSubview:self.tableView];
    
 }
+
 
 -(NSMutableArray*)datas{
     if (!_datas) {
@@ -141,25 +145,35 @@
 }
 
 
+
+
+
 - (void) receiveDataSuccessHandler:(NSNotification *)noti{
     if ([noti.name isEqualToString:NOTI_POPULAR_QUESTION_DATA]) {
         if ([noti.userInfo[@"status"] intValue] == 1) {
             // 加载用户数据成功
             NSLog(@"question success");
+            
+            // 字典转入模型
             [self setQuesData:noti.userInfo[@"data"]];
-//            [self.tableView reloadData];
-//            NSLog(@"%@",noti.userInfo[@"data"]);
             dispatch_async(dispatch_get_main_queue(), ^{
                  [self.tableView reloadData];
 
-            });            
+            });
         }
     }
     
     if ([noti.name isEqualToString:NOTI_POPULAR_VIDEO_DATA]) {
         if ([noti.userInfo[@"status"] intValue] == 1) {
-            // 加载用户数据成功
+            // 加载课程数据成功
             NSLog(@"video success");
+            [self setClassData:noti.userInfo[@"data"]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                
+            });
+            
         }
     }
     
@@ -167,6 +181,11 @@
         if ([noti.userInfo[@"status"] intValue] == 1) {
             // 加载用户数据成功
             NSLog(@"resource success");
+            [self setResourceArray:noti.userInfo[@"data"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                
+            });
         }
     }
 }
@@ -177,14 +196,65 @@
 }
 
 
+/**
+ *  生成随机数，看抽取几个数据
+ *
+ *  @param from 起始index
+ *  @param to 终止index
+ *
+ *  @return
+ */
+-(int)getRandomNumber:(int)from to:(int)to
+
+{
+    
+    return (int)(from + (arc4random() % (to - from + 1)));
+    
+}
+
+
+/**
+ *  传入quesArray并且赋值给模型，最后放进quesArray数组里
+ *
+ *  @param quesArray
+ */
 - (void)setQuesData:(NSArray *)quesArray{
-    for (int i = 0; i < quesArray.count-2; i++) {
+    int randomNum = [self getRandomNumber:1 to:3];
+    
+    for (int i = 0; i < quesArray.count-randomNum; i++) {
         SAPopularQuestionModel *quesModel = [SAPopularQuestionModel quesWithDict:quesArray[(NSInteger)i]];
+        // quesArray用于存放quesModel
         [self.quesArray addObject:quesModel];
-        NSLog(@"%@",quesModel.nickname);
     }
 }
 
+/**
+ *  课程数组生成
+ *
+ *  @param classArray
+ */
+- (void)setClassData:(NSArray*)classArray{
+    int randomNum = [self getRandomNumber:2 to:4];
+    for (int i = 0; i < classArray.count - randomNum; i++) {
+        SAPopularClassModel *classModel = [SAPopularClassModel classWithDict:classArray[(NSInteger)i]];
+        [self.classArray addObject:classModel];
+    }
+}
+
+
+- (void)setResourceArray:(NSArray *)resourceArray{
+    int randomNum = [self getRandomNumber:2 to:4];
+    for (int i = 0; i < resourceArray.count - randomNum; i++) {
+        SAPopularResourceModel *resourcemodel = [SAPopularResourceModel resourceWithDict:resourceArray[(NSInteger)i]];
+        [self.resourcArray addObject:resourcemodel];
+    }
+}
+
+/**
+ *  question 数组懒加载
+ *
+ *  @return _quesArray
+ */
 - (NSMutableArray*)quesArray{
     if (!_quesArray) {
         _quesArray = [NSMutableArray array];
@@ -193,17 +263,30 @@
 }
 
 
+/**
+ *  class 数组懒加载
+ *
+ *  @return _classArray
+ */
+- (NSMutableArray*)classArray{
+    if (!_classArray) {
+        _classArray = [NSMutableArray array];
+    }
+    return _classArray;
+}
 
-//- (void)setDynamicData:(NSArray *)dynamicArray {
-//    for (int i = 0; i < dynamicArray.count; ++i) {
-//        SADynamicModel *dynamicModel = [SADynamicModel dynamicWithDict:dynamicArray[(NSUInteger)i]];
-//        SADynamicFrameModel *frameModel = [[SADynamicFrameModel alloc] init];
-//        frameModel.dynamicModel = dynamicModel;
-//        [self.dynamicArray addObject:frameModel];
-//    }
-//    
-//    [self reloadData];
-//}
+/**
+ *  resource 数组懒加载
+ *
+ *  @return _resource
+ */
+- (NSMutableArray*)resourcArray{
+    if (!_resourcArray) {
+        _resourcArray = [NSMutableArray array];
+    }
+    return _resourcArray;
+}
+
 
 /**
  *  初始化数据
@@ -239,7 +322,7 @@
                             @"nickName":@"IOS开发工程师",
                             @"cellBackgroundImgName":@"bg4.jpg",
                             @"title":@"IOS开发指南",
-                            @"desc":@"5年经验工程师带你开发",
+                            @"desc":@"Sequi voluptatem voluptatem consequatur voluptas. Quod et quia aut expedita nisi libero quasi autem. Consequatur nostrum eos molestias iure. Tempora cumque non aut debitis ipsa exercitationem in.\nEst voluptates aliquam voluptatem. Minima sequi praesentium eum et cumque. Maiores commodi quas itaque et.\nQui dolores sunt et a quasi non. Iste at id dolor neque sed maxime. Ullam et quo unde rerum voluptatibus necessitatibus. Odio laboriosam iure neque assumenda commodi quis.\nId repellendus voluptatum similique quisquam tenetur voluptas ex magnam. Repudiandae ea ipsum fuga id. Consequatur enim dignissimos modi dicta asperiores. Aliquid aut non odio neque.\nSit debitis dignissimos maxime deserunt natus facilis voluptatum quia. Nisi ut exercitationem odio possimus eum nulla. Ad id amet velit aut autem quam officiis iusto. Molestiae nam et facilis repudiandae a praesentium.\nAtque corrupti distinctio sunt temporibus animi eius assumenda. Fugiat accusamus culpa velit ab est. Fugit placeat accusantium dolorum fugiat consequatur veritatis dolor soluta. Qui deleniti sit laborum ut ex blanditiis",
                             @"number":@"1888",
                             @"type":@"2"
                             };
@@ -289,8 +372,8 @@
     
     NSArray* dictArray = @[dict1,dict2,dict3,dict4,dict5,dict6,dict7];
     
-    NSMutableArray* questionArray = [[NSMutableArray alloc] init];
-    NSMutableArray* classArray = [[NSMutableArray alloc] init];
+//    NSMutableArray* questionArray = [[NSMutableArray alloc] init];
+//    NSMutableArray* classArray = [[NSMutableArray alloc] init];
     NSMutableArray* resourceArray = [[NSMutableArray alloc] init];
 //    NSMutableArray* eventArray = [[NSMutableArray alloc] init];
     
@@ -304,11 +387,11 @@
 //            [questionArray addObject:model];
 //            model.cellHeight = [self getHeight:model];
         }else if (model.type == 2){
-            [classArray addObject:model];
-            model.cellHeight = [self getHeight:model];
+//            [classArray addObject:model];
+//            model.cellHeight = [self getHeight:model];
         }else if (model.type == 3){
-            [resourceArray addObject:model];
-            model.cellHeight = [self getHeight:model];
+//            [resourceArray addObject:model];
+//            model.cellHeight = [self getHeight:model];
         }
 //        else if (model.type == 4){
 //            [eventArray addObject:model];
@@ -317,7 +400,7 @@
         
     }
     
-    [self.datas addObjectsFromArray:@[self.quesArray,classArray,resourceArray]];
+    [self.datas addObjectsFromArray:@[self.quesArray,self.classArray,self.resourcArray]];
 }
 
 #pragma mark- UITableViewDataSource
@@ -329,11 +412,16 @@
     
     NSInteger section = indexPath.section;
     NSInteger index = indexPath.row;
-    SAPopularModel *cdata = (SAPopularModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
+//    SAPopularModel *cdata = (SAPopularModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
     
     // 问答model
     SAPopularQuestionModel *qdata = [self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
 
+    // 课程model
+    SAPopularClassModel *classdata = [self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
+    
+    // 资源model
+    SAPopularResourceModel *resourcedata = [self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
     
     switch (section) {
         case 0:
@@ -356,7 +444,7 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
             if (cell == nil) {
                 SAPopularClassCell* classCell = [[SAPopularClassCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-                [classCell setData:cdata];
+                [classCell setClassData:classdata];
                 cell = [classCell initUI];
                 
             }
@@ -370,7 +458,8 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
             if (cell == nil) {
                 SAPopularResourceCell* resourceCell = [[SAPopularResourceCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-                [resourceCell setData:cdata];
+//                [resourceCell setData:cdata];
+                [resourceCell setResourceData:resourcedata];
                 cell = [resourceCell initUI];
                 
             }
@@ -415,14 +504,38 @@
         UIImageView* view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
         return (view.frame.size.height/2 + 20);
         
+    }else if (indexPath.section == 1){        
+        UIImageView* view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
+        // 背景图尺寸是350，比bg4 （328）大 22
+        return (view.frame.size.height/2 + 20+22);
+
     }else{
-        SAPopularModel *model = [self.datas[indexPath.section] objectAtIndex:indexPath.row];
-        return model.cellHeight;
+        UIImageView* view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
+        return (view.frame.size.height/2 + 20);
     }
 }
 
+/**
+ *  这个要被删除 了
+ *
+ *  @param model SAPopularModel --- 暂时好像也没用
+ *
+ *  @return cellHeight
+ */
 - (double)getHeight:(SAPopularModel *)model {
     UIImage *image = [UIImage imageNamed:model.cellBackgroundImgName];
+    return (image.size.height/2+20);
+}
+
+/**
+ *  取得classCell的高度 --- 暂时好像也没用
+ *
+ *  @param model <#model description#>
+ *
+ *  @return <#return value description#>
+ */
+- (double)getClassCellHeight:(SAPopularClassModel *)model{
+    UIImage *image = [UIImage imageNamed:model.bg_image];
     return (image.size.height/2+20);
 }
 

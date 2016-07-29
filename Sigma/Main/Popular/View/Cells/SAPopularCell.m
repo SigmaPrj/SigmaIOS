@@ -26,7 +26,7 @@
 @property(nonatomic, strong) UILabel* numberLabel;
 
 // SAPopularModel是模拟的 model，之后会用后台的数据替换
-@property(nonatomic, strong) SAPopularModel* data;
+//@property(nonatomic, strong) SAPopularModel* data;
 
 // SAPopularQuestionModel 从后台获取数据生成的model
 @property(nonatomic, strong) SAPopularQuestionModel *quesdata;
@@ -56,9 +56,9 @@
     return self;
 }
 
--(void)setData:(SAPopularModel *)data{
-    _data = data;
-}
+//-(void)setData:(SAPopularModel *)data{
+//    _data = data;
+//}
 
 -(void)setQuesData:(SAPopularQuestionModel *)quesdata{
     _quesdata = quesdata;
@@ -97,7 +97,10 @@
         
         //
 //        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:self.data.cellBackgroundImgName]];
-        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
+        int quesbgnum = [self getRandomNumber:1 to:7];
+        NSString* imagename = [NSString stringWithFormat:@"ques%d",quesbgnum];
+//        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
+        _cellBackgroundImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imagename]];
         _cellBackgroundImg.frame = CGRectMake(15, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2);
         
         UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2)];
@@ -119,7 +122,6 @@
     if (!_avataImage) {
         _avataImage = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, AVATAIMG_WIDTH, AVATAIMG_HEIGHT)];
         
-        //
 //        [_avataImage setImage:[UIImage imageNamed:self.data.AvataImgName]];
         NSURL *url = [[NSURL alloc] initWithString:self.quesdata.avata];
         [_avataImage sd_setImageWithURL:url];
@@ -217,13 +219,28 @@
         
         [TextEnhance resizeUILabelWidth:_numberLabel];
         CGRect rect = _numberLabel.frame;
-//        rect.origin.x = (SCREEN_WIDTH-_numberLabel.frame.size.width)/2;
         rect.origin.x = SCREEN_WIDTH-_numberLabel.frame.size.width-60;
         _numberLabel.frame = rect;
     }
     
     return _numberLabel;
 }
+
+
+/**
+ *  产生随机数选取背景图
+ *
+ *  @param selected <#selected description#>
+ *  @param animated <#animated description#>
+ */
+-(int)getRandomNumber:(int)from to:(int)to
+
+{
+    
+    return (int)(from + (arc4random() % (to - from + 1)));
+    
+}
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
