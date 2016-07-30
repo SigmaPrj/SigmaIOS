@@ -2,8 +2,8 @@
 //  SigmaUITests.m
 //  SigmaUITests
 //
-//  Created by Terence on 16/7/13.
-//  Copyright © 2016年 Terence. All rights reserved.
+//  Created by 汤轶侬 on 16/7/28.
+//  Copyright © 2016年 sigma. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
