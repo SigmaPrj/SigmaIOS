@@ -98,7 +98,7 @@
 
 -(SAPopularTableView*)tableView{
     if (!_tableView) {
-        _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-50) style:UITableViewStyleGrouped];
+        _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-65) style:UITableViewStyleGrouped];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
@@ -234,7 +234,7 @@
  *  @param classArray
  */
 - (void)setClassData:(NSArray*)classArray{
-    int randomNum = [self getRandomNumber:2 to:4];
+    int randomNum = [self getRandomNumber:1 to:3];
     for (int i = 0; i < classArray.count - randomNum; i++) {
         SAPopularClassModel *classModel = [SAPopularClassModel classWithDict:classArray[(NSInteger)i]];
         [self.classArray addObject:classModel];
@@ -294,112 +294,6 @@
 -(void)initData{
     
     _titleArray = @[@"热门问答", @"热门课程", @"热门资源"];
-    
-    NSDictionary* dict1 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"ttt",
-                            @"cellBackgroundImgName":@"bg1.jpg",
-                            @"title":@".NET？",
-                            @"desc":@"神秘的.net",
-                            @"number":@"999",
-                            @"type":@"1"
-                            };
-    
-    
-    NSDictionary* dict2 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"不正常人类",
-                            @"cellBackgroundImgName":@"bg4.jpg",
-                            @"title":@"突破思维局限",
-                            @"desc":@"如何突破思维局限",
-                            @"number":@"91",
-                            @"type":@"1"
-                            };
-    
-    
-    NSDictionary* dict3 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"IOS开发工程师",
-                            @"cellBackgroundImgName":@"bg4.jpg",
-                            @"title":@"IOS开发指南",
-                            @"desc":@"Sequi voluptatem voluptatem consequatur voluptas. Quod et quia aut expedita nisi libero quasi autem. Consequatur nostrum eos molestias iure. Tempora cumque non aut debitis ipsa exercitationem in.\nEst voluptates aliquam voluptatem. Minima sequi praesentium eum et cumque. Maiores commodi quas itaque et.\nQui dolores sunt et a quasi non. Iste at id dolor neque sed maxime. Ullam et quo unde rerum voluptatibus necessitatibus. Odio laboriosam iure neque assumenda commodi quis.\nId repellendus voluptatum similique quisquam tenetur voluptas ex magnam. Repudiandae ea ipsum fuga id. Consequatur enim dignissimos modi dicta asperiores. Aliquid aut non odio neque.\nSit debitis dignissimos maxime deserunt natus facilis voluptatum quia. Nisi ut exercitationem odio possimus eum nulla. Ad id amet velit aut autem quam officiis iusto. Molestiae nam et facilis repudiandae a praesentium.\nAtque corrupti distinctio sunt temporibus animi eius assumenda. Fugiat accusamus culpa velit ab est. Fugit placeat accusantium dolorum fugiat consequatur veritatis dolor soluta. Qui deleniti sit laborum ut ex blanditiis",
-                            @"number":@"1888",
-                            @"type":@"2"
-                            };
-    
-    
-    NSDictionary* dict4 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"前端大神",
-                            @"cellBackgroundImgName":@"bg4.jpg",
-                            @"title":@"前端开发",
-                            @"desc":@"讲解前端开发的技巧",
-                            @"number":@"666",
-                            @"type":@"2"
-                            };
-    
-    NSDictionary* dict5 =  @{
-                             @"AvataImgName":@"avata.jpg",
-                             @"nickName":@"Java",
-                             @"cellBackgroundImgName":@"bg3.jpg",
-                             @"title":@"JavaScript高级程序设计",
-                             @"desc":@"必备数据",
-                             @"number":@"666",
-                             @"type":@"3"
-                             };
-    
-    NSDictionary* dict6 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"阿里",
-                            @"cellBackgroundImgName":@"bg.jpg",
-                            @"title":@"云计算和分布式",
-                            @"desc":@"当前最火的云计算讲座",
-                            @"number":@"129",
-                            @"type":@"4"
-                            };
-    
-    
-    NSDictionary* dict7 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"tx",
-                            @"cellBackgroundImgName":@"bg1.jpg",
-                            @"title":@"做好产品经理",
-                            @"desc":@"如何做一个产品经理",
-                            @"number":@"354",
-                            @"type":@"2",
-                            };
-    
-    
-    NSArray* dictArray = @[dict1,dict2,dict3,dict4,dict5,dict6,dict7];
-    
-//    NSMutableArray* questionArray = [[NSMutableArray alloc] init];
-//    NSMutableArray* classArray = [[NSMutableArray alloc] init];
-    NSMutableArray* resourceArray = [[NSMutableArray alloc] init];
-//    NSMutableArray* eventArray = [[NSMutableArray alloc] init];
-    
-    
-    /**
-     *  遍历dictArray取出各部分对应的dict并转换成Model，并加入对应数组
-     */
-    for (int i = 0; i < dictArray.count; i++) {
-        SAPopularModel *model = [[SAPopularModel alloc] initWithDict:[dictArray objectAtIndex:i]];
-        if (model.type == 1) {
-//            [questionArray addObject:model];
-//            model.cellHeight = [self getHeight:model];
-        }else if (model.type == 2){
-//            [classArray addObject:model];
-//            model.cellHeight = [self getHeight:model];
-        }else if (model.type == 3){
-//            [resourceArray addObject:model];
-//            model.cellHeight = [self getHeight:model];
-        }
-//        else if (model.type == 4){
-//            [eventArray addObject:model];
-//            model.cellHeight = [self getHeight:model];
-//        }
-        
-    }
-    
     [self.datas addObjectsFromArray:@[self.quesArray,self.classArray,self.resourcArray]];
 }
 
@@ -502,16 +396,16 @@
     if (indexPath.section == 0) {
         // 取得section0中cell的高度
         UIImageView* view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
-        return (view.frame.size.height/2 + 20);
+        return (view.frame.size.height/2 + 13);
         
     }else if (indexPath.section == 1){        
         UIImageView* view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
         // 背景图尺寸是350，比bg4 （328）大 22
-        return (view.frame.size.height/2 + 20+22);
+        return (view.frame.size.height/2 + 20);
 
     }else{
         UIImageView* view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
-        return (view.frame.size.height/2 + 20);
+        return (view.frame.size.height/2 + 13);
     }
 }
 
