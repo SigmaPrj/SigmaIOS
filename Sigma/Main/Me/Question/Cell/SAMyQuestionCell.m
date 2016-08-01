@@ -6,9 +6,9 @@
 //  Copyright © 2016 blackcater. All rights reserved.
 //
 
-#import "SAQuestionCell.h"
+#import "SAMyQuestionCell.h"
 
-@implementation SAQuestionCell
+@implementation SAMyQuestionCell
 
 -(instancetype)initWithTitle:(NSString*)title andDetail:(NSString*)detail andHeadImageName:(NSString*)headName andPopularity:(NSString*)popularity
 {

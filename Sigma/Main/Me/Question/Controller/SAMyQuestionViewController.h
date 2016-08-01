@@ -8,6 +8,6 @@
 
 #import "SAViewController.h"
 
-@interface SAQuesViewController : SAViewController
+@interface SAMyQuestionViewController : SAViewController
 
 @end

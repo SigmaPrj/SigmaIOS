@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SAQuestionCell : NSObject
+@interface SAMyQuestionCell : NSObject
 
 @property(nonatomic,copy)NSString *title;
 @property(nonatomic,copy)NSString *headImgName;

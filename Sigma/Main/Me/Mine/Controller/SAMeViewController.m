@@ -13,11 +13,9 @@
 #import "SAMineViewEngine.h"
 #import "SAMineTableViewCell.h"
 #import "TextEnhance.h"
-
 #import "SAMineSubViewController.h"
 #import "SASettingViewController.h"
-
-#import "SAQuesViewController.h"
+#import "SAMyQuestionViewController.h"
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
@@ -415,7 +413,7 @@
                 break;
             case 2:
             {
-                SAQuesViewController *vc=[[SAQuesViewController alloc]init];
+                SAMyQuestionViewController *vc=[[SAMyQuestionViewController alloc]init];
                 [vc setHidesBottomBarWhenPushed:YES];
                 [self.navigationController pushViewController:vc animated:YES];
             }
