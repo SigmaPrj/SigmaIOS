@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5AAC4B471D49959600075D70"
+               BlueprintIdentifier = "007D8DC01D4F17FF00240B4F"
                BuildableName = "Sigma.app"
                BlueprintName = "Sigma"
                ReferencedContainer = "container:Sigma.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5AAC4B601D49959600075D70"
+               BlueprintIdentifier = "007D8DD91D4F17FF00240B4F"
                BuildableName = "SigmaTests.xctest"
                BlueprintName = "SigmaTests"
                ReferencedContainer = "container:Sigma.xcodeproj">
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5AAC4B6B1D49959600075D70"
+               BlueprintIdentifier = "007D8DE41D4F17FF00240B4F"
                BuildableName = "SigmaUITests.xctest"
                BlueprintName = "SigmaUITests"
                ReferencedContainer = "container:Sigma.xcodeproj">
@@ -52,7 +52,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5AAC4B471D49959600075D70"
+            BlueprintIdentifier = "007D8DC01D4F17FF00240B4F"
             BuildableName = "Sigma.app"
             BlueprintName = "Sigma"
             ReferencedContainer = "container:Sigma.xcodeproj">
@@ -75,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5AAC4B471D49959600075D70"
+            BlueprintIdentifier = "007D8DC01D4F17FF00240B4F"
             BuildableName = "Sigma.app"
             BlueprintName = "Sigma"
             ReferencedContainer = "container:Sigma.xcodeproj">
@@ -94,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5AAC4B471D49959600075D70"
+            BlueprintIdentifier = "007D8DC01D4F17FF00240B4F"
             BuildableName = "Sigma.app"
             BlueprintName = "Sigma"
             ReferencedContainer = "container:Sigma.xcodeproj">

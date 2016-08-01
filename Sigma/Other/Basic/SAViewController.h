@@ -16,5 +16,4 @@
 
 - (void)setLeftNavigationItemWithTitle:(NSString *)title imageName:(NSString *)imageName;
 
-
 @end

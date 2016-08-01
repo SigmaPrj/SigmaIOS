@@ -25,7 +25,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-
     // 添加通知
     [self addAllNotification];
     
@@ -43,6 +42,8 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self render];
+    
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

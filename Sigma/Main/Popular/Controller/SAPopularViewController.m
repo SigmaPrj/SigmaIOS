@@ -29,7 +29,6 @@
 
 @interface SAPopularViewController ()<UITableViewDelegate, UITableViewDataSource,SAPopularHeaderViewDelegate>
 
-
 @property (nonatomic, strong)SAPopularTableView *tableView;
 @property (nonatomic, strong) NSMutableArray* datas;
 @property (nonatomic, strong) NSArray* titleArray;
@@ -38,6 +37,7 @@
 @property (nonatomic, strong) NSMutableArray* quesArray;
 @property (nonatomic, strong) NSMutableArray* classArray;
 @property (nonatomic, strong) NSMutableArray* resourcArray;
+
 
 
 
@@ -63,14 +63,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    // 添加通知
-    [self addAllNotification];
-    
-    // 发送数据请求
-    [self sendRequest];
-    
-    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -106,11 +98,7 @@
 
 -(SAPopularTableView*)tableView{
     if (!_tableView) {
-<<<<<<< HEAD
-        _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-50) style:UITableViewStyleGrouped];
-=======
         _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-65) style:UITableViewStyleGrouped];
->>>>>>> terence
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
@@ -126,7 +114,6 @@
  *  发送请求
  *
  *  @return void
-<<<<<<< HEAD
  */
 - (void)sendRequest {
     
@@ -149,103 +136,6 @@
     
     // 添加热门资源通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_POPULAR_RESOURCE_DATA object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataErrorHandler:) name:REQUEST_DATA_ERROR object:nil];
-}
-
-- (void) removeAllNotification {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-
-- (void) receiveDataSuccessHandler:(NSNotification *)noti{
-    if ([noti.name isEqualToString:NOTI_POPULAR_QUESTION_DATA]) {
-        if ([noti.userInfo[@"status"] intValue] == 1) {
-            // 加载用户数据成功
-            NSLog(@"question success");
-        }
-    }
-    
-    if ([noti.name isEqualToString:NOTI_POPULAR_VIDEO_DATA]) {
-        if ([noti.userInfo[@"status"] intValue] == 1) {
-            // 加载用户数据成功
-            NSLog(@"video success");
-        }
-    }
-    
-    if ([noti.name isEqualToString:NOTI_POPULAR_RESOURCE_DATA]) {
-        if ([noti.userInfo[@"status"] intValue] == 1) {
-            // 加载用户数据成功
-            NSLog(@"resource success");
-        }
-    }
-}
-
-
-- (void) receiveDataErrorHandler:notification {
-    NSLog(@"数据加载失败!");
-}
-
-
-/**
- *  初始化数据
- */
--(void)initData{
-    
-    _titleArray = @[@"热门问答", @"热门课程", @"热门资源"];
-    
-    NSDictionary* dict1 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"ttt",
-                            @"cellBackgroundImgName":@"bg1.jpg",
-                            @"title":@".NET？",
-                            @"desc":@"神秘的.net",
-                            @"number":@"999",
-                            @"type":@"1"
-                            };
-    
-    
-    NSDictionary* dict2 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"不正常人类",
-                            @"cellBackgroundImgName":@"bg4.jpg",
-                            @"title":@"突破思维局限",
-                            @"desc":@"如何突破思维局限",
-                            @"number":@"91",
-                            @"type":@"1"
-                            };
-    
-=======
- */
-- (void)sendRequest {
->>>>>>> terence
-    
-    // 热门问答请求
-    [SAPopularRequest requestQuestionData];
-    
-    [SAPopularRequest requestVideoData];
-    
-    [SAPopularRequest requestResourceData];
-}
-
-#pragma mark - 添加通知
-- (void) addAllNotification {
-    
-    // 添加热门问答通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_POPULAR_QUESTION_DATA object:nil];
-    
-    // 添加热门课程通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_POPULAR_VIDEO_DATA object:nil];
-    
-<<<<<<< HEAD
-    NSMutableArray* questionArray = [[NSMutableArray alloc] init];
-    NSMutableArray* classArray = [[NSMutableArray alloc] init];
-    NSMutableArray* resourceArray = [[NSMutableArray alloc] init];
-//    NSMutableArray* eventArray = [[NSMutableArray alloc] init];
-=======
-    // 添加热门资源通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_POPULAR_RESOURCE_DATA object:nil];
->>>>>>> terence
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataErrorHandler:) name:REQUEST_DATA_ERROR object:nil];
 }
@@ -273,31 +163,6 @@
         }
     }
     
-<<<<<<< HEAD
-    /**
-     *  遍历dictArray取出各部分对应的dict并转换成Model，并加入对应数组
-     */
-    for (int i = 0; i < dictArray.count; i++) {
-        SAPopularModel *model = [[SAPopularModel alloc] initWithDict:[dictArray objectAtIndex:i]];
-        if (model.type == 1) {
-            [questionArray addObject:model];
-            model.cellHeight = [self getHeight:model];
-        }else if (model.type == 2){
-            [classArray addObject:model];
-            model.cellHeight = [self getHeight:model];
-        }else if (model.type == 3){
-            [resourceArray addObject:model];
-            model.cellHeight = [self getHeight:model];
-        }
-//        else if (model.type == 4){
-//            [eventArray addObject:model];
-//            model.cellHeight = [self getHeight:model];
-//        }
-        
-    }
-    
-    [self.datas addObjectsFromArray:@[questionArray,classArray,resourceArray]];
-=======
     if ([noti.name isEqualToString:NOTI_POPULAR_VIDEO_DATA]) {
         if ([noti.userInfo[@"status"] intValue] == 1) {
             // 加载课程数据成功
@@ -342,7 +207,6 @@
 -(int)getRandomNumber:(int)from to:(int)to
 
 {
->>>>>>> terence
     
     return (int)(from + (arc4random() % (to - from + 1)));
     

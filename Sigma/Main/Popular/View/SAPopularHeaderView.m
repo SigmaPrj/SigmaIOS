@@ -113,9 +113,7 @@
         [label setText:@"课程"];
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
-
         [button setImage:[UIImage imageNamed:@"omegaicon.png"] forState:UIControlStateNormal];
-
         //添加点击事件
         [button addTarget:self action:@selector(classBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
 //        button.backgroundColor = [UIColor grayColor];
