@@ -97,7 +97,7 @@
         
         //
 //        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:self.data.cellBackgroundImgName]];
-        int quesbgnum = [self getRandomNumber:1 to:7];
+        int quesbgnum = [self getRandomNumber:1 to:9];
         NSString* imagename = [NSString stringWithFormat:@"ques%d",quesbgnum];
 //        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
         _cellBackgroundImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imagename]];

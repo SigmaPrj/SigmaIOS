@@ -91,7 +91,7 @@
 -(UIImageView*)cellBackgroundImg{
     if (!_cellBackgroundImg) {
         
-        int resourcebgnum = [self getRandomNumber:1 to:7];
+        int resourcebgnum = [self getRandomNumber:1 to:9];
         NSString* imagename = [NSString stringWithFormat:@"resource%d",resourcebgnum];
         _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:imagename]];
         _cellBackgroundImg.frame = CGRectMake(15, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2);

@@ -35,7 +35,7 @@ static CGFloat SpringDelay = 0.03;
     
     
     // 初始化btn 图片和title
-    NSArray *images = @[@"tabbar_compose_idea.png", @"tabbar_compose_book.png", @"camera_video_download.png", @"tabbar_compose_lbs.png", @"messagescenter_good.png", @"tabbar_compose_friend.png"];
+    NSArray *images = @[@"tabbar_compose_idea.png", @"tabbar_compose_book.png", @"btn_download_normal.png", @"tabbar_compose_lbs.png", @"messagescenter_good.png", @"tabbar_compose_friend.png"];
     NSArray *titles = @[@"发布", @"提问",@"下载", @"签到", @"收藏", @"返回"];
     
     NSUInteger cols = 3;
