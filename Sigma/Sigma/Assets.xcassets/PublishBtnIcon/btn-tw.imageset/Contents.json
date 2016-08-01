@@ -2,16 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "btn-tw.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "camera_video_download@2x.png",
+      "filename" : "btn-tw@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "camera_video_download@3x.png",
+      "filename" : "btn-tw@3x.png",
       "scale" : "3x"
     }
   ],

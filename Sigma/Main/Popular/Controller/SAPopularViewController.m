@@ -243,7 +243,7 @@
 
 
 - (void)setResourceArray:(NSArray *)resourceArray{
-    int randomNum = [self getRandomNumber:2 to:4];
+    int randomNum = [self getRandomNumber:1 to:4];
     for (int i = 0; i < resourceArray.count - randomNum; i++) {
         SAPopularResourceModel *resourcemodel = [SAPopularResourceModel resourceWithDict:resourceArray[(NSInteger)i]];
         [self.resourcArray addObject:resourcemodel];

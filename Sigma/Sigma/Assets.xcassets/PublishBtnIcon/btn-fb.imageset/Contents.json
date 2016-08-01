@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "btn-fb.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tabbar_compose_book@2x.png",
+      "filename" : "btn-fb@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "btn-fb@3x.png",
       "scale" : "3x"
     }
   ],
