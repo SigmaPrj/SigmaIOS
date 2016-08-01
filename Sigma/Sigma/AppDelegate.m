@@ -2,12 +2,15 @@
 //  AppDelegate.m
 //  Sigma
 //
-//  Created by 汤轶侬 on 16/7/28.
+//  Created by 汤轶侬 on 16/8/1.
 //  Copyright © 2016年 sigma. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "SAUserDataManager.h"
 #import "SARootViewController.h"
+#import "SAAnimationNavController.h"
+#import "SAHomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,15 +20,38 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    SARootViewController *rootController = [[SARootViewController alloc] init];
-    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window.rootViewController = rootController;
+    /**
+     * 判断用户是否已经登录
+     */
+    NSMutableDictionary* userData = (NSMutableDictionary *)[SAUserDataManager readToken];
     
+    if (userData) {
+        if (userData[KEY_TOKEN_VALUE] && userData[KEY_TOKEN_TIME]) {
+            NSTimeInterval timeInterval = [userData[KEY_TOKEN_TIME] intValue];
+            NSTimeInterval nowInterval = [NSDate date].timeIntervalSince1970;
+            if (timeInterval > nowInterval) {
+                NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setObject:userData[KEY_TOKEN_VALUE] forKey:KEY_TOKEN_VALUE];
+
+                // 直接进入主页面
+                SARootViewController *rootController = [[SARootViewController alloc] init];
+                self.window.rootViewController = rootController;
+                [self.window makeKeyAndVisible];
+                return YES;
+            }
+        }
+    }
+
+    // 显示home页面,选择注册和登录
+    SAHomeViewController *homeViewController = [[SAHomeViewController alloc] init];
+    SAAnimationNavController *navController = [[SAAnimationNavController alloc] initWithRootViewController:homeViewController];
+
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
-    
+
+
     return YES;
 }
 
