@@ -12,12 +12,15 @@
 #import "SAComposeToolBar.h"
 #import "SAComposePhotosView.h"
 
+
+#define MY_MAX 140
 @interface SAComposeViewController () <UITextViewDelegate,SAComposeToolBarDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
 @property(nonatomic, weak)SAComposeView* textView;
 @property(nonatomic, weak)SAComposeToolBar* toolbar;
 @property(nonatomic, weak)SAComposePhotosView* photosView;
 @property(nonatomic, strong) UIBarButtonItem* rightItem;
+//@property(nonatomic, strong) UILabel* textNum; // 统计字数的
 
 @end
 
@@ -47,7 +50,7 @@
 
 // 设置相册视图
 -(void)setUpPhotosView{
-    SAComposePhotosView *photosView = [[SAComposePhotosView alloc] initWithFrame:CGRectMake(0, 80, self.view.frame.size.width, self.view.frame.size.height - 80)];
+    SAComposePhotosView *photosView = [[SAComposePhotosView alloc] initWithFrame:CGRectMake(0, 120, self.view.frame.size.width, self.view.frame.size.height - 80)];
     _photosView = photosView;
     [_textView addSubview:photosView];
 }
@@ -142,6 +145,8 @@
     
     // 监听拖拽
     _textView.delegate = self;
+    _textView.alwaysBounceVertical = YES;
+    
 }
 
 #pragma mark - 开始拖拽
@@ -191,6 +196,19 @@
     }
     
 }
+
+#pragma mark - UITextViewDelegate
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    //判断加上输入的字符，是否超过界限
+    NSString *str = [NSString stringWithFormat:@"%@%@", textView.text, text];
+    if (str.length > MY_MAX)
+    {
+        textView.text = [textView.text substringToIndex:MY_MAX];
+        return NO;
+    }
+    return YES;
+}
+
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];

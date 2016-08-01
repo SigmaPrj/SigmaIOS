@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SAViewController.h"
 
-@interface SAEinfoDetailViewController : UIViewController
+@interface SAEinfoDetailViewController : SAViewController
 
 @end

@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setLeftNavigationItemWithTitle:nil imageName:@"back.png"];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.desc];
 }

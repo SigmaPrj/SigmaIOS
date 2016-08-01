@@ -52,7 +52,7 @@
     NSArray* classNames = @[@"SAPopularViewController", @"SACommunityViewController", @"SAEInfomationViewController", @"SAMeViewController"];
     
     //
-    NSArray* images = @[@"tabbar_home",@"Tabbar_community",@"tabbar_discover",@"tabbar_profile"];
+    NSArray* images = @[@"square",@"circle",@"triangle",@"dimond"];
     
     NSMutableArray* mutableArray = [NSMutableArray array];
     

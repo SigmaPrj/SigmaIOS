@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class SAPopularModel;
+@class SAPopularResourceModel;
 
 @interface SAPopularResourceCell : UITableViewCell
 
 -(void)setData:(SAPopularModel *)data;
+
+-(void)setResourceData:(SAPopularResourceModel *)resourcedata;
 
 -(instancetype)initUI;
 

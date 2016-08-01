@@ -19,7 +19,9 @@
 #import "SAPopularHeaderView.h"
 #import "SourceSubViewController.h"
 #import "CourseController.h"
-//#import "SourceSubViewController.h"
+#import "SAPopularQuestionModel.h"
+#import "SAPopularClassModel.h"
+#import "SAPopularResourceModel.h"
 
 #define HEADER_OF_SECTION_X 0
 #define HEADER_OF_SECTION_Y 0
@@ -27,11 +29,17 @@
 
 @interface SAPopularViewController ()<UITableViewDelegate, UITableViewDataSource,SAPopularHeaderViewDelegate>
 
-@property(nonatomic, strong)SAPopularTableView *tableView;
+
+@property (nonatomic, strong)SAPopularTableView *tableView;
 @property (nonatomic, strong) NSMutableArray* datas;
-@property (nonatomic, strong) NSMutableArray* titleDatas;
-@property (nonatomic ,strong) NSArray* titleArray;
+@property (nonatomic, strong) NSArray* titleArray;
 @property (nonatomic, strong) SAPopularHeaderView* headerView;
+
+@property (nonatomic, strong) NSMutableArray* quesArray;
+@property (nonatomic, strong) NSMutableArray* classArray;
+@property (nonatomic, strong) NSMutableArray* resourcArray;
+
+
 
 @end
 
@@ -41,6 +49,13 @@
     [super viewDidLoad];
     
 //    [self.view addSubview:self.tableView];
+    
+    
+    // 添加通知
+    [self addAllNotification];
+    
+    // 发送数据请求
+    [self sendRequest];
     
     [self initUI];
     [self initData];
@@ -79,6 +94,7 @@
    
 }
 
+
 -(NSMutableArray*)datas{
     if (!_datas) {
         _datas = [NSMutableArray array];
@@ -90,7 +106,11 @@
 
 -(SAPopularTableView*)tableView{
     if (!_tableView) {
+<<<<<<< HEAD
         _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-50) style:UITableViewStyleGrouped];
+=======
+        _tableView = [[SAPopularTableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-65) style:UITableViewStyleGrouped];
+>>>>>>> terence
         _tableView.dataSource = self;
         _tableView.delegate = self;
         
@@ -106,6 +126,7 @@
  *  发送请求
  *
  *  @return void
+<<<<<<< HEAD
  */
 - (void)sendRequest {
     
@@ -194,68 +215,65 @@
                             @"type":@"1"
                             };
     
+=======
+ */
+- (void)sendRequest {
+>>>>>>> terence
     
-    NSDictionary* dict3 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"IOS开发工程师",
-                            @"cellBackgroundImgName":@"bg4.jpg",
-                            @"title":@"IOS开发指南",
-                            @"desc":@"5年经验工程师带你开发",
-                            @"number":@"1888",
-                            @"type":@"2"
-                            };
+    // 热门问答请求
+    [SAPopularRequest requestQuestionData];
     
+    [SAPopularRequest requestVideoData];
     
-    NSDictionary* dict4 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"前端大神",
-                            @"cellBackgroundImgName":@"bg4.jpg",
-                            @"title":@"前端开发",
-                            @"desc":@"讲解前端开发的技巧",
-                            @"number":@"666",
-                            @"type":@"2"
-                            };
+    [SAPopularRequest requestResourceData];
+}
+
+#pragma mark - 添加通知
+- (void) addAllNotification {
     
-    NSDictionary* dict5 =  @{
-                             @"AvataImgName":@"avata.jpg",
-                             @"nickName":@"Java",
-                             @"cellBackgroundImgName":@"bg3.jpg",
-                             @"title":@"JavaScript高级程序设计",
-                             @"desc":@"必备数据",
-                             @"number":@"666",
-                             @"type":@"3"
-                             };
+    // 添加热门问答通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_POPULAR_QUESTION_DATA object:nil];
     
-    NSDictionary* dict6 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"阿里",
-                            @"cellBackgroundImgName":@"bg.jpg",
-                            @"title":@"云计算和分布式",
-                            @"desc":@"当前最火的云计算讲座",
-                            @"number":@"129",
-                            @"type":@"4"
-                            };
+    // 添加热门课程通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_POPULAR_VIDEO_DATA object:nil];
     
-    
-    NSDictionary* dict7 = @{
-                            @"AvataImgName":@"avata.jpg",
-                            @"nickName":@"tx",
-                            @"cellBackgroundImgName":@"bg.jpg",
-                            @"title":@"做好产品经理",
-                            @"desc":@"如何做一个产品经理",
-                            @"number":@"354",
-                            @"type":@"2"
-                            };
-    
-    
-    NSArray* dictArray = @[dict1,dict2,dict3,dict4,dict5,dict6,dict7];
-    
+<<<<<<< HEAD
     NSMutableArray* questionArray = [[NSMutableArray alloc] init];
     NSMutableArray* classArray = [[NSMutableArray alloc] init];
     NSMutableArray* resourceArray = [[NSMutableArray alloc] init];
 //    NSMutableArray* eventArray = [[NSMutableArray alloc] init];
+=======
+    // 添加热门资源通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_POPULAR_RESOURCE_DATA object:nil];
+>>>>>>> terence
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataErrorHandler:) name:REQUEST_DATA_ERROR object:nil];
+}
+
+- (void) removeAllNotification {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+
+
+
+- (void) receiveDataSuccessHandler:(NSNotification *)noti{
+    if ([noti.name isEqualToString:NOTI_POPULAR_QUESTION_DATA]) {
+        if ([noti.userInfo[@"status"] intValue] == 1) {
+            // 加载用户数据成功
+            NSLog(@"question success");
+            
+            // 字典转入模型
+            [self setQuesData:noti.userInfo[@"data"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.tableView reloadData];
+
+            });
+        }
+    }
     
+<<<<<<< HEAD
     /**
      *  遍历dictArray取出各部分对应的dict并转换成Model，并加入对应数组
      */
@@ -279,10 +297,140 @@
     }
     
     [self.datas addObjectsFromArray:@[questionArray,classArray,resourceArray]];
+=======
+    if ([noti.name isEqualToString:NOTI_POPULAR_VIDEO_DATA]) {
+        if ([noti.userInfo[@"status"] intValue] == 1) {
+            // 加载课程数据成功
+            NSLog(@"video success");
+            [self setClassData:noti.userInfo[@"data"]];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                
+            });
+            
+        }
+    }
     
+    if ([noti.name isEqualToString:NOTI_POPULAR_RESOURCE_DATA]) {
+        if ([noti.userInfo[@"status"] intValue] == 1) {
+            // 加载用户数据成功
+            NSLog(@"resource success");
+            [self setResourceArray:noti.userInfo[@"data"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                
+            });
+        }
+    }
+}
+
+
+- (void) receiveDataErrorHandler:notification {
+    NSLog(@"数据加载失败!");
+}
+
+
+/**
+ *  生成随机数，看抽取几个数据
+ *
+ *  @param from 起始index
+ *  @param to 终止index
+ *
+ *  @return
+ */
+-(int)getRandomNumber:(int)from to:(int)to
+
+{
+>>>>>>> terence
     
+    return (int)(from + (arc4random() % (to - from + 1)));
     
+}
+
+
+/**
+ *  传入quesArray并且赋值给模型，最后放进quesArray数组里
+ *
+ *  @param quesArray
+ */
+- (void)setQuesData:(NSArray *)quesArray{
+    int randomNum = [self getRandomNumber:1 to:3];
     
+    for (int i = 0; i < quesArray.count-randomNum; i++) {
+        SAPopularQuestionModel *quesModel = [SAPopularQuestionModel quesWithDict:quesArray[(NSInteger)i]];
+        // quesArray用于存放quesModel
+        [self.quesArray addObject:quesModel];
+    }
+}
+
+/**
+ *  课程数组生成
+ *
+ *  @param classArray
+ */
+- (void)setClassData:(NSArray*)classArray{
+    int randomNum = [self getRandomNumber:1 to:3];
+    for (int i = 0; i < classArray.count - randomNum; i++) {
+        SAPopularClassModel *classModel = [SAPopularClassModel classWithDict:classArray[(NSInteger)i]];
+        [self.classArray addObject:classModel];
+    }
+}
+
+
+- (void)setResourceArray:(NSArray *)resourceArray{
+    int randomNum = [self getRandomNumber:1 to:4];
+    for (int i = 0; i < resourceArray.count - randomNum; i++) {
+        SAPopularResourceModel *resourcemodel = [SAPopularResourceModel resourceWithDict:resourceArray[(NSInteger)i]];
+        [self.resourcArray addObject:resourcemodel];
+    }
+}
+
+/**
+ *  question 数组懒加载
+ *
+ *  @return _quesArray
+ */
+- (NSMutableArray*)quesArray{
+    if (!_quesArray) {
+        _quesArray = [NSMutableArray array];
+    }
+    return _quesArray;
+}
+
+
+/**
+ *  class 数组懒加载
+ *
+ *  @return _classArray
+ */
+- (NSMutableArray*)classArray{
+    if (!_classArray) {
+        _classArray = [NSMutableArray array];
+    }
+    return _classArray;
+}
+
+/**
+ *  resource 数组懒加载
+ *
+ *  @return _resource
+ */
+- (NSMutableArray*)resourcArray{
+    if (!_resourcArray) {
+        _resourcArray = [NSMutableArray array];
+    }
+    return _resourcArray;
+}
+
+
+/**
+ *  初始化数据
+ */
+-(void)initData{
+    
+    _titleArray = @[@"热门问答", @"热门课程", @"热门资源"];
+    [self.datas addObjectsFromArray:@[self.quesArray,self.classArray,self.resourcArray]];
 }
 
 #pragma mark- UITableViewDataSource
@@ -294,7 +442,16 @@
     
     NSInteger section = indexPath.section;
     NSInteger index = indexPath.row;
-    SAPopularModel *cdata = (SAPopularModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
+//    SAPopularModel *cdata = (SAPopularModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
+    
+    // 问答model
+    SAPopularQuestionModel *qdata = [self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
+
+    // 课程model
+    SAPopularClassModel *classdata = [self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
+    
+    // 资源model
+    SAPopularResourceModel *resourcedata = [self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
     
     switch (section) {
         case 0:
@@ -303,7 +460,8 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
             if (cell == nil) {
                 SAPopularCell* popularCell = [[SAPopularCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
-                [popularCell setData:cdata];
+//                [popularCell setData:cdata];
+                [popularCell setQuesData:qdata];
                 cell = [popularCell initUI];
             }
             return cell;
@@ -316,7 +474,7 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
             if (cell == nil) {
                 SAPopularClassCell* classCell = [[SAPopularClassCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-                [classCell setData:cdata];
+                [classCell setClassData:classdata];
                 cell = [classCell initUI];
                 
             }
@@ -330,7 +488,8 @@
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
             if (cell == nil) {
                 SAPopularResourceCell* resourceCell = [[SAPopularResourceCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-                [resourceCell setData:cdata];
+//                [resourceCell setData:cdata];
+                [resourceCell setResourceData:resourcedata];
                 cell = [resourceCell initUI];
                 
             }
@@ -369,12 +528,44 @@
 #pragma mark UITableViewDelegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    SAPopularModel *model = [self.datas[indexPath.section] objectAtIndex:indexPath.row];
-    return model.cellHeight;
+    
+    if (indexPath.section == 0) {
+        // 取得section0中cell的高度
+        UIImageView* view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
+        return (view.frame.size.height/2 + 13);
+        
+    }else if (indexPath.section == 1){        
+        UIImageView* view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
+        // 背景图尺寸是350，比bg4 （328）大 22
+        return (view.frame.size.height/2 + 20);
+
+    }else{
+        UIImageView* view = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
+        return (view.frame.size.height/2 + 13);
+    }
 }
 
+/**
+ *  这个要被删除 了
+ *
+ *  @param model SAPopularModel --- 暂时好像也没用
+ *
+ *  @return cellHeight
+ */
 - (double)getHeight:(SAPopularModel *)model {
     UIImage *image = [UIImage imageNamed:model.cellBackgroundImgName];
+    return (image.size.height/2+20);
+}
+
+/**
+ *  取得classCell的高度 --- 暂时好像也没用
+ *
+ *  @param model <#model description#>
+ *
+ *  @return <#return value description#>
+ */
+- (double)getClassCellHeight:(SAPopularClassModel *)model{
+    UIImage *image = [UIImage imageNamed:model.bg_image];
     return (image.size.height/2+20);
 }
 

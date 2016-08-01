@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class SAPopularModel;
+//@class SAPopularModel;
+@class SAPopularQuestionModel;
 
 @interface SAPopularCell : UITableViewCell
 
--(void)setData:(SAPopularModel *)data;
+//-(void)setData:(SAPopularModel *)data;
+
+-(void)setQuesData:(SAPopularQuestionModel *)quesdata;
 
 -(instancetype)initUI;
 
