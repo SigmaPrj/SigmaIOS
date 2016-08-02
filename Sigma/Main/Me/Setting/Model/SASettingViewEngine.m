@@ -9,6 +9,7 @@
 #import "SASettingViewEngine.h"
 
 #import "SASettingCell.h"
+#import "CacheManagement.h"
 
 @interface SASettingViewEngine()
 

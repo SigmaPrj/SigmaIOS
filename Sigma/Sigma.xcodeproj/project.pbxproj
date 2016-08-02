@@ -376,6 +376,7 @@
 		D090933D1D507BC9005AD3CD /* TimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D09093211D507BC9005AD3CD /* TimelineCell.xib */; };
 		D090933E1D507BC9005AD3CD /* TimelineSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093231D507BC9005AD3CD /* TimelineSectionHeaderView.m */; };
 		D090933F1D507BC9005AD3CD /* TimelineSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D09093241D507BC9005AD3CD /* TimelineSectionHeaderView.xib */; };
+		D09093421D5083AC005AD3CD /* CacheManagement.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093411D5083AC005AD3CD /* CacheManagement.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -966,6 +967,8 @@
 		D09093221D507BC9005AD3CD /* TimelineSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineSectionHeaderView.h; sourceTree = "<group>"; };
 		D09093231D507BC9005AD3CD /* TimelineSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineSectionHeaderView.m; sourceTree = "<group>"; };
 		D09093241D507BC9005AD3CD /* TimelineSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimelineSectionHeaderView.xib; sourceTree = "<group>"; };
+		D09093401D5083AC005AD3CD /* CacheManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheManagement.h; sourceTree = "<group>"; };
+		D09093411D5083AC005AD3CD /* CacheManagement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheManagement.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1487,6 +1490,8 @@
 		007D8ECB1D4F188700240B4F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D09093401D5083AC005AD3CD /* CacheManagement.h */,
+				D09093411D5083AC005AD3CD /* CacheManagement.m */,
 				007D8ECC1D4F188700240B4F /* SASettingViewController.h */,
 				007D8ECD1D4F188700240B4F /* SASettingViewController.m */,
 				007D8ECE1D4F188700240B4F /* SubController */,
@@ -2785,6 +2790,7 @@
 				007D90751D4F188700240B4F /* SACommunityUserModel.m in Sources */,
 				007D90BC1D4F188700240B4F /* SAPopularQuestionModel.m in Sources */,
 				007D90A21D4F188700240B4F /* ContentOfSourceHeadView.m in Sources */,
+				D09093421D5083AC005AD3CD /* CacheManagement.m in Sources */,
 				007D90571D4F188700240B4F /* POPAnimator.mm in Sources */,
 				007D904B1D4F188700240B4F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				007D909F1D4F188700240B4F /* CategoryHeadView.m in Sources */,
