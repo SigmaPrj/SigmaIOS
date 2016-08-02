@@ -14,6 +14,8 @@
 
 -(void)classButtonClicked;
 
+-(void)popularQuestionBtnClicked;
+
 @end
 
 @interface SAPopularHeaderView : UIView

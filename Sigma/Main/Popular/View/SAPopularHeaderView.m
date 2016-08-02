@@ -95,6 +95,9 @@
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
         [button setImage:[UIImage imageNamed:@"infinityicon.png"] forState:UIControlStateNormal];
+        
+        //添加点击事件
+        [button addTarget:self action:@selector(popularQuestionBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
 //        button.backgroundColor = [UIColor grayColor];
         [_questionBtnView addSubview:label];
         [_questionBtnView addSubview:button];
@@ -132,6 +135,13 @@
     }
 }
 
+-(void)popularQuestionBtnClicked:(id)sender{
+    if(sender && [sender isKindOfClass:[UIButton class]]){
+        if(self.delegate && [self.delegate respondsToSelector:@selector(popularQuestionBtnClicked)]){
+            [self.delegate popularQuestionBtnClicked];
+        }
+    }
+}
 
 -(UIView*)resourceBtnView{
     if (!_resourceBtnView) {

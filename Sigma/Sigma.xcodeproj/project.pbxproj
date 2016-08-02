@@ -348,6 +348,34 @@
 		007D91881D4F188700240B4F /* ios7-contact-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 007D903B1D4F188700240B4F /* ios7-contact-outline.png */; };
 		007D91891D4F188700240B4F /* ios7-undo-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 007D903C1D4F188700240B4F /* ios7-undo-outline.png */; };
 		007D918A1D4F188700240B4F /* ios7-undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 007D903D1D4F188700240B4F /* ios7-undo.png */; };
+		D09092C01D503E9E005AD3CD /* Sigma.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D09092BE1D503E9E005AD3CD /* Sigma.xcdatamodeld */; };
+		D09093251D507BC9005AD3CD /* TimelineController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09092EA1D507BC9005AD3CD /* TimelineController.m */; };
+		D09093261D507BC9005AD3CD /* TimelineDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D09092ED1D507BC9005AD3CD /* TimelineDataSource.m */; };
+		D09093271D507BC9005AD3CD /* NSLock+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = D09092F01D507BC9005AD3CD /* NSLock+Helpers.m */; };
+		D09093281D507BC9005AD3CD /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = D09092F21D507BC9005AD3CD /* NSString+MD5.m */; };
+		D09093291D507BC9005AD3CD /* UIImage+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = D09092F41D507BC9005AD3CD /* UIImage+Helpers.m */; };
+		D090932A1D507BC9005AD3CD /* Story.m in Sources */ = {isa = PBXBuildFile; fileRef = D09092F71D507BC9005AD3CD /* Story.m */; };
+		D090932B1D507BC9005AD3CD /* StoryBody.m in Sources */ = {isa = PBXBuildFile; fileRef = D09092F91D507BC9005AD3CD /* StoryBody.m */; };
+		D090932C1D507BC9005AD3CD /* Timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = D09092FB1D507BC9005AD3CD /* Timeline.m */; };
+		D090932D1D507BC9005AD3CD /* BaseOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D09092FF1D507BC9005AD3CD /* BaseOperation.m */; };
+		D090932E1D507BC9005AD3CD /* BlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093011D507BC9005AD3CD /* BlockOperation.m */; };
+		D090932F1D507BC9005AD3CD /* OperationQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093031D507BC9005AD3CD /* OperationQueue.m */; };
+		D09093301D507BC9005AD3CD /* ImageDownloadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093061D507BC9005AD3CD /* ImageDownloadingOperation.m */; };
+		D09093311D507BC9005AD3CD /* URLDownloadingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093081D507BC9005AD3CD /* URLDownloadingOperation.m */; };
+		D09093321D507BC9005AD3CD /* ParsingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D090930B1D507BC9005AD3CD /* ParsingOperation.m */; };
+		D09093331D507BC9005AD3CD /* StoryBodyParsingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D090930D1D507BC9005AD3CD /* StoryBodyParsingOperation.m */; };
+		D09093341D507BC9005AD3CD /* TimelineParsingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D090930F1D507BC9005AD3CD /* TimelineParsingOperation.m */; };
+		D09093351D507BC9005AD3CD /* CacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093121D507BC9005AD3CD /* CacheManager.m */; };
+		D09093361D507BC9005AD3CD /* HUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093141D507BC9005AD3CD /* HUDManager.m */; };
+		D09093371D507BC9005AD3CD /* ReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093171D507BC9005AD3CD /* ReaderViewController.m */; };
+		D09093381D507BC9005AD3CD /* TimelineTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093191D507BC9005AD3CD /* TimelineTableViewController.m */; };
+		D09093391D507BC9005AD3CD /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D090931B1D507BC9005AD3CD /* TimelineViewController.m */; };
+		D090933A1D507BC9005AD3CD /* BottomToastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D090931D1D507BC9005AD3CD /* BottomToastView.xib */; };
+		D090933B1D507BC9005AD3CD /* CentralProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D090931E1D507BC9005AD3CD /* CentralProgressView.xib */; };
+		D090933C1D507BC9005AD3CD /* TimelineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093201D507BC9005AD3CD /* TimelineCell.m */; };
+		D090933D1D507BC9005AD3CD /* TimelineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D09093211D507BC9005AD3CD /* TimelineCell.xib */; };
+		D090933E1D507BC9005AD3CD /* TimelineSectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D09093231D507BC9005AD3CD /* TimelineSectionHeaderView.m */; };
+		D090933F1D507BC9005AD3CD /* TimelineSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D09093241D507BC9005AD3CD /* TimelineSectionHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -887,6 +915,57 @@
 		007D903B1D4F188700240B4F /* ios7-contact-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-contact-outline.png"; sourceTree = "<group>"; };
 		007D903C1D4F188700240B4F /* ios7-undo-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-undo-outline.png"; sourceTree = "<group>"; };
 		007D903D1D4F188700240B4F /* ios7-undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-undo.png"; sourceTree = "<group>"; };
+		D09092BF1D503E9E005AD3CD /* Sigma.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sigma.xcdatamodel; sourceTree = "<group>"; };
+		D09092E91D507BC9005AD3CD /* TimelineController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineController.h; sourceTree = "<group>"; };
+		D09092EA1D507BC9005AD3CD /* TimelineController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineController.m; sourceTree = "<group>"; };
+		D09092EC1D507BC9005AD3CD /* TimelineDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineDataSource.h; sourceTree = "<group>"; };
+		D09092ED1D507BC9005AD3CD /* TimelineDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineDataSource.m; sourceTree = "<group>"; };
+		D09092EF1D507BC9005AD3CD /* NSLock+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLock+Helpers.h"; sourceTree = "<group>"; };
+		D09092F01D507BC9005AD3CD /* NSLock+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLock+Helpers.m"; sourceTree = "<group>"; };
+		D09092F11D507BC9005AD3CD /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		D09092F21D507BC9005AD3CD /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		D09092F31D507BC9005AD3CD /* UIImage+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Helpers.h"; sourceTree = "<group>"; };
+		D09092F41D507BC9005AD3CD /* UIImage+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Helpers.m"; sourceTree = "<group>"; };
+		D09092F61D507BC9005AD3CD /* Story.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Story.h; sourceTree = "<group>"; };
+		D09092F71D507BC9005AD3CD /* Story.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Story.m; sourceTree = "<group>"; };
+		D09092F81D507BC9005AD3CD /* StoryBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBody.h; sourceTree = "<group>"; };
+		D09092F91D507BC9005AD3CD /* StoryBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryBody.m; sourceTree = "<group>"; };
+		D09092FA1D507BC9005AD3CD /* Timeline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timeline.h; sourceTree = "<group>"; };
+		D09092FB1D507BC9005AD3CD /* Timeline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timeline.m; sourceTree = "<group>"; };
+		D09092FE1D507BC9005AD3CD /* BaseOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseOperation.h; sourceTree = "<group>"; };
+		D09092FF1D507BC9005AD3CD /* BaseOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseOperation.m; sourceTree = "<group>"; };
+		D09093001D507BC9005AD3CD /* BlockOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockOperation.h; sourceTree = "<group>"; };
+		D09093011D507BC9005AD3CD /* BlockOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockOperation.m; sourceTree = "<group>"; };
+		D09093021D507BC9005AD3CD /* OperationQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationQueue.h; sourceTree = "<group>"; };
+		D09093031D507BC9005AD3CD /* OperationQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationQueue.m; sourceTree = "<group>"; };
+		D09093051D507BC9005AD3CD /* ImageDownloadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloadingOperation.h; sourceTree = "<group>"; };
+		D09093061D507BC9005AD3CD /* ImageDownloadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloadingOperation.m; sourceTree = "<group>"; };
+		D09093071D507BC9005AD3CD /* URLDownloadingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLDownloadingOperation.h; sourceTree = "<group>"; };
+		D09093081D507BC9005AD3CD /* URLDownloadingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLDownloadingOperation.m; sourceTree = "<group>"; };
+		D090930A1D507BC9005AD3CD /* ParsingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingOperation.h; sourceTree = "<group>"; };
+		D090930B1D507BC9005AD3CD /* ParsingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingOperation.m; sourceTree = "<group>"; };
+		D090930C1D507BC9005AD3CD /* StoryBodyParsingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryBodyParsingOperation.h; sourceTree = "<group>"; };
+		D090930D1D507BC9005AD3CD /* StoryBodyParsingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryBodyParsingOperation.m; sourceTree = "<group>"; };
+		D090930E1D507BC9005AD3CD /* TimelineParsingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineParsingOperation.h; sourceTree = "<group>"; };
+		D090930F1D507BC9005AD3CD /* TimelineParsingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineParsingOperation.m; sourceTree = "<group>"; };
+		D09093111D507BC9005AD3CD /* CacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheManager.h; sourceTree = "<group>"; };
+		D09093121D507BC9005AD3CD /* CacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheManager.m; sourceTree = "<group>"; };
+		D09093131D507BC9005AD3CD /* HUDManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDManager.h; sourceTree = "<group>"; };
+		D09093141D507BC9005AD3CD /* HUDManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDManager.m; sourceTree = "<group>"; };
+		D09093161D507BC9005AD3CD /* ReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderViewController.h; sourceTree = "<group>"; };
+		D09093171D507BC9005AD3CD /* ReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReaderViewController.m; sourceTree = "<group>"; };
+		D09093181D507BC9005AD3CD /* TimelineTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineTableViewController.h; sourceTree = "<group>"; };
+		D09093191D507BC9005AD3CD /* TimelineTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineTableViewController.m; sourceTree = "<group>"; };
+		D090931A1D507BC9005AD3CD /* TimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
+		D090931B1D507BC9005AD3CD /* TimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
+		D090931D1D507BC9005AD3CD /* BottomToastView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BottomToastView.xib; sourceTree = "<group>"; };
+		D090931E1D507BC9005AD3CD /* CentralProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CentralProgressView.xib; sourceTree = "<group>"; };
+		D090931F1D507BC9005AD3CD /* TimelineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineCell.h; sourceTree = "<group>"; };
+		D09093201D507BC9005AD3CD /* TimelineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineCell.m; sourceTree = "<group>"; };
+		D09093211D507BC9005AD3CD /* TimelineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimelineCell.xib; sourceTree = "<group>"; };
+		D09093221D507BC9005AD3CD /* TimelineSectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineSectionHeaderView.h; sourceTree = "<group>"; };
+		D09093231D507BC9005AD3CD /* TimelineSectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineSectionHeaderView.m; sourceTree = "<group>"; };
+		D09093241D507BC9005AD3CD /* TimelineSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimelineSectionHeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -950,6 +1029,7 @@
 				007D8DD21D4F17FF00240B4F /* LaunchScreen.storyboard */,
 				007D8DD51D4F17FF00240B4F /* Info.plist */,
 				007D8DC41D4F17FF00240B4F /* Supporting Files */,
+				D09092BE1D503E9E005AD3CD /* Sigma.xcdatamodeld */,
 			);
 			path = Sigma;
 			sourceTree = "<group>";
@@ -1285,6 +1365,7 @@
 		007D8EA71D4F188700240B4F /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				D09092E71D507BC9005AD3CD /* Reader */,
 				007D8EA81D4F188700240B4F /* Mine */,
 				007D8EB91D4F188700240B4F /* Question */,
 				007D8EC51D4F188700240B4F /* Setting */,
@@ -2119,6 +2200,151 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		D09092E71D507BC9005AD3CD /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				D09092E81D507BC9005AD3CD /* Controllers */,
+				D09092EB1D507BC9005AD3CD /* Data Sources */,
+				D09092EE1D507BC9005AD3CD /* Extersions */,
+				D09092F51D507BC9005AD3CD /* Models */,
+				D09092FC1D507BC9005AD3CD /* Operation */,
+				D09093101D507BC9005AD3CD /* Services */,
+				D09093151D507BC9005AD3CD /* View Controllers */,
+				D090931C1D507BC9005AD3CD /* Views */,
+			);
+			path = Reader;
+			sourceTree = "<group>";
+		};
+		D09092E81D507BC9005AD3CD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D09092E91D507BC9005AD3CD /* TimelineController.h */,
+				D09092EA1D507BC9005AD3CD /* TimelineController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D09092EB1D507BC9005AD3CD /* Data Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D09092EC1D507BC9005AD3CD /* TimelineDataSource.h */,
+				D09092ED1D507BC9005AD3CD /* TimelineDataSource.m */,
+			);
+			path = "Data Sources";
+			sourceTree = "<group>";
+		};
+		D09092EE1D507BC9005AD3CD /* Extersions */ = {
+			isa = PBXGroup;
+			children = (
+				D09092EF1D507BC9005AD3CD /* NSLock+Helpers.h */,
+				D09092F01D507BC9005AD3CD /* NSLock+Helpers.m */,
+				D09092F11D507BC9005AD3CD /* NSString+MD5.h */,
+				D09092F21D507BC9005AD3CD /* NSString+MD5.m */,
+				D09092F31D507BC9005AD3CD /* UIImage+Helpers.h */,
+				D09092F41D507BC9005AD3CD /* UIImage+Helpers.m */,
+			);
+			path = Extersions;
+			sourceTree = "<group>";
+		};
+		D09092F51D507BC9005AD3CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D09092F61D507BC9005AD3CD /* Story.h */,
+				D09092F71D507BC9005AD3CD /* Story.m */,
+				D09092F81D507BC9005AD3CD /* StoryBody.h */,
+				D09092F91D507BC9005AD3CD /* StoryBody.m */,
+				D09092FA1D507BC9005AD3CD /* Timeline.h */,
+				D09092FB1D507BC9005AD3CD /* Timeline.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D09092FC1D507BC9005AD3CD /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				D09092FD1D507BC9005AD3CD /* Common */,
+				D09093041D507BC9005AD3CD /* Networking */,
+				D09093091D507BC9005AD3CD /* Parsing */,
+			);
+			path = Operation;
+			sourceTree = "<group>";
+		};
+		D09092FD1D507BC9005AD3CD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				D09092FE1D507BC9005AD3CD /* BaseOperation.h */,
+				D09092FF1D507BC9005AD3CD /* BaseOperation.m */,
+				D09093001D507BC9005AD3CD /* BlockOperation.h */,
+				D09093011D507BC9005AD3CD /* BlockOperation.m */,
+				D09093021D507BC9005AD3CD /* OperationQueue.h */,
+				D09093031D507BC9005AD3CD /* OperationQueue.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D09093041D507BC9005AD3CD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D09093051D507BC9005AD3CD /* ImageDownloadingOperation.h */,
+				D09093061D507BC9005AD3CD /* ImageDownloadingOperation.m */,
+				D09093071D507BC9005AD3CD /* URLDownloadingOperation.h */,
+				D09093081D507BC9005AD3CD /* URLDownloadingOperation.m */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D09093091D507BC9005AD3CD /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				D090930A1D507BC9005AD3CD /* ParsingOperation.h */,
+				D090930B1D507BC9005AD3CD /* ParsingOperation.m */,
+				D090930C1D507BC9005AD3CD /* StoryBodyParsingOperation.h */,
+				D090930D1D507BC9005AD3CD /* StoryBodyParsingOperation.m */,
+				D090930E1D507BC9005AD3CD /* TimelineParsingOperation.h */,
+				D090930F1D507BC9005AD3CD /* TimelineParsingOperation.m */,
+			);
+			path = Parsing;
+			sourceTree = "<group>";
+		};
+		D09093101D507BC9005AD3CD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D09093111D507BC9005AD3CD /* CacheManager.h */,
+				D09093121D507BC9005AD3CD /* CacheManager.m */,
+				D09093131D507BC9005AD3CD /* HUDManager.h */,
+				D09093141D507BC9005AD3CD /* HUDManager.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D09093151D507BC9005AD3CD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D09093161D507BC9005AD3CD /* ReaderViewController.h */,
+				D09093171D507BC9005AD3CD /* ReaderViewController.m */,
+				D09093181D507BC9005AD3CD /* TimelineTableViewController.h */,
+				D09093191D507BC9005AD3CD /* TimelineTableViewController.m */,
+				D090931A1D507BC9005AD3CD /* TimelineViewController.h */,
+				D090931B1D507BC9005AD3CD /* TimelineViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D090931C1D507BC9005AD3CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D090931D1D507BC9005AD3CD /* BottomToastView.xib */,
+				D090931E1D507BC9005AD3CD /* CentralProgressView.xib */,
+				D090931F1D507BC9005AD3CD /* TimelineCell.h */,
+				D09093201D507BC9005AD3CD /* TimelineCell.m */,
+				D09093211D507BC9005AD3CD /* TimelineCell.xib */,
+				D09093221D507BC9005AD3CD /* TimelineSectionHeaderView.h */,
+				D09093231D507BC9005AD3CD /* TimelineSectionHeaderView.m */,
+				D09093241D507BC9005AD3CD /* TimelineSectionHeaderView.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2273,6 +2499,7 @@
 				007D911C1D4F188700240B4F /* resource2.png in Resources */,
 				007D90EC1D4F188700240B4F /* chat_bottom_voice_press@2x.png in Resources */,
 				007D915E1D4F188700240B4F /* tabbar_home@3x.png in Resources */,
+				D090933D1D507BC9005AD3CD /* TimelineCell.xib in Resources */,
 				007D90F81D4F188700240B4F /* camera_video_download@3x.png in Resources */,
 				007D90FC1D4F188700240B4F /* tabbar_compose_camera@2x.png in Resources */,
 				007D90B31D4F188700240B4F /* scrollView4@3x.png in Resources */,
@@ -2343,6 +2570,7 @@
 				007D912C1D4F188700240B4F /* camera_close_highlighted@3x.png in Resources */,
 				007D916A1D4F188700240B4F /* toolbar_compose@2x.png in Resources */,
 				007D911A1D4F188700240B4F /* ques9.png in Resources */,
+				D090933A1D507BC9005AD3CD /* BottomToastView.xib in Resources */,
 				007D91001D4F188700240B4F /* tabbar_compose_headlines@2x.png in Resources */,
 				007D90F01D4F188700240B4F /* chat_send_press_pic@2x.png in Resources */,
 				007D91231D4F188700240B4F /* resource9.png in Resources */,
@@ -2354,7 +2582,9 @@
 				007D91751D4F188700240B4F /* circle@2x.png in Resources */,
 				007D909E1D4F188700240B4F /* SourceSubViewController.xib in Resources */,
 				007D91051D4F188700240B4F /* tabbar_compose_lbs@3x.png in Resources */,
+				D090933B1D507BC9005AD3CD /* CentralProgressView.xib in Resources */,
 				007D91841D4F188700240B4F /* square_selected@2x.png in Resources */,
+				D090933F1D507BC9005AD3CD /* TimelineSectionHeaderView.xib in Resources */,
 				007D91251D4F188700240B4F /* avata.jpg in Resources */,
 				007D91411D4F188700240B4F /* morebtn.jpg in Resources */,
 				007D91091D4F188700240B4F /* tabbar_compose_photo@3x.png in Resources */,
@@ -2440,14 +2670,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09093331D507BC9005AD3CD /* StoryBodyParsingOperation.m in Sources */,
 				007D90701D4F188700240B4F /* UIImageView+HighlightedWebCache.m in Sources */,
 				007D90AA1D4F188700240B4F /* MainPageCellModel.m in Sources */,
 				007D90491D4F188700240B4F /* MASViewConstraint.m in Sources */,
+				D090932F1D507BC9005AD3CD /* OperationQueue.m in Sources */,
+				D090932A1D507BC9005AD3CD /* Story.m in Sources */,
 				007D90731D4F188700240B4F /* SACommunityViewController.m in Sources */,
 				007D90E01D4F188700240B4F /* SACustomTabBar.m in Sources */,
 				007D90A31D4F188700240B4F /* MainPageCellInfo.m in Sources */,
 				007D90B71D4F188700240B4F /* CategoryInfo.m in Sources */,
 				007D907E1D4F188700240B4F /* SAEInfoEngineInterface.m in Sources */,
+				D09093301D507BC9005AD3CD /* ImageDownloadingOperation.m in Sources */,
 				007D90D51D4F188700240B4F /* SAPopularTableView.m in Sources */,
 				007D90601D4F188700240B4F /* POPSpringAnimation.mm in Sources */,
 				007D90431D4F188700240B4F /* AFURLSessionManager.m in Sources */,
@@ -2457,20 +2691,28 @@
 				007D8DCC1D4F17FF00240B4F /* ViewController.m in Sources */,
 				007D8DC91D4F17FF00240B4F /* AppDelegate.m in Sources */,
 				007D90991D4F188700240B4F /* ContentOfSourceCell.m in Sources */,
+				D09093291D507BC9005AD3CD /* UIImage+Helpers.m in Sources */,
 				007D903F1D4F188700240B4F /* AFNetworkReachabilityManager.m in Sources */,
 				007D907B1D4F188700240B4F /* SAEinfoDetailViewController.m in Sources */,
+				D09093371D507BC9005AD3CD /* ReaderViewController.m in Sources */,
 				007D90B91D4F188700240B4F /* ContentOfSourceInfo.m in Sources */,
 				007D90BF1D4F188700240B4F /* SourceEngineInterface.m in Sources */,
 				007D90441D4F188700240B4F /* MASCompositeConstraint.m in Sources */,
 				007D90A91D4F188700240B4F /* CourseSearchModel.m in Sources */,
 				007D90851D4F188700240B4F /* SAMeViewController.m in Sources */,
+				D090932B1D507BC9005AD3CD /* StoryBody.m in Sources */,
 				007D909D1D4F188700240B4F /* SourceSubViewController.m in Sources */,
+				D090933C1D507BC9005AD3CD /* TimelineCell.m in Sources */,
+				D09093361D507BC9005AD3CD /* HUDManager.m in Sources */,
+				D09093261D507BC9005AD3CD /* TimelineDataSource.m in Sources */,
 				007D90981D4F188700240B4F /* SearchViewOfCategoryController.m in Sources */,
 				007D90801D4F188700240B4F /* SAEInformationCell.m in Sources */,
 				007D90841D4F188700240B4F /* SAMineTableViewCell.m in Sources */,
 				007D90561D4F188700240B4F /* POPAnimationTracer.mm in Sources */,
 				007D90A41D4F188700240B4F /* MainPageTableCell.m in Sources */,
 				007D908B1D4F188700240B4F /* SAQuesViewController.m in Sources */,
+				D09093381D507BC9005AD3CD /* TimelineTableViewController.m in Sources */,
+				D090932E1D507BC9005AD3CD /* BlockOperation.m in Sources */,
 				007D90461D4F188700240B4F /* MASConstraintMaker.m in Sources */,
 				007D904C1D4F188700240B4F /* View+MASAdditions.m in Sources */,
 				007D90821D4F188700240B4F /* SAEInformationTableView.m in Sources */,
@@ -2479,9 +2721,11 @@
 				007D90551D4F188700240B4F /* POPAnimationRuntime.mm in Sources */,
 				007D90911D4F188700240B4F /* SASettingViewEngine.m in Sources */,
 				007D90E11D4F188700240B4F /* SAPublishViewController.m in Sources */,
+				D09092C01D503E9E005AD3CD /* Sigma.xcdatamodeld in Sources */,
 				007D90871D4F188700240B4F /* SAMineViewEngine.m in Sources */,
 				007D90DD1D4F188700240B4F /* SARequestBase.m in Sources */,
 				007D906A1D4F188700240B4F /* SDWebImageManager.m in Sources */,
+				D090932D1D507BC9005AD3CD /* BaseOperation.m in Sources */,
 				007D90861D4F188700240B4F /* SAMineSubViewController.m in Sources */,
 				007D90711D4F188700240B4F /* UIImageView+WebCache.m in Sources */,
 				007D90D41D4F188700240B4F /* SAPopularHeaderView.m in Sources */,
@@ -2493,6 +2737,8 @@
 				007D905A1D4F188700240B4F /* POPCustomAnimation.mm in Sources */,
 				007D90E31D4F188700240B4F /* UIView+SAPublishBtnFrame.m in Sources */,
 				007D90CF1D4F188700240B4F /* SAPopularClassCell.m in Sources */,
+				D09093351D507BC9005AD3CD /* CacheManager.m in Sources */,
+				D09093271D507BC9005AD3CD /* NSLock+Helpers.m in Sources */,
 				007D90AB1D4F188700240B4F /* ScrollViewModel.m in Sources */,
 				007D904D1D4F188700240B4F /* ViewController+MASAdditions.m in Sources */,
 				007D90921D4F188700240B4F /* SACollectionViewController.m in Sources */,
@@ -2517,12 +2763,15 @@
 				007D90791D4F188700240B4F /* SACommunityTableHeaderView.m in Sources */,
 				007D90BD1D4F188700240B4F /* SAPopularResourceModel.m in Sources */,
 				007D905F1D4F188700240B4F /* POPPropertyAnimation.mm in Sources */,
+				D09093311D507BC9005AD3CD /* URLDownloadingOperation.m in Sources */,
 				007D90741D4F188700240B4F /* SACommunityRequest.m in Sources */,
 				007D90A81D4F188700240B4F /* CourseEngine.m in Sources */,
 				007D90A61D4F188700240B4F /* CourseSearchInfo.m in Sources */,
+				D09093391D507BC9005AD3CD /* TimelineViewController.m in Sources */,
 				007D90941D4F188700240B4F /* SAPopularViewController.m in Sources */,
 				007D90401D4F188700240B4F /* AFSecurityPolicy.m in Sources */,
 				007D909A1D4F188700240B4F /* SourceHeadCollectionViewCell.m in Sources */,
+				D090933E1D507BC9005AD3CD /* TimelineSectionHeaderView.m in Sources */,
 				007D90DE1D4F188700240B4F /* SANavigationController.m in Sources */,
 				007D90901D4F188700240B4F /* SASettingAboutViewController.m in Sources */,
 				007D909B1D4F188700240B4F /* SourceTableViewCell.m in Sources */,
@@ -2539,6 +2788,8 @@
 				007D90571D4F188700240B4F /* POPAnimator.mm in Sources */,
 				007D904B1D4F188700240B4F /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				007D909F1D4F188700240B4F /* CategoryHeadView.m in Sources */,
+				D09093341D507BC9005AD3CD /* TimelineParsingOperation.m in Sources */,
+				D09093281D507BC9005AD3CD /* NSString+MD5.m in Sources */,
 				007D90E41D4F188700240B4F /* SAPublishViewButton.m in Sources */,
 				007D906E1D4F188700240B4F /* UIImage+MultiFormat.m in Sources */,
 				007D90671D4F188700240B4F /* SDWebImageDecoder.m in Sources */,
@@ -2553,6 +2804,7 @@
 				007D90B41D4F188700240B4F /* CourseMainPageHeadView.m in Sources */,
 				007D906C1D4F188700240B4F /* UIButton+WebCache.m in Sources */,
 				007D90411D4F188700240B4F /* AFURLRequestSerialization.m in Sources */,
+				D09093251D507BC9005AD3CD /* TimelineController.m in Sources */,
 				007D90B51D4F188700240B4F /* ScrollViewImageInfo.m in Sources */,
 				007D90BB1D4F188700240B4F /* SAPopularModel.m in Sources */,
 				007D90D01D4F188700240B4F /* SAPopularEventCell.m in Sources */,
@@ -2573,6 +2825,7 @@
 				007D90951D4F188700240B4F /* CategoryViewController.m in Sources */,
 				007D90D71D4F188700240B4F /* SAComposeViewController.m in Sources */,
 				007D90DB1D4F188700240B4F /* SADateHelper.m in Sources */,
+				D09093321D507BC9005AD3CD /* ParsingOperation.m in Sources */,
 				007D908C1D4F188700240B4F /* SAQuestionViewEngine.m in Sources */,
 				007D905E1D4F188700240B4F /* POPMath.mm in Sources */,
 				007D90591D4F188700240B4F /* POPCGUtils.mm in Sources */,
@@ -2582,6 +2835,7 @@
 				007D90A11D4F188700240B4F /* ContentOfSouceHeadInfo.m in Sources */,
 				007D907A1D4F188700240B4F /* SACommunityTableView.m in Sources */,
 				007D90651D4F188700240B4F /* SDImageCache.m in Sources */,
+				D090932C1D507BC9005AD3CD /* Timeline.m in Sources */,
 				007D90D81D4F188700240B4F /* SAComposePhotosView.m in Sources */,
 				007D908A1D4F188700240B4F /* SAQuestionTableViewCell.m in Sources */,
 				007D90D31D4F188700240B4F /* TextEnhance.m in Sources */,
@@ -2812,6 +3066,7 @@
 				007D8DF01D4F17FF00240B4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		007D8DF11D4F17FF00240B4F /* Build configuration list for PBXNativeTarget "SigmaTests" */ = {
 			isa = XCConfigurationList;
@@ -2820,6 +3075,7 @@
 				007D8DF31D4F17FF00240B4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		007D8DF41D4F17FF00240B4F /* Build configuration list for PBXNativeTarget "SigmaUITests" */ = {
 			isa = XCConfigurationList;
@@ -2828,8 +3084,22 @@
 				007D8DF61D4F17FF00240B4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D09092BE1D503E9E005AD3CD /* Sigma.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D09092BF1D503E9E005AD3CD /* Sigma.xcdatamodel */,
+			);
+			currentVersion = D09092BF1D503E9E005AD3CD /* Sigma.xcdatamodel */;
+			path = Sigma.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 007D8DB91D4F17FF00240B4F /* Project object */;
 }

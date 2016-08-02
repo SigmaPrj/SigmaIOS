@@ -22,6 +22,7 @@
 #import "SAPopularQuestionModel.h"
 #import "SAPopularClassModel.h"
 #import "SAPopularResourceModel.h"
+#import "TimelineViewController.h"
 
 #define HEADER_OF_SECTION_X 0
 #define HEADER_OF_SECTION_Y 0
@@ -626,6 +627,14 @@
     [self.navigationController pushViewController:courseController animated:YES];
     self.hidesBottomBarWhenPushed = NO;
 
+}
+
+//问题按钮的点击事件
+-(void)popularQuestionBtnClicked{
+    self.hidesBottomBarWhenPushed = YES;
+    TimelineViewController* vc = [[TimelineViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 @end
