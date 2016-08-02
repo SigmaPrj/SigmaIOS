@@ -14,7 +14,6 @@
 
 #define KStatusHeight 20
 #define KNavBarHeight 44
-#define HRRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
 
 @interface SASignUpViewController ()<UIScrollViewDelegate>
 
@@ -27,13 +26,12 @@
 static NSString * const reuseIdentifier = @"SignUpCollectionCell";
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
 
     self.navigationController.navigationBarHidden = NO;
 
     self.view.backgroundColor = [UIColor whiteColor];
-
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
 
     [self.view addSubview:self.scrollView];
     //设置title

@@ -8,6 +8,7 @@
 
 #import "SAHomeViewController.h"
 #import "SASignUpViewController.h"
+#import "SASignInViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 
@@ -30,7 +31,7 @@
 @interface SAHomeViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
-@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, weak) NSTimer *timer;
 @property (nonatomic, strong) UIView *alphaView;
 @property (nonatomic, strong) UIImageView *logoView;
 @property (nonatomic, strong) UIScrollView *scrollView;
@@ -271,7 +272,8 @@
         case 2:
         {
             // 登录按钮
-
+            SASignInViewController *signInViewController = [[SASignInViewController alloc] init];
+            [self.navigationController pushViewController:signInViewController animated:YES];
         }
             break;
         default:
@@ -292,7 +294,7 @@
 #pragma mark -
 #pragma mark timer
 - (void) startTimer {
-    _timer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(pageChangeHandler) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(pageChangeHandler) userInfo:nil repeats:YES];
     NSRunLoop *mainRunLoop = [NSRunLoop mainRunLoop];
     [mainRunLoop addTimer:_timer forMode:NSRunLoopCommonModes];
 }

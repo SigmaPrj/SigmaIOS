@@ -36,6 +36,8 @@
 
 // Sigma主色调
 #define SIGMA_COLOR [UIColor colorWithRed:0.196  green:0.200  blue:0.208 alpha:1]
+#define SIGMA_FONT_COLOR [UIColor colorWithRed:0.16 green:0.15 blue:0.14 alpha:1.00]
+#define SIGMA_BG_COLOR [UIColor colorWithRed:0.44 green:0.42 blue:0.41 alpha:1.00]
 
 // loading
 #define LOADING_HEADER_VIEW_HEIGHT 100

@@ -107,7 +107,7 @@
     [SACommunityRequest requestHeaderUserData:28];
 
     // 请求dynamic数据
-    [SACommunityRequest requestDynamics:@{@"t": @(503781928)} user_id:28 token:@"b42754e673e94f5eaef972c4ae4a4c06"];
+    [SACommunityRequest requestDynamics:@{@"t": @(503781928)} user_id:28 token:@"700425ab1fa44d702d70b6d854995e77"];
 }
 
 #pragma mark -
