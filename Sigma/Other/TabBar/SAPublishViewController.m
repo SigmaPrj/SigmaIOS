@@ -23,7 +23,7 @@
 
 @end
 
-static NSInteger SpringFactor = 2;
+static NSInteger SpringFactor = 10;
 static CGFloat SpringDelay = 0.03;
 
 @implementation SAPublishViewController
@@ -263,7 +263,6 @@ static CGFloat SpringDelay = 0.03;
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 

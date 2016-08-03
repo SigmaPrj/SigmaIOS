@@ -36,32 +36,32 @@
 //    @property(nonatomic, assign) int user_level; // 用户等级
 //    @property(nonatomic, copy) NSString* school_name;
 //    @property(nonatomic, assign) int user_type;
+    self = [super init];
     
-    
-    _popularresource_id = [dict[@"id"] intValue];
-    _user_id = [dict[@"user_id"] intValue];
-    _category_id = [dict[@"category_id"] intValue];
-    _category = dict[@"category"];
-    _category_img = dict[@"image"];
-    _title = dict[@"title"];
-    _desc = dict[@"description"];
-    _resource_type = dict[@"resource_type"];
-    _url = dict[@"url"];
-    _save = [dict[@"save"] intValue];
-    _look = [dict[@"look"] intValue];
-    _download = [dict[@"download"] intValue];
-    _publish_date = [SADateHelper humanizedDate:[dict[@"publish_date"] intValue]];
-    _last_look_date = [SADateHelper humanizedDate:[dict[@"last_look_date"] intValue]];
-    
-    _userid = [[dict valueForKeyPath:@"user.id"] intValue];
-    _nickname = [dict valueForKeyPath:@"user.nickname"];
-    _is_approved = [[dict valueForKeyPath:@"user.is_approved"] intValue];
-    _avata = [dict valueForKeyPath:@"user.image"];
-    _user_level = [[dict valueForKeyPath:@"user.user_level"] intValue];
-    _school_name = [dict valueForKeyPath:@"user.school_name"];
-    _user_type = [[dict valueForKeyPath:@"user.user_type"] intValue];
-    
-    
+    if (self) {
+        _popularresource_id = [dict[@"id"] intValue];
+        _user_id = [dict[@"user_id"] intValue];
+        _category_id = [dict[@"category_id"] intValue];
+        _category = dict[@"category"];
+        _category_img = dict[@"image"];
+        _title = dict[@"title"];
+        _desc = dict[@"description"];
+        _resource_type = dict[@"resource_type"];
+        _url = dict[@"url"];
+        _save = [dict[@"save"] intValue];
+        _look = [dict[@"look"] intValue];
+        _download = [dict[@"download"] intValue];
+        _publish_date = [SADateHelper humanizedDate:[dict[@"publish_date"] intValue]];
+        _last_look_date = [SADateHelper humanizedDate:[dict[@"last_look_date"] intValue]];
+        
+        _userid = [[dict valueForKeyPath:@"user.id"] intValue];
+        _nickname = [dict valueForKeyPath:@"user.nickname"];
+        _is_approved = [[dict valueForKeyPath:@"user.is_approved"] intValue];
+        _avata = [dict valueForKeyPath:@"user.image"];
+        _user_level = [[dict valueForKeyPath:@"user.user_level"] intValue];
+        _school_name = [dict valueForKeyPath:@"user.school_name"];
+        _user_type = [[dict valueForKeyPath:@"user.user_type"] intValue];
+    }
     return self;
 }
 

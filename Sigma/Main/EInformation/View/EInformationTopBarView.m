@@ -25,12 +25,17 @@
     self = [super initWithFrame:frame];
     
     if (self) {
-        _categories = categories;
+        self.categories = categories;
         [self initUI];
     }
     
     return self;
 }
+
+//- (void)setCategories:(NSArray *)categories{
+//    _categories = categories;
+//    //[self initUI];
+//}
 
 //-(instancetype)initWithFrame:(CGRect)frame{
 //    self = [super initWithFrame:frame];
@@ -51,6 +56,7 @@
     [self addCategories];
     [self addSubview:self.categoryScrollView];
 }
+
 
 
 
@@ -145,6 +151,49 @@
     [firstBtn setSelected:YES];
     [self performSelector:@selector(categoryBtnClickHandler:) withObject:firstBtn];
 }
+
+//
+//- (void)addCategories:(NSArray*)categories {
+//    CGFloat left = 0;
+//    
+//    UIButton *firstBtn = nil;
+//    for (int i = 0; i < categories.count; ++i) {
+//        
+//        NSString *title = categories[(NSUInteger)i];
+//        CGRect rect = CGRectMake(left, 0, 100, (self.frame.size.height-1));
+//        UIButton *button = [[UIButton alloc] initWithFrame:rect];
+//        
+//        button.titleLabel.font = [UIFont systemFontOfSize:13];
+//        
+//        [button setTitle:title forState:UIControlStateNormal];
+//        //        [button setTitleColor:COLOR_RGB(80, 80, 90) forState:UIControlStateNormal];
+//        //        [button setTitleColor:COLOR_RGB(255, 77, 100) forState:UIControlStateSelected];
+//        
+//        [button setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+//        [button setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+//        
+//        button.tag = 1000+i;
+//        [button addTarget:self action:@selector(categoryBtnClickHandler:) forControlEvents:UIControlEventTouchUpInside];
+//        
+//        //        [TextEnhance resizeUIButtonWith:button];
+//        
+//        left = button.frame.origin.x + button.frame.size.width;
+//        
+//        [self.categoryScrollView addSubview:button];
+//        
+//        if (i == 0) {
+//            firstBtn = button;
+//        }
+//        
+//        [self.buttons addObject:button];
+//    }
+//    
+//    self.categoryScrollView.contentSize = CGSizeMake(left, (self.frame.size.height-1));
+//    
+//    [firstBtn setSelected:YES];
+//    [self performSelector:@selector(categoryBtnClickHandler:) withObject:firstBtn];
+//}
+
 
 
 

@@ -19,7 +19,7 @@
 @property(nonatomic, strong) UIImageView* avataImage;
 @property(nonatomic, strong) UIView* categoryView;
 @property(nonatomic, strong) UIImageView* cellBackgroundImg;
-@property(nonatomic, strong) UIImageView* quesVoiceImg;
+@property(nonatomic, strong) UIButton* quesVoiceBtn;
 @property(nonatomic, strong) UILabel* nickNameLabel;
 @property(nonatomic, strong) UILabel* titleLabel;
 @property(nonatomic, strong) UILabel* descLabel;
@@ -72,6 +72,7 @@
     [self.cellBackgroundImg addSubview:self.titleLabel];
     [self.cellBackgroundImg addSubview:self.descLabel];
     [self.cellBackgroundImg addSubview:self.numberLabel];
+    [self.cellBackgroundImg addSubview:self.quesVoiceBtn];
     return self;
 }
 
@@ -95,13 +96,45 @@
 -(UIImageView*)cellBackgroundImg{
     if (!_cellBackgroundImg) {
         
-        //
-//        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:self.data.cellBackgroundImgName]];
+//        +(UIImage *)coreBlurImage:(UIImage *)image withBlurNumber:(CGFloat)blur
+//        {
+//            CIContext *context = [CIContext contextWithOptions:nil];
+//            CIImage *inputImage= [CIImage imageWithCGImage:image.CGImage];
+//            //设置filter
+//            CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+//            [filter setValue:inputImage forKey:kCIInputImageKey]; [filter setValue:@(blur) forKey: @"inputRadius"];
+//            //模糊图片
+//            CIImage *result=[filter valueForKey:kCIOutputImageKey];
+//            CGImageRef outImage=[context createCGImage:result fromRect:[result extent]];
+//            UIImage *blurImage=[UIImage imageWithCGImage:outImage];
+//            CGImageRelease(outImage); 
+//            return blurImage;
+//        }
+        
+        
+ 
+        
+    
+        _cellBackgroundImg.contentMode = UIViewContentModeScaleAspectFit;
         int quesbgnum = [self getRandomNumber:1 to:9];
         NSString* imagename = [NSString stringWithFormat:@"ques%d",quesbgnum];
-//        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"bg4.jpg"]];
-        _cellBackgroundImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imagename]];
+        
+        
+        UIImage* bgimg = [UIImage imageNamed:imagename];
+        // 初始化image
+//        _cellBackgroundImg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imagename]];
+        
+        _cellBackgroundImg = [[UIImageView alloc] init];
+        [_cellBackgroundImg setImage:bgimg];
         _cellBackgroundImg.frame = CGRectMake(15, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2);
+        
+        
+//        毛玻璃效果
+//
+//        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+//        UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+//        effectView.frame = CGRectMake(0, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2);
+//        [_cellBackgroundImg addSubview:effectView];
         
         UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2)];
         
@@ -195,13 +228,13 @@
  *
  *  @return <#return value description#>
  */
--(UIImageView*)quesVoiceImg{
-    if (!_quesVoiceImg) {
-        _quesVoiceImg = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 100, 200, 30)];
-        [_quesVoiceImg setImage:[UIImage imageNamed:@"voice.png"]];
+-(UIButton*)quesVoiceBtn{
+    if (!_quesVoiceBtn) {
+        _quesVoiceBtn = [[UIButton alloc] initWithFrame:CGRectMake((self.cellBackgroundImg.frame.size.width-50)/2, self.descLabel.frame.origin.y-40, 50, 50)];
+        [_quesVoiceBtn setImage:[UIImage imageNamed:@"btn-voice4.png"] forState:UIControlStateNormal];
     }
     
-    return _quesVoiceImg;
+    return _quesVoiceBtn;
 }
 
 /**
@@ -247,5 +280,11 @@
 
     // Configure the view for the selected state
 }
+
+
+/**
+ *  模糊背景
+ */
+
 
 @end

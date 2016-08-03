@@ -25,5 +25,8 @@
 
 
 
+// 资讯
+#define NOTI_EINFORMATION_NEWSTYPE @"NOTI_EINFORMATION_NEWSTYPE"
+
 
 #endif /* NotificationDefine_h */

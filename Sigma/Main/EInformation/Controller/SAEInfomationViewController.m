@@ -12,12 +12,15 @@
 #import "SAEinfoDetailViewController.h"
 #import "SAEInformationCell.h"
 #import "SAEInformationModel.h"
+#import "SAEInformationTypeRequest.h"
+#import "SAEInformationTypeModel.h"
 
 @interface SAEInfomationViewController () <EInformationTopBarViewDelegate, UITableViewDelegate>
 
 @property (nonatomic, strong)SAEInformationTableView* tableView;
 @property (nonatomic, strong)EInformationTopBarView* topbarview;
 @property (nonatomic, strong) NSArray *categories;
+@property (nonatomic, strong) NSMutableArray *newsTypeArray;
 @property(nonatomic, strong) NSMutableArray* datas;
 
 @end
@@ -27,6 +30,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // 添加通知
+    [self addAllNotification];
+    
+    // 发送数据
+    [self sendRequest];
+    
+    [self initUI];
+    
+    [self initData];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +54,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+    [self removeAllNotification];
 }
 
 -(instancetype)init{
@@ -47,31 +62,39 @@
     
     if (self) {
         self.view.backgroundColor = [UIColor whiteColor];
-        [self initUI];
-        
-        
     }
     
     return self;
 }
 
--(void)loadNewData{
-    
-}
-
-
 -(void)initUI{
     
     [self.view addSubview:self.tableView];
-    [self.view addSubview:self.topbarview];
+    //[self.view addSubview:self.topbarview];
+}
+
+-(void)initData{
+    _categories = _newsTypeArray;
 }
 
 - (NSArray *)categories {
     if (!_categories) {
-        _categories = @[@"创新创业", @"商业营销", @"软件开发", @"英语演讲", @"竞技游戏", @"数学建模"];
+//        _categories = @[@"数学建模", @"奥数竞赛", @"微软竞赛", @"小型比赛", @"BAT", @"搜狐网", @"新浪网", @"网易网", @"校园网", @"国家级"];
+        
+        _categories = [NSArray array];
+        _categories = self.newsTypeArray;
+        //NSLog(@"%lu",(unsigned long)self.newsTypeArray.count);
     }
     
     return _categories;
+}
+
+
+- (NSMutableArray*)newsTypeArray{
+    if (!_newsTypeArray) {
+        _newsTypeArray = [NSMutableArray array];
+    }
+    return _newsTypeArray;
 }
 
 -(SAEInformationTableView*)tableView{
@@ -87,7 +110,6 @@
 
 -(EInformationTopBarView*)topbarview{
     if (!_topbarview) {
-        
         _topbarview = [[EInformationTopBarView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 42) categoreis:self.categories];
         _topbarview.backgroundColor = [UIColor whiteColor];
         _topbarview.delegate = self;
@@ -96,14 +118,67 @@
     return _topbarview;
 }
 
+/**
+ *  发送请求
+ *
+ *  @return
+ */
+- (void)sendRequest {
+    [SAEInformationTypeRequest requestEInfoType];
+}
+
+
+#pragma mark - 添加通知
+- (void) addAllNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_EINFORMATION_NEWSTYPE object:nil];
+}
+
+#pragma mark - 移除通知
+-(void) removeAllNotification{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)receiveDataSuccessHandler:(NSNotification *)noti{
+    if ([noti.name isEqualToString:NOTI_EINFORMATION_NEWSTYPE]) {
+        if ([noti.userInfo[@"status"] intValue] == 1) {
+            // 资讯种类加载成功
+            NSLog(@"newstype success");
+            
+            
+            [self setNewsTypeData:noti.userInfo[@"data"]];
+            
+        }
+    }
+}
+
+
+/**
+ *  资讯种类字典转模型
+ *
+ *  @return
+ */
+-(void) setNewsTypeData:(NSArray*)newstypeArray{
+    for (int i = 0; i < newstypeArray.count; i++) {
+        SAEInformationTypeModel *newstypeModel = [SAEInformationTypeModel newsTypeWithDict:newstypeArray[(NSInteger)i]];
+        [self.newsTypeArray addObject:newstypeModel.news_name];
+        NSLog(@"%@", newstypeModel.news_name);
+    }
+    //[self.topbarview setCategories:self.newsTypeArray];
+    //[self categories];
+   // [self topbarview];
+    [self.view addSubview:self.topbarview];
+
+//    [self.topbarview setCategories:newstypeArray];
+}
+
 
 #pragma mark - EInformationTopBarViewDelegate
 -(void)btnClickedWithTag:(int)tag{
-//    NSLog(@"%d",tag);
+    NSLog(@"%d",tag);
     if (tag == 1000) {
         NSDictionary* dict1 = @{
                                 @"desc":@"第八届全国大学生数学竞赛111",
-                                @"mainImgName":@"competition1.png",
+                                @"mainImgName":@"test.jpg",
                                 @"number":@"198"
                                 };
                                 
@@ -318,10 +393,10 @@
 /**
  *  cell有多高
  *
- *  @param tableView <#tableView description#>
- *  @param indexPath <#indexPath description#>
+ *  @param tableView tableView
+ *  @param indexPath indexPath
  *
- *  @return <#return value description#>
+ *  @return cellHeight
  */
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 120;

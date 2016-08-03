@@ -19,6 +19,8 @@
 
 - (instancetype)initWithFrame:(CGRect)frame categoreis:(NSArray *)categories;
 
+- (void)setCategories:(NSArray *)categories;
+
 @property(nonatomic, weak)id<EInformationTopBarViewDelegate> delegate;
 
 //@property(nonatomic, strong)NSArray* categoryArray;

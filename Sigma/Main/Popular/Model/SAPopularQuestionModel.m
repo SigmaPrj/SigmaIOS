@@ -41,35 +41,35 @@
 //    @property(nonatomic, copy) NSString* school_name; // 用户学校名
 //    
 //    @property(nonatomic, assign) int user_type;
+    self = [super init];
     
-    
-    _popques_id = [dict[@"id"] intValue];
-    _user_id = [dict[@"user_id"] intValue];
-    _topic_id = [dict[@"topic_id"] intValue];
-    _topic = dict[@"topic"];
-    _title = dict[@"title"];
-    
-    // 音频文件url    
-    _url = dict[@"url"];
-    _duration = [dict[@"duration"] intValue];
-    _pay_type = [dict[@"pay_type"] intValue];
-    _pay_num = [dict[@"pay_num"] intValue];
-    _is_free = [dict[@"is_free"] intValue];
-    _look = [dict[@"look"] intValue];
-    _save = [dict[@"save"] intValue];
-    _praise = [dict[@"praise"] intValue];
-    _publish_date = [SADateHelper humanizedDate:[dict[@"publish_date"] intValue]];
-    _last_look_date = [SADateHelper humanizedDate:[dict[@"last_look_date"] intValue]];
-    
-    _userid = [[dict valueForKeyPath:@"user.id"] intValue];
-    _nickname = [dict valueForKeyPath:@"user.nickname"];
-    _is_approved = [[dict valueForKeyPath:@"user.is_approved"] intValue];
-    _avata = [dict valueForKeyPath:@"user.image"];
-    _user_level = [[dict valueForKeyPath:@"user.user_level"] intValue];
-    _school_name = [dict valueForKeyPath:@"user.school_name"];
-    _user_type = [[dict valueForKeyPath:@"user.user_type"] intValue];
-    
-    
+    if (self) {
+        _popques_id = [dict[@"id"] intValue];
+        _user_id = [dict[@"user_id"] intValue];
+        _topic_id = [dict[@"topic_id"] intValue];
+        _topic = dict[@"topic"];
+        _title = dict[@"title"];
+        
+        // 音频文件url
+        _url = dict[@"url"];
+        _duration = [dict[@"duration"] intValue];
+        _pay_type = [dict[@"pay_type"] intValue];
+        _pay_num = [dict[@"pay_num"] intValue];
+        _is_free = [dict[@"is_free"] intValue];
+        _look = [dict[@"look"] intValue];
+        _save = [dict[@"save"] intValue];
+        _praise = [dict[@"praise"] intValue];
+        _publish_date = [SADateHelper humanizedDate:[dict[@"publish_date"] intValue]];
+        _last_look_date = [SADateHelper humanizedDate:[dict[@"last_look_date"] intValue]];
+        
+        _userid = [[dict valueForKeyPath:@"user.id"] intValue];
+        _nickname = [dict valueForKeyPath:@"user.nickname"];
+        _is_approved = [[dict valueForKeyPath:@"user.is_approved"] intValue];
+        _avata = [dict valueForKeyPath:@"user.image"];
+        _user_level = [[dict valueForKeyPath:@"user.user_level"] intValue];
+        _school_name = [dict valueForKeyPath:@"user.school_name"];
+        _user_type = [[dict valueForKeyPath:@"user.user_type"] intValue];
+    }
     return self;
 }
 

@@ -48,16 +48,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self.view addSubview:self.tableView];
-    
-    
     // 添加通知
     [self addAllNotification];
     
     // 发送数据请求
     [self sendRequest];
     
+    // 初始化UI控件
     [self initUI];
+    
+    // 初始化数据
     [self initData];
 }
 
@@ -137,16 +137,13 @@
     // 添加热门资源通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_POPULAR_RESOURCE_DATA object:nil];
     
+    // 添加请求数据失败通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataErrorHandler:) name:REQUEST_DATA_ERROR object:nil];
 }
 
 - (void) removeAllNotification {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
-
-
-
 
 - (void) receiveDataSuccessHandler:(NSNotification *)noti{
     if ([noti.name isEqualToString:NOTI_POPULAR_QUESTION_DATA]) {
@@ -156,6 +153,8 @@
             
             // 字典转入模型
             [self setQuesData:noti.userInfo[@"data"]];
+            
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                  [self.tableView reloadData];
 
@@ -220,7 +219,6 @@
  */
 - (void)setQuesData:(NSArray *)quesArray{
     int randomNum = [self getRandomNumber:1 to:3];
-    
     for (int i = 0; i < quesArray.count-randomNum; i++) {
         SAPopularQuestionModel *quesModel = [SAPopularQuestionModel quesWithDict:quesArray[(NSInteger)i]];
         // quesArray用于存放quesModel
@@ -241,7 +239,11 @@
     }
 }
 
-
+/**
+ *  资源数组生成
+ *
+ *  @param resourceArray 
+ */
 - (void)setResourceArray:(NSArray *)resourceArray{
     int randomNum = [self getRandomNumber:1 to:4];
     for (int i = 0; i < resourceArray.count - randomNum; i++) {
@@ -292,8 +294,10 @@
  *  初始化数据
  */
 -(void)initData{
-    
+    // 设置section标题
     _titleArray = @[@"热门问答", @"热门课程", @"热门资源"];
+    
+    // 设置每个section中该显示的内容的数组
     [self.datas addObjectsFromArray:@[self.quesArray,self.classArray,self.resourcArray]];
 }
 
