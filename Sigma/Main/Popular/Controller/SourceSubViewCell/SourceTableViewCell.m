@@ -7,8 +7,9 @@
 //
 
 #import "SourceTableViewCell.h"
-#import "SourceInfo.h"
+#import "SourceMainPageInfo.h"
 #import "SourceCommonDefine.h"
+#import "UIImageView+WebCache.h"
 
 @interface SourceTableViewCell()
 
@@ -40,6 +41,9 @@
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self){
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         [self initUI];
     }
     return self;
@@ -60,9 +64,10 @@
 //定义资源名的label
 -(UILabel*)sourceNameLabel{
     if(_sourceNameLabel == nil){
-        _sourceNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/2, CELL_HEIGHT/4)];
+        _sourceNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20*(SCREEN_WIDTH/SCREEN_HEIGHT), 0, SCREEN_WIDTH*3/4, CELL_HEIGHT/4)];
         _sourceNameLabel.backgroundColor = [UIColor whiteColor];
         _sourceNameLabel.tag = 1000;
+        [_sourceNameLabel setFont:[UIFont systemFontOfSize:16.0]];
     }
     return _sourceNameLabel;
 }
@@ -72,6 +77,7 @@
     if(_sourceDateLabel == nil){
         _sourceDateLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*3/4, 0, SCREEN_WIDTH/4, CELL_HEIGHT/4)];
         _sourceDateLabel.backgroundColor = [UIColor whiteColor];
+        [_sourceDateLabel setFont:[UIFont systemFontOfSize:12.0]];
     }
     return _sourceDateLabel;
 }
@@ -79,11 +85,12 @@
 //定义资源具体描述的label
 -(UILabel*)sourceDescriptionLabel{
     if(_sourceDescriptionLabel == nil){
-        _sourceDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CELL_HEIGHT/4, SCREEN_WIDTH, CELL_HEIGHT/2)];
+        _sourceDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(20*(SCREEN_WIDTH/SCREEN_HEIGHT), CELL_HEIGHT/4, (SCREEN_WIDTH-20*(SCREEN_WIDTH/SCREEN_HEIGHT)*2), CELL_HEIGHT/2)];
         _sourceDescriptionLabel.backgroundColor = [UIColor whiteColor];
         _sourceDescriptionLabel.numberOfLines = 3;
         _sourceDescriptionLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         _sourceDescriptionLabel.tag = 2000;
+        [_sourceDescriptionLabel setFont:[UIFont systemFontOfSize:13.0]];
     }
     return _sourceDescriptionLabel;
 }
@@ -91,7 +98,7 @@
 //定义资源页面左下角的图标
 -(UIImageView*)leftBottomImageView{
     if(_leftBottomImageView == nil){
-        _leftBottomImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, CELL_HEIGHT*3/4+5, 50, 20)];
+        _leftBottomImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, CELL_HEIGHT*3/4, 30, 30)];
         
     }
     return _leftBottomImageView;
@@ -103,6 +110,7 @@
         _supportLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2, CELL_HEIGHT*3/4+5, 50, 20)];
         _supportLabel.backgroundColor = [UIColor whiteColor];
         _supportLabel.tag = 3000;
+        [_supportLabel setFont:[UIFont systemFontOfSize:12.0]];
     }
     return _supportLabel;
 }
@@ -112,6 +120,7 @@
     if(_commmentLabel == nil){
         _commmentLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+65, CELL_HEIGHT*3/4+5, 50, 20)];
          _commmentLabel.backgroundColor = [UIColor whiteColor];
+        [_commmentLabel setFont:[UIFont systemFontOfSize:12.0]];
     }
     return _commmentLabel;
 }
@@ -122,18 +131,20 @@
         _downloadLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH/2+130, CELL_HEIGHT*3/4+5, 60, 20)];
         _downloadLabel.backgroundColor = [UIColor whiteColor];
         _downloadLabel.tag = 4000;
+        [_downloadLabel setFont:[UIFont systemFontOfSize:12.0]];
     }
     return _downloadLabel;
 }
 
 //将cell中的数据显示出来
 -(void)showSourceCell{
-    self.sourceNameLabel.text = self.dataInfo.sourceName;
-    self.sourceDateLabel.text = self.dataInfo.dateStr;
-    self.sourceDescriptionLabel.text = self.dataInfo.sourceDescription;
-    self.leftBottomImageView.image = [UIImage imageNamed:self.dataInfo.imageName];
-    self.supportLabel.text = [NSString stringWithFormat:@"%d点赞",self.dataInfo.supportNumber];
-    self.commmentLabel.text = [NSString stringWithFormat:@"%d评论",self.dataInfo.commentNumber];
-    self.downloadLabel.text = [NSString stringWithFormat:@"%d下载",self.dataInfo.downloadNumber];
+    self.sourceNameLabel.text = self.sourceMainPageInfo.title;
+    self.sourceDateLabel.text = self.sourceMainPageInfo.publish_date;
+    self.sourceDescriptionLabel.text = self.sourceMainPageInfo.desc;
+    self.supportLabel.text = [NSString stringWithFormat:@"%d点赞",self.sourceMainPageInfo.save];
+    self.commmentLabel.text = [NSString stringWithFormat:@"%d评论",self.sourceMainPageInfo.look];
+    self.downloadLabel.text = [NSString stringWithFormat:@"%d下载",self.sourceMainPageInfo.download];
+    NSURL* urlImage = [NSURL URLWithString:self.sourceMainPageInfo.image];
+    [self.leftBottomImageView sd_setImageWithURL:urlImage];
 }
 @end

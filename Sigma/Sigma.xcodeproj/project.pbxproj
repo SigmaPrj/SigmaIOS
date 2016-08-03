@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A1C561C1D4EDBF900BCFE10 /* ResourceMainPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C561B1D4EDBF900BCFE10 /* ResourceMainPageRequest.m */; };
+		5A1C561F1D4EE2FD00BCFE10 /* ResourceMainPageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C561E1D4EE2FD00BCFE10 /* ResourceMainPageModel.m */; };
+		5A1C56221D4F16A500BCFE10 /* SourceMainPageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1C56211D4F16A500BCFE10 /* SourceMainPageInfo.m */; };
 		5AAC4B4D1D49959600075D70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4B4C1D49959600075D70 /* main.m */; };
 		5AAC4B501D49959600075D70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4B4F1D49959600075D70 /* AppDelegate.m */; };
 		5AAC4B531D49959600075D70 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AAC4B521D49959600075D70 /* ViewController.m */; };
@@ -303,6 +306,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A1C561A1D4EDBF900BCFE10 /* ResourceMainPageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceMainPageRequest.h; sourceTree = "<group>"; };
+		5A1C561B1D4EDBF900BCFE10 /* ResourceMainPageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceMainPageRequest.m; sourceTree = "<group>"; };
+		5A1C561D1D4EE2FD00BCFE10 /* ResourceMainPageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceMainPageModel.h; sourceTree = "<group>"; };
+		5A1C561E1D4EE2FD00BCFE10 /* ResourceMainPageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceMainPageModel.m; sourceTree = "<group>"; };
+		5A1C56201D4F16A500BCFE10 /* SourceMainPageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceMainPageInfo.h; sourceTree = "<group>"; };
+		5A1C56211D4F16A500BCFE10 /* SourceMainPageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceMainPageInfo.m; sourceTree = "<group>"; };
 		5AAC4B481D49959600075D70 /* Sigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AAC4B4C1D49959600075D70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5AAC4B4E1D49959600075D70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1367,6 +1376,8 @@
 				5AAC4C771D4995F100075D70 /* SourceSubViewController.h */,
 				5AAC4C781D4995F100075D70 /* SourceSubViewController.m */,
 				5AAC4C791D4995F100075D70 /* SourceSubViewController.xib */,
+				5A1C56201D4F16A500BCFE10 /* SourceMainPageInfo.h */,
+				5A1C56211D4F16A500BCFE10 /* SourceMainPageInfo.m */,
 			);
 			path = SourceSubViewController;
 			sourceTree = "<group>";
@@ -1477,6 +1488,8 @@
 			children = (
 				5AAC4CAA1D4995F100075D70 /* SAPopularRequest.h */,
 				5AAC4CAB1D4995F100075D70 /* SAPopularRequest.m */,
+				5A1C561A1D4EDBF900BCFE10 /* ResourceMainPageRequest.h */,
+				5A1C561B1D4EDBF900BCFE10 /* ResourceMainPageRequest.m */,
 			);
 			path = Http;
 			sourceTree = "<group>";
@@ -1498,6 +1511,8 @@
 				5AAC4CB81D4995F100075D70 /* SourceEngineInterface.m */,
 				5AAC4CB91D4995F100075D70 /* SourceInfo.h */,
 				5AAC4CBA1D4995F100075D70 /* SourceInfo.m */,
+				5A1C561D1D4EE2FD00BCFE10 /* ResourceMainPageModel.h */,
+				5A1C561E1D4EE2FD00BCFE10 /* ResourceMainPageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2206,6 +2221,7 @@
 				5AAC4DCC1D4995F100075D70 /* SASettingAboutViewController.m in Sources */,
 				5AAC4E121D4995F100075D70 /* SAComposeToolBar.m in Sources */,
 				5AAC4DD71D4995F100075D70 /* SourceTableViewCell.m in Sources */,
+				5A1C56221D4F16A500BCFE10 /* SourceMainPageInfo.m in Sources */,
 				5AAC4D8D1D4995F100075D70 /* POPAnimatableProperty.mm in Sources */,
 				5AAC4DBF1D4995F100075D70 /* SAMineCell.m in Sources */,
 				5AAC4DAB1D4995F100075D70 /* UIImage+WebP.m in Sources */,
@@ -2215,6 +2231,7 @@
 				5AAC4DB11D4995F100075D70 /* SACommunityUserModel.m in Sources */,
 				5AAC4E0B1D4995F100075D70 /* SAPopularShowView.m in Sources */,
 				5AAC4DDE1D4995F100075D70 /* ContentOfSourceHeadView.m in Sources */,
+				5A1C561C1D4EDBF900BCFE10 /* ResourceMainPageRequest.m in Sources */,
 				5AAC4D931D4995F100075D70 /* POPAnimator.mm in Sources */,
 				5AAC4D871D4995F100075D70 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				5AAC4DDB1D4995F100075D70 /* CategoryHeadView.m in Sources */,
@@ -2231,6 +2248,7 @@
 				5AAC4DC51D4995F100075D70 /* SAQuestionCell.m in Sources */,
 				5AAC4D8F1D4995F100075D70 /* POPAnimationEvent.mm in Sources */,
 				5AAC4DF01D4995F100075D70 /* CourseMainPageHeadView.m in Sources */,
+				5A1C561F1D4EE2FD00BCFE10 /* ResourceMainPageModel.m in Sources */,
 				5AAC4DA81D4995F100075D70 /* UIButton+WebCache.m in Sources */,
 				5AAC4D7D1D4995F100075D70 /* AFURLRequestSerialization.m in Sources */,
 				5AAC4DF71D4995F100075D70 /* SearchTrendWordsModel.m in Sources */,
@@ -2494,6 +2512,7 @@
 				5AAC4B771D49959600075D70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5AAC4B781D49959600075D70 /* Build configuration list for PBXNativeTarget "SigmaTests" */ = {
 			isa = XCConfigurationList;
@@ -2502,6 +2521,7 @@
 				5AAC4B7A1D49959600075D70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5AAC4B7B1D49959600075D70 /* Build configuration list for PBXNativeTarget "SigmaUITests" */ = {
 			isa = XCConfigurationList;
@@ -2510,6 +2530,7 @@
 				5AAC4B7D1D49959600075D70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

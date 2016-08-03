@@ -60,7 +60,7 @@
  
  */
 
--(void)getDataFromView:(NSString*)sourceName andSupportNumber:(NSString*)supportNumber andDownloadNumber:(NSString*)downloadNumber;
+-(void)getDataFromView:(NSString*)sourceName andSupportNumber:(NSString*)supportNumber andDownloadNumber:(NSString*)downloadNumber andDescription:(NSString*)description;
 
 
 /*

@@ -26,6 +26,7 @@
 #import "CategoryViewController.h"
 #import "ContentOfSourceViewController.h"
 #import "SourceEngineInterface.h"
+#import "SourceMainPageInfo.h"
 
 
 
@@ -60,12 +61,15 @@
     [self.view addSubview:self.tableView];
     
     self.tableView.tableHeaderView = self.headView;
+    [SourceEngineInterface shareInstances];
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_RESOURCE_MAINPAGE_DATA object:nil];
     
-
-    self.dataArray = [[[SourceEngineInterface shareInstances] sourcePageWithData] mutableCopy];
-    if(self.dataArray && self.dataArray.count>0){
-        [self.tableView reloadData];
-    }
+//    self.dataArray = [[[SourceEngineInterface shareInstances] sourcePageWithData] mutableCopy];
+    [self addAllNotification];
+//    NSLog(@"%lu",self.dataArray.count);
+//    if(self.dataArray && self.dataArray.count>0){
+//        [self.tableView reloadData];
+//    }
 }
 
 /*
@@ -88,7 +92,7 @@
 
 -(UITableView*)tableView{
     if(_tableView == nil){
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style: UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-160*(SCREEN_WIDTH/SCREEN_HEIGHT)) style: UITableViewStylePlain];
         
         _tableView.backgroundColor = [UIColor clearColor];
         
@@ -119,6 +123,24 @@
     }
 }
 
+
+//添加主线程数据的通知
+-(void)addAllNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resourceReceiveSuccessData:) name:NOTI_RESOURCE_MAINPAGE_MAINQUEUE_DATA object:nil];
+}
+
+//通知方法实现
+-(void)resourceReceiveSuccessData:(NSNotification*)noti{
+    if([noti.name isEqualToString:NOTI_RESOURCE_MAINPAGE_MAINQUEUE_DATA]){
+        
+        self.dataArray = [[[SourceEngineInterface shareInstances] sourcePageWithData] mutableCopy];
+        
+        if(self.dataArray && self.dataArray.count>0){
+            [self.tableView reloadData];
+        }
+    }
+}
+
 #pragma mark - UITableViewDataSource
 
 //返回cell的个数
@@ -133,9 +155,10 @@
     if(!cell){
         cell = [[SourceTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         if((indexPath.row>=0) && (indexPath.row < self.dataArray.count)){
-            SourceInfo* sourceInfo = (SourceInfo*)[self.dataArray objectAtIndex:indexPath.row];
+            SourceMainPageInfo* sourceMainPageInfo = (SourceMainPageInfo*)[self.dataArray objectAtIndex:indexPath.row];
+            NSLog(@"%@",sourceMainPageInfo.title);
             
-            cell.dataInfo = sourceInfo;
+            cell.sourceMainPageInfo = sourceMainPageInfo;
             [cell showSourceCell];
             self.tableView.rowHeight = CELL_HEIGHT;
         }
@@ -155,11 +178,12 @@
     UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     //通过组件的tag，在cell上获取对应的组件
     UILabel* cellNameLabel = [cell.contentView viewWithTag:1000];
+    UILabel* cellDescription = [cell.contentView viewWithTag:2000];
     UILabel* supportNumber = [cell.contentView viewWithTag:3000];
     UILabel* downloadNumber = [cell.contentView viewWithTag:4000];
     
     //将数据传到engine层
-    [[SourceEngineInterface shareInstances] getDataFromView:cellNameLabel.text andSupportNumber:supportNumber.text andDownloadNumber:downloadNumber.text];
+    [[SourceEngineInterface shareInstances] getDataFromView:cellNameLabel.text andSupportNumber:supportNumber.text andDownloadNumber:downloadNumber.text andDescription:cellDescription.text];
     
 }
 

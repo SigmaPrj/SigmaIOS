@@ -11,13 +11,13 @@
 //资源名称label的高度
 #define SOURCENAMELABLE_HEIGHT 80*(SCREEN_WIDTH/SCREEN_HEIGHT)
 //资源具体描述的纵坐标
-#define SOURCEDESCRIPTION_Y SOURCENAMELABLE_HEIGHT
+#define SOURCEDESCRIPTION_Y 30*(SCREEN_WIDTH/SCREEN_HEIGHT)
 //资源具体描述的高度
 #define SOURCEDESCRIPTION_HEIGHT 300*(SCREEN_WIDTH/SCREEN_HEIGHT)
 //资源点赞label的横坐标
 #define SUPPORTNUM_X 90*(SCREEN_WIDTH/SCREEN_HEIGHT)
 //资源点赞label的纵坐标
-#define SUPPORTNUM_Y SOURCEDESCRIPTION_Y+SOURCEDESCRIPTION_HEIGHT
+#define SUPPORTNUM_Y SOURCEDESCRIPTION_Y+SOURCEDESCRIPTION_HEIGHT+50*(SCREEN_WIDTH/SCREEN_HEIGHT)
 //资源点赞label的宽度
 #define SUPPORTNUM_WIDTH 100*(SCREEN_WIDTH/SCREEN_HEIGHT)
 //资源点赞label的高度
@@ -123,6 +123,7 @@
         _descriptionOfSource.textAlignment = NSTextAlignmentLeft;
         [_descriptionOfSource sizeToFit];
 //        _descriptionOfSource.lineBreakMode = NSLineBreakByTruncatingTail;
+        [_descriptionOfSource setFont:[UIFont systemFontOfSize:14.0]];
 
     }
     return _descriptionOfSource;
