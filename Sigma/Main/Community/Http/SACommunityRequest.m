@@ -5,7 +5,6 @@
 
 #import "SACommunityRequest.h"
 
-
 @implementation SACommunityRequest
 
 + (void)requestHeaderUserData:(int)user_id {

@@ -13,6 +13,7 @@
 #import "SADynamicCommentController.h"
 #import "SVProgressHUD.h"
 #import "JCAlertView.h"
+#import "SAUserDataManager.h"
 
 #define COMMUNITY_BOTTOM 64
 
@@ -103,19 +104,21 @@
  * 发送请求
  */
 - (void)sendRequest {
-    // 发送请求
-
-    // 请求用户数据
-    [SACommunityRequest requestHeaderUserData:28];
+//    // 发送请求
+//
+//    // 请求用户数据
+//    [SACommunityRequest requestHeaderUserData:28];
 
     // 请求dynamic数据
-    [SACommunityRequest requestDynamics:@{@"t": @(503781928)} user_id:28 token:@"700425ab1fa44d702d70b6d854995e77"];
+    NSString *token = [SAUserDataManager readToken];
+
+    [SACommunityRequest requestDynamics:@{@"t": @(662605661)} user_id:28 token:token];
 }
 
 #pragma mark -
 #pragma mark 通知
 - (void) addAllNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_COMMUNITY_USER_DATA object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_COMMUNITY_USER_DATA object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_COMMUNITY_DYNAMICS_DATA object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataErrorHandler:) name:REQUEST_DATA_ERROR object:nil];
 }
@@ -130,14 +133,14 @@
  */
 - (void)receiveDataSuccessHandler:(NSNotification *)noti {
     // table view header数据
-    if ([noti.name isEqualToString:NOTI_COMMUNITY_USER_DATA]) {
-        if ([noti.userInfo[@"status"] intValue] == 1) {
-            // 加载用户数据成功
-            [self.communityTableView setHeaderData:noti.userInfo[@"data"]];
-        } else {
-            [self alert:@"用户数据加载失败" message:noti.userInfo[@"error"]];
-        }
-    }
+//    if ([noti.name isEqualToString:NOTI_COMMUNITY_USER_DATA]) {
+//        if ([noti.userInfo[@"status"] intValue] == 1) {
+//            // 加载用户数据成功
+//            [self.communityTableView setHeaderData:noti.userInfo[@"data"]];
+//        } else {
+//            [self alert:@"用户数据加载失败" message:noti.userInfo[@"error"]];
+//        }
+//    }
 
     if ([noti.name isEqualToString:NOTI_COMMUNITY_DYNAMICS_DATA]) {
         if ([noti.userInfo[@"status"] intValue] == 1) {
@@ -236,12 +239,14 @@
 - (void)endHeaderLoadingAnimation:(SAHeaderLoadingView *)loadingView {
     // 加载最新数据
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
-    [SACommunityRequest requestDynamics:@{@"t": @(self.communityTableView.time), @"now": @(now)} user_id:28 token:@"b42754e673e94f5eaef972c4ae4a4c06"];
+    NSString *token = [SAUserDataManager readToken];
+    [SACommunityRequest requestDynamics:@{@"t": @(self.communityTableView.time), @"now": @(now)} user_id:28 token:token];
 }
 
 - (void)endFooterLoadingAnimation:(SAFooterLoadingView *)footerLoadingView {
     // 下拉加载更多数据
-    [SACommunityRequest requestDynamics:@{@"t": @(self.communityTableView.time), @"c": @(self.communityTableView.count)} user_id:28 token:@"b42754e673e94f5eaef972c4ae4a4c06"];
+    NSString *token = [SAUserDataManager readToken];
+    [SACommunityRequest requestDynamics:@{@"t": @(self.communityTableView.time), @"c": @(self.communityTableView.count)} user_id:28 token:token];
 }
 
 @end

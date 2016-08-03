@@ -9,6 +9,8 @@
 #ifndef SecurityDefine_h
 #define SecurityDefine_h
 
+#define USER_FILE_NAME @"login.plist"
+
 #define KEY_TOKEN_VALUE @"com.sigma.user.token"
 #define KEY_TOKEN_TIME @"sigma.user.deadline"
 #define KEY_TOKEN_IN_KEYCHAIN @"com.sigma.user.info"

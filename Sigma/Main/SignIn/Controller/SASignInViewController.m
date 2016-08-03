@@ -12,7 +12,9 @@
 #import "SAValidator.h"
 #import "JCAlertView.h"
 #import "SASignInRequest.h"
+#import "SAUserDataManager.h"
 #import "CLProgressHUD.h"
+#import "SARootViewController.h"
 
 #define TITLE_LABEL_MARGIN_TOP 25
 #define TITLE_LABEL_HEIGHT 30
@@ -23,6 +25,7 @@
 #define BUTTON_HEIGHT 54
 #define BUTTON_PADDING (((SCREEN_WIDTH)-30-3*BUTTON_WIDTH)/4)
 #define FOOTER_HEIGHT 80
+
 
 @interface SASignInViewController ()
 
@@ -277,14 +280,61 @@
 
     // 显示等待图标
     [CLProgressHUD showInView:self.view delegate:self tag:10 title:@"正在登录..."];
+}
 
-     // TODO : 测试请求结果
+#pragma mark -
+#pragma mark 请求处理
+- (void)authSuccess:(NSNotification *)notification {
+    if (notification.userInfo) {
+        NSInteger code = [notification.userInfo[@"code"] intValue];
+        switch (code) {
+            case 200:
+            {
+                [SAUserDataManager saveUserData:notification.userInfo[@"data"]];
+
+                // 关闭弹出层
+                [CLProgressHUD dismissHUDByTag:10 delegate:self inView:self.view];
+                [CLProgressHUD showSuccessInView:self.view delegate:self title:@"登录成功" duration:.5];
+
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    // 切换主界面
+                    SARootViewController *rootViewController = [[SARootViewController alloc] init];
+                    [UIApplication sharedApplication].keyWindow.rootViewController = rootViewController;
+                });
+            }
+                break;
+            case 1:
+            case 2:
+            {
+                [CLProgressHUD dismissHUDByTag:10 delegate:self inView:self.view];
+                [CLProgressHUD showErrorInView:self.view delegate:self title:@"用户名不存在或密码错误" duration:1];
+            }
+                break;
+            case 3:
+            default:
+            {
+                [CLProgressHUD dismissHUDByTag:10 delegate:self inView:self.view];
+                [CLProgressHUD showErrorInView:self.view delegate:self title:@"稍后再试" duration:1];
+            }
+                break;
+        }
+    } else {
+        [CLProgressHUD dismissHUDByTag:10 delegate:self inView:self.view];
+        [CLProgressHUD showErrorInView:self.view delegate:self title:@"登录失败" duration:1];
+    }
+}
+
+- (void)authError:(NSNotification *)notification {
+    [CLProgressHUD dismissHUDByTag:10 delegate:self inView:self.view];
+    [CLProgressHUD showErrorInView:self.view delegate:self title:@"登录失败" duration:1];
 }
 
 #pragma mark -
 #pragma mark 事件监听
 - (void)addAllNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authSuccess:) name:NOTI_SIGNIN_AUTH object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(authError:) name:NOTI_SIGNIN_AUTH_ERRPR object:nil];
 }
 
 -(void)removeAllNotifications {

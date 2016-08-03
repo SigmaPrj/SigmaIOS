@@ -21,7 +21,7 @@
         @"username" : username,
         @"password" : pass
     } notification:NOTI_SIGNIN_AUTH];
-    [request sendRequest];
+    [request sendRequest:NOTI_SIGNIN_AUTH_ERRPR];
 }
 
 @end

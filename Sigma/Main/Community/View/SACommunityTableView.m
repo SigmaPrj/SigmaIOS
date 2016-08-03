@@ -13,6 +13,7 @@
 #import "SACommunityTableFooterView.h"
 #import "SADynamicFrameModel.h"
 #import "SADynamicTableViewCell.h"
+#import "SAUserDataManager.h"
 
 @interface SACommunityTableView() <UITableViewDataSource, UITableViewDelegate, SADynamicTableViewCellDelegate>
 
@@ -40,13 +41,16 @@
 
         self.dataSource = self;
         self.delegate = self;
+
+        [self setHeaderData];
     }
 
     return self;
 }
 
-- (void)setHeaderData:(NSDictionary *)dict {
-    _userDict = dict;
+- (void)setHeaderData {
+    // 读取用户数据
+    _userDict = [SAUserDataManager readUser];
 
     [self renderHeaderData];
 }

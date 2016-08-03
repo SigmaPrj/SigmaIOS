@@ -5,12 +5,12 @@
 
 #import "SARequestBase.h"
 #import "AFURLSessionManager.h"
-
 #import "AFNetworking.h"
 
 @interface SARequestBase()
 
-@property (nonatomic, strong) AFURLSessionManager* manager;
+//@property (nonatomic, strong) AFURLSessionManager* manager;
+@property (nonatomic, strong) AFURLSessionManager *manager;
 @property (nonatomic, strong) AFHTTPRequestSerializer *requestSerializer;
 @property (nonatomic, strong) NSMutableURLRequest *request;
 @property (nonatomic, copy) NSString *notificationName;
@@ -24,9 +24,7 @@
     if (self) {
         // 参数
         _notificationName = noti;
-        NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        sessionConfiguration.timeoutIntervalForRequest = 3;
-        _manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:sessionConfiguration];
+        _manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
         _requestSerializer = [AFHTTPRequestSerializer serializer];
         // 设置HTTP头
         [_requestSerializer setValue:SIGMA_API_VALUE forHTTPHeaderField:SIGMA_API_NAME];
@@ -34,16 +32,9 @@
             [_requestSerializer setValue:token forHTTPHeaderField:SIGMA_TOKEN_NAME];
         }
         // API URL
-        NSString *apiUrl;
-        if ([[path substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"/"]) {
-            apiUrl = [NSString stringWithFormat:@"%@%@", SIGMA_DOMAIN, path];
-        } else {
-            apiUrl = [NSString stringWithFormat:@"%@%@", SIGMA_API_DOMAIN, path];
-        }
-
+        NSString *apiUrl = [NSString stringWithFormat:@"%@%@", SIGMA_API_DOMAIN, path];
         _request = [_requestSerializer requestWithMethod:method URLString:apiUrl parameters:dict error:nil];
     }
-
     return self;
 }
 
@@ -97,12 +88,9 @@
 - (void)sendRequest:(NSString *)notificationName {
     NSURLSessionDataTask *dataTask = [_manager dataTaskWithRequest:_request completionHandler:^(NSURLResponse *response, id obj, NSError *err) {
         if (!err) {
-            if ([obj isKindOfClass:[NSDictionary class]]) {
-                NSLog(@"%@", obj);
-                [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil userInfo:obj];
-            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:_notificationName object:nil userInfo:obj];
         } else {
-
+             [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil userInfo:obj];
         }
     }];
 

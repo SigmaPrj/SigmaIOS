@@ -10,10 +10,24 @@
 
 @interface SAUserDataManager : NSObject
 
-+ (void)saveToken:(NSString *)token withDeadline:(NSTimeInterval)deadline;
++ (void)saveUserData:(NSDictionary *)dict;
+
++ (id)readUserData;
 
 + (id)readToken;
 
++ (id)readTime;
+
++ (id)readUser;
+
++ (void)deleteUserData;
+
 + (void)deleteToken;
+
++ (void)deleteTime;
+
++ (void)deleteUser;
+
++ (NSString *)getFilePath;
 
 @end

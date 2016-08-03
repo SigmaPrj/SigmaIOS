@@ -22,6 +22,7 @@
 
 // 登录注册
 #define NOTI_SIGNIN_AUTH @"NOTI_SIGNIN_AUTH"
+#define NOTI_SIGNIN_AUTH_ERRPR @"NOTI_SIGNIN_AUTH_ERRPR"
 
 
 #endif /* NotificationDefine_h */

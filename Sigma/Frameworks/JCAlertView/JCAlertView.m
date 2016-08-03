@@ -17,10 +17,10 @@ NSString *const JCAlertViewWillShowNotification = @"JCAlertViewWillShowNotificat
 #define JCAlertViewWidth 280
 #define JCAlertViewHeight 174
 #define JCAlertViewMaxHeight 440
-#define JCMargin 8
+#define JCMargin 10
 #define JCButtonHeight 44
 #define JCAlertViewTitleLabelHeight 50
-#define JCAlertViewTitleColor JCColor(65, 65, 65)
+#define JCAlertViewTitleColor JCColor(40, 40, 40)
 #define JCAlertViewTitleFont [UIFont boldSystemFontOfSize:20]
 #define JCAlertViewContentColor JCColor(102, 102, 102)
 #define JCAlertViewContentFont [UIFont systemFontOfSize:16]
@@ -519,6 +519,9 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
     
     self.frame = CGRectMake(0, 0, JCAlertViewWidth, JCAlertViewHeight);
     NSInteger count = self.buttons.count;
+
+    self.layer.cornerRadius = 5;
+    self.clipsToBounds = YES;
     
     if (count > 2) {
         self.frame = CGRectMake(0, 0, JCAlertViewWidth, JCAlertViewTitleLabelHeight + JCAlertViewContentHeight + JCMargin + (JCMargin + JCButtonHeight) * count);
@@ -595,6 +598,8 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
     
     if (count == 1) {
         UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(JCMargin, self.frame.size.height - JCButtonHeight - JCMargin, JCAlertViewWidth - JCMargin * 2, JCButtonHeight)];
+        btn.layer.cornerRadius = 22;
+        btn.clipsToBounds = YES;
         NSDictionary *btnDict = [self.buttons firstObject];
         [btn setTitle:[btnDict.allValues firstObject] forState:UIControlStateNormal];
         [self setButton:btn BackgroundWithButonType:[[btnDict.allKeys firstObject] integerValue]];
@@ -605,6 +610,8 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
         for (int i = 0; i < 2; i++) {
             CGFloat btnWidth = JCAlertViewWidth / 2 - JCMargin * 1.5;
             UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(JCMargin + (JCMargin + btnWidth) * i, self.frame.size.height - JCButtonHeight - JCMargin, btnWidth, JCButtonHeight)];
+            btn.layer.cornerRadius = 22;
+            btn.clipsToBounds = YES;
             NSDictionary *btnDict = self.buttons[i];
             [btn setTitle:[btnDict.allValues firstObject] forState:UIControlStateNormal];
             [self setButton:btn BackgroundWithButonType:[[btnDict.allKeys firstObject] integerValue]];
@@ -618,6 +625,8 @@ buttonType ButtonTitle:(NSString *)buttonTitle Click:(clickHandle)click ButtonTy
         }
         for (int i = 0; i < count; i++) {
             UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(JCMargin, JCAlertViewTitleLabelHeight + contentHeight + JCMargin + (JCMargin + JCButtonHeight) * i, JCAlertViewWidth - JCMargin * 2, JCButtonHeight)];
+            btn.layer.cornerRadius = 22;
+            btn.clipsToBounds = YES;
             NSDictionary *btnDict = self.buttons[i];
             [btn setTitle:[btnDict.allValues firstObject] forState:UIControlStateNormal];
             [self setButton:btn BackgroundWithButonType:[[btnDict.allKeys firstObject] integerValue]];

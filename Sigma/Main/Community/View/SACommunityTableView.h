@@ -19,8 +19,6 @@
 
 @property (nonatomic, weak) id<SACommunityTableViewDelegate> ownDelegate;
 
-- (void)setHeaderData:(NSDictionary *)dict;
-
 - (void)setDynamicData:(NSArray *)dynamicArray;
 
 @property (nonatomic, assign) NSTimeInterval time; // 存储请求时间点
