@@ -34,7 +34,13 @@
             [_requestSerializer setValue:token forHTTPHeaderField:SIGMA_TOKEN_NAME];
         }
         // API URL
-        NSString *apiUrl = [NSString stringWithFormat:@"%@%@", SIGMA_API_DOMAIN, path];
+        NSString *apiUrl;
+        if ([[path substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"/"]) {
+            apiUrl = [NSString stringWithFormat:@"%@%@", SIGMA_DOMAIN, path];
+        } else {
+            apiUrl = [NSString stringWithFormat:@"%@%@", SIGMA_API_DOMAIN, path];
+        }
+
         _request = [_requestSerializer requestWithMethod:method URLString:apiUrl parameters:dict error:nil];
     }
 
@@ -43,6 +49,37 @@
 
 + (instancetype)requestWithPath:(NSString *)path method:(NSString *)method parameters:(NSDictionary *)dict token:(NSString *)token notification:(NSString *)noti{
     return [[self alloc] initWithPath:path method:method parameters:dict token:token notification:noti];
+}
+
+- (instancetype)initFormWithPath:(NSString *)path parameters:(NSDictionary *)dict notification:(NSString *)noti {
+    self = [super init];
+    if (self) {
+        // 参数
+        _notificationName = noti;
+        NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        sessionConfiguration.timeoutIntervalForRequest = 3;
+        _manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:sessionConfiguration];
+        _requestSerializer = [AFHTTPRequestSerializer serializer];
+        // 设置HTTP头
+        [_requestSerializer setValue:SIGMA_API_VALUE forHTTPHeaderField:SIGMA_API_NAME];
+        [_requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+
+        // API URL
+        NSString *apiUrl;
+        if ([[path substringWithRange:NSMakeRange(0, 1)] isEqualToString:@"/"]) {
+            apiUrl = [NSString stringWithFormat:@"%@%@", SIGMA_DOMAIN, path];
+        } else {
+            apiUrl = [NSString stringWithFormat:@"%@%@", SIGMA_API_DOMAIN, path];
+        }
+
+        _request = [_requestSerializer requestWithMethod:@"POST" URLString:apiUrl parameters:dict error:nil];
+    }
+
+    return self;
+}
+
++ (instancetype)requestFormWithPath:(NSString *)path parameters:(NSDictionary *)dict notification:(NSString *)noti{
+    return [[self alloc] initFormWithPath:path parameters:dict notification:noti];
 }
 
 - (void)sendRequest {

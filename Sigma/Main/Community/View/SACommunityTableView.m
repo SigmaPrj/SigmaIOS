@@ -9,10 +9,8 @@
 #import "SACommunityTableView.h"
 #import "SACommunityUserModel.h"
 #import "SADynamicModel.h"
-#import "SADynamicModel.h"
 #import "SACommunityTableHeaderView.h"
 #import "SACommunityTableFooterView.h"
-#import "SADynamicModel.h"
 #import "SADynamicFrameModel.h"
 #import "SADynamicTableViewCell.h"
 #import "SAHeaderLoadingView.h"
@@ -21,15 +19,11 @@
 
 
 
-@interface SACommunityTableView() <UITableViewDataSource, UITableViewDelegate, SAHeaderLoadingViewDelegate, SAFooterLoadingViewDelegate, SADynamicTableViewCellDelegate>
+@interface SACommunityTableView() <UITableViewDataSource, UITableViewDelegate, SADynamicTableViewCellDelegate>
 
 @property (nonatomic, strong) SACommunityTableHeaderView *headerView;
-// 头部加载
-@property (nonatomic, strong) SAHeaderLoadingView *headerLoadingView;
 
 @property (nonatomic, strong) SACommunityTableFooterView *footerView;
-// 底部加载
-@property (nonatomic, strong) SAFooterLoadingView *footerLoadingView;
 
 @property (nonatomic, strong) NSDictionary* userDict; // 头部用户数据
 
@@ -45,18 +39,14 @@
     self = [super initWithFrame:frame style:style];
 
     if (self) {
-        [self  addSubview:self.headerLoadingView];
         self.tableHeaderView = self.headerView;
-        [self.footerView  addSubview:self.footerLoadingView];
         self.tableFooterView = self.footerView;
+
+        self.useHeaderLoading = YES;
+        self.useFooterLoading = YES;
 
         self.dataSource = self;
         self.delegate = self;
-
-        // 上拉刷新 代理
-        self.headerLoadingView.delegate = self;
-        // 下拉加载 代理
-        self.footerLoadingView.delegate = self;
     }
 
     return self;
@@ -111,27 +101,6 @@
             [self insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:(self.dynamicArray.count-1) inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
         }
     }
-    
-    [self stopLoading];
-}
-
-- (void)endHeaderLoading {
-    // 滚动到顶部
-    self.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    [self setContentOffset:CGPointMake(0 , 0) animated:YES];
-}
-
-- (void)endFooterLoading {
-    // tableview底部
-    self.contentInset = UIEdgeInsetsMake(0 , 0, 0, 0);
-}
-
-- (void)stopLoading {
-    if (self.contentOffset.y <= 0) {
-        [self endHeaderLoading];
-    } else {
-        [self endFooterLoading];
-    }
 }
 
 // 构造模型，显示数据和布局
@@ -155,15 +124,6 @@
     return _headerView;
 }
 
-// 上拉刷新组件
-- (SAHeaderLoadingView *)headerLoadingView {
-    if (!_headerLoadingView) {
-        _headerLoadingView = [SAHeaderLoadingView loadingWithTitle:@"正在玩命的加载数据~" frame:CGRectMake(0, -LOADING_HEADER_VIEW_HEIGHT, SCREEN_WIDTH, LOADING_HEADER_VIEW_HEIGHT)];
-    }
-    return _headerLoadingView;
-}
-
-// 下拉加载组件
 - (SACommunityTableFooterView *)footerView {
     if (!_footerView) {
         _footerView = [[SACommunityTableFooterView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, 0)];
@@ -172,68 +132,11 @@
     return _footerView;
 }
 
-- (SAFooterLoadingView *)footerLoadingView {
-    if (!_footerLoadingView) {
-        _footerLoadingView = [[SAFooterLoadingView alloc] initWithFrame:CGRectMake(0, self.footerView.frame.size.height, SCREEN_WIDTH, FOOTER_VIEW_LOADING_HEIGHT)];
-    }
-    return _footerLoadingView;
-}
-
 #pragma mark -
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     SADynamicFrameModel *frameModel = self.dynamicArray[(NSUInteger)indexPath.row];
     return [frameModel getTotalHeight];
-}
-
-#pragma mark -
-#pragma mark UIScrollViewDelegate
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat offsetY = scrollView.contentOffset.y;
-    if (offsetY <= 0) {
-        // 旋转
-        [self.headerLoadingView roateOutView:offsetY];
-    }
-
-    // 显示提示,可以松开
-    if (offsetY <= -LOADING_HEADER_VIEW_HEIGHT) {
-        [self.headerLoadingView prepareAnimation];
-    }
-}
-
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self.headerLoadingView stopAnimation];
-    [self.footerLoadingView stopAnimation];
-}
-
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    CGFloat offsetY = scrollView.contentOffset.y;
-    if (offsetY <= -LOADING_HEADER_VIEW_HEIGHT) {
-        scrollView.contentInset = UIEdgeInsetsMake(110, 0, 0, 0);
-        scrollView.scrollsToTop = NO;
-    } else if(offsetY >= (scrollView.contentSize.height-scrollView.frame.size.height)) {
-        scrollView.contentInset = UIEdgeInsetsMake(0, 0, FOOTER_VIEW_LOADING_HEIGHT, 0);
-        scrollView.scrollsToTop = NO;
-    } else {
-        [self resetLoadingState];
-    }
-}
-
-- (void)resetLoadingState {
-    self.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    self.scrollsToTop = YES;
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    CGFloat offsetY = scrollView.contentOffset.y;
-    if (offsetY <= -LOADING_HEADER_VIEW_HEIGHT) {
-        [self.headerLoadingView endPrepareAnimation];
-        [self.headerLoadingView startAnimation];
-    }
-
-    if ((offsetY-10) >= (scrollView.contentSize.height-scrollView.frame.size.height)) {
-        [self.footerLoadingView startAnimation];
-    }
 }
 
 #pragma mark -
@@ -261,7 +164,7 @@
 }
 
 #pragma mark -
-#pragma mark SAHeaderLoadingViewDelegate
+#pragma mark SALoadingTableViewDelegate
 - (void)endHeaderLoadingAnimation:(SAHeaderLoadingView *)loadingView {
     // 加载最新数据
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
@@ -269,7 +172,7 @@
 }
 
 #pragma mark -
-#pragma mark SAFooterLoadingViewDelegate
+#pragma mark SALoadingTableViewDelegate
 - (void)endFooterLoadingAnimation:(SAFooterLoadingView *)footerLoadingView {
     // 下拉加载更多数据
     [SACommunityRequest requestDynamics:@{@"t": @(self.time), @"c": @(self.dynamicArray.count)} user_id:28 token:@"b42754e673e94f5eaef972c4ae4a4c06"];

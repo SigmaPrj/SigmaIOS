@@ -17,6 +17,7 @@
 
 // SAE
 #define SIGMA_API_DOMAIN @"http://2.sigmainc.applinzi.com/api/"
+#define SIGMA_DOMAIN @"http://2.sigmainc.applinzi.com"
 
 // 七牛
 #define QINIU_ACCESS_KEY @"wz81hSAWUxrGWPQ99vDsBG_mfmEMo8nV4xo2UiML"

@@ -9,6 +9,10 @@
 #import "SASignInViewController.h"
 #import "SAVerticalButton.h"
 #import "UIView+HRExtention.h"
+#import "SAValidator.h"
+#import "JCAlertView.h"
+#import "SASignInRequest.h"
+#import "CLProgressHUD.h"
 
 #define TITLE_LABEL_MARGIN_TOP 25
 #define TITLE_LABEL_HEIGHT 30
@@ -138,7 +142,7 @@
         label.font = [UIFont systemFontOfSize:18];
         label.text = @"密码";
         label.textAlignment = NSTextAlignmentCenter;
-        UIView *rightLine = [[UILabel alloc] initWithFrame:CGRectMake(15+WIDTH(imageView)+WIDTH(label)+3-0.5, (TEXT_FIELD_HEIGHT-20)/2, 0.5, 20)];
+        UIView *rightLine = [[UILabel alloc] initWithFrame:CGRectMake((CGFloat)(15+WIDTH(imageView)+WIDTH(label)+3-0.5), (TEXT_FIELD_HEIGHT-20)/2, 0.5, 20)];
         rightLine.backgroundColor = SIGMA_FONT_COLOR;
 
         _leftPasswordView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 15+WIDTH(imageView)+WIDTH(label)+13, TEXT_FIELD_HEIGHT)];
@@ -249,7 +253,32 @@
 }
 
 -(void)loginBtnClicked:(UIButton *)btn {
-    // TODO : 登录
+    NSString *username = self.usernameTextField.text;
+    NSString *password = self.passwordTextField.text;
+
+    // 表达元素不能为空
+    if ((username.length == 0) || (password.length == 0)) {
+        [JCAlertView showOneButtonWithTitle:@"账号密码不合法" Message:@"账号密码不能为空" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{}];
+        return;
+    }
+
+    // 验证合法性
+    if (![SAValidator isValidUsername:username]) {
+        [JCAlertView showOneButtonWithTitle:@"用户名不合法" Message:@"用户名需要是电话,邮箱或者合法格式的账号" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{}];
+        return;
+    }
+    if (![SAValidator isValidPassword:password]) {
+        [JCAlertView showOneButtonWithTitle:@"密码不合法" Message:@"密码必须只包含数字,英文和.符号" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{}];
+        return;
+    }
+
+    // 发送请求
+    [SASignInRequest requestSignInWithUsername:username password:password];
+
+    // 显示等待图标
+    [CLProgressHUD showInView:self.view delegate:self tag:10 title:@"正在登录..."];
+
+     // TODO : 测试请求结果
 }
 
 #pragma mark -

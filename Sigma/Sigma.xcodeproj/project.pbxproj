@@ -271,15 +271,19 @@
 		7BB47D151D4EECFA00F464E8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB47D141D4EECFA00F464E8 /* MediaPlayer.framework */; };
 		7BB47D171D4EED0200F464E8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB47D161D4EED0200F464E8 /* AVFoundation.framework */; };
 		7BB47D191D4EED0700F464E8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BB47D181D4EED0700F464E8 /* Security.framework */; };
-		9E8E802743D9DF2B2F7F43F2 /* UIView+HRExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E892865F4AF700336F7DF /* UIView+HRExtention.m */; };
+		9E8E8085C696D68C66CB1F54 /* SAImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8D199F42FF8FDA195188 /* SAImageHelper.m */; };
+		9E8E8110CDF2ECA5D0FF5741 /* SASecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8F61344F56FFC0ECB574 /* SASecurity.m */; };
+		9E8E818AF793454B280770E5 /* SALoadingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8CF6027F3F899E9E4BD7 /* SALoadingTableView.m */; };
+		9E8E835379B04DFE00586D5D /* SADateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8669A73B7F8A35E41D64 /* SADateHelper.m */; };
+		9E8E8353C834667BF6311536 /* SASignInRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E838AD5B07141CD8DB016 /* SASignInRequest.m */; };
 		9E8E83EB18378233F8D2FFAB /* SASignUpWithEmailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8264FFBB0D49F84EEB39 /* SASignUpWithEmailView.m */; };
-		9E8E8593CB4538E4DF9367E9 /* SAImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E846A7006D9B0103C3A72 /* SAImageHelper.m */; };
+		9E8E85C0DD8BFD0A65CA9672 /* SAValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E81C61E6A54CAF5159720 /* SAValidator.m */; };
 		9E8E860D5D318CA60AC586D7 /* SAVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8EBAB2794685A9FB21EB /* SAVerticalButton.m */; };
 		9E8E86F33ABFA5807FF621EB /* SASignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8C9E7A6BBF293E7F1A9A /* SASignInViewController.m */; };
+		9E8E875042964E6FE7BBD495 /* UIView+HRExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8FDD44F84D7A188F8B35 /* UIView+HRExtention.m */; };
 		9E8E8A869D99B9F0F26BEA07 /* SASignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E86E3BB2580F534D87673 /* SASignUpViewController.m */; };
 		9E8E8B3A0B2E44B428C17E57 /* SASignUpWithTelephoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8C2011B2ABE27A0B3DDA /* SASignUpWithTelephoneView.m */; };
 		9E8E8BC4283AC99B1405815E /* SASignUpWithCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8902C320CAC6717937D9 /* SASignUpWithCustomView.m */; };
-		9E8E8D777B94503B51924F9C /* SADateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8627BA1B13CFB50621BD /* SADateHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -731,24 +735,33 @@
 		7BB47D141D4EECFA00F464E8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7BB47D161D4EED0200F464E8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7BB47D181D4EED0700F464E8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7BBF8C151D5177DF00E0D986 /* libicucore.A.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.A.dylib; path = ../../../../../../../../usr/lib/libicucore.A.dylib; sourceTree = "<group>"; };
+		9E8E8058D2A19AB36E33E6DE /* SAImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAImageHelper.h; sourceTree = "<group>"; };
+		9E8E8184FE26A745E75EAA29 /* SASecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASecurity.h; sourceTree = "<group>"; };
+		9E8E81C61E6A54CAF5159720 /* SAValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAValidator.m; sourceTree = "<group>"; };
 		9E8E8264FFBB0D49F84EEB39 /* SASignUpWithEmailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpWithEmailView.m; sourceTree = "<group>"; };
-		9E8E82A6652FE4A251A9F3BF /* SADateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SADateHelper.h; sourceTree = "<group>"; };
 		9E8E82F0B8ED92EAB09E4127 /* SASignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignInViewController.h; sourceTree = "<group>"; };
 		9E8E836DE52FE49B83A1D916 /* SASignUpWithEmailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpWithEmailView.h; sourceTree = "<group>"; };
-		9E8E846A7006D9B0103C3A72 /* SAImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAImageHelper.m; sourceTree = "<group>"; };
+		9E8E838AD5B07141CD8DB016 /* SASignInRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignInRequest.m; sourceTree = "<group>"; };
+		9E8E839C5247E60709E8E9F5 /* UIView+HRExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HRExtention.h"; sourceTree = "<group>"; };
 		9E8E855C22EB14BFD110DE33 /* SASignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpViewController.h; sourceTree = "<group>"; };
-		9E8E8627BA1B13CFB50621BD /* SADateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SADateHelper.m; sourceTree = "<group>"; };
-		9E8E865C076E2A967C451A6C /* SAImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAImageHelper.h; sourceTree = "<group>"; };
+		9E8E8669A73B7F8A35E41D64 /* SADateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SADateHelper.m; sourceTree = "<group>"; };
 		9E8E86E3BB2580F534D87673 /* SASignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpViewController.m; sourceTree = "<group>"; };
 		9E8E86EDF490FC3444147D0B /* SASignUpWithCustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpWithCustomView.h; sourceTree = "<group>"; };
+		9E8E870C95C8DA0FECEDD7C1 /* SALoadingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SALoadingTableView.h; sourceTree = "<group>"; };
+		9E8E87D4608678A5CCEB39DD /* SAValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAValidator.h; sourceTree = "<group>"; };
+		9E8E88DC460CCAFA884CC22A /* SADateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SADateHelper.h; sourceTree = "<group>"; };
 		9E8E8902C320CAC6717937D9 /* SASignUpWithCustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpWithCustomView.m; sourceTree = "<group>"; };
-		9E8E892865F4AF700336F7DF /* UIView+HRExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HRExtention.m"; sourceTree = "<group>"; };
-		9E8E8A2807F90E20CC8C6EB9 /* UIView+HRExtention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HRExtention.h"; sourceTree = "<group>"; };
 		9E8E8C2011B2ABE27A0B3DDA /* SASignUpWithTelephoneView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpWithTelephoneView.m; sourceTree = "<group>"; };
 		9E8E8C9E7A6BBF293E7F1A9A /* SASignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignInViewController.m; sourceTree = "<group>"; };
+		9E8E8CC06B4BB3F11FC4732E /* SASignInRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignInRequest.h; sourceTree = "<group>"; };
+		9E8E8CF6027F3F899E9E4BD7 /* SALoadingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SALoadingTableView.m; sourceTree = "<group>"; };
+		9E8E8D199F42FF8FDA195188 /* SAImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAImageHelper.m; sourceTree = "<group>"; };
 		9E8E8E7FC7473FE4C9B06B19 /* SASignUpWithTelephoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpWithTelephoneView.h; sourceTree = "<group>"; };
 		9E8E8EBAB2794685A9FB21EB /* SAVerticalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAVerticalButton.m; sourceTree = "<group>"; };
+		9E8E8F61344F56FFC0ECB574 /* SASecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASecurity.m; sourceTree = "<group>"; };
 		9E8E8FC4A88965E530CEBCC0 /* SAVerticalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAVerticalButton.h; sourceTree = "<group>"; };
+		9E8E8FDD44F84D7A188F8B35 /* UIView+HRExtention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HRExtention.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -790,6 +803,7 @@
 				7BB47A141D4EEB9F00F464E8 /* SigmaTests */,
 				7BB47A1F1D4EEB9F00F464E8 /* SigmaUITests */,
 				7BB479F91D4EEB9E00F464E8 /* Products */,
+				9E8E83A564D3E1F283DA538A /* OpenSource */,
 			);
 			sourceTree = "<group>";
 		};
@@ -851,6 +865,7 @@
 		7BB47A301D4EEC4D00F464E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7BBF8C151D5177DF00E0D986 /* libicucore.A.dylib */,
 				7BB47D181D4EED0700F464E8 /* Security.framework */,
 				7BB47D161D4EED0200F464E8 /* AVFoundation.framework */,
 				7BB47D141D4EECFA00F464E8 /* MediaPlayer.framework */,
@@ -1350,6 +1365,7 @@
 				7BB47B651D4EEC4D00F464E8 /* Security */,
 				7BB47B6A1D4EEC4D00F464E8 /* TabBar */,
 				7BB47B731D4EEC4D00F464E8 /* View */,
+				9E8E8D6A31A352FF2E29071E /* Helper */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -1383,7 +1399,6 @@
 				7BB47B421D4EEC4D00F464E8 /* SAAnimationNavController.m */,
 				7BB47B431D4EEC4D00F464E8 /* SANavAnimation.h */,
 				7BB47B441D4EEC4D00F464E8 /* SANavAnimation.m */,
-				9E8E8E5CA1B9C4800546EEC6 /* Helper */,
 			);
 			path = SANav;
 			sourceTree = "<group>";
@@ -1459,6 +1474,8 @@
 				7BB47B671D4EEC4D00F464E8 /* SAKeyChain.m */,
 				7BB47B681D4EEC4D00F464E8 /* SAUserDataManager.h */,
 				7BB47B691D4EEC4D00F464E8 /* SAUserDataManager.m */,
+				9E8E8184FE26A745E75EAA29 /* SASecurity.h */,
+				9E8E8F61344F56FFC0ECB574 /* SASecurity.m */,
 			);
 			path = Security;
 			sourceTree = "<group>";
@@ -1571,6 +1588,8 @@
 				7BB47B961D4EEC4D00F464E8 /* SAFooterLoadingView.m */,
 				7BB47B971D4EEC4D00F464E8 /* SAHeaderLoadingView.h */,
 				7BB47B981D4EEC4D00F464E8 /* SAHeaderLoadingView.m */,
+				9E8E870C95C8DA0FECEDD7C1 /* SALoadingTableView.h */,
+				9E8E8CF6027F3F899E9E4BD7 /* SALoadingTableView.m */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -1769,6 +1788,7 @@
 			children = (
 				9E8E8D5E0E4AE243828AD2AC /* Controller */,
 				9E8E8AF8403631989528CCC4 /* View */,
+				9E8E8DB21BD216F59363D668 /* Http */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -1780,6 +1800,13 @@
 				9E8E86E3BB2580F534D87673 /* SASignUpViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9E8E83A564D3E1F283DA538A /* OpenSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OpenSource;
 			sourceTree = "<group>";
 		};
 		9E8E85CEB925ADE3F7236D42 /* VerticalBtn */ = {
@@ -1829,17 +1856,28 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		9E8E8E5CA1B9C4800546EEC6 /* Helper */ = {
+		9E8E8D6A31A352FF2E29071E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				9E8E82A6652FE4A251A9F3BF /* SADateHelper.h */,
-				9E8E8627BA1B13CFB50621BD /* SADateHelper.m */,
-				9E8E865C076E2A967C451A6C /* SAImageHelper.h */,
-				9E8E846A7006D9B0103C3A72 /* SAImageHelper.m */,
-				9E8E8A2807F90E20CC8C6EB9 /* UIView+HRExtention.h */,
-				9E8E892865F4AF700336F7DF /* UIView+HRExtention.m */,
+				9E8E88DC460CCAFA884CC22A /* SADateHelper.h */,
+				9E8E8669A73B7F8A35E41D64 /* SADateHelper.m */,
+				9E8E8058D2A19AB36E33E6DE /* SAImageHelper.h */,
+				9E8E8D199F42FF8FDA195188 /* SAImageHelper.m */,
+				9E8E839C5247E60709E8E9F5 /* UIView+HRExtention.h */,
+				9E8E8FDD44F84D7A188F8B35 /* UIView+HRExtention.m */,
+				9E8E87D4608678A5CCEB39DD /* SAValidator.h */,
+				9E8E81C61E6A54CAF5159720 /* SAValidator.m */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		9E8E8DB21BD216F59363D668 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8CC06B4BB3F11FC4732E /* SASignInRequest.h */,
+				9E8E838AD5B07141CD8DB016 /* SASignInRequest.m */,
+			);
+			path = Http;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2230,14 +2268,18 @@
 				7BB47C1E1D4EEC4D00F464E8 /* MASConstraint.m in Sources */,
 				7BB47C851D4EEC4D00F464E8 /* SAViewController.m in Sources */,
 				9E8E8A869D99B9F0F26BEA07 /* SASignUpViewController.m in Sources */,
-				9E8E8D777B94503B51924F9C /* SADateHelper.m in Sources */,
-				9E8E8593CB4538E4DF9367E9 /* SAImageHelper.m in Sources */,
-				9E8E802743D9DF2B2F7F43F2 /* UIView+HRExtention.m in Sources */,
 				9E8E8B3A0B2E44B428C17E57 /* SASignUpWithTelephoneView.m in Sources */,
 				9E8E83EB18378233F8D2FFAB /* SASignUpWithEmailView.m in Sources */,
 				9E8E8BC4283AC99B1405815E /* SASignUpWithCustomView.m in Sources */,
 				9E8E86F33ABFA5807FF621EB /* SASignInViewController.m in Sources */,
 				9E8E860D5D318CA60AC586D7 /* SAVerticalButton.m in Sources */,
+				9E8E835379B04DFE00586D5D /* SADateHelper.m in Sources */,
+				9E8E8085C696D68C66CB1F54 /* SAImageHelper.m in Sources */,
+				9E8E875042964E6FE7BBD495 /* UIView+HRExtention.m in Sources */,
+				9E8E85C0DD8BFD0A65CA9672 /* SAValidator.m in Sources */,
+				9E8E8353C834667BF6311536 /* SASignInRequest.m in Sources */,
+				9E8E8110CDF2ECA5D0FF5741 /* SASecurity.m in Sources */,
+				9E8E818AF793454B280770E5 /* SALoadingTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

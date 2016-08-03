@@ -12,5 +12,6 @@
 #define KEY_TOKEN_VALUE @"com.sigma.user.token"
 #define KEY_TOKEN_TIME @"sigma.user.deadline"
 #define KEY_TOKEN_IN_KEYCHAIN @"com.sigma.user.info"
+#define PREFIX_PASSWORD @"sigma2016_"
 
 #endif /* SecurityDefine_h */

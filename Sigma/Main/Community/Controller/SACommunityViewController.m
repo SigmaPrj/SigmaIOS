@@ -146,10 +146,17 @@
                 self.firstRequest = NO;
                 [self deleteMaskView];
             }
+            [self stopLoading];
         } else {
             [self alert:@"动态数据加载失败" message:noti.userInfo[@"error"]];
         }
     }
+}
+
+
+
+- (void)stopLoading {
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_END_LOADING object:nil userInfo:nil];
 }
 
 
@@ -167,11 +174,10 @@
                 [self alert:@"温馨提示" message:@"没有和你相关的动态, 去关注些人吧(～ o ～)~zZ~"];
             } else if (requestType == LOAD_NEW_REQUEST) {
                 [self alert:@"温馨提示" message:@"已经是最新数据╮(╯_╰)╭"];
-                [self.communityTableView resetLoadingState];
-                self.communityTableView.contentOffset = CGPointMake(0, 0);
+                [self stopLoading];
             } else {
                 [self alert:@"温馨提示" message:@"木有数据啦~\\(≧▽≦)/~"];
-                [self.communityTableView resetLoadingState];
+                [self stopLoading];
             }
         }
             break;

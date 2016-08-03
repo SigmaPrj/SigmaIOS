@@ -4,6 +4,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SALoadingTableView.h"
 
 @class SADynamicModel;
 
@@ -14,7 +15,7 @@
 
 @end
 
-@interface SACommunityTableView : UITableView
+@interface SACommunityTableView : SALoadingTableView
 
 @property (nonatomic, weak) id<SACommunityTableViewDelegate> ownDelegate;
 
@@ -23,7 +24,5 @@
 - (void)setDynamicData:(NSArray *)dynamicArray;
 
 - (void)stopLoading;
-
-- (void)resetLoadingState;
 
 @end

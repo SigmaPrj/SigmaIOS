@@ -43,6 +43,24 @@ typedef NS_ENUM(NSInteger, SACommunityRequestType) {
                        token:(NSString *)token
                 notification:(NSString *)notificationName;
 
+/*!
+ * 表单格式请求
+ * @param path
+ * @param dict
+ * @param noti
+ * @return
+ */
++ (instancetype)requestFormWithPath:(NSString *)path parameters:(NSDictionary *)dict notification:(NSString *)noti;
+
+/*!
+ * 表单格式请求
+ * @param path
+ * @param dict
+ * @param noti
+ * @return
+ */
+- (instancetype)initFormWithPath:(NSString *)path parameters:(NSDictionary *)dict notification:(NSString *)noti;
+
 /**
  * @param notificationName 这是最后一次可以修改通知名称的地方
  */
