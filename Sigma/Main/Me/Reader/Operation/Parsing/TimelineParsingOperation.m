@@ -19,6 +19,7 @@
 - (void)executeMain {
     NSError *error;
     
+//  解析JSON的api——NSJSONSerialization
     NSObject *obj = [NSJSONSerialization JSONObjectWithData:self.data options:kNilOptions error:&error];
     
     if (error) {

@@ -36,6 +36,8 @@
     self.busy = YES;
     
     URLDownloadingOperation *downloadOp = [URLDownloadingOperation operationWithURL:[NSURL URLWithString:@"http://news-at.zhihu.com/api/4/news/latest"]];
+//    https://www.zhihu.com/topic/19616946/top-answers
+//    http://news-at.zhihu.com/api/4/news/latest
     TimelineParsingOperation *parsingOp = [[TimelineParsingOperation alloc] init];
     BlockOperation *notifyOp = [BlockOperation mainQueueOperationWithBlock:^{
         if (parsingOp.timeline) {
@@ -74,6 +76,7 @@
             [self.internalTimelines addObject:parsingOp.timeline];
             [self.delegate timelineControllerDidFinishLoading:self];
         } else {
+            //无法获取最新消息，请检查网络设置
             [self.delegate timelineControllerDidFailedLoading:self];
         }
         
