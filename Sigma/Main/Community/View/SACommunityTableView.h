@@ -23,6 +23,8 @@
 
 - (void)setDynamicData:(NSArray *)dynamicArray;
 
-- (void)stopLoading;
+@property (nonatomic, assign) NSTimeInterval time; // 存储请求时间点
+
+@property (nonatomic, assign) NSUInteger count;
 
 @end

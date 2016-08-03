@@ -18,7 +18,7 @@
 
 
 
-@interface SACommunityViewController () <SACommunityTableViewDelegate>
+@interface SACommunityViewController () <SACommunityTableViewDelegate, SALoadingTableViewDelegate>
 
 @property (nonatomic, strong) SACommunityTableView *communityTableView;
 @property (nonatomic, strong) UIView *maskView;
@@ -76,6 +76,8 @@
         _communityTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
         _communityTableView.ownDelegate = self;
+
+        _communityTableView.loadingDelegate = self;
     }
     return _communityTableView;
 }
@@ -227,6 +229,19 @@
     SADynamicCommentController *commentController = [[SADynamicCommentController alloc] initWithDynamicId:dynamic_id dynamicModel:dynamicModel];
     commentController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:commentController animated:YES];
+}
+
+#pragma mark -
+#pragma mark SALoadingTableViewDelegate
+- (void)endHeaderLoadingAnimation:(SAHeaderLoadingView *)loadingView {
+    // 加载最新数据
+    NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
+    [SACommunityRequest requestDynamics:@{@"t": @(self.communityTableView.time), @"now": @(now)} user_id:28 token:@"b42754e673e94f5eaef972c4ae4a4c06"];
+}
+
+- (void)endFooterLoadingAnimation:(SAFooterLoadingView *)footerLoadingView {
+    // 下拉加载更多数据
+    [SACommunityRequest requestDynamics:@{@"t": @(self.communityTableView.time), @"c": @(self.communityTableView.count)} user_id:28 token:@"b42754e673e94f5eaef972c4ae4a4c06"];
 }
 
 @end

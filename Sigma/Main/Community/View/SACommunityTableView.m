@@ -13,11 +13,6 @@
 #import "SACommunityTableFooterView.h"
 #import "SADynamicFrameModel.h"
 #import "SADynamicTableViewCell.h"
-#import "SAHeaderLoadingView.h"
-#import "SAFooterLoadingView.h"
-#import "SACommunityRequest.h"
-
-
 
 @interface SACommunityTableView() <UITableViewDataSource, UITableViewDelegate, SADynamicTableViewCellDelegate>
 
@@ -28,8 +23,6 @@
 @property (nonatomic, strong) NSDictionary* userDict; // 头部用户数据
 
 @property (nonatomic, strong) NSMutableArray* dynamicArray; // 动态内容数据
-
-@property (nonatomic, assign) NSTimeInterval time; // 存储请求时间点
 
 @end
 
@@ -103,6 +96,10 @@
     }
 }
 
+- (NSUInteger)count {
+    return self.dynamicArray.count;
+}
+
 // 构造模型，显示数据和布局
 - (void)renderHeaderData {
     self.headerView.userModel = [SACommunityUserModel userModelWithDict:self.userDict];
@@ -161,21 +158,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
-}
-
-#pragma mark -
-#pragma mark SALoadingTableViewDelegate
-- (void)endHeaderLoadingAnimation:(SAHeaderLoadingView *)loadingView {
-    // 加载最新数据
-    NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
-    [SACommunityRequest requestDynamics:@{@"t": @(self.time), @"now": @(now)} user_id:28 token:@"b42754e673e94f5eaef972c4ae4a4c06"];
-}
-
-#pragma mark -
-#pragma mark SALoadingTableViewDelegate
-- (void)endFooterLoadingAnimation:(SAFooterLoadingView *)footerLoadingView {
-    // 下拉加载更多数据
-    [SACommunityRequest requestDynamics:@{@"t": @(self.time), @"c": @(self.dynamicArray.count)} user_id:28 token:@"b42754e673e94f5eaef972c4ae4a4c06"];
 }
 
 #pragma mark -
