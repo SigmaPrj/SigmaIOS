@@ -1839,9 +1839,11 @@
 			children = (
 				5AAC4CDC1D4995F100075D70 /* Basic */,
 				5AAC4CDF1D4995F100075D70 /* Common */,
+				5AAC4CE31D4995F100075D70 /* Compose */,
 				5AAC4CEE1D4995F100075D70 /* Helper */,
 				5AAC4CF31D4995F100075D70 /* Http */,
 				5AAC4CF61D4995F100075D70 /* Navigation */,
+				5AAC4CF91D4995F100075D70 /* Question */,
 				5AAC4CFD1D4995F100075D70 /* TabBar */,
 				5AAC4D041D4995F100075D70 /* View */,
 			);
@@ -1873,8 +1875,7 @@
 				5AAC4CE41D4995F100075D70 /* Controller */,
 				5AAC4CE71D4995F100075D70 /* View */,
 			);
-			name = Compose;
-			path = ../Compose;
+			path = Compose;
 			sourceTree = "<group>";
 		};
 		5AAC4CE41D4995F100075D70 /* Controller */ = {
@@ -1933,8 +1934,7 @@
 			children = (
 				5AAC4CFA1D4995F100075D70 /* Controller */,
 			);
-			name = Question;
-			path = ../Question;
+			path = Question;
 			sourceTree = "<group>";
 		};
 		5AAC4CFA1D4995F100075D70 /* Controller */ = {
@@ -1949,8 +1949,6 @@
 		5AAC4CFD1D4995F100075D70 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				5AAC4CF91D4995F100075D70 /* Question */,
-				5AAC4CE31D4995F100075D70 /* Compose */,
 				5AAC4CFE1D4995F100075D70 /* SACustomTabBar.h */,
 				5AAC4CFF1D4995F100075D70 /* SACustomTabBar.m */,
 				5AAC4D001D4995F100075D70 /* SAPublishViewController.h */,
