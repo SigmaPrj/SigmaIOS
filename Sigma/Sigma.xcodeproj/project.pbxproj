@@ -131,7 +131,6 @@
 		7BB47C8E1D4EEC4D00F464E8 /* SAKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB47B671D4EEC4D00F464E8 /* SAKeyChain.m */; };
 		7BB47C8F1D4EEC4D00F464E8 /* SAUserDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB47B691D4EEC4D00F464E8 /* SAUserDataManager.m */; };
 		7BB47C901D4EEC4D00F464E8 /* SACustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB47B6C1D4EEC4D00F464E8 /* SACustomTabBar.m */; };
-		7BB47C911D4EEC4D00F464E8 /* SAPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB47B6E1D4EEC4D00F464E8 /* SAPublishViewController.m */; };
 		7BB47C921D4EEC4D00F464E8 /* SARootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB47B701D4EEC4D00F464E8 /* SARootViewController.m */; };
 		7BB47C931D4EEC4D00F464E8 /* SATabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB47B721D4EEC4D00F464E8 /* SATabbarViewController.m */; };
 		7BB47C941D4EEC4D00F464E8 /* UIView+SAPublishBtnFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BB47B761D4EEC4D00F464E8 /* UIView+SAPublishBtnFrame.m */; };
@@ -274,6 +273,7 @@
 		9E8E81BDF6E08273A8E3343D /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E848734CF118C84AD022E /* AFURLRequestSerialization.m */; };
 		9E8E82D33822D932E2378429 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8BE776C992909968280B /* AFSecurityPolicy.m */; };
 		9E8E82D753550610C0A0C326 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8AF6781E52F9DF749E24 /* UIWebView+AFNetworking.m */; };
+		9E8E8306D9E127C117CE80D7 /* SAPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8A1DCE70EC32237CA922 /* SAPublishViewController.m */; };
 		9E8E835379B04DFE00586D5D /* SADateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8669A73B7F8A35E41D64 /* SADateHelper.m */; };
 		9E8E8353C834667BF6311536 /* SASignInRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E838AD5B07141CD8DB016 /* SASignInRequest.m */; };
 		9E8E83EB18378233F8D2FFAB /* SASignUpWithEmailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8264FFBB0D49F84EEB39 /* SASignUpWithEmailView.m */; };
@@ -291,6 +291,7 @@
 		9E8E8B3A0B2E44B428C17E57 /* SASignUpWithTelephoneView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8C2011B2ABE27A0B3DDA /* SASignUpWithTelephoneView.m */; };
 		9E8E8B5B024AFF87EC11A0CA /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E874E12C95343024A8AE3 /* AFImageDownloader.m */; };
 		9E8E8BC4283AC99B1405815E /* SASignUpWithCustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8902C320CAC6717937D9 /* SASignUpWithCustomView.m */; };
+		9E8E8D8FD791D9D10DD76750 /* SATeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E82B05366F436317C2D21 /* SATeamViewController.m */; };
 		9E8E8DD3DA1FBE4C97C8B4C5 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E87FFD773F0498F3DFFF5 /* UIRefreshControl+AFNetworking.m */; };
 		9E8E8FA5B35FC1900A2D68D8 /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8FDBACB9893735E48798 /* UIButton+AFNetworking.m */; };
 /* End PBXBuildFile section */
@@ -579,8 +580,6 @@
 		7BB47B691D4EEC4D00F464E8 /* SAUserDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAUserDataManager.m; sourceTree = "<group>"; };
 		7BB47B6B1D4EEC4D00F464E8 /* SACustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACustomTabBar.h; sourceTree = "<group>"; };
 		7BB47B6C1D4EEC4D00F464E8 /* SACustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACustomTabBar.m; sourceTree = "<group>"; };
-		7BB47B6D1D4EEC4D00F464E8 /* SAPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPublishViewController.h; sourceTree = "<group>"; };
-		7BB47B6E1D4EEC4D00F464E8 /* SAPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPublishViewController.m; sourceTree = "<group>"; };
 		7BB47B6F1D4EEC4D00F464E8 /* SARootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SARootViewController.h; sourceTree = "<group>"; };
 		7BB47B701D4EEC4D00F464E8 /* SARootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SARootViewController.m; sourceTree = "<group>"; };
 		7BB47B711D4EEC4D00F464E8 /* SATabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATabbarViewController.h; sourceTree = "<group>"; };
@@ -740,6 +739,7 @@
 		9E8E8184FE26A745E75EAA29 /* SASecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASecurity.h; sourceTree = "<group>"; };
 		9E8E81C61E6A54CAF5159720 /* SAValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAValidator.m; sourceTree = "<group>"; };
 		9E8E8264FFBB0D49F84EEB39 /* SASignUpWithEmailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpWithEmailView.m; sourceTree = "<group>"; };
+		9E8E82B05366F436317C2D21 /* SATeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamViewController.m; sourceTree = "<group>"; };
 		9E8E82F0B8ED92EAB09E4127 /* SASignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignInViewController.h; sourceTree = "<group>"; };
 		9E8E836DE52FE49B83A1D916 /* SASignUpWithEmailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpWithEmailView.h; sourceTree = "<group>"; };
 		9E8E838AD5B07141CD8DB016 /* SASignInRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignInRequest.m; sourceTree = "<group>"; };
@@ -756,6 +756,7 @@
 		9E8E874E12C95343024A8AE3 /* AFImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFImageDownloader.m; sourceTree = "<group>"; };
 		9E8E87CCE7B334E56A90FC64 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
 		9E8E87D4608678A5CCEB39DD /* SAValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAValidator.h; sourceTree = "<group>"; };
+		9E8E87DA8F00D67382E9BD32 /* SAPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPublishViewController.h; sourceTree = "<group>"; };
 		9E8E87FFD773F0498F3DFFF5 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		9E8E88C66510F503EA3D889E /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		9E8E88DB47420DEAEEC81A8D /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
@@ -765,6 +766,7 @@
 		9E8E8966B3AF0E59E428E7D3 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		9E8E896E0EBAC38CE00270B7 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		9E8E89C292A5A22A458E466D /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		9E8E8A1DCE70EC32237CA922 /* SAPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPublishViewController.m; sourceTree = "<group>"; };
 		9E8E8A8CACFC0DE3E811CF6A /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
 		9E8E8AA61361A0D36FC29340 /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
 		9E8E8ACCD44D3E47F9D45FF3 /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -782,6 +784,7 @@
 		9E8E8D08C7A1414AF15C82FE /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		9E8E8D199F42FF8FDA195188 /* SAImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAImageHelper.m; sourceTree = "<group>"; };
 		9E8E8DBD9534745FB34B1945 /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		9E8E8DBD98FAFB2751E09615 /* SATeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamViewController.h; sourceTree = "<group>"; };
 		9E8E8E1FEFC05208D9A69D9D /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
 		9E8E8E2B570A2639D1946D6C /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		9E8E8E7FC7473FE4C9B06B19 /* SASignUpWithTelephoneView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpWithTelephoneView.h; sourceTree = "<group>"; };
@@ -1494,12 +1497,13 @@
 			children = (
 				7BB47B6B1D4EEC4D00F464E8 /* SACustomTabBar.h */,
 				7BB47B6C1D4EEC4D00F464E8 /* SACustomTabBar.m */,
-				7BB47B6D1D4EEC4D00F464E8 /* SAPublishViewController.h */,
-				7BB47B6E1D4EEC4D00F464E8 /* SAPublishViewController.m */,
 				7BB47B6F1D4EEC4D00F464E8 /* SARootViewController.h */,
 				7BB47B701D4EEC4D00F464E8 /* SARootViewController.m */,
 				7BB47B711D4EEC4D00F464E8 /* SATabbarViewController.h */,
 				7BB47B721D4EEC4D00F464E8 /* SATabbarViewController.m */,
+				9E8E8A1DCE70EC32237CA922 /* SAPublishViewController.m */,
+				9E8E87DA8F00D67382E9BD32 /* SAPublishViewController.h */,
+				9E8E8398077436032143307E /* Team */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -1811,6 +1815,16 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		9E8E8398077436032143307E /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8E4199D21E42A28B24F3 /* Controller */,
+				9E8E89884CBF9BE0D0C17D22 /* View */,
+				9E8E8A3B7D865D41BA6F0FAB /* Model */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
 		9E8E83A564D3E1F283DA538A /* OpenSource */ = {
 			isa = PBXGroup;
 			children = (
@@ -1847,6 +1861,20 @@
 				9E8E8902C320CAC6717937D9 /* SASignUpWithCustomView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9E8E89884CBF9BE0D0C17D22 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9E8E8A3B7D865D41BA6F0FAB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9E8E8AF8403631989528CCC4 /* View */ = {
@@ -1927,6 +1955,15 @@
 				9E8E838AD5B07141CD8DB016 /* SASignInRequest.m */,
 			);
 			path = Http;
+			sourceTree = "<group>";
+		};
+		9E8E8E4199D21E42A28B24F3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8DBD98FAFB2751E09615 /* SATeamViewController.h */,
+				9E8E82B05366F436317C2D21 /* SATeamViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2289,7 +2326,6 @@
 				7BB47C971D4EEC4D00F464E8 /* CLTextView.m in Sources */,
 				7BB47C461D4EEC4D00F464E8 /* UIImage+GIF.m in Sources */,
 				7BB47C571D4EEC4D00F464E8 /* SADynamicTableViewCell.m in Sources */,
-				7BB47C911D4EEC4D00F464E8 /* SAPublishViewController.m in Sources */,
 				7BB47C7D1D4EEC4D00F464E8 /* SAPopularTableView.m in Sources */,
 				7BB47C5C1D4EEC4D00F464E8 /* SAEInfomationViewController.m in Sources */,
 				7BB47C3B1D4EEC4D00F464E8 /* TransformationMatrix.cpp in Sources */,
@@ -2337,6 +2373,8 @@
 				9E8E8013B3BAE5EE3286DADB /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				9E8E82D753550610C0A0C326 /* UIWebView+AFNetworking.m in Sources */,
 				9E8E86FC4492837A4B6EAE40 /* UIProgressView+AFNetworking.m in Sources */,
+				9E8E8306D9E127C117CE80D7 /* SAPublishViewController.m in Sources */,
+				9E8E8D8FD791D9D10DD76750 /* SATeamViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
