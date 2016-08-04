@@ -10,8 +10,12 @@
 
 @implementation SAEInfoNewsRequest
 
--(void)requestEInfoNews{
++(void)requestEInfoNews:(int)typeNum{
+    NSString* url = [NSString stringWithFormat:@"newstype/%d/news", typeNum];
     
+    SARequestBase* request = [self requestWithPath:url method:@"GET" parameters:nil token:nil notification:NOTI_EINFORMATION_NEWSDETAIL];
+    
+    [request sendRequest];
 }
 
 @end

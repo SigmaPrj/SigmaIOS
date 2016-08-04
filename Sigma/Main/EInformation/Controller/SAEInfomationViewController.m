@@ -14,6 +14,7 @@
 #import "SAEInformationModel.h"
 #import "SAEInformationTypeRequest.h"
 #import "SAEInformationTypeModel.h"
+#import "SAEInfoNewsRequest.h"
 
 @interface SAEInfomationViewController () <EInformationTopBarViewDelegate, UITableViewDelegate>
 
@@ -31,11 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    // 添加通知
-    [self addAllNotification];
-    
-    // 发送数据
-    [self sendRequest];
+    [SAEInfoNewsRequest requestEInfoNews:1];
     
     [self initUI];
     
@@ -50,6 +47,12 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    // 添加通知
+    [self addAllNotification];
+    
+    // 发送数据
+    [self sendRequest];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -125,12 +128,26 @@
  */
 - (void)sendRequest {
     [SAEInformationTypeRequest requestEInfoType];
+    
+    
+    
+//    [SAEInfoNewsRequest requestEInfoNews:2];
+//
+//    [SAEInfoNewsRequest requestEInfoNews:3];
+//
+//    [SAEInfoNewsRequest requestEInfoNews:4];
+//
+//    [SAEInfoNewsRequest requestEInfoNews:5];
+
+    
+    
 }
 
 
 #pragma mark - 添加通知
 - (void) addAllNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_EINFORMATION_NEWSTYPE object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_EINFORMATION_NEWSDETAIL object:nil];
 }
 
 #pragma mark - 移除通知
@@ -143,9 +160,19 @@
         if ([noti.userInfo[@"status"] intValue] == 1) {
             // 资讯种类加载成功
             NSLog(@"newstype success");
-            
-            
             [self setNewsTypeData:noti.userInfo[@"data"]];
+            
+        }
+    }
+    if ([noti.name isEqualToString:NOTI_EINFORMATION_NEWSDETAIL]) {
+        if ([noti.userInfo[@"status"] intValue] == 1) {
+            
+            NSLog(@"详情加载成功");
+            [self.tableView initData:noti.userInfo[@"data"]];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+                
+            });
             
         }
     }
@@ -176,206 +203,35 @@
 -(void)btnClickedWithTag:(int)tag{
     NSLog(@"%d",tag);
     if (tag == 1000) {
-        NSDictionary* dict1 = @{
-                                @"desc":@"第八届全国大学生数学竞赛111",
-                                @"mainImgName":@"test.jpg",
-                                @"number":@"198"
-                                };
-                                
-                                
-        NSDictionary* dict2 = @{
-                                @"desc":@"2016携程云海大数据算法竞赛",
-                                @"mainImgName":@"competition2.png",
-                                @"number":@"2000"
-                                };
-                                
-        NSDictionary* dict3 = @{
-                                @"desc":@"全国大学生数学建模竞赛",
-                                @"mainImgName":@"competition3.png",
-                                @"number":@"10000"
-                                };
-                                
-        NSDictionary* dict4 = @{
-                                @"desc":@"\"华为杯\"东南大学第12届大学生程序设计大赛",
-                                @"mainImgName":@"competition6.png",
-                                @"number":@"100"
-                                };
-                                    
-                                    
-        NSDictionary* dict5 = @{
-                                @"desc":@"2016年第12届百度之星编程大赛",
-                                @"mainImgName":@"competition5.png",
-                                @"number":@"2000"
-                                };
-                                    
-        NSDictionary* dict6 = @{
-                                @"desc":@"2016年第五届软件杯设计大赛选拔赛",
-                                @"mainImgName":@"competition4.png",
-                                @"number":@"2000"
-                                };
-                                
-//                                    
-        NSArray* dictArray = @[dict1, dict2, dict3, dict4, dict5, dict6];
-        
-        
-        
-        [self.tableView initData:dictArray];
+        [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
         
     }else if (tag == 1001) {
-        NSDictionary* dict1 = @{
-                                @"desc":@"营销比赛1",
-                                @"mainImgName":@"competition2.png",
-                                @"number":@"211"
-                                };
-        
-        
-        NSDictionary* dict2 = @{
-                                @"desc":@"营销2",
-                                @"mainImgName":@"competition1.png",
-                                @"number":@"123"
-                                };
-        
-        NSDictionary* dict3 = @{
-                                @"desc":@"营销3",
-                                @"mainImgName":@"competition4.png",
-                                @"number":@"1120"
-                                };
-        
-        NSDictionary* dict4 = @{
-                                @"desc":@"营销4",
-                                @"mainImgName":@"competition3.png",
-                                @"number":@"100"
-                                };
-        
-//        
-//        
-        NSArray* dictArray = @[dict1, dict2, dict3, dict4];
-
-        
-        [self.tableView initData:dictArray];
-//        [self.tableView reloadData];
+        [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
       
         
     }else if (tag == 1002){
-        NSDictionary* dict1 = @{
-                                @"desc":@"软件1",
-                                @"mainImgName":@"competition2.png",
-                                @"number":@"211"
-                                };
         
-        
-        NSDictionary* dict2 = @{
-                                @"desc":@"软件2",
-                                @"mainImgName":@"competition1.png",
-                                @"number":@"123"
-                                };
-        
-        NSDictionary* dict3 = @{
-                                @"desc":@"软件3",
-                                @"mainImgName":@"competition4.png",
-                                @"number":@"1120"
-                                };
-        
-        NSDictionary* dict4 = @{
-                                @"desc":@"软件4",
-                                @"mainImgName":@"competition3.png",
-                                @"number":@"100"
-                                };
-        
-        //
-        //
-        NSArray* dictArray = @[dict1, dict2, dict3, dict4];
-        [self.tableView initData:dictArray];
+        [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+       
     }else if(tag == 1003){
-        NSDictionary* dict1 = @{
-                                @"desc":@"演讲1",
-                                @"mainImgName":@"competition2.png",
-                                @"number":@"211"
-                                };
+        [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
         
-        
-        NSDictionary* dict2 = @{
-                                @"desc":@"演讲2",
-                                @"mainImgName":@"competition1.png",
-                                @"number":@"123"
-                                };
-        
-        NSDictionary* dict3 = @{
-                                @"desc":@"演讲3",
-                                @"mainImgName":@"competition4.png",
-                                @"number":@"1120"
-                                };
-        
-        NSDictionary* dict4 = @{
-                                @"desc":@"演讲4",
-                                @"mainImgName":@"competition3.png",
-                                @"number":@"100"
-                                };
-        
-        //
-        //
-        NSArray* dictArray = @[dict1, dict2, dict3, dict4];
-        [self.tableView initData:dictArray];
     }else if (tag == 1004){
-        NSDictionary* dict1 = @{
-                                @"desc":@"游戏1",
-                                @"mainImgName":@"competition2.png",
-                                @"number":@"211"
-                                };
-        
-        
-        NSDictionary* dict2 = @{
-                                @"desc":@"游戏2",
-                                @"mainImgName":@"competition1.png",
-                                @"number":@"123"
-                                };
-        
-        NSDictionary* dict3 = @{
-                                @"desc":@"游戏3",
-                                @"mainImgName":@"competition4.png",
-                                @"number":@"1120"
-                                };
-        
-        NSDictionary* dict4 = @{
-                                @"desc":@"游戏4",
-                                @"mainImgName":@"competition3.png",
-                                @"number":@"100"
-                                };
-        
-        NSArray* dictArray = @[dict1, dict2, dict3, dict4];
-        [self.tableView initData:dictArray];
-
+        [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+       
     }else if(tag == 1005){
-        NSDictionary* dict1 = @{
-                                @"desc":@"建模1",
-                                @"mainImgName":@"competition2.png",
-                                @"number":@"211"
-                                };
         
-        
-        NSDictionary* dict2 = @{
-                                @"desc":@"建模2",
-                                @"mainImgName":@"competition1.png",
-                                @"number":@"123"
-                                };
-        
-        NSDictionary* dict3 = @{
-                                @"desc":@"建模3",
-                                @"mainImgName":@"competition4.png",
-                                @"number":@"1120"
-                                };
-        
-        NSDictionary* dict4 = @{
-                                @"desc":@"建模4",
-                                @"mainImgName":@"competition3.png",
-                                @"number":@"100"
-                                };
-        
-        NSArray* dictArray = @[dict1, dict2, dict3, dict4];
-        [self.tableView initData:dictArray];
+        [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+       
+    }else if(tag == 1006){
+        [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+    }else if(tag == 1007){
+        [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+    }else if(tag == 1008){
+        [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+    }else if(tag == 1009){
+        [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
     }
-    
-    [self.tableView reloadData];
 }
 
 #pragma mark - UITableViewDelegate

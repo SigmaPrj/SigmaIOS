@@ -11,6 +11,6 @@
 @interface SAEInfoNewsRequest : SARequestBase
 
 // 请求资讯
--(void)requestEInfoNews;
++(void)requestEInfoNews:(int)typeNum;
 
 @end

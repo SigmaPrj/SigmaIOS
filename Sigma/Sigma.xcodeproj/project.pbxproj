@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		001C200B1D50657500B886D2 /* btn_play.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C200A1D50657500B886D2 /* btn_play.png */; };
-		001C200D1D506F9B00B886D2 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 001C200C1D506F9B00B886D2 /* CoreImage.framework */; };
-		001C200F1D50763300B886D2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 001C200E1D50763300B886D2 /* Accelerate.framework */; };
 		001C20131D508D9A00B886D2 /* btn-voice1.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C20101D508D9A00B886D2 /* btn-voice1.png */; };
 		001C20141D508D9A00B886D2 /* btn-voice1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C20111D508D9A00B886D2 /* btn-voice1@2x.png */; };
 		001C20151D508D9A00B886D2 /* btn-voice1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C20121D508D9A00B886D2 /* btn-voice1@3x.png */; };
@@ -928,8 +926,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				001C200F1D50763300B886D2 /* Accelerate.framework in Frameworks */,
-				001C200D1D506F9B00B886D2 /* CoreImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

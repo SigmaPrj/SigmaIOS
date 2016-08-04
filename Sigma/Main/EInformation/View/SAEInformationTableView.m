@@ -11,6 +11,7 @@
 #import "SAEInformationModel.h"
 #import "EInformationTopBarView.h"
 #import "SAEinfoDetailViewController.h"
+#import "SAEInfoDetailModel.h"
 
 
 @interface SAEInformationTableView () <UITableViewDelegate, UITableViewDataSource>
@@ -58,20 +59,36 @@
  *
  *  @param dictArray <#dictArray description#>
  */
+//-(void)initData:(NSArray*)dictArray{
+//    
+//
+//    NSMutableArray* modelArray = [[NSMutableArray alloc]init];
+//    
+//    for (int i = 0; i < dictArray.count; i++) {
+//        SAEInformationModel* saModel = [[SAEInformationModel alloc]initWithDict:dictArray[i]];
+//        [modelArray addObject:saModel];
+//    }
+//    [self.datas removeAllObjects];
+//    
+//    [self.datas addObjectsFromArray:@[modelArray]];
+//    
+//
+//}
+
 -(void)initData:(NSArray*)dictArray{
     
-
+    
     NSMutableArray* modelArray = [[NSMutableArray alloc]init];
     
     for (int i = 0; i < dictArray.count; i++) {
-        SAEInformationModel* saModel = [[SAEInformationModel alloc]initWithDict:dictArray[i]];
+        SAEInfoDetailModel * saModel = [[SAEInfoDetailModel alloc]initWithDict:dictArray[(NSInteger)i]];
         [modelArray addObject:saModel];
     }
     [self.datas removeAllObjects];
     
     [self.datas addObjectsFromArray:@[modelArray]];
     
-
+    
 }
 
 
@@ -92,11 +109,15 @@
     NSInteger section = indexPath.section;
     NSInteger index = indexPath.row;
     
-    SAEInformationModel* cdata = (SAEInformationModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
+//    SAEInformationModel* cdata = (SAEInformationModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
+    
+    SAEInfoDetailModel* model = (SAEInfoDetailModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger) index];
     
     SAEInformationCell *infocell = [[SAEInformationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     
-    [infocell setData:cdata];
+//    [infocell setData:cdata];
+    
+    [infocell setDetailModel:model];
     cell = [infocell initUI];
     
     
