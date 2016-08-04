@@ -2,6 +2,8 @@
 //  AppDelegate.m
 //  Sigma
 //
+//  Created by 汤轶侬 on 16/8/4.
+//  Copyright © 2016年 sigma. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -25,7 +27,7 @@
      * 判断用户是否已经登录
      */
     NSMutableDictionary* userData = (NSMutableDictionary *)[SAUserDataManager readUserData];
-
+    
     // 验证有效性
     if (userData) {
         if (userData[@"token"] && userData[@"time"]) {
@@ -40,14 +42,13 @@
             }
         }
     }
-
+    
     // 显示home页面,选择注册和登录
     SAHomeViewController *homeViewController = [[SAHomeViewController alloc] init];
     SAAnimationNavController *navController = [[SAAnimationNavController alloc] initWithRootViewController:homeViewController];
-
+    
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
-
     return YES;
 }
 
@@ -61,20 +62,28 @@
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
-    return YES;
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-+ (instancetype)sharedDelegate {
-    return [UIApplication sharedApplication].delegate;
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
     [[CacheManager defaultManager] clearMemoryCaches];
 }
+
++ (instancetype)sharedDelegate {
+    return [UIApplication sharedApplication].delegate;
+}
+
 
 #pragma mark - Core Data stack
 
@@ -120,6 +129,22 @@
     _managedObjectContext.persistentStoreCoordinator = coordinator;
 }
 
+
+- (NSManagedObjectContext *)managedObjectContext {
+    // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (!coordinator) {
+        return nil;
+    }
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    return _managedObjectContext;
+}
+
 #pragma mark - Core Data Saving support
 
 - (void)saveContext {
@@ -144,4 +169,3 @@
 }
 
 @end
-
