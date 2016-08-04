@@ -229,14 +229,14 @@ static CGFloat SpringDelay = 0.03;
     POPBasicAnimation *anima = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
     
     anima.toValue = [NSValue valueWithCGSize:CGSizeMake(1.1, 1.1)];
-    
+
     [btn pop_addAnimation:anima forKey:nil];
     
     [anima setCompletionBlock:^(POPAnimation *anima, BOOL finish) {
         
         
         POPBasicAnimation *anima2 = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
-        
+
         anima2.toValue = @(0);
         
         [btn pop_addAnimation:anima2 forKey:nil];
