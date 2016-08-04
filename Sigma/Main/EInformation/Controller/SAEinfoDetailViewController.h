@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SAViewController.h"
+#import "SAEInfoDetailModel.h"
 
 @interface SAEinfoDetailViewController : SAViewController
+
+
+@property(nonatomic, assign)int currectIndex;
+
+//-(void)initWithModel:(SAEInfoDetailModel*)model;
 
 @end

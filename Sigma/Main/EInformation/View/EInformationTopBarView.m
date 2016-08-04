@@ -32,22 +32,6 @@
     return self;
 }
 
-//- (void)setCategories:(NSArray *)categories{
-//    _categories = categories;
-//    //[self initUI];
-//}
-
-//-(instancetype)initWithFrame:(CGRect)frame{
-//    self = [super initWithFrame:frame];
-//    
-//    if (self) {
-//        [self initUI];
-////        [self addCategories];
-//    }
-//    
-//    return self;
-//}
-
 
 - (void)initUI {
     

@@ -8,9 +8,12 @@
 
 #import "SAEinfoDetailViewController.h"
 
+
 @interface SAEinfoDetailViewController ()
 
 @property(nonatomic, strong)UILabel* desc;
+
+@property(nonatomic, strong)SAEInfoDetailModel* detailmodel;
 
 @end
 
@@ -25,7 +28,9 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
     [super viewWillAppear:animated];
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -36,10 +41,15 @@
     if (!_desc) {
         _desc = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 100, 200, 40)];
         _desc.backgroundColor = [UIColor yellowColor];
-        
+        _desc.text = self.detailmodel.news_title;
     }
     
     return _desc;
 }
+
+-(void)initWithModel:(SAEInfoDetailModel*)model{
+    _detailmodel = model;
+}
+
 
 @end

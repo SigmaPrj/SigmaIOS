@@ -18,6 +18,7 @@
 
 @implementation TimelineCell
 
+
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
     if (highlighted) {
         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.1];

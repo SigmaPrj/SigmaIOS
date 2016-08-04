@@ -101,10 +101,8 @@
 //        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:self.data.cellBackgroundImgName]];
         
         
+        
         NSURL* url = [[NSURL alloc] initWithString:self.classdata.bg_image];
-        
-        
-        
         
         _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url]]];
         

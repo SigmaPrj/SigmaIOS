@@ -15,6 +15,10 @@
 #import "SAEInformationTypeRequest.h"
 #import "SAEInformationTypeModel.h"
 #import "SAEInfoNewsRequest.h"
+#import "JCAlertView.h"
+#import "SVProgressHUD.h"
+
+#define COMMUNITY_BOTTOM 64
 
 @interface SAEInfomationViewController () <EInformationTopBarViewDelegate, UITableViewDelegate>
 
@@ -23,6 +27,8 @@
 @property (nonatomic, strong) NSArray *categories;
 @property (nonatomic, strong) NSMutableArray *newsTypeArray;
 @property(nonatomic, strong) NSMutableArray* datas;
+@property (nonatomic, strong) UIView *maskView;
+@property (nonatomic, assign) BOOL firstRequest;
 
 @end
 
@@ -38,6 +44,8 @@
     
     [self initData];
     
+    self.firstRequest = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,8 +59,9 @@
     // 添加通知
     [self addAllNotification];
     
-    // 发送数据
     [self sendRequest];
+    // 开始显示加载动画
+//        [self startLoading];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -74,6 +83,7 @@
     
     [self.view addSubview:self.tableView];
     //[self.view addSubview:self.topbarview];
+    [self.view addSubview:self.maskView];
 }
 
 -(void)initData{
@@ -143,11 +153,16 @@
     
 }
 
+#pragma mark - 添加notinewstype通知
+-(void) addNewsTypeNoti{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_EINFORMATION_NEWSTYPE object:nil];
+}
 
 #pragma mark - 添加通知
 - (void) addAllNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_EINFORMATION_NEWSTYPE object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataSuccessHandler:) name:NOTI_EINFORMATION_NEWSDETAIL object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveDataErrorHandler:) name:REQUEST_DATA_ERROR object:nil];
 }
 
 #pragma mark - 移除通知
@@ -159,7 +174,6 @@
     if ([noti.name isEqualToString:NOTI_EINFORMATION_NEWSTYPE]) {
         if ([noti.userInfo[@"status"] intValue] == 1) {
             // 资讯种类加载成功
-            NSLog(@"newstype success");
             [self setNewsTypeData:noti.userInfo[@"data"]];
             
         }
@@ -171,13 +185,17 @@
             [self.tableView initData:noti.userInfo[@"data"]];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
-                
+//                self.firstRequest = NO;
+                [self deleteMaskView];
             });
             
         }
     }
 }
 
+- (void) receiveDataErrorHandler:notification {
+    [self alert:@"数据加载失败" message:@"网络好像出现了问题，请检查网络后再试！~"];
+}
 
 /**
  *  资讯种类字典转模型
@@ -188,14 +206,10 @@
     for (int i = 0; i < newstypeArray.count; i++) {
         SAEInformationTypeModel *newstypeModel = [SAEInformationTypeModel newsTypeWithDict:newstypeArray[(NSInteger)i]];
         [self.newsTypeArray addObject:newstypeModel.news_name];
-        NSLog(@"%@", newstypeModel.news_name);
     }
-    //[self.topbarview setCategories:self.newsTypeArray];
-    //[self categories];
-   // [self topbarview];
+ 
     [self.view addSubview:self.topbarview];
 
-//    [self.topbarview setCategories:newstypeArray];
 }
 
 
@@ -204,33 +218,50 @@
     NSLog(@"%d",tag);
     if (tag == 1000) {
         [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+        [self startLoading];
         
     }else if (tag == 1001) {
         [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
-      
+        [self startLoading];
         
     }else if (tag == 1002){
         
         [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+        [self startLoading];
        
     }else if(tag == 1003){
         [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+        [self startLoading];
         
     }else if (tag == 1004){
         [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+        [self startLoading];
        
     }else if(tag == 1005){
         
         [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
-       
+        [self startLoading];
+        
     }else if(tag == 1006){
+        
         [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+        [self startLoading];
+        
     }else if(tag == 1007){
+        
         [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+        [self startLoading];
+        
     }else if(tag == 1008){
+        
         [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+        [self startLoading];
+        
     }else if(tag == 1009){
+        
         [SAEInfoNewsRequest requestEInfoNews:(tag - 999)];
+        [self startLoading];
+        
     }
 }
 
@@ -238,12 +269,16 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     SAEinfoDetailViewController* detailvc = [[SAEinfoDetailViewController alloc]init];
+    detailvc.currectIndex = (int)indexPath.row;
+    NSLog(@"%lu", indexPath.row);
+    
     detailvc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detailvc animated:YES];
     
     
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    UILabel* descLabel = [cell.contentView viewWithTag:1000];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    UILabel* descLabel = [cell.contentView viewWithTag:2000];
+    
 }
 
 /**
@@ -258,7 +293,41 @@
     return 120;
 }
 
+- (void)alert:(NSString *)title message:(NSString *)msg {
+    __weak typeof(self) weakSelf = self;
+    [JCAlertView showTwoButtonsWithTitle:title Message:msg ButtonType:JCAlertViewButtonTypeCancel ButtonTitle:@"算了" Click:^{
+        [weakSelf deleteMaskView];
+    } ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"重试" Click:^{
+        [weakSelf sendRequest];
+    }];
+}
+
+- (void)deleteMaskView {
+    [self endLoading];
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:.3 animations:^{
+        weakSelf.maskView.alpha = 0;
+    } completion:^(BOOL finished) {
+        // 删除视图
+        [weakSelf.maskView removeFromSuperview];
+    }];
+}
+
+- (void)startLoading {
+    [SVProgressHUD show];
+}
+
+- (void)endLoading {
+    [SVProgressHUD dismiss];
+}
 
 
+- (UIView *)maskView {
+    if (!_maskView) {
+        _maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (SCREEN_HEIGHT-COMMUNITY_BOTTOM))];
+        _maskView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
+    }
+    return _maskView;
+}
 
 @end
