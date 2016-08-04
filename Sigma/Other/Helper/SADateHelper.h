@@ -23,4 +23,12 @@
  */
 + (NSString *)humanizedDate:(NSTimeInterval)time;
 
+/**
+ * 转化为评论所具有的格式时间
+ *        月-日 时:分
+ * @param time
+ * @return
+ */
++ (NSString *)commentDate:(NSTimeInterval)time;
+
 @end

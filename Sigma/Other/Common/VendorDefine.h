@@ -17,6 +17,7 @@
 
 // SAE
 #define SIGMA_API_DOMAIN @"http://2.sigmainc.applinzi.com/api/"
+#define SIGMA_DOMAIN @"http://2.sigmainc.applinzi.com"
 
 // 七牛
 #define QINIU_ACCESS_KEY @"wz81hSAWUxrGWPQ99vDsBG_mfmEMo8nV4xo2UiML"
@@ -27,5 +28,7 @@
 #define SIGMA_API_VALUE @"d240894ac4eec5947b11a27155ebf7f3"
 #define SIGMA_TOKEN_NAME @"SIGMA-ACCESS-TOKEN"
 
+#define KEY_TOKEN_VALUE @"com.sigma.user.token"
+#define KEY_TOKEN_TIME @"sigma.user.deadline"
 
 #endif /* VendorDefine_h */

@@ -172,6 +172,25 @@
     }
 }
 
+- (void)clearCacheHandler{
+    NSLog(@"%@",[CacheManagement calculateCacheSize]);
+    NSMutableString* cacheSize=[[NSMutableString alloc]initWithString:@"缓存数据有助于再次浏览或离线查看\n缓存大小:"];
+    [cacheSize appendString:[CacheManagement calculateCacheSize]];
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"你确定要清除缓存吗？" message:cacheSize preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* cancleAction=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *cancleAction){
+        NSLog(@"Cancle");
+    }];
+    
+    UIAlertAction* yesAction=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *yesAction){
+        NSLog(@"Yes");
+        [CacheManagement clearCache];
+    }];
+    [alert addAction:cancleAction];
+    [alert addAction:yesAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 #pragma mark- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
@@ -257,7 +276,7 @@
         switch (indexPath.row) {
             case 0:
             {
-
+                
             }
                 break;
             default:
@@ -421,25 +440,6 @@
         [self presentViewController:alert animated:YES completion:nil];
         
     }
-}
-
-- (void)clearCacheHandler{
-    NSLog(@"%@",[CacheManagement calculateCacheSize]);
-    NSMutableString* cacheSize=[[NSMutableString alloc]initWithString:@"缓存数据有助于再次浏览或离线查看\n缓存大小:"];
-    [cacheSize appendString:[CacheManagement calculateCacheSize]];
-    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"你确定要清除缓存吗？" message:cacheSize preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* cancleAction=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *cancleAction){
-        NSLog(@"Cancle");
-    }];
-    
-    UIAlertAction* yesAction=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *yesAction){
-        NSLog(@"Yes");
-        [CacheManagement clearCache];
-    }];
-    [alert addAction:cancleAction];
-    [alert addAction:yesAction];
-    
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

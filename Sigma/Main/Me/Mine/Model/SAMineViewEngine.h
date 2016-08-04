@@ -8,13 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-//@class SACommunityUserModel;
 @class SAUser;
 
 @interface SAMineViewEngine : NSObject
-
-//@property (nonatomic, strong) SACommunityUserModel *userModel;
-
 
 +(instancetype)shareInstance;
 

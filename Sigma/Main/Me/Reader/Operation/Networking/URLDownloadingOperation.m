@@ -27,7 +27,6 @@
 - (void)executeMain {
     __weak typeof(URLDownloadingOperation) *weakSelf = self;
     
-    //配置会话的属性，可以通过该类配置会话的工作模式
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     config.timeoutIntervalForRequest = 3.0;
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config];

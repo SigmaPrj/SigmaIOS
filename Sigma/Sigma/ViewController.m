@@ -2,8 +2,8 @@
 //  ViewController.m
 //  Sigma
 //
-//  Created by Terence on 16/8/1.
-//  Copyright © 2016年 Terence. All rights reserved.
+//  Created by 汤轶侬 on 16/8/4.
+//  Copyright © 2016年 sigma. All rights reserved.
 //
 
 #import "ViewController.h"
