@@ -20,9 +20,9 @@
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
     if (highlighted) {
-        self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.1];
+//        self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.1];
     } else {
-        [super setHighlighted:highlighted animated:animated];
+        [super setHighlighted:highlighted animated:YES];
     }
 }
 

@@ -34,7 +34,7 @@
     self.webView.delegate = self;
     [self.view addSubview:self.webView];
     
-    UIImageView *grayLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo-gray-small"]];
+    UIImageView *grayLogoImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sigma"]];
     grayLogoImageView.frame = CGRectMake((self.view.frame.size.width - 65) / 2.0, 20, 65, 65);
     [self.webView insertSubview:grayLogoImageView atIndex:0];
     

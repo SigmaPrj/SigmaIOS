@@ -42,30 +42,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.section == 0) {
-//        static NSString *TopStoryCellIdentifier = @"TopStoryCell";
-//        
-//        TopStoryCell *cell = [tableView dequeueReusableCellWithIdentifier:TopStoryCellIdentifier];
-//        
-//        if (!cell) {
-//            cell = [[TopStoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TopStoryCellIdentifier];
-//        }
-//        
-//        [cell.pageController setTimeline:(self.timelines).firstObject];
-//        cell.pageControl.numberOfPages = (self.timelines).firstObject.topStories.count;
-//        cell.pageControl.currentPage = 0;
-//        
-//        return cell;
-//    }
-   
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier forIndexPath:indexPath];
     [((TimelineCell *) cell) loadWithStory:[self storyAtIndexPath:indexPath]];
-    
-//    cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifier];
-//    if (!cell) {
-//        cell = [[TimelineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:self.cellIdentifier];
-//    }
     
     return cell;
 }
