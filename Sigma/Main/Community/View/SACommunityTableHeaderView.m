@@ -38,9 +38,6 @@
 
 - (void) render {
     // 设置其他组件
-    /*UIView *loadView = [[UIView alloc] initWithFrame:CGRectMake(0, -40, SCREEN_WIDTH, 40)];
-    loadView.backgroundColor = [UIColor yellowColor];
-    [self addSubview:loadView];*/
     [self addSubview:self.bgImageView];
     [self.bgImageView addSubview:self.avatarImageView];
     [self.bgImageView addSubview:self.approvedImageView];

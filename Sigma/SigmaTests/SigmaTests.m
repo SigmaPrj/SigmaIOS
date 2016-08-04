@@ -2,8 +2,6 @@
 //  SigmaTests.m
 //  SigmaTests
 //
-//  Created by Terence on 16/8/1.
-//  Copyright © 2016年 Terence. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>

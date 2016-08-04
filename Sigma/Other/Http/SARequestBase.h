@@ -5,6 +5,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, SACommunityRequestType) {
+    FIRST_REQUEST=0,
+    LOAD_NEW_REQUEST=1,
+    LOAD_MORE_REQUEST=2
+};
+
 @interface SARequestBase : NSObject
 
 /*!
@@ -36,6 +42,24 @@
                   parameters:(NSDictionary *)dict
                        token:(NSString *)token
                 notification:(NSString *)notificationName;
+
+/*!
+ * 表单格式请求
+ * @param path
+ * @param dict
+ * @param noti
+ * @return
+ */
++ (instancetype)requestFormWithPath:(NSString *)path parameters:(NSDictionary *)dict notification:(NSString *)noti;
+
+/*!
+ * 表单格式请求
+ * @param path
+ * @param dict
+ * @param noti
+ * @return
+ */
+- (instancetype)initFormWithPath:(NSString *)path parameters:(NSDictionary *)dict notification:(NSString *)noti;
 
 /**
  * @param notificationName 这是最后一次可以修改通知名称的地方

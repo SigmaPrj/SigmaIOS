@@ -2,14 +2,14 @@
 //  AppDelegate.m
 //  Sigma
 //
-//  Created by Terence on 16/8/1.
-//  Copyright © 2016年 Terence. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "SAUserDataManager.h"
 #import "SARootViewController.h"
-
 #import "CacheManager.h"
+#import "SAAnimationNavController.h"
+#import "SAHomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,19 +19,47 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window = [[UIWindow alloc] init];
-    
-    self.window.frame = [[UIScreen mainScreen] bounds];
-    
-    SARootViewController *viewController = [[SARootViewController alloc]init];
-    
-    self.window.rootViewController = viewController;
-    
+    /**
+     * 判断用户是否已经登录
+     */
+    NSMutableDictionary* userData = (NSMutableDictionary *)[SAUserDataManager readUserData];
+
+    // 验证有效性
+    if (userData) {
+        if (userData[@"token"] && userData[@"time"]) {
+            NSTimeInterval timeInterval = [userData[@"time"] intValue];
+            NSTimeInterval nowInterval = [NSDate date].timeIntervalSince1970;
+            if (timeInterval > nowInterval) {
+                // 直接进入主页面
+                SARootViewController *rootController = [[SARootViewController alloc] init];
+                self.window.rootViewController = rootController;
+                [self.window makeKeyAndVisible];
+                return YES;
+            }
+        }
+    }
+
+    // 显示home页面,选择注册和登录
+    SAHomeViewController *homeViewController = [[SAHomeViewController alloc] init];
+    SAAnimationNavController *navController = [[SAAnimationNavController alloc] initWithRootViewController:homeViewController];
+
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
-    
-    [self initializeManagedObjectContext];
+
+    return YES;
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+}
 
     return YES;
 }

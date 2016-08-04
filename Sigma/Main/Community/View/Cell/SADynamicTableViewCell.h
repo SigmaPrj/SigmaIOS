@@ -9,9 +9,21 @@
 #import <UIKit/UIKit.h>
 
 @class SADynamicFrameModel;
+@class SADynamicModel;
+@class SADynamicTableViewCell;
+
+@protocol SADynamicTableViewCellDelegate<NSObject>
+
+@required
+- (void)commentBtnDidClicked:(SADynamicTableViewCell *)tableViewCell;
+
+@end
 
 @interface SADynamicTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) SADynamicFrameModel *frameModel;
+@property (nonatomic, weak) id<SADynamicTableViewCellDelegate> delegate;
+
+@property (nonatomic, strong) NSMutableArray<UIImageView *> *imagesViewArray;
 
 @end

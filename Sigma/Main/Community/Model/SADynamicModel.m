@@ -43,6 +43,7 @@
         _publish_date = [SADateHelper humanizedDate:[dict[@"publish_date"] intValue]];
 
         _images = dict[@"images"];
+        _publish_time = [dict[@"publish_date"] intValue];
         _is_approved = [[dict valueForKeyPath:@"user.is_approved"] intValue];
         _user_type = [[dict valueForKeyPath:@"user.user_type"] intValue];
         _has_topic = [dict[@"has_topic"] intValue];

@@ -27,12 +27,22 @@
         // 显示 月 日
         return [NSString stringWithFormat:@"%ld月%ld日", [dateComponents month], [dateComponents day]];
     } else if ([nowComponents day] == [dateComponents day]) {
-        return [NSString stringWithFormat:@"%ld:%ld", [dateComponents hour], [dateComponents minute]];
+        return [NSString stringWithFormat:@"%ld:%ld", (long)[dateComponents hour], (long)[dateComponents minute]];
     } else if ([nowComponents day] == ([dateComponents day]+1)) {
-        return [NSString stringWithFormat:@"昨天 %ld:%ld", [dateComponents hour], [dateComponents minute]];
+        return [NSString stringWithFormat:@"昨天 %ld:%ld", (long)[dateComponents hour], (long)[dateComponents minute]];
     } else {
-        return [NSString stringWithFormat:@"%ld月%ld日", [dateComponents month], [dateComponents day]];
+        return [NSString stringWithFormat:@"%ld月%ld日", (long)[dateComponents month], (long)[dateComponents day]];
     }
+}
+
++ (NSString *)commentDate:(NSTimeInterval)time {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSCalendarUnit unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
+
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
+    NSDateComponents *dateComponents = [calendar components:unitFlags fromDate:date];
+
+    return [NSString stringWithFormat:@"%ld月%ld日 %ld时%ld分", (long)[dateComponents month], (long)[dateComponents day], (long)[dateComponents hour], (long)[dateComponents minute]];
 }
 
 @end
