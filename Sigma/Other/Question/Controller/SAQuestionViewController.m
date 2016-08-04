@@ -9,9 +9,6 @@
 #import "SAQuestionViewController.h"
 #import "SAComposeView.h"
 
-#define MY_MAX 200
-
-
 @interface SAQuestionViewController () <UITextViewDelegate, UINavigationControllerDelegate>
 
 @property(nonatomic, strong) UIBarButtonItem* rightItem;
@@ -122,19 +119,6 @@
         _textView.hidePlaceHolder = NO;
         _rightItem.enabled = NO;
     }
-}
-
-
-#pragma mark - UITextViewDelegate
--(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
-    //判断加上输入的字符，是否超过界限
-    NSString *str = [NSString stringWithFormat:@"%@%@", textView.text, text];
-    if (str.length > MY_MAX)
-    {
-        textView.text = [textView.text substringToIndex:MY_MAX];
-        return NO;
-    }
-    return YES;
 }
 
 -(void)dealloc{

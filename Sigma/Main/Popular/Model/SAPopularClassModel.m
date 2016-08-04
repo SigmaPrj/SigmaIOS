@@ -32,28 +32,25 @@
 //    @property(nonatomic, assign) int is_approved; // 用户是否被验证
 //    @property(nonatomic, copy) NSString* city_name; // 机构所在城市
     
-    self = [super init];
+    _popularclass_id = [dict[@"id"] intValue];
+    _ouserid = [dict[@"ouser_id"] intValue];
+    _title = dict[@"title"];
+    _desc = dict[@"description"];
+    _bg_image = dict[@"image"];
+    _url = dict[@"url"];
+    _category = [dict[@"category"] intValue];
+    _learn = [dict[@"learn"] intValue];
+    _save = [dict[@"save"] intValue];
+    _publish_date = [SADateHelper humanizedDate:[dict[@"publish_date"] intValue]];
+    _last_look_date = [SADateHelper humanizedDate:[dict[@"last_look_date"] intValue]];
     
-    if (self) {
-        _popularclass_id = [dict[@"id"] intValue];
-        _ouserid = [dict[@"ouser_id"] intValue];
-        _title = dict[@"title"];
-        _desc = dict[@"description"];
-        _bg_image = dict[@"image"];
-        _url = dict[@"url"];
-        _category = [dict[@"category"] intValue];
-        _learn = [dict[@"learn"] intValue];
-        _save = [dict[@"save"] intValue];
-        _publish_date = [SADateHelper humanizedDate:[dict[@"publish_date"] intValue]];
-        _last_look_date = [SADateHelper humanizedDate:[dict[@"last_look_date"] intValue]];
-        
-        _ouserid = [[dict valueForKeyPath:@"ouser.id"] intValue];
-        _nickname = [dict valueForKeyPath:@"ouser.nickname"];
-        _avata = [dict valueForKeyPath:@"ouser.image"];
-        _is_approved = [[dict valueForKeyPath:@"ouser.is_approved"] intValue];
-        _city_name = [dict valueForKeyPath:@"ouser.city"];
+    _ouserid = [[dict valueForKeyPath:@"ouser.id"] intValue];
+    _nickname = [dict valueForKeyPath:@"ouser.nickname"];
+    _avata = [dict valueForKeyPath:@"ouser.image"];
+    _is_approved = [[dict valueForKeyPath:@"ouser.is_approved"] intValue];
+    _city_name = [dict valueForKeyPath:@"ouser.city"];
 
-    }
+    
     return self;
 }
 

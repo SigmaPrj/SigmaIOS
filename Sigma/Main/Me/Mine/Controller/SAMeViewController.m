@@ -18,6 +18,7 @@
 #import "SASettingViewController.h"
 
 #import "SAQuesViewController.h"
+#import "TimelineViewController.h"
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
@@ -418,6 +419,11 @@
                 SAQuesViewController *vc=[[SAQuesViewController alloc]init];
                 [vc setHidesBottomBarWhenPushed:YES];
                 [self.navigationController pushViewController:vc animated:YES];
+
+//                TimelineViewController *vc=[[TimelineViewController alloc]init];
+//                [vc setHidesBottomBarWhenPushed:YES];
+//                [self.navigationController pushViewController:vc animated:YES];
+                
             }
                 break;
             case 3:

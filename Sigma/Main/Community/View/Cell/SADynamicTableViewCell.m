@@ -10,6 +10,7 @@
 #import "SADynamicFrameModel.h"
 #import "SADynamicModel.h"
 #import "UIImageView+WebCache.h"
+#import "SAImagesBrowser.h"
 
 #define DYNAMIC_AVATAR_BORDER_WIDTH 1
 #define DYNAMIC_AVATAR_BORDER_COLOR [UIColor colorWithRed:0.60 green:0.60 blue:0.60 alpha:1.00]
@@ -21,7 +22,7 @@
 #define DYNAMIC_CONTENT_COLOR [UIColor colorWithRed:0.11 green:0.11 blue:0.11 alpha:1.00]
 #define DYNAMIC_UNDERLINE_COLOR [UIColor colorWithRed:0.89 green:0.89 blue:0.89 alpha:1.00]
 
-@interface SADynamicTableViewCell()
+@interface SADynamicTableViewCell() <SAImagesBrowserDelegate>
 
 @property (nonatomic, strong) UIImageView *avatarImageView;
 @property (nonatomic, strong) UILabel *nicknameLabel;
@@ -29,7 +30,6 @@
 @property (nonatomic, strong) UILabel *dateLabel;
 @property (nonatomic, strong) UILabel *schoolLabel;
 @property (nonatomic, strong) UILabel *contentLabel;
-@property (nonatomic, strong) NSMutableArray<UIImageView *> *imagesViewArray;
 @property (nonatomic, strong) UIButton *lookBtn;
 @property (nonatomic, strong) UIButton *praiseBtn;
 @property (nonatomic, strong) UIButton *commentBtn;
@@ -62,8 +62,15 @@
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.backgroundColor = DYNAMIC_NOIMPORTANT_COLOR;
         imageView.hidden = YES;
+        imageView.tag = i;
+        imageView.userInteractionEnabled = YES; // 打开交互
         [self.contentView addSubview:imageView];
         [self.imagesViewArray addObject:imageView];
+
+        // 添加点击事件
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClickHandler:)];
+        tapGestureRecognizer.numberOfTapsRequired = 1;
+        [imageView addGestureRecognizer:tapGestureRecognizer];
     }
     [self.contentView addSubview:self.lookBtn];
     [self.contentView addSubview:self.praiseBtn];
@@ -137,6 +144,8 @@
     // 用户被认证, 修改用户的昵称颜色
     if (self.frameModel.isApproved) {
         self.nicknameLabel.textColor = DYNAMIC_NICKNAME_APPROVED_COLOR;
+    } else {
+        self.nicknameLabel.textColor = DYNAMIC_NICKNAME_COLOR;
     }
 
     // 设置日期
@@ -151,9 +160,9 @@
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"#%@#%@", dynamicModel.topic, dynamicModel.content]];
         NSUInteger topicLen = dynamicModel.topic.length+2;
         [attributedString addAttribute:NSForegroundColorAttributeName value:DYNAMIC_TOPIC_COLOR range:NSMakeRange(0, topicLen)];
-        [attributedString addAttribute:NSForegroundColorAttributeName value:DYNAMIC_CONTENT_COLOR range:NSMakeRange((topicLen+1), (attributedString.length-topicLen-1))];
+        [attributedString addAttribute:NSForegroundColorAttributeName value:DYNAMIC_CONTENT_COLOR range:NSMakeRange(topicLen+1, attributedString.length-topicLen-1)];
 
-        self.contentLabel.text = [attributedString string];
+        self.contentLabel.attributedText = attributedString;
     } else {
         // 没评
         self.contentLabel.text = dynamicModel.content;
@@ -221,6 +230,7 @@
     if (!_contentLabel) {
         _contentLabel = [[UILabel alloc] init];
         _contentLabel.font = [UIFont systemFontOfSize:DYNAMIC_CONTENT_FONT_SIZE];
+        _contentLabel.numberOfLines = 0;
     }
     return _contentLabel;
 }
@@ -241,6 +251,8 @@
 - (UIButton *)lookBtn {
     if (!_lookBtn) {
         _lookBtn = [self createButtonWithImage:@"share" activeImage:@"share-active"];
+        _lookBtn.tag = 1;
+        [_lookBtn addTarget:self action:@selector(btnClickHandler:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _lookBtn;
 }
@@ -248,6 +260,8 @@
 - (UIButton *)praiseBtn {
     if (!_praiseBtn) {
         _praiseBtn = [self createButtonWithImage:@"love" activeImage:@"love-active"];
+        _praiseBtn.tag = 2;
+        [_praiseBtn addTarget:self action:@selector(btnClickHandler:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _praiseBtn;
 }
@@ -255,6 +269,8 @@
 - (UIButton *)commentBtn {
     if (!_commentBtn) {
         _commentBtn = [self createButtonWithImage:@"comment" activeImage:@"comment-active"];
+        _commentBtn.tag = 3;
+        [_commentBtn addTarget:self action:@selector(btnClickHandler:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _commentBtn;
 }
@@ -267,6 +283,36 @@
     return _underline;
 }
 
+/*!
+ * 按钮点击事件处理
+ * @param button
+ */
+- (void)btnClickHandler:(UIButton *)button {
+    NSInteger tag = button.tag;
+    switch (tag) {
+        case 1:
+        {
+            // TODO : 分享按钮点击
+        }
+            break;
+        case 2:
+        {
+            // TODO : 赞按钮点击
+        }
+            break;
+        case 3:
+        {
+            // 评论按钮点击
+            if ([self.delegate respondsToSelector:@selector(commentBtnDidClicked:)]) {
+                [self.delegate commentBtnDidClicked:self];
+            }
+        }
+            break;
+        default:
+            break;
+    }
+}
+
 - (UIButton *)createButtonWithImage:(NSString *)image activeImage:(NSString *)activeImage {
     UIButton *btn = [[UIButton alloc] init];
     [btn setBackgroundImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
@@ -276,6 +322,32 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+}
+
+// UITapGestureRecognizer
+/*!
+ * 处理图片点击
+ * @param gestureRecognizer
+ */
+- (void)imageClickHandler:(UITapGestureRecognizer *)gestureRecognizer {
+    SAImagesBrowser *imagesBrowser = [[SAImagesBrowser alloc] init];
+    imagesBrowser.currentImageIndex = (int)gestureRecognizer.view.tag;
+    int num = 0;
+    for (int i = 0; i < self.imagesViewArray.count; ++i) {
+        if (![self.imagesViewArray[(NSUInteger)i] isHidden]) {
+            num++;
+        }
+    }
+    imagesBrowser.imagesCount = num;
+    imagesBrowser.sourceImagesView = self;
+    imagesBrowser.delegate = self;
+    [imagesBrowser show];
+    /*UITableView *tableView = (UITableView *)self.delegate;
+    CGPoint tableViewOffset = tableView.contentOffset;
+    CGRect cellFrame = self.frame;
+    CGRect imageFrame = gestureRecognizer.view.frame;
+    NSLog(@"imageOffsetInScreen : %f", (64 + cellFrame.origin.y + imageFrame.origin.y-tableViewOffset.y));*/
+
 }
 
 @end

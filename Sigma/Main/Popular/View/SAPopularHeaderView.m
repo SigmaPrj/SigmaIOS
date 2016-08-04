@@ -52,7 +52,7 @@
  *  初始化UI
  */
 -(void)initUI{
-//    [self addSubview:self.scrollView];
+    //    [self addSubview:self.scrollView];
     
     [self addSubview:self.btnBarView];
     [self addSubview:self.showView];
@@ -86,7 +86,7 @@
 -(UIView*)questionBtnView{
     if (!_questionBtnView) {
         _questionBtnView = [[UIView alloc] initWithFrame:CGRectMake(QUESTION_BTN_LEFT_OFFSET, 35, 60, 80)];
-//        _questionBtnView.backgroundColor = [UIColor yellowColor];
+        //        _questionBtnView.backgroundColor = [UIColor yellowColor];
         
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, 50, 20)];
         [label setFont:[UIFont systemFontOfSize:12.f]];
@@ -95,7 +95,7 @@
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
         [button setImage:[UIImage imageNamed:@"btn-question.png"] forState:UIControlStateNormal];
-//        button.backgroundColor = [UIColor grayColor];
+        //        button.backgroundColor = [UIColor grayColor];
         [_questionBtnView addSubview:label];
         [_questionBtnView addSubview:button];
     }
@@ -106,7 +106,7 @@
 -(UIView*)classBtnView{
     if (!_classBtnView) {
         _classBtnView = [[UIView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-QUESTION_BTN_LEFT_OFFSET*2-BTN_WIDTH*4)/3+QUESTION_BTN_LEFT_OFFSET+BTN_WIDTH, 35, 60, 80)];
-//        _classBtnView.backgroundColor = [UIColor yellowColor];
+        //        _classBtnView.backgroundColor = [UIColor yellowColor];
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, 50, 20)];
         [label setFont:[UIFont systemFontOfSize:12.f]];
         label.textAlignment = NSTextAlignmentCenter;
@@ -116,7 +116,7 @@
         [button setImage:[UIImage imageNamed:@"btn-course.png"] forState:UIControlStateNormal];
         //添加点击事件
         [button addTarget:self action:@selector(classBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-//        button.backgroundColor = [UIColor grayColor];
+        //        button.backgroundColor = [UIColor grayColor];
         [_classBtnView addSubview:label];
         [_classBtnView addSubview:button];
     }
@@ -136,7 +136,7 @@
 -(UIView*)resourceBtnView{
     if (!_resourceBtnView) {
         _resourceBtnView = [[UIView alloc] initWithFrame:CGRectMake(2*(SCREEN_WIDTH-QUESTION_BTN_LEFT_OFFSET*2-BTN_WIDTH*4)/3+QUESTION_BTN_LEFT_OFFSET+2*BTN_WIDTH, 35, 60, 80)];
-//        _resourceBtnView.backgroundColor = [UIColor yellowColor];
+        //        _resourceBtnView.backgroundColor = [UIColor yellowColor];
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, 50, 20)];
         [label setFont:[UIFont systemFontOfSize:12.f]];
         label.textAlignment = NSTextAlignmentCenter;
@@ -144,7 +144,7 @@
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
         [button setImage:[UIImage imageNamed:@"btn-resource.png"] forState:UIControlStateNormal];
-//        button.backgroundColor = [UIColor grayColor];
+        //        button.backgroundColor = [UIColor grayColor];
         
         [button addTarget:self action:@selector(sourceButtonInHeadViewClicked:) forControlEvents:UIControlEventTouchUpInside ];
         
@@ -165,7 +165,7 @@
 -(UIView*)eventBtnView{
     if (!_eventBtnView) {
         _eventBtnView = [[UIView alloc] initWithFrame:CGRectMake(3*(SCREEN_WIDTH-QUESTION_BTN_LEFT_OFFSET*2-BTN_WIDTH*4)/3+QUESTION_BTN_LEFT_OFFSET+3*BTN_WIDTH, 35, 60, 80)];
-//        _eventBtnView.backgroundColor = [UIColor yellowColor];
+        //        _eventBtnView.backgroundColor = [UIColor yellowColor];
         UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 60, 50, 20)];
         [label setFont:[UIFont systemFontOfSize:12.f]];
         label.textAlignment = NSTextAlignmentCenter;
@@ -173,7 +173,7 @@
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
         [button setImage:[UIImage imageNamed:@"btn-team.png"] forState:UIControlStateNormal];
-//        button.backgroundColor = [UIColor grayColor];
+        //        button.backgroundColor = [UIColor grayColor];
         [_eventBtnView addSubview:label];
         [_eventBtnView addSubview:button];
     }

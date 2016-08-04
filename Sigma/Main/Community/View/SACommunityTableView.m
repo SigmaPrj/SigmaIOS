@@ -8,14 +8,18 @@
 
 #import "SACommunityTableView.h"
 #import "SACommunityUserModel.h"
-#import "SACommunityTableHeaderView.h"
 #import "SADynamicModel.h"
+#import "SACommunityTableHeaderView.h"
+#import "SACommunityTableFooterView.h"
 #import "SADynamicFrameModel.h"
 #import "SADynamicTableViewCell.h"
+#import "SAUserDataManager.h"
 
-@interface SACommunityTableView() <UITableViewDataSource, UITableViewDelegate>
+@interface SACommunityTableView() <UITableViewDataSource, UITableViewDelegate, SADynamicTableViewCellDelegate>
 
 @property (nonatomic, strong) SACommunityTableHeaderView *headerView;
+
+@property (nonatomic, strong) SACommunityTableFooterView *footerView;
 
 @property (nonatomic, strong) NSDictionary* userDict; // 头部用户数据
 
@@ -27,30 +31,76 @@
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     self = [super initWithFrame:frame style:style];
-    
+
     if (self) {
         self.tableHeaderView = self.headerView;
+        self.tableFooterView = self.footerView;
+
+        self.useHeaderLoading = YES;
+        self.useFooterLoading = YES;
+
         self.dataSource = self;
         self.delegate = self;
+
+        [self setHeaderData];
     }
-    
+
     return self;
 }
 
-- (void)setHeaderData:(NSDictionary *)dict {
-    _userDict = dict;
+- (void)setHeaderData {
+    // 读取用户数据
+    _userDict = [SAUserDataManager readUser];
     [self renderHeaderData];
 }
 
 - (void)setDynamicData:(NSArray *)dynamicArray {
-    for (int i = 0; i < dynamicArray.count; ++i) {
-        SADynamicModel *dynamicModel = [SADynamicModel dynamicWithDict:dynamicArray[(NSUInteger)i]];
-        SADynamicFrameModel *frameModel = [[SADynamicFrameModel alloc] init];
-        frameModel.dynamicModel = dynamicModel;
-        [self.dynamicArray addObject:frameModel];
+
+    if (self.dynamicArray.count == 0) {
+        // 添加数据
+        for (int i = 0; i < dynamicArray.count; ++i) {
+            SADynamicModel *dynamicModel = [SADynamicModel dynamicWithDict:dynamicArray[(NSUInteger)i]];
+            SADynamicFrameModel *frameModel = [[SADynamicFrameModel alloc] init];
+            frameModel.dynamicModel = dynamicModel;
+            [self.dynamicArray addObject:frameModel];
+        }
+        SADynamicFrameModel *firstDynamicFrameModel = self.dynamicArray.firstObject;
+        self.time = (NSTimeInterval)firstDynamicFrameModel.dynamicModel.publish_time;
+        [self reloadData];
+        return;
     }
 
-    [self reloadData];
+    NSDictionary *firstNewDynamicModel = dynamicArray.firstObject;
+    NSDictionary *lastNewDynamicModel = dynamicArray.lastObject;
+    SADynamicFrameModel *firstDynamicFrameModel = self.dynamicArray.firstObject;
+
+    if ([firstNewDynamicModel[@"publish_date"] intValue] > firstDynamicFrameModel.dynamicModel.publish_time) {
+        // 上拉刷新数据
+        self.time = (NSTimeInterval)[lastNewDynamicModel[@"publish_date"] intValue];
+        // 添加数据
+        for (int i = 0; i < dynamicArray.count; ++i) {
+            SADynamicModel *dynamicModel = [SADynamicModel dynamicWithDict:dynamicArray[(NSUInteger)i]];
+            SADynamicFrameModel *frameModel = [[SADynamicFrameModel alloc] init];
+            frameModel.dynamicModel = dynamicModel;
+            [self.dynamicArray insertObject:frameModel atIndex:0];
+            [self insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
+        }
+    } else {
+        // 下拉加载
+        self.time = (NSTimeInterval) firstDynamicFrameModel.dynamicModel.publish_time;
+        // 添加数据
+        for (int i = 0; i < dynamicArray.count; ++i) {
+            SADynamicModel *dynamicModel = [SADynamicModel dynamicWithDict:dynamicArray[(NSUInteger) i]];
+            SADynamicFrameModel *frameModel = [[SADynamicFrameModel alloc] init];
+            frameModel.dynamicModel = dynamicModel;
+            [self.dynamicArray addObject:frameModel];
+            [self insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:(self.dynamicArray.count-1) inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
+        }
+    }
+}
+
+- (NSUInteger)count {
+    return self.dynamicArray.count;
 }
 
 // 构造模型，显示数据和布局
@@ -65,12 +115,21 @@
     return _dynamicArray;
 }
 
+// headerView
 - (SACommunityTableHeaderView *)headerView {
     if (!_headerView) {
         _headerView = [[SACommunityTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, COMMUNITY_HEADER_VIEW_HEIGHT)];
     }
     
     return _headerView;
+}
+
+- (SACommunityTableFooterView *)footerView {
+    if (!_footerView) {
+        _footerView = [[SACommunityTableFooterView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_HEIGHT, 0)];
+    }
+
+    return _footerView;
 }
 
 #pragma mark -
@@ -95,12 +154,24 @@
         cell = [[SADynamicTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     cell.frameModel = self.dynamicArray[(NSUInteger)indexPath.row];
+    cell.delegate = self;
 
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+#pragma mark -
+#pragma mark SADynamicTableViewCellDelegate
+- (void)commentBtnDidClicked:(SADynamicTableViewCell *)tableViewCell{
+    int dynamic_id = tableViewCell.frameModel.dynamicModel.dynamic_id;
+    SADynamicModel *dynamicModel = tableViewCell.frameModel.dynamicModel;
+
+    if ([self.ownDelegate respondsToSelector:@selector(commentBtnDidClicked:dynamicModel:)]) {
+        [self.ownDelegate commentBtnDidClicked:dynamic_id dynamicModel:dynamicModel];
+    }
 }
 
 @end

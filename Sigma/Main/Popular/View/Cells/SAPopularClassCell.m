@@ -21,11 +21,14 @@
 @property(nonatomic, strong) UIImageView* avataImage;
 @property(nonatomic, strong) UIView* categoryView;
 @property(nonatomic, strong) UIImageView* cellBackgroundImg;
-@property(nonatomic, strong) UIButton* classVideoBtn;
+@property(nonatomic, strong) UIImageView* quesVoiceImg;
 @property(nonatomic, strong) UILabel* nickNameLabel;
 @property(nonatomic, strong) UILabel* titleLabel;
 @property(nonatomic, strong) UILabel* descLabel;
 @property(nonatomic, strong) UILabel* numberLabel;
+
+// SAPopularModel假数据将被替换
+@property(nonatomic, strong) SAPopularModel* data;
 
 @property(nonatomic, strong) SAPopularClassModel* classdata;
 
@@ -69,7 +72,6 @@
     [self.cellBackgroundImg addSubview:self.descLabel];
     [self.cellBackgroundImg addSubview:self.numberLabel];
     //    [self.cellBackgroundImg addSubview:self.quesVoiceImg];
-    [self.cellBackgroundImg addSubview:self.classVideoBtn];
     return self;
 }
 
@@ -200,13 +202,13 @@
  *
  *  @return <#return value description#>
  */
--(UIButton*)classVideoBtn{
-    if (!_classVideoBtn) {
-        _classVideoBtn = [[UIButton alloc] initWithFrame:CGRectMake((self.cellBackgroundImg.frame.size.width-50)/2, self.descLabel.frame.origin.y-60, 50, 50)];
-        [_classVideoBtn setImage:[UIImage imageNamed:@"btn_play.png"] forState:UIControlStateNormal];
+-(UIImageView*)quesVoiceImg{
+    if (!_quesVoiceImg) {
+        _quesVoiceImg = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 100, 200, 30)];
+        [_quesVoiceImg setImage:[UIImage imageNamed:@"voice.png"]];
     }
     
-    return _classVideoBtn;
+    return _quesVoiceImg;
 }
 
 /**

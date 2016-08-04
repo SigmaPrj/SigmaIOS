@@ -2,8 +2,8 @@
 //  SAPrefix.pch
 //  Sigma
 //
-//  Created by Terence on 16/7/27.
-//  Copyright © 2016年 Terence. All rights reserved.
+//  Created by 汤轶侬 on 16/8/4.
+//  Copyright © 2016年 sigma. All rights reserved.
 //
 
 #ifndef SAPrefix_pch
@@ -14,5 +14,7 @@
 #import "NotificationDefine.h"
 // 定义所有第三方平台或库使用到的参数
 #import "VendorDefine.h"
+// 安全
+#import "SecurityDefine.h"
 
 #endif /* SAPrefix_pch */

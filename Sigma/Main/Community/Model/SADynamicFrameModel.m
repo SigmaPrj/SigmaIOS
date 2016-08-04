@@ -61,7 +61,7 @@
 
     // 显示内容
     NSString *content = dynamicModel.content;
-    CGFloat maxContentWidth = maxNicknameWidth;
+    CGFloat maxContentWidth = SCREEN_WIDTH-2*DYNAMIC_CELL_PADDING;
     _contentFrame = [content boundingRectWithSize:CGSizeMake(maxContentWidth, 0) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:DYNAMIC_CONTENT_FONT_SIZE]} context:nil];
     CGFloat contentX = CGRectGetMinX(_avatarFrame);
     CGFloat contentY = CGRectGetMaxY(_schoolFrame) + 2*DYNAMIC_SMALL_PADDING;
