@@ -247,7 +247,6 @@
 		7B5CB0931D52D74B0057FED6 /* SACustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAEAF1D52D74B0057FED6 /* SACustomTabBar.m */; };
 		7B5CB0941D52D74B0057FED6 /* SAPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAEB11D52D74B0057FED6 /* SAPublishViewController.m */; };
 		7B5CB0951D52D74B0057FED6 /* SARootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAEB31D52D74B0057FED6 /* SARootViewController.m */; };
-		7B5CB0961D52D74B0057FED6 /* SATeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAEB71D52D74B0057FED6 /* SATeamViewController.m */; };
 		7B5CB0971D52D74B0057FED6 /* UIView+SAPublishBtnFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAEBD1D52D74B0057FED6 /* UIView+SAPublishBtnFrame.m */; };
 		7B5CB0981D52D74B0057FED6 /* CLBottomCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAEC11D52D74B0057FED6 /* CLBottomCommentView.m */; };
 		7B5CB0991D52D74B0057FED6 /* CLBottomCommentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5CAEC21D52D74B0057FED6 /* CLBottomCommentView.xib */; };
@@ -452,6 +451,10 @@
 		7B5CB1601D52D74B0057FED6 /* ios7-undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B5CAFAE1D52D74B0057FED6 /* ios7-undo.png */; };
 		7B5CB1631D52D7DD0057FED6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5CB1621D52D7DD0057FED6 /* AVFoundation.framework */; };
 		7B5CB1651D52D7E20057FED6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5CB1641D52D7E20057FED6 /* MediaPlayer.framework */; };
+		9E8E800E05139CD947ABF863 /* SATeamTeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E86AF8D97454491B99DAE /* SATeamTeamView.m */; };
+		9E8E80DBA1F38EE8B1FAAC2D /* SATeamFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E818311877AD4EB83CFA9 /* SATeamFriendView.m */; };
+		9E8E87C8D42C48889A7DA084 /* SATeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8D095E92183586B9F662 /* SATeamViewController.m */; };
+		9E8E8DF57F31EDE825032658 /* SATeamMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E85D7E08BE06578C51026 /* SATeamMessageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -930,8 +933,6 @@
 		7B5CAEB11D52D74B0057FED6 /* SAPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPublishViewController.m; sourceTree = "<group>"; };
 		7B5CAEB21D52D74B0057FED6 /* SARootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SARootViewController.h; sourceTree = "<group>"; };
 		7B5CAEB31D52D74B0057FED6 /* SARootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SARootViewController.m; sourceTree = "<group>"; };
-		7B5CAEB61D52D74B0057FED6 /* SATeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamViewController.h; sourceTree = "<group>"; };
-		7B5CAEB71D52D74B0057FED6 /* SATeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamViewController.m; sourceTree = "<group>"; };
 		7B5CAEBC1D52D74B0057FED6 /* UIView+SAPublishBtnFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SAPublishBtnFrame.h"; sourceTree = "<group>"; };
 		7B5CAEBD1D52D74B0057FED6 /* UIView+SAPublishBtnFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SAPublishBtnFrame.m"; sourceTree = "<group>"; };
 		7B5CAEC01D52D74B0057FED6 /* CLBottomCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLBottomCommentView.h; sourceTree = "<group>"; };
@@ -1154,6 +1155,14 @@
 		7B5CB1611D52D79B0057FED6 /* SAPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPrefix.pch; sourceTree = "<group>"; };
 		7B5CB1621D52D7DD0057FED6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7B5CB1641D52D7E20057FED6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		9E8E80F967FED789EAC449CB /* SATeamMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamMessageView.h; sourceTree = "<group>"; };
+		9E8E8169B02AA19AE56640F1 /* SATeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamViewController.h; sourceTree = "<group>"; };
+		9E8E818311877AD4EB83CFA9 /* SATeamFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamFriendView.m; sourceTree = "<group>"; };
+		9E8E82450B6D093A95185B5E /* SATeamFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamFriendView.h; sourceTree = "<group>"; };
+		9E8E85D7E08BE06578C51026 /* SATeamMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamMessageView.m; sourceTree = "<group>"; };
+		9E8E86AF8D97454491B99DAE /* SATeamTeamView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamTeamView.m; sourceTree = "<group>"; };
+		9E8E8C3ED9149EF051CBD481 /* SATeamTeamView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamTeamView.h; sourceTree = "<group>"; };
+		9E8E8D095E92183586B9F662 /* SATeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1902,6 +1911,7 @@
 				7B5CAE201D52D74B0057FED6 /* Model */,
 				7B5CAE351D52D74B0057FED6 /* Source */,
 				7B5CAE431D52D74B0057FED6 /* View */,
+				9E8E8AD2179152F79E026E35 /* Team */,
 			);
 			path = Popular;
 			sourceTree = "<group>";
@@ -2427,42 +2437,8 @@
 				7B5CAEB11D52D74B0057FED6 /* SAPublishViewController.m */,
 				7B5CAEB21D52D74B0057FED6 /* SARootViewController.h */,
 				7B5CAEB31D52D74B0057FED6 /* SARootViewController.m */,
-				7B5CAEB41D52D74B0057FED6 /* Team */,
 			);
 			path = TabBar;
-			sourceTree = "<group>";
-		};
-		7B5CAEB41D52D74B0057FED6 /* Team */ = {
-			isa = PBXGroup;
-			children = (
-				7B5CAEB51D52D74B0057FED6 /* Controller */,
-				7B5CAEB81D52D74B0057FED6 /* Model */,
-				7B5CAEB91D52D74B0057FED6 /* View */,
-			);
-			path = Team;
-			sourceTree = "<group>";
-		};
-		7B5CAEB51D52D74B0057FED6 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				7B5CAEB61D52D74B0057FED6 /* SATeamViewController.h */,
-				7B5CAEB71D52D74B0057FED6 /* SATeamViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		7B5CAEB81D52D74B0057FED6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		7B5CAEB91D52D74B0057FED6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		7B5CAEBA1D52D74B0057FED6 /* View */ = {
@@ -2890,6 +2866,37 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		9E8E85C096471BEB72D89D89 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E80F967FED789EAC449CB /* SATeamMessageView.h */,
+				9E8E85D7E08BE06578C51026 /* SATeamMessageView.m */,
+				9E8E82450B6D093A95185B5E /* SATeamFriendView.h */,
+				9E8E818311877AD4EB83CFA9 /* SATeamFriendView.m */,
+				9E8E8C3ED9149EF051CBD481 /* SATeamTeamView.h */,
+				9E8E86AF8D97454491B99DAE /* SATeamTeamView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9E8E8AD2179152F79E026E35 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8FBF503D2350A18485DB /* Controller */,
+				9E8E85C096471BEB72D89D89 /* View */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		9E8E8FBF503D2350A18485DB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8169B02AA19AE56640F1 /* SATeamViewController.h */,
+				9E8E8D095E92183586B9F662 /* SATeamViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3213,7 +3220,6 @@
 				7B5CB0481D52D74B0057FED6 /* CourseEngine.m in Sources */,
 				7B5CAC721D52D6BC0057FED6 /* ViewController.m in Sources */,
 				7B5CB05B1D52D74B0057FED6 /* SAPopularModel.m in Sources */,
-				7B5CB0961D52D74B0057FED6 /* SATeamViewController.m in Sources */,
 				7B5CB0361D52D74B0057FED6 /* ContentOfSourceViewController.m in Sources */,
 				7B5CB0811D52D74B0057FED6 /* SAViewController.m in Sources */,
 				7B5CB0871D52D74B0057FED6 /* SADateHelper.m in Sources */,
@@ -3400,6 +3406,10 @@
 				7B5CB01C1D52D74B0057FED6 /* OperationQueue.m in Sources */,
 				7B5CAFC51D52D74B0057FED6 /* MASViewAttribute.m in Sources */,
 				7B5CAFE31D52D74B0057FED6 /* SDWebImageCompat.m in Sources */,
+				9E8E87C8D42C48889A7DA084 /* SATeamViewController.m in Sources */,
+				9E8E8DF57F31EDE825032658 /* SATeamMessageView.m in Sources */,
+				9E8E80DBA1F38EE8B1FAAC2D /* SATeamFriendView.m in Sources */,
+				9E8E800E05139CD947ABF863 /* SATeamTeamView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

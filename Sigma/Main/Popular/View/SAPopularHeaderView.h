@@ -16,6 +16,8 @@
 
 -(void)popularQuestionBtnClicked;
 
+-(void)teamButtonClicked:(UIButton *)btn;
+
 @end
 
 @interface SAPopularHeaderView : UIView

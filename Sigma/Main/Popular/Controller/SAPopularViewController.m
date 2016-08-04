@@ -23,6 +23,9 @@
 #import "SAPopularClassModel.h"
 #import "SAPopularResourceModel.h"
 #import "TimelineViewController.h"
+#import "SAAnimationNavController.h"
+#import "SATeamViewController.h"
+#import "SAAnimationButton.h"
 
 #define HEADER_OF_SECTION_X 0
 #define HEADER_OF_SECTION_Y 0
@@ -635,6 +638,11 @@
     TimelineViewController* vc = [[TimelineViewController alloc] init];
     [self.navigationController pushViewController:vc animated:YES];
     self.hidesBottomBarWhenPushed = NO;
+}
+
+-(void)teamButtonClicked:(UIButton *)btn {
+    SATeamViewController *teamViewController = [[SATeamViewController alloc] init];
+    [self.navigationController pushViewController:teamViewController animated:YES];
 }
 
 @end

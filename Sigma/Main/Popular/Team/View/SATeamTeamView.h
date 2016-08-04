@@ -1,5 +1,5 @@
 //
-//  SATeamViewController.h
+//  SATeamTeamView.h
 //  Sigma
 //
 //  Created by 汤轶侬 on 16/8/4.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SATeamViewController : UIViewController
+@interface SATeamTeamView : UIView
 
 @end

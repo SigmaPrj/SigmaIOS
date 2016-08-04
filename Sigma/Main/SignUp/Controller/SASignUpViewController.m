@@ -27,7 +27,6 @@ static NSString * const reuseIdentifier = @"SignUpCollectionCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 
     self.navigationController.navigationBarHidden = NO;
 
@@ -46,7 +45,7 @@ static NSString * const reuseIdentifier = @"SignUpCollectionCell";
 -(void) setupTitle {
     UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:@[@"电话",@"邮箱", @"其他"]];
     //设置宽度
-    segment.width = 120;
+    segment.width = 180;
     //设置选中和普通状态 文字颜色为白色
     [segment setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor colorWithRed:0.44 green:0.42 blue:0.41 alpha:0.5]} forState:UIControlStateNormal];
     [segment setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor whiteColor]} forState:UIControlStateSelected];

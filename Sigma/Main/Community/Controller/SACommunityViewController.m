@@ -107,6 +107,8 @@
     // 请求dynamic数据
     NSString *token = [SAUserDataManager readToken];
 
+    NSLog(@"token : %@", token);
+
     [SACommunityRequest requestDynamics:@{@"t": @(662605661)} user_id:28 token:token];
 }
 
