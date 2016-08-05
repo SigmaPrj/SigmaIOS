@@ -170,6 +170,9 @@
         _delBtn.backgroundColor = [UIColor colorWithRed:0.99 green:0.24 blue:0.22 alpha:1.00];
         [_delBtn setTitle:@"删除" forState:UIControlStateNormal];
         [_delBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+        _delBtn.tag = 1;
+        [_delBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _delBtn;
 }
@@ -180,6 +183,9 @@
         _topBtn.backgroundColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.80 alpha:1.00];
         [_topBtn setTitle:@"置顶" forState:UIControlStateNormal];
         [_topBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+
+        _topBtn.tag = 2;
+        [_topBtn addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _topBtn;
 }
@@ -199,10 +205,45 @@
     [self setupData];
 }
 
+- (void)btnClicked:(UIButton *)btn {
+    switch (btn.tag) {
+        case 1:
+        {
+            // 删除
+            if ([self.delegate respondsToSelector:@selector(delBtnDidClicked:)]) {
+                [self.delegate delBtnDidClicked:self];
+            }
+        }
+            break;
+        case 2:
+        {
+            // 置顶
+            if ([self.delegate respondsToSelector:@selector(topBtnDidClicked:)]) {
+                [self.delegate topBtnDidClicked:self];
+            }
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)resetOffset {
+    [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+}
+
 #pragma mark -
 #pragma mark UIScrollViewDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    // TODO : 代理事件
+    if ([self.delegate respondsToSelector:@selector(cellWillSwipe:)]) {
+        [self.delegate cellWillSwipe:self];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if ([self.delegate respondsToSelector:@selector(cellDidSwipe:)]) {
+        [self.delegate cellDidSwipe:self];
+    }
 }
 
 

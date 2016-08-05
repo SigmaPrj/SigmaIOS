@@ -16,7 +16,7 @@
 
 #define CELL_HEIGHT 75
 
-@interface SATeamMessageView() <UITableViewDelegate, UITableViewDataSource>
+@interface SATeamMessageView() <UITableViewDelegate, UITableViewDataSource, SAMessageCellDelegate>
 
 @property (nonatomic, strong) NSMutableArray *messages;
 @property (nonatomic, strong) SAMessageCell *lastSwipeCell;
@@ -128,12 +128,22 @@
     }
 
     cell.frameModel = self.messages[(NSUInteger)indexPath.row];
+    cell.delegate = self;
 
     return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+}
+
+#pragma mark -
+#pragma mark SAMessageCellDelegate
+- (void)cellWillSwipe:(SAMessageCell *)cell {
+    if (self.lastSwipeCell) {
+        [self.lastSwipeCell resetOffset];
+    }
+    self.lastSwipeCell = cell;
 }
 
 - (void)dealloc {
