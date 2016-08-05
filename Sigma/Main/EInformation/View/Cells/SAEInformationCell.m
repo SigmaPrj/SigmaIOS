@@ -9,6 +9,8 @@
 #import "SAEInformationCell.h"
 #import "SAEInformationModel.h"
 #import "TextEnhance.h"
+#import "SAEInfoDetailModel.h"
+#import "UIImageView+WebCache.h"
 
 @interface SAEInformationCell ()
 
@@ -17,6 +19,9 @@
 @property(nonatomic, strong)UILabel* numberLabel;
 @property(nonatomic, strong)SAEInformationModel* data;
 @property(nonatomic, strong)UIView* lineView;
+
+
+@property(nonatomic, strong)SAEInfoDetailModel* detailModel;
 
 @end
 
@@ -50,6 +55,10 @@
     _data = data;
 }
 
+-(void)setDetailModel:(SAEInfoDetailModel *)data{
+    _detailModel = data;
+}
+
 /**
  *  初始化UI
  *
@@ -72,12 +81,14 @@
     if (!_mainImgView) {
         _mainImgView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 15, 90, 90)];
         
+        NSURL *url = [[NSURL alloc] initWithString:self.detailModel.news_img];
+        [_mainImgView sd_setImageWithURL:url];
         
         // 动态加载图片
-        [_mainImgView setImage:[UIImage imageNamed:self.data.mainImgName]];
+//        [_mainImgView setImage:[UIImage imageNamed:self.data.mainImgName]];
         
 //        [_mainImgView setImage:[UIImage imageNamed:@"competition1.png"]];
-        _mainImgView.backgroundColor = [UIColor blueColor];
+        _mainImgView.backgroundColor = [UIColor lightGrayColor];
         
     }
     return _mainImgView;
@@ -93,13 +104,16 @@
         _descLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.mainImgView.frame.size.width+35, 15, 240, 60)];
         [_descLabel setFont:[UIFont systemFontOfSize:14.f]];
 //        _descLabel.text = @"第八届全国大学生数学竞赛";
-        _descLabel.text = self.data.desc;
+        
+//        _descLabel.text = self.data.desc;
+        _descLabel.text = self.detailModel.news_title;
+        
         _descLabel.textAlignment = NSTextAlignmentLeft;
         //自动折行设置
         _descLabel.lineBreakMode = NSLineBreakByWordWrapping;
 //        _descLabel.lineBreakMode = NSLineBreakByClipping;
 //        _descLabel.lineBreakMode = UILineBreakModeWordWrap;
-        _descLabel.tag = 1000;
+        _descLabel.tag = 2000;
         
         _descLabel.numberOfLines = 0;
         
@@ -114,7 +128,10 @@
     if (!_numberLabel) {
         _numberLabel = [[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-20-100, 88, 100, 20)];
 //        _numberLabel.backgroundColor = [UIColor redColor];
-        _numberLabel.text = [NSString stringWithFormat:@"%d浏览",self.data.number];
+        
+//        _numberLabel.text = [NSString stringWithFormat:@"%d浏览",self.data.number];
+        _numberLabel.text = [NSString stringWithFormat:@"%d浏览",self.detailModel.news_look_number];
+        
 //        _numberLabel.text = [NSString stringWithFormat:@"%d浏览",10];
         _numberLabel.textColor = [UIColor colorWithRed:0.572  green:0.573  blue:0.572 alpha:1];
         _numberLabel.textAlignment = NSTextAlignmentCenter;

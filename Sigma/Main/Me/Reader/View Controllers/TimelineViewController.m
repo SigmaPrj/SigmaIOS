@@ -69,7 +69,11 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+<<<<<<< HEAD
     [self setHidesBottomBarWhenPushed:YES];
+=======
+    self.hidesBottomBarWhenPushed = YES;
+>>>>>>> terence
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -100,7 +104,11 @@
     ReaderViewController *readerVC = [[ReaderViewController alloc] init];
     readerVC.story = (aNotification.userInfo)[kStoryUserInfoKey];
     
+<<<<<<< HEAD
     [readerVC setHidesBottomBarWhenPushed:YES];
+=======
+    readerVC.hidesBottomBarWhenPushed = YES;
+>>>>>>> terence
     [self showViewController:readerVC sender:self];
 }
 

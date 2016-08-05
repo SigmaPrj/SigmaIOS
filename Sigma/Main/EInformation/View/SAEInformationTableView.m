@@ -11,9 +11,10 @@
 #import "SAEInformationModel.h"
 #import "EInformationTopBarView.h"
 #import "SAEinfoDetailViewController.h"
+#import "SAEInfoDetailModel.h"
 
 
-@interface SAEInformationTableView () <UITableViewDelegate, UITableViewDataSource>
+@interface SAEInformationTableView () <UITableViewDelegate>
 
 @property(nonatomic, strong) NSMutableArray* datas;
 
@@ -33,7 +34,7 @@
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
         
-        self.dataSource = self;
+//        self.dataSource = self;
 
         
         // 不要cell间的分割线
@@ -43,78 +44,98 @@
     return self;
 }
 
--(NSMutableArray*)datas{
-    if (!_datas) {
-        _datas = [NSMutableArray array];
-//        _datas = self.data;
-    }
-    
-    return _datas;
-}
-
-
-/**
- *  初始化数据
- *
- *  @param dictArray <#dictArray description#>
- */
--(void)initData:(NSArray*)dictArray{
-    
-
-    NSMutableArray* modelArray = [[NSMutableArray alloc]init];
-    
-    for (int i = 0; i < dictArray.count; i++) {
-        SAEInformationModel* saModel = [[SAEInformationModel alloc]initWithDict:dictArray[i]];
-        [modelArray addObject:saModel];
-    }
-    [self.datas removeAllObjects];
-    
-    [self.datas addObjectsFromArray:@[modelArray]];
-    
-
-}
-
-
-
-#pragma mark - 
-#pragma mark UITableViewDataSource
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.datas[(NSInteger)section] count];
+//-(NSMutableArray*)datas{
+//    if (!_datas) {
+//        _datas = [NSMutableArray array];
+////        _datas = self.data;
+//    }
+//    
+//    return _datas;
+//}
+//
+//
+///**
+// *  初始化数据
+// *
+// *  @param dictArray <#dictArray description#>
+// */
+////-(void)initData:(NSArray*)dictArray{
+////    
+////
+////    NSMutableArray* modelArray = [[NSMutableArray alloc]init];
+////    
+////    for (int i = 0; i < dictArray.count; i++) {
+////        SAEInformationModel* saModel = [[SAEInformationModel alloc]initWithDict:dictArray[i]];
+////        [modelArray addObject:saModel];
+////    }
+////    [self.datas removeAllObjects];
+////    
+////    [self.datas addObjectsFromArray:@[modelArray]];
+////    
+////
+////}
+//
+//-(void)initData:(NSArray*)dictArray{
+//    
+//    
+//    NSMutableArray* modelArray = [[NSMutableArray alloc]init];
+//    
+//    for (int i = 0; i < dictArray.count; i++) {
+//        SAEInfoDetailModel * saModel = [[SAEInfoDetailModel alloc]initWithDict:dictArray[(NSInteger)i]];
+//        [modelArray addObject:saModel];
+//    }
+//    [self.datas removeAllObjects];
+//    
+//    [self.datas addObjectsFromArray:@[modelArray]];
+//    
+//    
+//}
+//
+//
+//
+//#pragma mark - 
+//#pragma mark UITableViewDataSource
+//
+//-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+//    return [self.datas[(NSInteger)section] count];
+////    return 1;
+//}
+//
+//-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    NSString *cellIdentifier = @"Cell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+//    
+//    NSInteger section = indexPath.section;
+//    NSInteger index = indexPath.row;
+//    
+////    SAEInformationModel* cdata = (SAEInformationModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
+//    
+//    SAEInfoDetailModel* model = (SAEInfoDetailModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger) index];
+//    
+//    SAEInformationCell *infocell = [[SAEInformationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+//    
+////    [infocell setData:cdata];
+//    
+//    [infocell setDetailModel:model];
+//    cell = [infocell initUI];
+//    
+//    
+//    return cell;
+//}
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return self.datas.count;
+//}
+//
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
 //    return 1;
-}
-
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    NSInteger section = indexPath.section;
-    NSInteger index = indexPath.row;
-    
-    SAEInformationModel* cdata = (SAEInformationModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
-    
-    SAEInformationCell *infocell = [[SAEInformationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-    
-    [infocell setData:cdata];
-    cell = [infocell initUI];
-    
-    
-    return cell;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.datas.count;
-}
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 1;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    return [[UIView alloc] initWithFrame:CGRectZero];
-}
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+//    return [[UIView alloc] initWithFrame:CGRectZero];
+//}
 
 
 
