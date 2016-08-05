@@ -25,7 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setLeftNavigationItemWithTitle:nil imageName:@"back.png"];
+
     self.navigationItem.title = @"文章正文";
     
     self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];

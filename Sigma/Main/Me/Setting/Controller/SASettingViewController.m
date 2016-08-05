@@ -44,7 +44,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self setLeftNavigationItemWithTitle:nil imageName:@"back.png"];
+    
     self.dataArray1 = [[SASettingViewEngine shareInstance] dataSection1];
     self.dataArray2 = [[SASettingViewEngine shareInstance] dataSection2];
     self.dataArray3 = [[SASettingViewEngine shareInstance] dataSection3];

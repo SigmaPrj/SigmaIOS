@@ -29,7 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setLeftNavigationItemWithTitle:nil imageName:@"back.png"];
+
     self.navigationItem.title = @"热门问答";
 
     self.automaticallyAdjustsScrollViewInsets = NO;

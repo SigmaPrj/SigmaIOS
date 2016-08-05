@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SAViewController.h"
 
-@interface SAMyDetailQuestionViewController : UIViewController
+@interface SAMyDetailQuestionViewController : SAViewController
 
 @end
