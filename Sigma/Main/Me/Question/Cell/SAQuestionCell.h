@@ -17,4 +17,6 @@
 
 -(instancetype)initWithTitle:(NSString*)title andDetail:(NSString*)detail andHeadImageName:(NSString*)headName andPopularity:(NSString*)popularity;
 
+-(instancetype)initWithTitle:(NSString*)title andDetail:(NSString*)detail;
+
 @end

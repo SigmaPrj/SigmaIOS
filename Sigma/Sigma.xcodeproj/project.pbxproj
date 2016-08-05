@@ -447,6 +447,11 @@
 		7B5CB1601D52D74B0057FED6 /* ios7-undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B5CAFAE1D52D74B0057FED6 /* ios7-undo.png */; };
 		7B5CB1631D52D7DD0057FED6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5CB1621D52D7DD0057FED6 /* AVFoundation.framework */; };
 		7B5CB1651D52D7E20057FED6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5CB1641D52D7E20057FED6 /* MediaPlayer.framework */; };
+		D00A82941D543D9D009E345E /* SAMyDetailQuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = D00A82891D543D9D009E345E /* SAMyDetailQuestionData.m */; };
+		D00A82951D543D9D009E345E /* SAMyDetailQuestionEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = D00A828B1D543D9D009E345E /* SAMyDetailQuestionEngine.m */; };
+		D00A82961D543D9D009E345E /* SAMyDetailQuestionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D00A828D1D543D9D009E345E /* SAMyDetailQuestionTableViewCell.m */; };
+		D00A82971D543D9D009E345E /* SAMyDetailQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00A82901D543D9D009E345E /* SAMyDetailQuestionViewController.m */; };
+		D00A82981D543D9D009E345E /* SAMyDetailQuestionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D00A82931D543D9D009E345E /* SAMyDetailQuestionHeadView.m */; };
 		D042AEB91D52EABD00B20F4C /* SASettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D042AEAB1D52EABD00B20F4C /* SASettingCell.m */; };
 		D042AEBA1D52EABD00B20F4C /* SASettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D042AEAD1D52EABD00B20F4C /* SASettingTableViewCell.m */; };
 		D042AEBB1D52EABD00B20F4C /* SASettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D042AEB01D52EABD00B20F4C /* SASettingViewController.m */; };
@@ -1145,6 +1150,16 @@
 		7B5CB1611D52D79B0057FED6 /* SAPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPrefix.pch; sourceTree = "<group>"; };
 		7B5CB1621D52D7DD0057FED6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7B5CB1641D52D7E20057FED6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		D00A82881D543D9D009E345E /* SAMyDetailQuestionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMyDetailQuestionData.h; sourceTree = "<group>"; };
+		D00A82891D543D9D009E345E /* SAMyDetailQuestionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMyDetailQuestionData.m; sourceTree = "<group>"; };
+		D00A828A1D543D9D009E345E /* SAMyDetailQuestionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMyDetailQuestionEngine.h; sourceTree = "<group>"; };
+		D00A828B1D543D9D009E345E /* SAMyDetailQuestionEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMyDetailQuestionEngine.m; sourceTree = "<group>"; };
+		D00A828C1D543D9D009E345E /* SAMyDetailQuestionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMyDetailQuestionTableViewCell.h; sourceTree = "<group>"; };
+		D00A828D1D543D9D009E345E /* SAMyDetailQuestionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMyDetailQuestionTableViewCell.m; sourceTree = "<group>"; };
+		D00A828F1D543D9D009E345E /* SAMyDetailQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMyDetailQuestionViewController.h; sourceTree = "<group>"; };
+		D00A82901D543D9D009E345E /* SAMyDetailQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMyDetailQuestionViewController.m; sourceTree = "<group>"; };
+		D00A82921D543D9D009E345E /* SAMyDetailQuestionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMyDetailQuestionHeadView.h; sourceTree = "<group>"; };
+		D00A82931D543D9D009E345E /* SAMyDetailQuestionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMyDetailQuestionHeadView.m; sourceTree = "<group>"; };
 		D042AEAA1D52EABD00B20F4C /* SASettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingCell.h; sourceTree = "<group>"; };
 		D042AEAB1D52EABD00B20F4C /* SASettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASettingCell.m; sourceTree = "<group>"; };
 		D042AEAC1D52EABD00B20F4C /* SASettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASettingTableViewCell.h; sourceTree = "<group>"; };
@@ -1666,6 +1681,7 @@
 		7B5CAD761D52D74A0057FED6 /* Question */ = {
 			isa = PBXGroup;
 			children = (
+				D00A82861D543D9D009E345E /* DetailQuestion */,
 				7B5CAD771D52D74A0057FED6 /* Cell */,
 				7B5CAD7C1D52D74A0057FED6 /* Controller */,
 				7B5CAD7F1D52D74A0057FED6 /* Model */,
@@ -2844,6 +2860,47 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		D00A82861D543D9D009E345E /* DetailQuestion */ = {
+			isa = PBXGroup;
+			children = (
+				D00A82871D543D9D009E345E /* Model */,
+				D00A828E1D543D9D009E345E /* View Controllers */,
+				D00A82911D543D9D009E345E /* Views */,
+			);
+			path = DetailQuestion;
+			sourceTree = "<group>";
+		};
+		D00A82871D543D9D009E345E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D00A82881D543D9D009E345E /* SAMyDetailQuestionData.h */,
+				D00A82891D543D9D009E345E /* SAMyDetailQuestionData.m */,
+				D00A828A1D543D9D009E345E /* SAMyDetailQuestionEngine.h */,
+				D00A828B1D543D9D009E345E /* SAMyDetailQuestionEngine.m */,
+				D00A828C1D543D9D009E345E /* SAMyDetailQuestionTableViewCell.h */,
+				D00A828D1D543D9D009E345E /* SAMyDetailQuestionTableViewCell.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D00A828E1D543D9D009E345E /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D00A828F1D543D9D009E345E /* SAMyDetailQuestionViewController.h */,
+				D00A82901D543D9D009E345E /* SAMyDetailQuestionViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D00A82911D543D9D009E345E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D00A82921D543D9D009E345E /* SAMyDetailQuestionHeadView.h */,
+				D00A82931D543D9D009E345E /* SAMyDetailQuestionHeadView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		D042AEA81D52EABD00B20F4C /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -3191,6 +3248,7 @@
 				7B5CB0931D52D74B0057FED6 /* SACustomTabBar.m in Sources */,
 				7B5CAFC71D52D74B0057FED6 /* NSArray+MASAdditions.m in Sources */,
 				7B5CB03D1D52D74B0057FED6 /* SourceSubViewController.m in Sources */,
+				D00A82971D543D9D009E345E /* SAMyDetailQuestionViewController.m in Sources */,
 				7B5CB0971D52D74B0057FED6 /* UIView+SAPublishBtnFrame.m in Sources */,
 				7B5CAFAF1D52D74B0057FED6 /* AFAutoPurgingImageCache.m in Sources */,
 				7B5CB0031D52D74B0057FED6 /* SAEInfoEngineInterface.m in Sources */,
@@ -3282,6 +3340,7 @@
 				7B5CAFE61D52D74B0057FED6 /* SDWebImageDownloaderOperation.m in Sources */,
 				7B5CAFFB1D52D74B0057FED6 /* SADynamicTableViewCell.m in Sources */,
 				7B5CB0171D52D74B0057FED6 /* Story.m in Sources */,
+				D00A82951D543D9D009E345E /* SAMyDetailQuestionEngine.m in Sources */,
 				7B5CB0791D52D74B0057FED6 /* SASignUpViewController.m in Sources */,
 				7B5CB0011D52D74B0057FED6 /* SAEInfomationViewController.m in Sources */,
 				7B5CB0841D52D74B0057FED6 /* SAComposePhotosView.m in Sources */,
@@ -3354,6 +3413,7 @@
 				7B5CB0721D52D74B0057FED6 /* SAPopularShowView.m in Sources */,
 				7B5CB0781D52D74B0057FED6 /* SASignInRequest.m in Sources */,
 				7B5CB0341D52D74B0057FED6 /* SAPopularViewController.m in Sources */,
+				D00A82961D543D9D009E345E /* SAMyDetailQuestionTableViewCell.m in Sources */,
 				7B5CAFDE1D52D74B0057FED6 /* POPVector.mm in Sources */,
 				7B5CB0601D52D74B0057FED6 /* SourceInfo.m in Sources */,
 				7B5CB0581D52D74B0057FED6 /* ContentOfSourceCellDataModel.m in Sources */,
@@ -3386,6 +3446,7 @@
 				7B5CB07E1D52D74B0057FED6 /* SACircleAnimationView.m in Sources */,
 				7B5CAFFF1D52D74B0057FED6 /* SADynamicDetailView.m in Sources */,
 				7B5CAFDF1D52D74B0057FED6 /* TransformationMatrix.cpp in Sources */,
+				D00A82941D543D9D009E345E /* SAMyDetailQuestionData.m in Sources */,
 				7B5CAC781D52D6BC0057FED6 /* Sigma.xcdatamodeld in Sources */,
 				7B5CB0761D52D74B0057FED6 /* SAHomeViewController.m in Sources */,
 				7B5CB0571D52D74B0057FED6 /* CategoryInfo.m in Sources */,
@@ -3394,6 +3455,7 @@
 				7B5CAFD21D52D74B0057FED6 /* POPAnimationRuntime.mm in Sources */,
 				7B5CB0561D52D74B0057FED6 /* SAPopularRequest.m in Sources */,
 				7B5CB0B31D52D74B0057FED6 /* SAPublishViewButton.m in Sources */,
+				D00A82981D543D9D009E345E /* SAMyDetailQuestionHeadView.m in Sources */,
 				7B5CAFD91D52D74B0057FED6 /* POPGeometry.mm in Sources */,
 				7B5CB0391D52D74B0057FED6 /* ContentOfSourceCell.m in Sources */,
 				D042AEBB1D52EABD00B20F4C /* SASettingViewController.m in Sources */,

@@ -43,8 +43,8 @@
 }
 
 -(void)questionInitDataSection:(NSDictionary*)list{
-    [_dataArray addObject:[[SAQuestionCell alloc]initWithTitle:@"hhhhhhhhhhhhhhh？" andDetail:@"[一万小时定律]并非适合所有领域，即使有很强意志力，也很难在3到4个领域成为世界顶级。问题回答完毕，以下是解释。[一万小时定律]怎么回事：首先需要说明的是，这个10000不是确数，不是说你得不多不少正好10000小时。大约可以理解成平均需要10000小时。" andHeadImageName:@"Head_Img_Of_HeaderView" andPopularity:@"1000"]];
-    [_dataArray addObject:[[SAQuestionCell alloc]initWithTitle:@"[二万小时定律]真的适合所有领域吗？" andDetail:@"[二万小时定律]并非适合所有领域，即使有很强意志力，也很难在3到4个领域成为世界顶级。问题回答完毕，以下是解释。[一万小时定律]怎么回事：首先需要说明的是，这个10000不是确数，不是说你得不多不少正好10000小时。大约可以理解成平均需要10000小时。" andHeadImageName:@"Head_Img_Of_HeaderView" andPopularity:@"222"]];
+    [_dataArray addObject:[[SAQuestionCell alloc]initWithTitle:@"hhhhhhhhhhhhhhh？" andDetail:@"[一万小时定律]并非适合所有领域，即使有很强意志力，也很难在3到4个领域成为世界顶级。问题回答完毕，以下是解释。[一万小时定律]怎么回事：首先需要说明的是，这个10000不是确数，不是说你得不多不少正好10000小时。大约可以理解成平均需要10000小时。"]];
+    [_dataArray addObject:[[SAQuestionCell alloc]initWithTitle:@"[二万小时定律]真的适合所有领域吗？" andDetail:@"[二万小时定律]并非适合所有领域，即使有很强意志力，也很难在3到4个领域成为世界顶级。问题回答完毕，以下是解释。[一万小时定律]怎么回事：首先需要说明的是，这个10000不是确数，不是说你得不多不少正好10000小时。大约可以理解成平均需要10000小时。"]];
     
 }
 
