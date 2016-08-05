@@ -43,7 +43,7 @@
     if (self) {
         _news_id = [dict[@"id"] intValue];
         _news_title = dict[@"title"];
-        _news_desc = dict[@"descriptions"];
+        _news_desc = dict[@"description"];
         _news_img = dict[@"image"];
         _news_type = [dict[@"news_type"] intValue];
         

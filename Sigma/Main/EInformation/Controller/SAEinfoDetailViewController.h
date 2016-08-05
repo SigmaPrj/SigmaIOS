@@ -13,8 +13,11 @@
 @interface SAEinfoDetailViewController : SAViewController
 
 
-@property(nonatomic, assign)int currectIndex;
+@property(nonatomic, assign) int currectIndex;
 
-//-(void)initWithModel:(SAEInfoDetailModel*)model;
+
+@property(nonatomic, strong) NSArray* detailDataArray;
+
+-(instancetype)initWithDetailData:(NSArray*)data index:(int)index;
 
 @end

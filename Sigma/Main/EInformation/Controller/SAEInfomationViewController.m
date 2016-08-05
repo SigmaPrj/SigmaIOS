@@ -17,10 +17,11 @@
 #import "SAEInfoNewsRequest.h"
 #import "JCAlertView.h"
 #import "SVProgressHUD.h"
+#import "SAEInfoDetailModel.h"
 
 #define COMMUNITY_BOTTOM 64
 
-@interface SAEInfomationViewController () <EInformationTopBarViewDelegate, UITableViewDelegate>
+@interface SAEInfomationViewController () <EInformationTopBarViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong)SAEInformationTableView* tableView;
 @property (nonatomic, strong)EInformationTopBarView* topbarview;
@@ -29,6 +30,9 @@
 @property(nonatomic, strong) NSMutableArray* datas;
 @property (nonatomic, strong) UIView *maskView;
 @property (nonatomic, assign) BOOL firstRequest;
+
+@property (nonatomic, strong) NSMutableArray* tempdatas;
+@property (nonatomic, strong) NSMutableArray* detailModelArray;
 
 @end
 
@@ -67,6 +71,7 @@
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self removeAllNotification];
+    [self endLoading];
 }
 
 -(instancetype)init{
@@ -110,11 +115,26 @@
     return _newsTypeArray;
 }
 
+
+-(NSMutableArray*)tempdatas{
+    if (!_tempdatas) {
+        _tempdatas = [NSMutableArray array];
+    }
+    return _tempdatas;
+}
+
+-(NSMutableArray*)detailModelArray{
+    if (!_detailModelArray) {
+        _detailModelArray = [NSMutableArray array];
+    }
+    return _detailModelArray;
+}
+
 -(SAEInformationTableView*)tableView{
     if (!_tableView) {
         _tableView = [[SAEInformationTableView alloc] initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, (SCREEN_HEIGHT-120)) style:UITableViewStylePlain];
         _tableView.delegate = self;
-//        _tableView.dataSource = self;
+        _tableView.dataSource = self;
 
     }
     
@@ -182,7 +202,10 @@
         if ([noti.userInfo[@"status"] intValue] == 1) {
             
             NSLog(@"详情加载成功");
-            [self.tableView initData:noti.userInfo[@"data"]];
+//            [self.tableView initData:noti.userInfo[@"data"]];
+            [self initData:noti.userInfo[@"data"]];
+            _tempdatas = noti.userInfo[@"data"];
+//            [self setNewsDetailData:noti.userInfo[@"data"]];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
 //                self.firstRequest = NO;
@@ -210,6 +233,19 @@
  
     [self.view addSubview:self.topbarview];
 
+}
+
+/**
+ *
+ *
+ *  @param newsDetailArray
+ */
+-(void) setNewsDetailData:(NSArray*)newsDetailArray{
+    for (int i = 0; i < newsDetailArray.count; i++) {
+        SAEInfoDetailModel *model = [SAEInfoDetailModel einformationModelWithDict:newsDetailArray[(NSInteger)i]];
+        [self.tempdatas addObject:model];
+    }
+    NSLog(@"detailmodel%lu", self.detailModelArray.count);
 }
 
 
@@ -268,16 +304,23 @@
 #pragma mark - UITableViewDelegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    SAEinfoDetailViewController* detailvc = [[SAEinfoDetailViewController alloc]init];
-    detailvc.currectIndex = (int)indexPath.row;
-    NSLog(@"%lu", indexPath.row);
     
+    
+    
+    
+    [self setDetailModelArray:self.tempdatas];
+    
+    
+    
+    SAEinfoDetailViewController* detailvc = [[SAEinfoDetailViewController alloc]initWithDetailData:self.detailModelArray index:(int)indexPath.row];
+    detailvc.currectIndex = (int)indexPath.row;
+//    detailvc.detailDataArray = self.tempdatas;
     detailvc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detailvc animated:YES];
     
     
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    UILabel* descLabel = [cell.contentView viewWithTag:2000];
+    
+//    NSLog(@"%@", self.detailModelArray[0].news_title);
     
 }
 
@@ -329,5 +372,86 @@
     }
     return _maskView;
 }
+
+
+
+
+-(NSMutableArray*)datas{
+    if (!_datas) {
+        _datas = [NSMutableArray array];
+    }
+    
+    return _datas;
+}
+
+
+/**
+ *  初始化数据
+ *
+ *  @param dictArray <#dictArray description#>
+ */
+-(void)initData:(NSArray*)dictArray{
+    
+    
+    NSMutableArray* modelArray = [[NSMutableArray alloc]init];
+    
+    for (int i = 0; i < dictArray.count; i++) {
+        SAEInfoDetailModel * saModel = [[SAEInfoDetailModel alloc]initWithDict:dictArray[(NSInteger)i]];
+        [modelArray addObject:saModel];
+    }
+    [self.datas removeAllObjects];
+    
+    [self.datas addObjectsFromArray:@[modelArray]];
+    
+    
+}
+
+
+
+#pragma mark -
+#pragma mark UITableViewDataSource
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [self.datas[(NSInteger)section] count];
+    //    return 1;
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *cellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    NSInteger section = indexPath.section;
+    NSInteger index = indexPath.row;
+    
+    //    SAEInformationModel* cdata = (SAEInformationModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger)index];
+    
+    SAEInfoDetailModel* model = (SAEInfoDetailModel*)[self.datas[(NSUInteger)section] objectAtIndex:(NSUInteger) index];
+    
+    SAEInformationCell *infocell = [[SAEInformationCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+    
+    //    [infocell setData:cdata];
+    
+    [infocell setDetailModel:model];
+    cell = [infocell initUI];
+    
+    
+    return cell;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.datas.count;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+
 
 @end
