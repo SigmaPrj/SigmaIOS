@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SALoadingTableView.h"
 
-@interface SATeamMessageView : UIView
+@interface SATeamMessageView : SALoadingTableView
 
 @end

@@ -453,7 +453,11 @@
 		7B5CB1651D52D7E20057FED6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5CB1641D52D7E20057FED6 /* MediaPlayer.framework */; };
 		9E8E800E05139CD947ABF863 /* SATeamTeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E86AF8D97454491B99DAE /* SATeamTeamView.m */; };
 		9E8E80DBA1F38EE8B1FAAC2D /* SATeamFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E818311877AD4EB83CFA9 /* SATeamFriendView.m */; };
+		9E8E81B7AA8ECE9E01D01BD2 /* SATeamRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8854228F88527202C7BE /* SATeamRequest.m */; };
+		9E8E81BC293CD9EEE5C6C39D /* SAMessageFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E83DA105463D207A62487 /* SAMessageFrameModel.m */; };
+		9E8E868610A822BBFE1A0377 /* SAMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8E04A9485C7F5741A47B /* SAMessageCell.m */; };
 		9E8E87C8D42C48889A7DA084 /* SATeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8D095E92183586B9F662 /* SATeamViewController.m */; };
+		9E8E883900DC4E7CA84CE10A /* SAMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8C4E7012855D30BE54C5 /* SAMessageModel.m */; };
 		9E8E8DF57F31EDE825032658 /* SATeamMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E85D7E08BE06578C51026 /* SATeamMessageView.m */; };
 /* End PBXBuildFile section */
 
@@ -1158,11 +1162,19 @@
 		9E8E80F967FED789EAC449CB /* SATeamMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamMessageView.h; sourceTree = "<group>"; };
 		9E8E8169B02AA19AE56640F1 /* SATeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamViewController.h; sourceTree = "<group>"; };
 		9E8E818311877AD4EB83CFA9 /* SATeamFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamFriendView.m; sourceTree = "<group>"; };
+		9E8E8213E425224E0D3403C3 /* SAMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageCell.h; sourceTree = "<group>"; };
 		9E8E82450B6D093A95185B5E /* SATeamFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamFriendView.h; sourceTree = "<group>"; };
+		9E8E83DA105463D207A62487 /* SAMessageFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageFrameModel.m; sourceTree = "<group>"; };
 		9E8E85D7E08BE06578C51026 /* SATeamMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamMessageView.m; sourceTree = "<group>"; };
 		9E8E86AF8D97454491B99DAE /* SATeamTeamView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamTeamView.m; sourceTree = "<group>"; };
+		9E8E8854228F88527202C7BE /* SATeamRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamRequest.m; sourceTree = "<group>"; };
+		9E8E895D5B5ECE9ADD2CE7A7 /* SAMessageFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageFrameModel.h; sourceTree = "<group>"; };
+		9E8E8AA5FB4DF7B0A5756A84 /* SAMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageModel.h; sourceTree = "<group>"; };
 		9E8E8C3ED9149EF051CBD481 /* SATeamTeamView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamTeamView.h; sourceTree = "<group>"; };
+		9E8E8C4E7012855D30BE54C5 /* SAMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageModel.m; sourceTree = "<group>"; };
 		9E8E8D095E92183586B9F662 /* SATeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamViewController.m; sourceTree = "<group>"; };
+		9E8E8D45451F741D78FA6263 /* SATeamRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamRequest.h; sourceTree = "<group>"; };
+		9E8E8E04A9485C7F5741A47B /* SAMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2866,6 +2878,17 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		9E8E8493BC624094065D5201 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8AA5FB4DF7B0A5756A84 /* SAMessageModel.h */,
+				9E8E8C4E7012855D30BE54C5 /* SAMessageModel.m */,
+				9E8E895D5B5ECE9ADD2CE7A7 /* SAMessageFrameModel.h */,
+				9E8E83DA105463D207A62487 /* SAMessageFrameModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9E8E85C096471BEB72D89D89 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2875,8 +2898,18 @@
 				9E8E818311877AD4EB83CFA9 /* SATeamFriendView.m */,
 				9E8E8C3ED9149EF051CBD481 /* SATeamTeamView.h */,
 				9E8E86AF8D97454491B99DAE /* SATeamTeamView.m */,
+				9E8E8980968011C692108815 /* Cell */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		9E8E8980968011C692108815 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8213E425224E0D3403C3 /* SAMessageCell.h */,
+				9E8E8E04A9485C7F5741A47B /* SAMessageCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		9E8E8AD2179152F79E026E35 /* Team */ = {
@@ -2884,6 +2917,9 @@
 			children = (
 				9E8E8FBF503D2350A18485DB /* Controller */,
 				9E8E85C096471BEB72D89D89 /* View */,
+				9E8E8493BC624094065D5201 /* Model */,
+				9E8E8D45451F741D78FA6263 /* SATeamRequest.h */,
+				9E8E8854228F88527202C7BE /* SATeamRequest.m */,
 			);
 			path = Team;
 			sourceTree = "<group>";
@@ -3410,6 +3446,10 @@
 				9E8E8DF57F31EDE825032658 /* SATeamMessageView.m in Sources */,
 				9E8E80DBA1F38EE8B1FAAC2D /* SATeamFriendView.m in Sources */,
 				9E8E800E05139CD947ABF863 /* SATeamTeamView.m in Sources */,
+				9E8E868610A822BBFE1A0377 /* SAMessageCell.m in Sources */,
+				9E8E883900DC4E7CA84CE10A /* SAMessageModel.m in Sources */,
+				9E8E81BC293CD9EEE5C6C39D /* SAMessageFrameModel.m in Sources */,
+				9E8E81B7AA8ECE9E01D01BD2 /* SATeamRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
