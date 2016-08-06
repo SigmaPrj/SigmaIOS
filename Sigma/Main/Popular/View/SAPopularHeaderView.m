@@ -94,11 +94,13 @@
         [label setText:@"问答"];
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BTN_WIDTH, BTN_WIDTH)];
+
         [button setImage:[UIImage imageNamed:@"btn-question.png"] forState:UIControlStateNormal];
         
         //添加点击事件
         [button addTarget:self action:@selector(popularQuestionBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-        //        button.backgroundColor = [UIColor grayColor];
+//        button.backgroundColor = [UIColor grayColor];
+
         [_questionBtnView addSubview:label];
         [_questionBtnView addSubview:button];
     }

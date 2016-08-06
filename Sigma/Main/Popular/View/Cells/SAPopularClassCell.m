@@ -128,9 +128,8 @@
         _avataImage = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, AVATAIMG_WIDTH, AVATAIMG_HEIGHT)];
         
 //        [_avataImage setImage:[UIImage imageNamed:self.data.AvataImgName]];
-        
-        NSURL* url = [[NSURL alloc] initWithString:self.classdata.avata];
-        [_avataImage sd_setImageWithURL:url];
+        NSURL *url = [[NSURL alloc] initWithString:self.classdata.avata];
+        [_avataImage sd_setImageWithURL:url placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload];
         
         // img显示为圆形
         _avataImage.layer.cornerRadius = _avataImage.frame.size.width/2;

@@ -10,6 +10,7 @@
 #import "SAQuestionCell.h"
 #import "SAQuestionTableViewCell.h"
 #import "SAQuestionViewEngine.h"
+#import "SAMyDetailQuestionViewController.h"
 
 #define MARGIN 15
 
@@ -140,8 +141,19 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    NSLog(@"didSelectRowAtIndexPath clicked");
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    SAQuestionCell* que = (SAQuestionCell*)[self.dataArray objectAtIndex:indexPath.section];
+    
+    if (indexPath.section >= 0 && indexPath.section < self.dataArray.count ) {
+        SAMyDetailQuestionViewController* homeDetail = [[SAMyDetailQuestionViewController alloc] init];
+        homeDetail.title = que.title;
+        
+        [self.navigationController pushViewController:homeDetail animated:YES];
+        
+    }
+    
+    
 }
 
 @end

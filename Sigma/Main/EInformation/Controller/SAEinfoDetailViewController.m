@@ -45,6 +45,7 @@
 @property(nonatomic, strong)UIImageView* bgImage;
 @property(nonatomic, strong)SAEInfoDetailModel* model;
 @property(nonatomic, strong)UIView* rulesView;
+@property(nonatomic, strong)UIView* bottomBtnView;
 
 @end
 
@@ -62,7 +63,9 @@
         [self.tableview addSubview:self.desc];
         [self.tableview addSubview:self.bgImage];
         [self.tableview addSubview:self.rulesView];
+        [self.view addSubview:self.bottomBtnView];
         
+        self.title = @"赛事详情";
         
     }
     
@@ -92,9 +95,11 @@
 
 -(UITableView*)tableview{
     if (!_tableview) {
-        _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-60)];
+        _tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-120)];
         _tableview.separatorStyle = NO;
-//        _tableview.backgroundColor = [UIColor blueColor];
+       // UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 21)];
+        //view.backgroundColor = [UIColor redColor];
+        //_tableview.tableFooterView = view;
     }
     
     return _tableview;
@@ -249,6 +254,33 @@
     return _rulesView;
 }
 
+
+-(UIView*)bottomBtnView{
+    if (!_bottomBtnView) {
+        //CGFloat x = CGRectGetMaxX(self.tableview.frame);
+        CGFloat y = CGRectGetMaxY(self.tableview.frame);
+        _bottomBtnView = [[UIView alloc] initWithFrame:CGRectMake(0, y, SCREEN_WIDTH, 55)];
+        _bottomBtnView.backgroundColor = [UIColor colorWithRed:0.968  green:0.973  blue:0.972 alpha:1];
+        
+        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake(5, 5, (SCREEN_WIDTH - 10), 40)];
+        [button setTitle:@"请登录PC端报名" forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont systemFontOfSize:15.f]];
+        [button setTitleColor:[UIColor colorWithRed:0.192  green:0.211  blue:0.232 alpha:1] forState:UIControlStateNormal];
+        
+        button.layer.borderColor = [[UIColor colorWithRed:0.827  green:0.828  blue:0.827 alpha:0.6] CGColor];
+        button.selected = YES;
+        
+        button.layer.borderWidth = 0.5f;
+        
+        button.layer.cornerRadius = 10.f;
+        
+//        button.backgroundColor = [UIColor yellowColor];
+        [_bottomBtnView addSubview:button];
+        
+    }
+    
+    return _bottomBtnView;
+}
 
 
 @end

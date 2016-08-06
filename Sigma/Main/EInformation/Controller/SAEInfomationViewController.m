@@ -158,19 +158,6 @@
  */
 - (void)sendRequest {
     [SAEInformationTypeRequest requestEInfoType];
-    
-    
-    
-//    [SAEInfoNewsRequest requestEInfoNews:2];
-//
-//    [SAEInfoNewsRequest requestEInfoNews:3];
-//
-//    [SAEInfoNewsRequest requestEInfoNews:4];
-//
-//    [SAEInfoNewsRequest requestEInfoNews:5];
-
-    
-    
 }
 
 #pragma mark - 添加notinewstype通知

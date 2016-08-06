@@ -104,7 +104,7 @@ static CGFloat SpringDelay = 0.03;
     }
     
     /** 添加sloganView指示条 */
-    UIImageView *sloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
+    UIImageView *sloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
     
     sloganView.y = - SCREEN_WIDTH;
     
