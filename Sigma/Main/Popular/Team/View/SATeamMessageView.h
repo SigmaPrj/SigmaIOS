@@ -9,6 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "SALoadingTableView.h"
 
+@class SAMessageModel;
+
+@protocol SATeamMessageViewDelegate<NSObject>
+
+- (void)messageCellDidClicked:(SAMessageModel *)messageModel;
+
+@end
+
 @interface SATeamMessageView : SALoadingTableView
+
+@property (nonatomic, weak) id<SATeamMessageViewDelegate> ownDelegate;
 
 @end

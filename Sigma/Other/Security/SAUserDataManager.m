@@ -40,6 +40,11 @@ static SAUserDataManager *manager = nil;
     return userDict[@"user"];
 }
 
++ (NSInteger)readUserId {
+    NSDictionary *userDict = [NSDictionary dictionaryWithContentsOfFile:[self getFilePath]];
+    return [userDict[@"user"][@"id"] intValue];
+}
+
 + (void)deleteUserData {
     NSFileManager *manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath:[self getFilePath]]) {

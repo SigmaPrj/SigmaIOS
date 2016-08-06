@@ -13,15 +13,15 @@
 #import "SATeamTeamView.h"
 #import "SAUserDataManager.h"
 #import "UIImageView+WebCache.h"
+#import "SATeamChatViewController.h"
 
 #define KStatusHeight 20
 #define KNavBarHeight 44
 #define ICON_BTN_SIZE 30
 
-@interface SATeamViewController ()
+@interface SATeamViewController () <SATeamMessageViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIButton *iconBtn;
 
 @end
 
@@ -38,15 +38,10 @@
 
     [self.navigationController.navigationBar setTintColor:SIGMA_FONT_COLOR];
 
+    self.title = @"消息";
+
     // 设置title
     [self setupTitle];
-    // 设置头像
-    [self settingIconImage];
-}
-
-- (void)settingIconImage{
-    self.navigationItem.hidesBackButton = YES;
-    [self.navigationController.navigationBar addSubview:self.iconBtn];
 }
 
 -(void) setupTitle {
@@ -73,24 +68,6 @@
     [self.scrollView setContentOffset:offsetPoint];
 }
 
-- (UIButton *)iconBtn {
-    if (!_iconBtn) {
-        _iconBtn = [[UIButton alloc] initWithFrame:CGRectMake(15, (40-ICON_BTN_SIZE)/2, ICON_BTN_SIZE, ICON_BTN_SIZE)];
-        _iconBtn.backgroundColor = SIGMA_BG_COLOR;
-        _iconBtn.layer.cornerRadius = ICON_BTN_SIZE/2;
-        _iconBtn.clipsToBounds = YES;
-
-        NSDictionary *userDic = [SAUserDataManager readUser];
-        NSString *imageUrl = userDic[@"image"];
-        UIImageView *imageView = [[UIImageView alloc] init];
-        [imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
-        [_iconBtn setBackgroundImage:imageView.image forState:UIControlStateNormal];
-
-        [_iconBtn addTarget:self action:@selector(iconBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _iconBtn;
-}
-
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64)];
@@ -109,11 +86,6 @@
     return _scrollView;
 }
 
-- (void)iconBtnClicked:(UIButton *)btn {
-    [self.navigationController popViewControllerAnimated:YES];
-    [self.iconBtn removeFromSuperview];
-}
-
 - (void)addViewsToScrollView {
     for (int i = 0; i <3; ++i) {
         UIView *teamView;
@@ -121,6 +93,7 @@
             case 0:
             {
                 teamView = [[SATeamMessageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEIGHT(self.scrollView)-KNavBarHeight)];
+                ((SATeamMessageView *)teamView).ownDelegate = self;
             }
                 break;
             case 1:
@@ -139,6 +112,15 @@
 
         [self.scrollView addSubview:teamView];
     }
+}
+
+#pragma mark -
+#pragma mark SATeamMessageViewDelegate
+- (void)messageCellDidClicked:(SAMessageModel *)messageModel {
+    SATeamChatViewController *viewController = [[SATeamChatViewController alloc] initWithMessageModel:messageModel];
+    self.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:viewController animated:YES];
+    self.hidesBottomBarWhenPushed=NO;
 }
 
 - (void)didReceiveMemoryWarning {

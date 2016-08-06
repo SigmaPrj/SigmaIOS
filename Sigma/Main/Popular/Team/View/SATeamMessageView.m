@@ -12,6 +12,7 @@
 #import "SATeamRequest.h"
 #import "SAUserDataManager.h"
 #import "SAMessageModel.h"
+#import "SAMessageModel.h"
 #import "SAMessageFrameModel.h"
 
 #define CELL_HEIGHT 75
@@ -43,6 +44,8 @@
 
         self.delegate = self;
         self.dataSource = self;
+        
+        self.userInteractionEnabled = YES;
 
         [self addAllNotifications];
         [self sendRequest];
@@ -112,6 +115,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SAMessageCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell setSelected:!cell.isSelected];
+
+    // 回位上次滑动
+    if (self.lastSwipeCell) {
+        [self.lastSwipeCell resetOffset];
+    }
 }
 
 #pragma mark -
@@ -129,8 +137,23 @@
 
     cell.frameModel = self.messages[(NSUInteger)indexPath.row];
     cell.delegate = self;
+    cell.tag = indexPath.row;
+    cell.userInteractionEnabled = YES;
+
+    // 点击事件
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cellClicked:)];
+    gestureRecognizer.numberOfTapsRequired = 1;
+    [cell addGestureRecognizer:gestureRecognizer];
 
     return cell;
+}
+
+- (void)cellClicked:(UIGestureRecognizer *)gestureRecognizer {
+    SAMessageCell *cell = (SAMessageCell *)gestureRecognizer.view;
+    // 进入聊天界面
+    if ([self.ownDelegate respondsToSelector:@selector(messageCellDidClicked:)]) {
+        [self.ownDelegate messageCellDidClicked:cell.frameModel.messageModel];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -144,6 +167,18 @@
         [self.lastSwipeCell resetOffset];
     }
     self.lastSwipeCell = cell;
+}
+
+- (void)delBtnDidClicked:(SAMessageCell *)cell {
+    [self.messages removeObjectAtIndex:(NSUInteger)cell.tag];
+    [self deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:cell.tag inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+}
+
+- (void)topBtnDidClicked:(SAMessageCell *)cell {
+    [self.messages removeObjectAtIndex:(NSUInteger)cell.tag];
+    [self deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:cell.tag inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+    [self.messages insertObject:cell.frameModel atIndex:0];
+    [self insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 }
 
 - (void)dealloc {

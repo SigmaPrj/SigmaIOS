@@ -62,9 +62,9 @@
     [self.coverView addSubview:self.schoolLabel];
     [self.coverView addSubview:self.dateLabel];
     [self.coverView addSubview:self.messageLabel];
+    [self.scrollView addSubview:self.delBtn];
+    [self.scrollView addSubview:self.topBtn];
     [self.scrollView addSubview:self.coverView];
-    [self.contentView addSubview:self.delBtn];
-    [self.contentView addSubview:self.topBtn];
     [self.contentView addSubview:self.scrollView];
     [self.contentView addSubview:self.underline];
 }
@@ -148,7 +148,8 @@
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (CGFloat)(CELL_HEIGHT-0.5))];
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
-        _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH+2*BUTTON_SIZE, 0);
+        _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, 0);
+        _scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 2*BUTTON_SIZE);
         _scrollView.contentOffset = CGPointMake(0, 0);
         _scrollView.bounces = NO;
         _scrollView.delegate = self;
@@ -160,13 +161,14 @@
     if (!_coverView) {
         _coverView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (CGFloat)(CELL_HEIGHT-0.5))];
         _coverView.backgroundColor = [UIColor whiteColor];
+        _coverView.userInteractionEnabled = YES;
     }
     return _coverView;
 }
 
 - (UIButton *)delBtn {
     if (!_delBtn) {
-        _delBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-BUTTON_SIZE, 0, BUTTON_SIZE, BUTTON_SIZE)];
+        _delBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH+BUTTON_SIZE, 0, BUTTON_SIZE, BUTTON_SIZE)];
         _delBtn.backgroundColor = [UIColor colorWithRed:0.99 green:0.24 blue:0.22 alpha:1.00];
         [_delBtn setTitle:@"删除" forState:UIControlStateNormal];
         [_delBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -179,7 +181,7 @@
 
 - (UIButton *)topBtn {
     if (!_topBtn) {
-        _topBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-2*BUTTON_SIZE, 0, BUTTON_SIZE, BUTTON_SIZE)];
+        _topBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, BUTTON_SIZE, BUTTON_SIZE)];
         _topBtn.backgroundColor = [UIColor colorWithRed:0.78 green:0.78 blue:0.80 alpha:1.00];
         [_topBtn setTitle:@"置顶" forState:UIControlStateNormal];
         [_topBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
