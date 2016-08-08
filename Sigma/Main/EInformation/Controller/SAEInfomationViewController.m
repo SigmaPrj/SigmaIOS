@@ -48,6 +48,7 @@
     
     [self initData];
     
+//    [self setLeftNavigationItemWithTitle:nil imageName:@"back.png"];
     self.firstRequest = YES;
     
 }

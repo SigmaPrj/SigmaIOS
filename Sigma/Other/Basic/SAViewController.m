@@ -42,6 +42,7 @@
         // 设置背景颜色和大小
         self.view.backgroundColor = COLOR_RGB(245, 245, 245);
         self.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+        [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:0.158  green:0.215  blue:0.386 alpha:1]];
     }
 
     return self;
@@ -97,7 +98,9 @@
         leftButton.frame = CGRectMake(0, 0, leftImage.size.width, leftImage.size.height);
         [leftButton addTarget:self action:@selector(doBack:) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-        self.navigationItem.leftBarButtonItem = leftItem;
+//        self.navigationItem.leftBarButtonItem = leftItem;
+        
+        self.navigationItem.backBarButtonItem = leftItem;
         return;
     }
     if(title)
