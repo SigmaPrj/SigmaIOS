@@ -290,7 +290,30 @@
         switch (code) {
             case 200:
             {
-                [SAUserDataManager saveUserData:notification.userInfo[@"data"]];
+                [SAUserDataManager deleteUserData];
+                NSMutableDictionary *userDict = [notification.userInfo[@"data"] mutableCopy];
+
+                NSMutableDictionary *newUserDict = [NSMutableDictionary dictionary];
+                [userDict[@"user"] enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                    if ((NSNull *)obj == [NSNull null]) {
+                        if ([key isEqualToString:@"user_type"]) {
+                            newUserDict[key] = @(0);
+                        } else if ([key isEqualToString:@"last_login_city"]) {
+                            newUserDict[key] = @(0);
+                        } else {
+                            newUserDict[key] = @"";
+                        }
+                    } else {
+                        newUserDict[key] = obj;
+                    }
+                }];
+
+                NSMutableDictionary *saveUserDict = [NSMutableDictionary dictionary];
+                saveUserDict[@"token"] = userDict[@"token"];
+                saveUserDict[@"time"] = userDict[@"time"];
+                saveUserDict[@"user"] = newUserDict;
+
+                [SAUserDataManager saveUserData:saveUserDict];
 
                 // 关闭弹出层
                 [CLProgressHUD dismissHUDByTag:10 delegate:self inView:self.view];

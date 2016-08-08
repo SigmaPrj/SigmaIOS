@@ -13,6 +13,8 @@
 #import "SAAnimationNavController.h"
 #import "SAHomeViewController.h"
 #import "JSMSSDK.h"
+#import "JPUSHService.h"
+#import <AdSupport/ASIdentifierManager.h>
 
 @interface AppDelegate ()
 
@@ -39,21 +41,50 @@
                 SARootViewController *rootController = [[SARootViewController alloc] init];
                 self.window.rootViewController = rootController;
                 [self.window makeKeyAndVisible];
-                return YES;
             }
         }
+    } else {
+        // 显示home页面,选择注册和登录
+        SAHomeViewController *homeViewController = [[SAHomeViewController alloc] init];
+        SAAnimationNavController *navController = [[SAAnimationNavController alloc] initWithRootViewController:homeViewController];
+        
+        self.window.rootViewController = navController;
+        [self.window makeKeyAndVisible];
     }
-    
-    // 显示home页面,选择注册和登录
-    SAHomeViewController *homeViewController = [[SAHomeViewController alloc] init];
-    SAAnimationNavController *navController = [[SAAnimationNavController alloc] initWithRootViewController:homeViewController];
-    
-    self.window.rootViewController = navController;
-    [self.window makeKeyAndVisible];
 
     [JSMSSDK registerWithAppKey:KEY_APP_KEY];
 
+    // JSPush
+    NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil];
+    } else {
+        [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert) categories:nil];
+    }
+
+    NSString *pushConfigFilePath = [[NSBundle mainBundle] pathForResource:@"PushConfig.plist" ofType:nil];
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:pushConfigFilePath];
+
+    [JPUSHService setupWithOption:launchOptions appKey:dict[@"APP_KEY"] channel:dict[@"CHANNEL"] apsForProduction:NO advertisingIdentifier:advertisingId];
+
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [JPUSHService registerDeviceToken:deviceToken];
+}
+
+- (void)application :(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [JPUSHService handleRemoteNotification:userInfo];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+    [JPUSHService handleRemoteNotification:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+- (void)application :(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"did Failed To Register For Remote Notifications With Error: %@", error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -6,14 +6,14 @@
 //  Copyright (c) 2016 sigma. All rights reserved.
 //
 
-#import <XMNChat/XMNChat.h>
+//#import <XMNChat/XMNChat.h>
 #import "SATeamViewController.h"
 #import "UIView+HRExtention.h"
 #import "SATeamMessageView.h"
 #import "SATeamFriendView.h"
 #import "SATeamTeamView.h"
 #import "SAMessageModel.h"
-#import "SAChatView.h"
+//#import "SAChatView.h"
 
 #define KStatusHeight 20
 #define KNavBarHeight 44
@@ -122,13 +122,13 @@
 //    self.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:viewController animated:YES];
 //    self.hidesBottomBarWhenPushed=NO;
-    XMNChatController *chatController = [[XMNChatController alloc] initWithChatMode:XMNChatSingle];
+/*    XMNChatController *chatController = [[XMNChatController alloc] initWithChatMode:XMNChatSingle];
     SAChatView *chatView = [[SAChatView alloc] initWithChatMode:XMNChatSingle];
     chatController.chatVM = chatView;
     chatView.messageModel = messageModel;
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chatController animated:YES];
-    self.hidesBottomBarWhenPushed = NO;
+    self.hidesBottomBarWhenPushed = NO;*/
 }
 
 - (void)didReceiveMemoryWarning {

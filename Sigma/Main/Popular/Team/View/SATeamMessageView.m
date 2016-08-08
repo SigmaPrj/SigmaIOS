@@ -149,11 +149,11 @@
 }
 
 - (void)cellClicked:(UIGestureRecognizer *)gestureRecognizer {
-    SAMessageCell *cell = (SAMessageCell *)gestureRecognizer.view;
+    /*SAMessageCell *cell = (SAMessageCell *)gestureRecognizer.view;
     // 进入聊天界面
     if ([self.ownDelegate respondsToSelector:@selector(messageCellDidClicked:)]) {
         [self.ownDelegate messageCellDidClicked:cell.frameModel.messageModel];
-    }
+    }*/
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

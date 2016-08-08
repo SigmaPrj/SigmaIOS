@@ -1,6 +1,0 @@
-framework module XMNChat {
-  umbrella header "XMNChat.h"
-
-  export *
-  module * { export * }
-}

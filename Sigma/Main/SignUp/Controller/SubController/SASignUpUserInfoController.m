@@ -294,8 +294,6 @@
 
         [SAUserDataManager saveUserData:saveUserDict];
 
-        NSMutableDictionary *tUserDict = [SAUserDataManager readUser];
-
         // 关闭弹出层
         [CLProgressHUD dismissHUDByTag:2 delegate:self inView:self.view];
         [CLProgressHUD showSuccessInView:self.view delegate:self title:@"注册成功!" duration:.5];

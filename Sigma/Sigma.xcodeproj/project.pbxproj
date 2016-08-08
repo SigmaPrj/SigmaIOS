@@ -452,14 +452,22 @@
 		7B5CB1631D52D7DD0057FED6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5CB1621D52D7DD0057FED6 /* AVFoundation.framework */; };
 		7B5CB1651D52D7E20057FED6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5CB1641D52D7E20057FED6 /* MediaPlayer.framework */; };
 		7B7023251D580E15002C18D8 /* libsms-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7023241D580E15002C18D8 /* libsms-lib.a */; };
-		7B7023361D58D6DD002C18D8 /* XMNChat.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7023341D58D6DD002C18D8 /* XMNChat.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7B7023381D58D6F2002C18D8 /* XMNChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7023341D58D6DD002C18D8 /* XMNChat.framework */; };
+		7B70233D1D58DC23002C18D8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B70233C1D58DC23002C18D8 /* CFNetwork.framework */; };
+		7B70233F1D58DC2C002C18D8 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B70233E1D58DC2C002C18D8 /* CoreFoundation.framework */; };
+		7B7023411D58DC34002C18D8 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7023401D58DC34002C18D8 /* CoreTelephony.framework */; };
+		7B7023431D58DC3C002C18D8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7023421D58DC3C002C18D8 /* SystemConfiguration.framework */; };
+		7B7023451D58DC42002C18D8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7023441D58DC42002C18D8 /* CoreGraphics.framework */; };
+		7B7023471D58DC4A002C18D8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7023461D58DC4A002C18D8 /* Foundation.framework */; };
+		7B7023491D58DC50002C18D8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7023481D58DC50002C18D8 /* UIKit.framework */; };
+		7B70234B1D58DC56002C18D8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B70234A1D58DC56002C18D8 /* Security.framework */; };
+		7B70234D1D58DC66002C18D8 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B70234C1D58DC66002C18D8 /* libz.tbd */; };
+		7B70234F1D58DC71002C18D8 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B70234E1D58DC71002C18D8 /* AdSupport.framework */; };
+		7B7023511D58DCD1002C18D8 /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B7023501D58DCD1002C18D8 /* PushConfig.plist */; };
 		9E8E800E05139CD947ABF863 /* SATeamTeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E86AF8D97454491B99DAE /* SATeamTeamView.m */; };
 		9E8E80484D25945C3B0053D2 /* SASignUpUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8D1A7DDE488D3DC6C596 /* SASignUpUserInfoController.m */; };
-		9E8E8074B6A190B2E483F93F /* SAChatServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E84DF4C50B5F8E0BD90CC /* SAChatServer.m */; };
 		9E8E80DBA1F38EE8B1FAAC2D /* SATeamFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E818311877AD4EB83CFA9 /* SATeamFriendView.m */; };
 		9E8E81BC293CD9EEE5C6C39D /* SAMessageFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E83DA105463D207A62487 /* SAMessageFrameModel.m */; };
-		9E8E84CF4DD57E154A38BA47 /* SAChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E833801E614157AA46053 /* SAChatView.m */; };
+		9E8E83554C77BA2FBE7A0768 /* jpush-ios-2.1.8.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E8E863D7B56F6FE4732A84B /* jpush-ios-2.1.8.a */; };
 		9E8E868610A822BBFE1A0377 /* SAMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8E04A9485C7F5741A47B /* SAMessageCell.m */; };
 		9E8E8780D864EE7DFF30D155 /* SASchoolSearchTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E80896408D4E5213D0612 /* SASchoolSearchTableView.m */; };
 		9E8E87C8D42C48889A7DA084 /* SATeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8D095E92183586B9F662 /* SATeamViewController.m */; };
@@ -475,20 +483,6 @@
 		9E8E8FA26848FF415D527BFB /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E8E772D7F9921B16DAD7D /* city.plist */; };
 		9E8E8FDA816AA7F33DCA4EE5 /* SATeamRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E87B50FEA038AB7FB2593 /* SATeamRequest.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		7B7023371D58D6DD002C18D8 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				7B7023361D58D6DD002C18D8 /* XMNChat.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7B5CAC671D52D6BC0057FED6 /* Sigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1191,8 +1185,17 @@
 		7B7023221D580E15002C18D8 /* JSMSConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMSConstant.h; sourceTree = "<group>"; };
 		7B7023231D580E15002C18D8 /* JSMSSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMSSDK.h; sourceTree = "<group>"; };
 		7B7023241D580E15002C18D8 /* libsms-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libsms-lib.a"; sourceTree = "<group>"; };
-		7B7023321D58D6CB002C18D8 /* XMNChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XMNChat.framework; sourceTree = "<group>"; };
-		7B7023341D58D6DD002C18D8 /* XMNChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XMNChat.framework; path = Frameworks/XMNChat.framework; sourceTree = "<group>"; };
+		7B70233C1D58DC23002C18D8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7B70233E1D58DC2C002C18D8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		7B7023401D58DC34002C18D8 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		7B7023421D58DC3C002C18D8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		7B7023441D58DC42002C18D8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		7B7023461D58DC4A002C18D8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7B7023481D58DC50002C18D8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7B70234A1D58DC56002C18D8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7B70234C1D58DC66002C18D8 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		7B70234E1D58DC71002C18D8 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		7B7023501D58DCD1002C18D8 /* PushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PushConfig.plist; sourceTree = "<group>"; };
 		9E8E80896408D4E5213D0612 /* SASchoolSearchTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASchoolSearchTableView.m; sourceTree = "<group>"; };
 		9E8E80C2FC2AD582E9CDC25D /* SACitySearchTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACitySearchTableView.h; sourceTree = "<group>"; };
 		9E8E80F967FED789EAC449CB /* SATeamMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamMessageView.h; sourceTree = "<group>"; };
@@ -1200,17 +1203,16 @@
 		9E8E8169B02AA19AE56640F1 /* SATeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamViewController.h; sourceTree = "<group>"; };
 		9E8E818311877AD4EB83CFA9 /* SATeamFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamFriendView.m; sourceTree = "<group>"; };
 		9E8E81A73372F9DF64B12807 /* SAChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAChatModel.h; sourceTree = "<group>"; };
+		9E8E81CC4471C2BFE48466B3 /* JPUSHService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPUSHService.h; sourceTree = "<group>"; };
 		9E8E8213E425224E0D3403C3 /* SAMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageCell.h; sourceTree = "<group>"; };
 		9E8E82450B6D093A95185B5E /* SATeamFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamFriendView.h; sourceTree = "<group>"; };
 		9E8E82A84ABF09DAD7F1421E /* SASignUpSetPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpSetPasswordView.h; sourceTree = "<group>"; };
 		9E8E82B3C544A19641CC215A /* school.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = school.plist; sourceTree = "<group>"; };
-		9E8E833801E614157AA46053 /* SAChatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAChatView.m; sourceTree = "<group>"; };
 		9E8E83DA105463D207A62487 /* SAMessageFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageFrameModel.m; sourceTree = "<group>"; };
-		9E8E84DF4C50B5F8E0BD90CC /* SAChatServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAChatServer.m; sourceTree = "<group>"; };
 		9E8E85931794D8C74706CE5B /* SASignUpSetPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpSetPasswordView.m; sourceTree = "<group>"; };
 		9E8E85D7E08BE06578C51026 /* SATeamMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamMessageView.m; sourceTree = "<group>"; };
 		9E8E862C8631314AEA18036C /* SASignUpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpRequest.m; sourceTree = "<group>"; };
-		9E8E8664DE3490BA4221B417 /* SAChatServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAChatServer.h; sourceTree = "<group>"; };
+		9E8E863D7B56F6FE4732A84B /* jpush-ios-2.1.8.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "jpush-ios-2.1.8.a"; sourceTree = "<group>"; };
 		9E8E86AF8D97454491B99DAE /* SATeamTeamView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamTeamView.m; sourceTree = "<group>"; };
 		9E8E87B50FEA038AB7FB2593 /* SATeamRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamRequest.m; sourceTree = "<group>"; };
 		9E8E88E330E0BCD1D0F4E4B7 /* SASignUpUserInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpUserInfoController.h; sourceTree = "<group>"; };
@@ -1218,7 +1220,6 @@
 		9E8E8A12DB7F1382A17D9CD3 /* NSString+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+category.h"; sourceTree = "<group>"; };
 		9E8E8A5860274196B5CF0B24 /* SATeamRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamRequest.h; sourceTree = "<group>"; };
 		9E8E8AA5FB4DF7B0A5756A84 /* SAMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageModel.h; sourceTree = "<group>"; };
-		9E8E8B1FD00999B819C8633A /* SAChatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAChatView.h; sourceTree = "<group>"; };
 		9E8E8B95EE17774E9D98F7C0 /* SASignUpSetInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpSetInfoView.m; sourceTree = "<group>"; };
 		9E8E8BA13ED6C44161DE2F31 /* SASignUpSetInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpSetInfoView.h; sourceTree = "<group>"; };
 		9E8E8C3ED9149EF051CBD481 /* SATeamTeamView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamTeamView.h; sourceTree = "<group>"; };
@@ -1238,10 +1239,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B7023381D58D6F2002C18D8 /* XMNChat.framework in Frameworks */,
+				7B70234F1D58DC71002C18D8 /* AdSupport.framework in Frameworks */,
+				7B70234D1D58DC66002C18D8 /* libz.tbd in Frameworks */,
+				7B70234B1D58DC56002C18D8 /* Security.framework in Frameworks */,
+				7B7023491D58DC50002C18D8 /* UIKit.framework in Frameworks */,
+				7B7023471D58DC4A002C18D8 /* Foundation.framework in Frameworks */,
+				7B7023451D58DC42002C18D8 /* CoreGraphics.framework in Frameworks */,
+				7B7023431D58DC3C002C18D8 /* SystemConfiguration.framework in Frameworks */,
+				7B7023411D58DC34002C18D8 /* CoreTelephony.framework in Frameworks */,
+				7B70233F1D58DC2C002C18D8 /* CoreFoundation.framework in Frameworks */,
+				7B70233D1D58DC23002C18D8 /* CFNetwork.framework in Frameworks */,
 				7B5CB1651D52D7E20057FED6 /* MediaPlayer.framework in Frameworks */,
 				7B7023251D580E15002C18D8 /* libsms-lib.a in Frameworks */,
 				7B5CB1631D52D7DD0057FED6 /* AVFoundation.framework in Frameworks */,
+				9E8E83554C77BA2FBE7A0768 /* jpush-ios-2.1.8.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1251,7 +1262,6 @@
 		7B5CAC5E1D52D6BC0057FED6 = {
 			isa = PBXGroup;
 			children = (
-				7B7023341D58D6DD002C18D8 /* XMNChat.framework */,
 				7B5CAC881D52D74A0057FED6 /* Frameworks */,
 				7B5CAD311D52D74A0057FED6 /* Main */,
 				7B5CAE6A1D52D74B0057FED6 /* OpenSource */,
@@ -1276,6 +1286,7 @@
 				7B5CAC6D1D52D6BC0057FED6 /* AppDelegate.h */,
 				7B5CAC841D52D7410057FED6 /* bg.mp4 */,
 				7B5CAC851D52D7410057FED6 /* email.plist */,
+				7B7023501D58DCD1002C18D8 /* PushConfig.plist */,
 				7B5CAC6E1D52D6BC0057FED6 /* AppDelegate.m */,
 				7B5CAC701D52D6BC0057FED6 /* ViewController.h */,
 				7B5CAC711D52D6BC0057FED6 /* ViewController.m */,
@@ -1303,7 +1314,16 @@
 		7B5CAC881D52D74A0057FED6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B7023321D58D6CB002C18D8 /* XMNChat.framework */,
+				7B70234E1D58DC71002C18D8 /* AdSupport.framework */,
+				7B70234C1D58DC66002C18D8 /* libz.tbd */,
+				7B70234A1D58DC56002C18D8 /* Security.framework */,
+				7B7023481D58DC50002C18D8 /* UIKit.framework */,
+				7B7023461D58DC4A002C18D8 /* Foundation.framework */,
+				7B7023441D58DC42002C18D8 /* CoreGraphics.framework */,
+				7B7023421D58DC3C002C18D8 /* SystemConfiguration.framework */,
+				7B7023401D58DC34002C18D8 /* CoreTelephony.framework */,
+				7B70233E1D58DC2C002C18D8 /* CoreFoundation.framework */,
+				7B70233C1D58DC23002C18D8 /* CFNetwork.framework */,
 				7B7023201D580E15002C18D8 /* JsmsSDK */,
 				7B5CB1641D52D7E20057FED6 /* MediaPlayer.framework */,
 				7B5CB1621D52D7DD0057FED6 /* AVFoundation.framework */,
@@ -1314,6 +1334,7 @@
 				7B5CACCC1D52D74A0057FED6 /* pop */,
 				7B5CAD051D52D74A0057FED6 /* SDWebImage */,
 				7B5CAD271D52D74A0057FED6 /* SVProgressHUD */,
+				9E8E8E3D71A5566523ACB965 /* JPush */,
 			);
 			path = Frameworks;
 			sourceTree = "<group>";
@@ -3069,6 +3090,15 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		9E8E8E3D71A5566523ACB965 /* JPush */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E81CC4471C2BFE48466B3 /* JPUSHService.h */,
+				9E8E863D7B56F6FE4732A84B /* jpush-ios-2.1.8.a */,
+			);
+			path = JPush;
+			sourceTree = "<group>";
+		};
 		9E8E8E498E9BD74E4730B995 /* SubController */ = {
 			isa = PBXGroup;
 			children = (
@@ -3088,10 +3118,6 @@
 		9E8E8EB57E00133B0030AAD8 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
-				9E8E8B1FD00999B819C8633A /* SAChatView.h */,
-				9E8E833801E614157AA46053 /* SAChatView.m */,
-				9E8E8664DE3490BA4221B417 /* SAChatServer.h */,
-				9E8E84DF4C50B5F8E0BD90CC /* SAChatServer.m */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -3116,7 +3142,6 @@
 				7B5CAC631D52D6BC0057FED6 /* Sources */,
 				7B5CAC641D52D6BC0057FED6 /* Frameworks */,
 				7B5CAC651D52D6BC0057FED6 /* Resources */,
-				7B7023371D58D6DD002C18D8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3139,6 +3164,9 @@
 					7B5CAC661D52D6BC0057FED6 = {
 						CreatedOnToolsVersion = 7.3.1;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -3259,6 +3287,7 @@
 				7B5CB11C1D52D74B0057FED6 /* popular1.png in Resources */,
 				7B5CB0F31D52D74B0057FED6 /* resource9.png in Resources */,
 				7B5CB10C1D52D74B0057FED6 /* icon-update-tips-black@2x.png in Resources */,
+				7B7023511D58DCD1002C18D8 /* PushConfig.plist in Resources */,
 				7B5CB15B1D52D74B0057FED6 /* camera_icon_new@3x.png in Resources */,
 				7B5CB0C41D52D74B0057FED6 /* Mine_Settings_Gray.png in Resources */,
 				7B5CB1321D52D74B0057FED6 /* tabbar_home_selected@3x.png in Resources */,
@@ -3632,8 +3661,6 @@
 				9E8E81BC293CD9EEE5C6C39D /* SAMessageFrameModel.m in Sources */,
 				9E8E8FDA816AA7F33DCA4EE5 /* SATeamRequest.m in Sources */,
 				9E8E8F162C7449F236435AF0 /* SAChatModel.m in Sources */,
-				9E8E84CF4DD57E154A38BA47 /* SAChatView.m in Sources */,
-				9E8E8074B6A190B2E483F93F /* SAChatServer.m in Sources */,
 				9E8E8A5ED8AA72BD69DB1CF1 /* SASignUpRequest.m in Sources */,
 				9E8E80484D25945C3B0053D2 /* SASignUpUserInfoController.m in Sources */,
 				9E8E8AED16EAFEE5AFCE14C1 /* SASignUpSetPasswordView.m in Sources */,
@@ -3768,6 +3795,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/JsmsSDK",
+					"\"${PROJECT_DIR}/Frameworks/JPush\"/**",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -3801,6 +3829,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks/JsmsSDK",
+					"\"${PROJECT_DIR}/Frameworks/JPush\"/**",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
