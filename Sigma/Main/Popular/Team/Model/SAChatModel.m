@@ -15,9 +15,11 @@
     self = [super init];
     if (self) {
         _message = dict[@"message"];
+        _messageType = (SAChatMessageType)[dict[@"message_type"] intValue];
         _date = [SADateHelper humanizedDate:[dict[@"date"] intValue]];
         _fromUser = [dict[@"from"] intValue];
         _toUser = [dict[@"to"] intValue];
+        _teamId = [dict[@"team_id"] intValue];
     }
     return self;
 }

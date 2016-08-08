@@ -8,6 +8,8 @@
 
 #import "SASignUpWithTelephoneView.h"
 #import "JCAlertView.h"
+#import "JSMSSDK.h"
+#import "CLProgressHUD.h"
 
 #define TITLE_LABEL_MARGIN_TOP 25
 #define TITLE_LABEL_HEIGHT 30
@@ -145,28 +147,63 @@
 }
 
 - (void)registerBtnClicked:(UIButton *)btn {
-    // TODO : 手机注册
+    // 手机注册
     if (self.codeTime == 0) {
         [JCAlertView showOneButtonWithTitle:@"注册提示" Message:@"你还没有请求验证码,或验证码已经过期" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{
         }];
+    } else {
+        __weak typeof(self) weakSelf = self;
+        [JSMSSDK commitWithPhoneNumber:weakSelf.phoneTextField.text verificationCode:weakSelf.codeTextField.text completionHandler:^(id resultObject, NSError *error) {
+            if (!error) {
+                if ([weakSelf.delegate respondsToSelector:@selector(phoneRegisterBtnClicked: phone:)]) {
+                    [weakSelf.delegate phoneRegisterBtnClicked:weakSelf phone:weakSelf.phoneTextField.text];
+                }
+                NSLog(@"请求注册!");
+            } else {
+                [JCAlertView showOneButtonWithTitle:@"注册提示" Message:@"短信验证码不正确" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{}];
+            }
+        }];
     }
+//    if ([self.delegate respondsToSelector:@selector(phoneRegisterBtnClicked: phone:)]) {
+//        [self.delegate phoneRegisterBtnClicked:self phone:self.phoneTextField.text];
+//    }
 }
 
 - (void)codeBtnClicked:(UIButton *)btn {
     __weak typeof(self) weakSelf = self;
-    if (self.codeTime == 0) {
-        [JCAlertView showTwoButtonsWithTitle:@"请求验证码" Message:@"可能会产生0.1元的费用" ButtonType:JCAlertViewButtonTypeCancel ButtonTitle:@"取消" Click:^{} ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"发送" Click:^{
-            // TODO : 发送验证码
-            if (!btn.selected) {
-                NSLog(@"点击了");
-                UIButton *codeBtn = weakSelf.leftCodeView.subviews[0];
-                [codeBtn setSelected: YES];
-                [codeBtn setTitle:[NSString stringWithFormat:@"有效(%ds)", CODE_TIME] forState:UIControlStateSelected];
-                weakSelf.codeTime = 60;
-                [weakSelf startTimer];
-            }
-        }];
+    if ([self isValidatePhoneNum:self.phoneTextField.text]) {
+        if (self.codeTime == 0) {
+            [JCAlertView showTwoButtonsWithTitle:@"请求验证码" Message:@"可能会产生0.1元的费用" ButtonType:JCAlertViewButtonTypeCancel ButtonTitle:@"取消" Click:^{} ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"发送" Click:^{
+                if (!btn.selected) {
+                    // 发送验证码
+                    [JSMSSDK getVerificationCodeWithPhoneNumber:weakSelf.phoneTextField.text andTemplateID:@"1" completionHandler:^(id resultObject, NSError *error) {
+                        if (!error) {
+                            [JCAlertView showOneButtonWithTitle:@"注册提示" Message:@"验证码已发送!" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{}];
+                            UIButton *codeBtn = weakSelf.leftCodeView.subviews[0];
+                            [codeBtn setSelected: YES];
+                            [codeBtn setTitle:[NSString stringWithFormat:@"有效(%ds)", CODE_TIME] forState:UIControlStateSelected];
+                            weakSelf.codeTime = 60;
+                            [weakSelf startTimer];
+                        } else {
+                            [JCAlertView showOneButtonWithTitle:@"注册提示" Message:@"请稍后再试!" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{}];
+                            NSLog(@"上传手机号失败 error %ld",(long)error.code);
+                        }
+                    }];
+                }
+            }];
+        } else {
+            [JCAlertView showOneButtonWithTitle:@"注册提示" Message:@"验证码已经发送, 请稍后再试!" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{}];
+        }
+    } else {
+        [JCAlertView showOneButtonWithTitle:@"注册提示" Message:@"手机号码不符合规定!" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{}];
     }
+}
+
+- (BOOL)isValidatePhoneNum:(NSString *)num {
+    NSString * MOBILE = @"\\d{11}$";
+    NSPredicate *regextestmobile = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",MOBILE];
+
+    return [regextestmobile evaluateWithObject:num];
 }
 
 #pragma mark -

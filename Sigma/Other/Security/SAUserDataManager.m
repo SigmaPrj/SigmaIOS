@@ -72,7 +72,11 @@ static SAUserDataManager *manager = nil;
 
 + (NSString *)getFilePath {
     NSString *path = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
-    return [path stringByAppendingPathComponent:[NSString stringWithFormat:@"Caches/%@", USER_FILE_NAME]];
+    NSString *filePath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"Caches/%@", USER_FILE_NAME]];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        [[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil];
+    }
+    return filePath;
 }
 
 @end

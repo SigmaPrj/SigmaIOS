@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B46F9431D55B76900843F48 /* XMNChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B46F9421D55B76900843F48 /* XMNChat.framework */; };
-		7B46F9441D55B76900843F48 /* XMNChat.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B46F9421D55B76900843F48 /* XMNChat.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7B5CAC6C1D52D6BC0057FED6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAC6B1D52D6BC0057FED6 /* main.m */; };
 		7B5CAC6F1D52D6BC0057FED6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAC6E1D52D6BC0057FED6 /* AppDelegate.m */; };
 		7B5CAC721D52D6BC0057FED6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAC711D52D6BC0057FED6 /* ViewController.m */; };
@@ -453,30 +451,39 @@
 		7B5CB1601D52D74B0057FED6 /* ios7-undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B5CAFAE1D52D74B0057FED6 /* ios7-undo.png */; };
 		7B5CB1631D52D7DD0057FED6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5CB1621D52D7DD0057FED6 /* AVFoundation.framework */; };
 		7B5CB1651D52D7E20057FED6 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B5CB1641D52D7E20057FED6 /* MediaPlayer.framework */; };
+		7B7023251D580E15002C18D8 /* libsms-lib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7023241D580E15002C18D8 /* libsms-lib.a */; };
+		7B7023361D58D6DD002C18D8 /* XMNChat.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7023341D58D6DD002C18D8 /* XMNChat.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B7023381D58D6F2002C18D8 /* XMNChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B7023341D58D6DD002C18D8 /* XMNChat.framework */; };
 		9E8E800E05139CD947ABF863 /* SATeamTeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E86AF8D97454491B99DAE /* SATeamTeamView.m */; };
+		9E8E80484D25945C3B0053D2 /* SASignUpUserInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8D1A7DDE488D3DC6C596 /* SASignUpUserInfoController.m */; };
+		9E8E8074B6A190B2E483F93F /* SAChatServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E84DF4C50B5F8E0BD90CC /* SAChatServer.m */; };
 		9E8E80DBA1F38EE8B1FAAC2D /* SATeamFriendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E818311877AD4EB83CFA9 /* SATeamFriendView.m */; };
 		9E8E81BC293CD9EEE5C6C39D /* SAMessageFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E83DA105463D207A62487 /* SAMessageFrameModel.m */; };
-		9E8E82B181AFA471BC1004E5 /* SATeamChatBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E86AC2BBC8937E04EE3DE /* SATeamChatBar.m */; };
-		9E8E85C36D36ADEF01C7FAA8 /* SATeamChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E894B241CB79DF661D0A3 /* SATeamChatViewController.m */; };
-		9E8E85E09DA593541DB6C3E5 /* SATeamChatTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E84CAC153DF90528300F2 /* SATeamChatTableView.m */; };
+		9E8E84CF4DD57E154A38BA47 /* SAChatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E833801E614157AA46053 /* SAChatView.m */; };
 		9E8E868610A822BBFE1A0377 /* SAMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8E04A9485C7F5741A47B /* SAMessageCell.m */; };
-		9E8E87521ABD662B5D439507 /* SAChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E812213C2E891580D9CB0 /* SAChatCell.m */; };
+		9E8E8780D864EE7DFF30D155 /* SASchoolSearchTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E80896408D4E5213D0612 /* SASchoolSearchTableView.m */; };
 		9E8E87C8D42C48889A7DA084 /* SATeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8D095E92183586B9F662 /* SATeamViewController.m */; };
 		9E8E883900DC4E7CA84CE10A /* SAMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8C4E7012855D30BE54C5 /* SAMessageModel.m */; };
-		9E8E893F2ED429AC360E0849 /* SAChatFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E81DDC92ABD99FA050CE2 /* SAChatFrameModel.m */; };
+		9E8E8A5ED8AA72BD69DB1CF1 /* SASignUpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E862C8631314AEA18036C /* SASignUpRequest.m */; };
+		9E8E8AED16EAFEE5AFCE14C1 /* SASignUpSetPasswordView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E85931794D8C74706CE5B /* SASignUpSetPasswordView.m */; };
+		9E8E8CC5EC9EFCFCD0C2F61D /* SACitySearchTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8DACB9C8AED8FB611776 /* SACitySearchTableView.m */; };
+		9E8E8D560A1B2C24FABF13F0 /* school.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E82B3C544A19641CC215A /* school.plist */; };
 		9E8E8DF57F31EDE825032658 /* SATeamMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E85D7E08BE06578C51026 /* SATeamMessageView.m */; };
+		9E8E8F0C792920D9BFB99377 /* NSString+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8F16837131D9876228DA /* NSString+category.m */; };
 		9E8E8F162C7449F236435AF0 /* SAChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E814234520251510394D7 /* SAChatModel.m */; };
+		9E8E8F5859FACD79058A89C8 /* SASignUpSetInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8B95EE17774E9D98F7C0 /* SASignUpSetInfoView.m */; };
+		9E8E8FA26848FF415D527BFB /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E8E772D7F9921B16DAD7D /* city.plist */; };
 		9E8E8FDA816AA7F33DCA4EE5 /* SATeamRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E87B50FEA038AB7FB2593 /* SATeamRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7B46F9451D55B76900843F48 /* Embed Frameworks */ = {
+		7B7023371D58D6DD002C18D8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7B46F9441D55B76900843F48 /* XMNChat.framework in Embed Frameworks */,
+				7B7023361D58D6DD002C18D8 /* XMNChat.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,7 +491,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7B46F9421D55B76900843F48 /* XMNChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XMNChat.framework; sourceTree = "<group>"; };
 		7B5CAC671D52D6BC0057FED6 /* Sigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5CAC6B1D52D6BC0057FED6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7B5CAC6D1D52D6BC0057FED6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1182,34 +1188,49 @@
 		7B5CB1611D52D79B0057FED6 /* SAPrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPrefix.pch; sourceTree = "<group>"; };
 		7B5CB1621D52D7DD0057FED6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7B5CB1641D52D7E20057FED6 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		7B7023221D580E15002C18D8 /* JSMSConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMSConstant.h; sourceTree = "<group>"; };
+		7B7023231D580E15002C18D8 /* JSMSSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSMSSDK.h; sourceTree = "<group>"; };
+		7B7023241D580E15002C18D8 /* libsms-lib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libsms-lib.a"; sourceTree = "<group>"; };
+		7B7023321D58D6CB002C18D8 /* XMNChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XMNChat.framework; sourceTree = "<group>"; };
+		7B7023341D58D6DD002C18D8 /* XMNChat.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XMNChat.framework; path = Frameworks/XMNChat.framework; sourceTree = "<group>"; };
+		9E8E80896408D4E5213D0612 /* SASchoolSearchTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASchoolSearchTableView.m; sourceTree = "<group>"; };
+		9E8E80C2FC2AD582E9CDC25D /* SACitySearchTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SACitySearchTableView.h; sourceTree = "<group>"; };
 		9E8E80F967FED789EAC449CB /* SATeamMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamMessageView.h; sourceTree = "<group>"; };
-		9E8E812213C2E891580D9CB0 /* SAChatCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAChatCell.m; sourceTree = "<group>"; };
 		9E8E814234520251510394D7 /* SAChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAChatModel.m; sourceTree = "<group>"; };
 		9E8E8169B02AA19AE56640F1 /* SATeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamViewController.h; sourceTree = "<group>"; };
 		9E8E818311877AD4EB83CFA9 /* SATeamFriendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamFriendView.m; sourceTree = "<group>"; };
 		9E8E81A73372F9DF64B12807 /* SAChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAChatModel.h; sourceTree = "<group>"; };
-		9E8E81D03B896FAF3A1C69C9 /* SATeamChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamChatViewController.h; sourceTree = "<group>"; };
-		9E8E81DDC92ABD99FA050CE2 /* SAChatFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAChatFrameModel.m; sourceTree = "<group>"; };
 		9E8E8213E425224E0D3403C3 /* SAMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageCell.h; sourceTree = "<group>"; };
 		9E8E82450B6D093A95185B5E /* SATeamFriendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamFriendView.h; sourceTree = "<group>"; };
-		9E8E8259C899E3F180E9611F /* SAChatCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAChatCell.h; sourceTree = "<group>"; };
+		9E8E82A84ABF09DAD7F1421E /* SASignUpSetPasswordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpSetPasswordView.h; sourceTree = "<group>"; };
+		9E8E82B3C544A19641CC215A /* school.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = school.plist; sourceTree = "<group>"; };
+		9E8E833801E614157AA46053 /* SAChatView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAChatView.m; sourceTree = "<group>"; };
 		9E8E83DA105463D207A62487 /* SAMessageFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageFrameModel.m; sourceTree = "<group>"; };
-		9E8E84CAC153DF90528300F2 /* SATeamChatTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamChatTableView.m; sourceTree = "<group>"; };
+		9E8E84DF4C50B5F8E0BD90CC /* SAChatServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAChatServer.m; sourceTree = "<group>"; };
+		9E8E85931794D8C74706CE5B /* SASignUpSetPasswordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpSetPasswordView.m; sourceTree = "<group>"; };
 		9E8E85D7E08BE06578C51026 /* SATeamMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamMessageView.m; sourceTree = "<group>"; };
-		9E8E86AC2BBC8937E04EE3DE /* SATeamChatBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamChatBar.m; sourceTree = "<group>"; };
+		9E8E862C8631314AEA18036C /* SASignUpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpRequest.m; sourceTree = "<group>"; };
+		9E8E8664DE3490BA4221B417 /* SAChatServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAChatServer.h; sourceTree = "<group>"; };
 		9E8E86AF8D97454491B99DAE /* SATeamTeamView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamTeamView.m; sourceTree = "<group>"; };
 		9E8E87B50FEA038AB7FB2593 /* SATeamRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamRequest.m; sourceTree = "<group>"; };
-		9E8E88D48E719BDFAE2C8722 /* SATeamChatTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamChatTableView.h; sourceTree = "<group>"; };
-		9E8E894B241CB79DF661D0A3 /* SATeamChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamChatViewController.m; sourceTree = "<group>"; };
+		9E8E88E330E0BCD1D0F4E4B7 /* SASignUpUserInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpUserInfoController.h; sourceTree = "<group>"; };
 		9E8E895D5B5ECE9ADD2CE7A7 /* SAMessageFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageFrameModel.h; sourceTree = "<group>"; };
-		9E8E8A2E20887852961C9476 /* SATeamChatBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamChatBar.h; sourceTree = "<group>"; };
+		9E8E8A12DB7F1382A17D9CD3 /* NSString+category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+category.h"; sourceTree = "<group>"; };
 		9E8E8A5860274196B5CF0B24 /* SATeamRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamRequest.h; sourceTree = "<group>"; };
 		9E8E8AA5FB4DF7B0A5756A84 /* SAMessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAMessageModel.h; sourceTree = "<group>"; };
+		9E8E8B1FD00999B819C8633A /* SAChatView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAChatView.h; sourceTree = "<group>"; };
+		9E8E8B95EE17774E9D98F7C0 /* SASignUpSetInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpSetInfoView.m; sourceTree = "<group>"; };
+		9E8E8BA13ED6C44161DE2F31 /* SASignUpSetInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpSetInfoView.h; sourceTree = "<group>"; };
 		9E8E8C3ED9149EF051CBD481 /* SATeamTeamView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamTeamView.h; sourceTree = "<group>"; };
 		9E8E8C4E7012855D30BE54C5 /* SAMessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageModel.m; sourceTree = "<group>"; };
 		9E8E8D095E92183586B9F662 /* SATeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamViewController.m; sourceTree = "<group>"; };
+		9E8E8D1A7DDE488D3DC6C596 /* SASignUpUserInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SASignUpUserInfoController.m; sourceTree = "<group>"; };
+		9E8E8D4CCDBD7334596DFB73 /* SASignUpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpRequest.h; sourceTree = "<group>"; };
+		9E8E8DACB9C8AED8FB611776 /* SACitySearchTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACitySearchTableView.m; sourceTree = "<group>"; };
 		9E8E8E04A9485C7F5741A47B /* SAMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAMessageCell.m; sourceTree = "<group>"; };
-		9E8E8EEB50B47579F453AD56 /* SAChatFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAChatFrameModel.h; sourceTree = "<group>"; };
+		9E8E8E772D7F9921B16DAD7D /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = city.plist; sourceTree = "<group>"; };
+		9E8E8E9D0E397F50EED2A875 /* SASchoolSearchTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASchoolSearchTableView.h; sourceTree = "<group>"; };
+		9E8E8F16837131D9876228DA /* NSString+category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+category.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1217,9 +1238,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B7023381D58D6F2002C18D8 /* XMNChat.framework in Frameworks */,
 				7B5CB1651D52D7E20057FED6 /* MediaPlayer.framework in Frameworks */,
+				7B7023251D580E15002C18D8 /* libsms-lib.a in Frameworks */,
 				7B5CB1631D52D7DD0057FED6 /* AVFoundation.framework in Frameworks */,
-				7B46F9431D55B76900843F48 /* XMNChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1229,6 +1251,7 @@
 		7B5CAC5E1D52D6BC0057FED6 = {
 			isa = PBXGroup;
 			children = (
+				7B7023341D58D6DD002C18D8 /* XMNChat.framework */,
 				7B5CAC881D52D74A0057FED6 /* Frameworks */,
 				7B5CAD311D52D74A0057FED6 /* Main */,
 				7B5CAE6A1D52D74B0057FED6 /* OpenSource */,
@@ -1263,6 +1286,8 @@
 				7B5CAC761D52D6BC0057FED6 /* Sigma.xcdatamodeld */,
 				7B5CAC6A1D52D6BC0057FED6 /* Supporting Files */,
 				7B5CB1611D52D79B0057FED6 /* SAPrefix.pch */,
+				9E8E8E772D7F9921B16DAD7D /* city.plist */,
+				9E8E82B3C544A19641CC215A /* school.plist */,
 			);
 			path = Sigma;
 			sourceTree = "<group>";
@@ -1278,7 +1303,8 @@
 		7B5CAC881D52D74A0057FED6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B46F9421D55B76900843F48 /* XMNChat.framework */,
+				7B7023321D58D6CB002C18D8 /* XMNChat.framework */,
+				7B7023201D580E15002C18D8 /* JsmsSDK */,
 				7B5CB1641D52D7E20057FED6 /* MediaPlayer.framework */,
 				7B5CB1621D52D7DD0057FED6 /* AVFoundation.framework */,
 				7B5CAC891D52D74A0057FED6 /* AFNetworking */,
@@ -2251,6 +2277,7 @@
 			children = (
 				7B5CAE601D52D74B0057FED6 /* Controller */,
 				7B5CAE631D52D74B0057FED6 /* View */,
+				9E8E8E902C2B7519D448D562 /* Http */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -2260,6 +2287,7 @@
 			children = (
 				7B5CAE611D52D74B0057FED6 /* SASignUpViewController.h */,
 				7B5CAE621D52D74B0057FED6 /* SASignUpViewController.m */,
+				9E8E8A775C84304084C223CB /* SubController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2273,6 +2301,7 @@
 				7B5CAE671D52D74B0057FED6 /* SASignUpWithEmailView.m */,
 				7B5CAE681D52D74B0057FED6 /* SASignUpWithTelephoneView.h */,
 				7B5CAE691D52D74B0057FED6 /* SASignUpWithTelephoneView.m */,
+				9E8E82A4620E27A2E20EF690 /* SubView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2502,6 +2531,7 @@
 				7B5CAEEE1D52D74B0057FED6 /* SAPublishViewButton.h */,
 				7B5CAEEF1D52D74B0057FED6 /* SAPublishViewButton.m */,
 				7B5CAEF01D52D74B0057FED6 /* VerticalBtn */,
+				9E8E80B4F6901D94B6644A4D /* SearchTable */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2915,6 +2945,44 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		7B7023201D580E15002C18D8 /* JsmsSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7B7023211D580E15002C18D8 /* include */,
+				7B7023241D580E15002C18D8 /* libsms-lib.a */,
+			);
+			path = JsmsSDK;
+			sourceTree = "<group>";
+		};
+		7B7023211D580E15002C18D8 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				7B7023221D580E15002C18D8 /* JSMSConstant.h */,
+				7B7023231D580E15002C18D8 /* JSMSSDK.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		9E8E80B4F6901D94B6644A4D /* SearchTable */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8C06CD46071249AF78C8 /* Category */,
+				9E8E8AC2B436A2D1BB15C4C6 /* View */,
+			);
+			path = SearchTable;
+			sourceTree = "<group>";
+		};
+		9E8E82A4620E27A2E20EF690 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E82A84ABF09DAD7F1421E /* SASignUpSetPasswordView.h */,
+				9E8E85931794D8C74706CE5B /* SASignUpSetPasswordView.m */,
+				9E8E8BA13ED6C44161DE2F31 /* SASignUpSetInfoView.h */,
+				9E8E8B95EE17774E9D98F7C0 /* SASignUpSetInfoView.m */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
 		9E8E82ECC4F65299DD579365 /* Http */ = {
 			isa = PBXGroup;
 			children = (
@@ -2933,8 +3001,6 @@
 				9E8E83DA105463D207A62487 /* SAMessageFrameModel.m */,
 				9E8E81A73372F9DF64B12807 /* SAChatModel.h */,
 				9E8E814234520251510394D7 /* SAChatModel.m */,
-				9E8E8EEB50B47579F453AD56 /* SAChatFrameModel.h */,
-				9E8E81DDC92ABD99FA050CE2 /* SAChatFrameModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2959,10 +3025,28 @@
 			children = (
 				9E8E8213E425224E0D3403C3 /* SAMessageCell.h */,
 				9E8E8E04A9485C7F5741A47B /* SAMessageCell.m */,
-				9E8E8259C899E3F180E9611F /* SAChatCell.h */,
-				9E8E812213C2E891580D9CB0 /* SAChatCell.m */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		9E8E8A775C84304084C223CB /* SubController */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E88E330E0BCD1D0F4E4B7 /* SASignUpUserInfoController.h */,
+				9E8E8D1A7DDE488D3DC6C596 /* SASignUpUserInfoController.m */,
+			);
+			path = SubController;
+			sourceTree = "<group>";
+		};
+		9E8E8AC2B436A2D1BB15C4C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E80C2FC2AD582E9CDC25D /* SACitySearchTableView.h */,
+				9E8E8DACB9C8AED8FB611776 /* SACitySearchTableView.m */,
+				9E8E8E9D0E397F50EED2A875 /* SASchoolSearchTableView.h */,
+				9E8E80896408D4E5213D0612 /* SASchoolSearchTableView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		9E8E8AD2179152F79E026E35 /* Team */ = {
@@ -2976,22 +3060,38 @@
 			path = Team;
 			sourceTree = "<group>";
 		};
+		9E8E8C06CD46071249AF78C8 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8A12DB7F1382A17D9CD3 /* NSString+category.h */,
+				9E8E8F16837131D9876228DA /* NSString+category.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		9E8E8E498E9BD74E4730B995 /* SubController */ = {
 			isa = PBXGroup;
 			children = (
-				9E8E81D03B896FAF3A1C69C9 /* SATeamChatViewController.h */,
-				9E8E894B241CB79DF661D0A3 /* SATeamChatViewController.m */,
 			);
 			path = SubController;
+			sourceTree = "<group>";
+		};
+		9E8E8E902C2B7519D448D562 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				9E8E8D4CCDBD7334596DFB73 /* SASignUpRequest.h */,
+				9E8E862C8631314AEA18036C /* SASignUpRequest.m */,
+			);
+			path = Http;
 			sourceTree = "<group>";
 		};
 		9E8E8EB57E00133B0030AAD8 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
-				9E8E88D48E719BDFAE2C8722 /* SATeamChatTableView.h */,
-				9E8E84CAC153DF90528300F2 /* SATeamChatTableView.m */,
-				9E8E8A2E20887852961C9476 /* SATeamChatBar.h */,
-				9E8E86AC2BBC8937E04EE3DE /* SATeamChatBar.m */,
+				9E8E8B1FD00999B819C8633A /* SAChatView.h */,
+				9E8E833801E614157AA46053 /* SAChatView.m */,
+				9E8E8664DE3490BA4221B417 /* SAChatServer.h */,
+				9E8E84DF4C50B5F8E0BD90CC /* SAChatServer.m */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -3016,7 +3116,7 @@
 				7B5CAC631D52D6BC0057FED6 /* Sources */,
 				7B5CAC641D52D6BC0057FED6 /* Frameworks */,
 				7B5CAC651D52D6BC0057FED6 /* Resources */,
-				7B46F9451D55B76900843F48 /* Embed Frameworks */,
+				7B7023371D58D6DD002C18D8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3038,6 +3138,11 @@
 				TargetAttributes = {
 					7B5CAC661D52D6BC0057FED6 = {
 						CreatedOnToolsVersion = 7.3.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -3288,6 +3393,8 @@
 				7B5CB1281D52D74B0057FED6 /* tabbar_compose_icon_add@3x.png in Resources */,
 				7B5CB1221D52D74B0057FED6 /* sigma@2x.png in Resources */,
 				7B5CB0E71D52D74B0057FED6 /* ques6.png in Resources */,
+				9E8E8FA26848FF415D527BFB /* city.plist in Resources */,
+				9E8E8D560A1B2C24FABF13F0 /* school.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3523,13 +3630,17 @@
 				9E8E868610A822BBFE1A0377 /* SAMessageCell.m in Sources */,
 				9E8E883900DC4E7CA84CE10A /* SAMessageModel.m in Sources */,
 				9E8E81BC293CD9EEE5C6C39D /* SAMessageFrameModel.m in Sources */,
-				9E8E85C36D36ADEF01C7FAA8 /* SATeamChatViewController.m in Sources */,
-				9E8E85E09DA593541DB6C3E5 /* SATeamChatTableView.m in Sources */,
-				9E8E82B181AFA471BC1004E5 /* SATeamChatBar.m in Sources */,
 				9E8E8FDA816AA7F33DCA4EE5 /* SATeamRequest.m in Sources */,
 				9E8E8F162C7449F236435AF0 /* SAChatModel.m in Sources */,
-				9E8E893F2ED429AC360E0849 /* SAChatFrameModel.m in Sources */,
-				9E8E87521ABD662B5D439507 /* SAChatCell.m in Sources */,
+				9E8E84CF4DD57E154A38BA47 /* SAChatView.m in Sources */,
+				9E8E8074B6A190B2E483F93F /* SAChatServer.m in Sources */,
+				9E8E8A5ED8AA72BD69DB1CF1 /* SASignUpRequest.m in Sources */,
+				9E8E80484D25945C3B0053D2 /* SASignUpUserInfoController.m in Sources */,
+				9E8E8AED16EAFEE5AFCE14C1 /* SASignUpSetPasswordView.m in Sources */,
+				9E8E8F5859FACD79058A89C8 /* SASignUpSetInfoView.m in Sources */,
+				9E8E8F0C792920D9BFB99377 /* NSString+category.m in Sources */,
+				9E8E8CC5EC9EFCFCD0C2F61D /* SACitySearchTableView.m in Sources */,
+				9E8E8780D864EE7DFF30D155 /* SASchoolSearchTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3640,9 +3751,11 @@
 		7B5CAC821D52D6BC0057FED6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: jiale wang (HQPX2B2296)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiale wang (HQPX2B2296)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -3652,18 +3765,30 @@
 				INFOPLIST_FILE = Sigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/JsmsSDK",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = win.sigma.Sigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d87e101a-95c6-41e5-b392-cfbad44b6464";
+				PROVISIONING_PROFILE = "0fd28ff8-03ae-445c-82c5-d3f195b7236e";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Debug;
 		};
 		7B5CAC831D52D6BC0057FED6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: jiale wang (HQPX2B2296)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiale wang (HQPX2B2296)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -3673,9 +3798,19 @@
 				INFOPLIST_FILE = Sigma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks/JsmsSDK",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = win.sigma.Sigma;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d87e101a-95c6-41e5-b392-cfbad44b6464";
+				PROVISIONING_PROFILE = "0fd28ff8-03ae-445c-82c5-d3f195b7236e";
+				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};

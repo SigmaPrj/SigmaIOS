@@ -11,30 +11,35 @@
 @implementation SAValidator
 
 + (BOOL)isValidUsername:(NSString *)username {
+    if ([username isEqualToString:@""]) return NO;
     if ([self isValidPhone:username]) return YES;
     if ([self isValidEmail:username]) return YES;
     return [self isValidCustomUser:username];
 }
 
 + (BOOL)isValidPassword:(NSString *)password {
+    if ([password isEqualToString:@""]) return NO;
     NSString *pattern = @"^[a-zA-Z0-9.]*$";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     return [predicate evaluateWithObject:password];
 }
 
 + (BOOL)isValidEmail:(NSString *)email {
+    if ([email isEqualToString:@""]) return NO;
     NSString *pattern = @"^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     return [predicate evaluateWithObject:email];
 }
 
 + (BOOL)isValidPhone:(NSString *)phone {
+    if ([phone isEqualToString:@""]) return NO;
     NSString *pattern = @"^1[3|4|5|8][0-9]\\d{4,8}$";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     return [predicate evaluateWithObject:phone];
 }
 
 + (BOOL)isValidCustomUser:(NSString *)username {
+    if ([username isEqualToString:@""]) return NO;
     NSString *pattern = @"^[a-zA-Z]+[a-zA-Z0-9]*$";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
     return [predicate evaluateWithObject:username];
