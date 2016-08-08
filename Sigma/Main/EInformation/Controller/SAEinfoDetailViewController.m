@@ -8,6 +8,7 @@
 
 #import "SAEinfoDetailViewController.h"
 #import "TextEnhance.h"
+#import "UIImageView+WebCache.h"
 
 #define BACKGROUND_IMG_HEIGHT 200
 #define COMPETITION_TITLE_WIDTH 400 // 标题宽
@@ -111,7 +112,8 @@
         _bgImage.backgroundColor = [UIColor colorWithRed:0.866  green:0.889  blue:0.968 alpha:1];
         
         NSURL* url = [[NSURL alloc] initWithString:self.model.news_img];
-        [_bgImage setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url]]];
+        [_bgImage sd_setImageWithURL:url placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload];
+//        [_bgImage setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url]]];
         
         // 遮罩层
         UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, BACKGROUND_IMG_HEIGHT)];
