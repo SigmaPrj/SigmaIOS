@@ -26,8 +26,6 @@
 - (void)viewDidLoad {
     [self initUI];
     [super viewDidLoad];
-    [self setLeftNavigationItemWithTitle:nil imageName:@"back.png"];
-
 }
 
 -(void)viewWillAppear:(BOOL)animated{

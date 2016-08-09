@@ -82,7 +82,8 @@
         _mainImgView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 15, 90, 90)];
         
         NSURL *url = [[NSURL alloc] initWithString:self.detailModel.news_img];
-        [_mainImgView sd_setImageWithURL:url];
+//        [_mainImgView sd_setImageWithURL:url];
+        [_mainImgView sd_setImageWithURL:url placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload];
         
         // 动态加载图片
 //        [_mainImgView setImage:[UIImage imageNamed:self.data.mainImgName]];
