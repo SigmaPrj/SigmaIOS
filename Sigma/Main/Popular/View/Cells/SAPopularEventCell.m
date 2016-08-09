@@ -22,7 +22,10 @@
 @property(nonatomic, strong) UILabel* titleLabel;
 @property(nonatomic, strong) UILabel* descLabel;
 @property(nonatomic, strong) UILabel* numberLabel;
+
+// 即将废除的model
 @property(nonatomic, strong) SAPopularModel* data;
+
 
 @end
 
@@ -50,6 +53,7 @@
     _data = data;
 }
 
+
 -(instancetype)initUI{
     [self.contentView addSubview:self.cellBackgroundImg];
 //    [self addSubview:self.categoryView];
@@ -62,45 +66,7 @@
     return self;
 }
 
-/**
- *  类别的View这里是热门问答 ---- 该部分已经转到headerForSection中，可以删除
- *
- *  @return <#return value description#>
- */
--(UIView*)categoryView{
-    if (!_categoryView) {
-        _categoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 45)];
-        //        _categoryView.backgroundColor = [UIColor purpleColor];
-        
-        UILabel *categoryTitle = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 0, 200, 45)];
-        [categoryTitle setText:@"热门活动"];
-        [categoryTitle setFont:[UIFont systemFontOfSize:15.f]];
-        categoryTitle.textAlignment = NSTextAlignmentCenter;
-        //        categoryTitle.backgroundColor = [UIColor yellowColor];
-        
-        UIView* leftLine = [[UIView alloc] initWithFrame:CGRectMake(30, categoryTitle.frame.size.height/2, 20, 1)];
-        leftLine.backgroundColor = [UIColor blackColor];
-        
-        UIView* rightLine = [[UIView alloc] initWithFrame:CGRectMake(150, categoryTitle.frame.size.height/2, 20, 1)];
-        rightLine.backgroundColor = [UIColor blackColor];
-        
-        
-        UIButton* MoreBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-65, (categoryTitle.frame.size.height-20)/2, 50, 20)];
-        //        [MoreBtn setTitle:@"More" forState:UIControlStateNormal];
-        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.png"] forState:UIControlStateNormal];
-        
-        [MoreBtn addTarget:self action:@selector(moreBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        
-        [categoryTitle addSubview:leftLine];
-        [categoryTitle addSubview:rightLine];
-        [_categoryView addSubview:categoryTitle];
-        [_categoryView addSubview:MoreBtn];
-    }
-    
-    return _categoryView;
-}
+
 /**
  *  more按钮的点击事件
  *
@@ -119,7 +85,7 @@
  */
 -(UIImageView*)cellBackgroundImg{
     if (!_cellBackgroundImg) {
-        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:self.data.cellBackgroundImgName]];
+        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"ques3.png"]];
         _cellBackgroundImg.frame = CGRectMake(15, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2);
         
         UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2)];

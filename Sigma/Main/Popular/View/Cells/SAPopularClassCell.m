@@ -9,6 +9,9 @@
 #import "SAPopularClassCell.h"
 #import "SAPopularModel.h"
 #import "TextEnhance.h"
+#import "SAPopularClassModel.h"
+#import "UIImageView+WebCache.h"
+
 
 #define AVATAIMG_WIDTH 30
 #define AVATAIMG_HEIGHT 30
@@ -23,8 +26,11 @@
 @property(nonatomic, strong) UILabel* titleLabel;
 @property(nonatomic, strong) UILabel* descLabel;
 @property(nonatomic, strong) UILabel* numberLabel;
+
+// SAPopularModel假数据将被替换
 @property(nonatomic, strong) SAPopularModel* data;
 
+@property(nonatomic, strong) SAPopularClassModel* classdata;
 
 @end
 
@@ -48,12 +54,17 @@
     return self;
 }
 
--(void)setData:(SAPopularModel *)data{
-    _data = data;
+//-(void)setData:(SAPopularModel *)data{
+//    _data = data;
+//}
+
+
+-(void)setClassData:(SAPopularClassModel*)classdata{
+    _classdata = classdata;
 }
 
 -(instancetype)initUI{
-    [self.contentView addSubview:self.cellBackgroundImg];
+    [self addSubview:self.cellBackgroundImg];
 //    [self addSubview:self.categoryView];
     [self.cellBackgroundImg addSubview:self.avataImage];
     [self.cellBackgroundImg addSubview:self.nickNameLabel];
@@ -64,45 +75,7 @@
     return self;
 }
 
-/**
- *  类别的View这里是热门课程 ---- 该部分已经转到headerForSection中，可以删除
- *
- *  @return <#return value description#>
- */
--(UIView*)categoryView{
-    if (!_categoryView) {
-        _categoryView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 45)];
-        //        _categoryView.backgroundColor = [UIColor purpleColor];
-        
-        UILabel *categoryTitle = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, 0, 200, 45)];
-        [categoryTitle setText:@"热门课程"];
-        [categoryTitle setFont:[UIFont systemFontOfSize:15.f]];
-        categoryTitle.textAlignment = NSTextAlignmentCenter;
-        //        categoryTitle.backgroundColor = [UIColor yellowColor];
-        
-        UIView* leftLine = [[UIView alloc] initWithFrame:CGRectMake(30, categoryTitle.frame.size.height/2, 20, 1)];
-        leftLine.backgroundColor = [UIColor blackColor];
-        
-        UIView* rightLine = [[UIView alloc] initWithFrame:CGRectMake(150, categoryTitle.frame.size.height/2, 20, 1)];
-        rightLine.backgroundColor = [UIColor blackColor];
-        
-        
-        UIButton* MoreBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-65, (categoryTitle.frame.size.height-20)/2, 50, 20)];
-        //        [MoreBtn setTitle:@"More" forState:UIControlStateNormal];
-        [MoreBtn setImage:[UIImage imageNamed:@"morebtn.png"] forState:UIControlStateNormal];
-        
-        [MoreBtn addTarget:self action:@selector(moreBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-        
-        
-        
-        [categoryTitle addSubview:leftLine];
-        [categoryTitle addSubview:rightLine];
-        [_categoryView addSubview:categoryTitle];
-        [_categoryView addSubview:MoreBtn];
-    }
-    
-    return _categoryView;
-}
+
 /**
  *  more按钮的点击事件
  *
@@ -121,11 +94,21 @@
  */
 -(UIImageView*)cellBackgroundImg{
     if (!_cellBackgroundImg) {
-        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:self.data.cellBackgroundImgName]];
+
+//        _cellBackgroundImg = [[UIImageView alloc] initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH-30, 250)];
+//        _cellBackgroundImg.image = [UIImage imageNamed:self.data.cellBackgroundImgName];
+        
+//        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:self.data.cellBackgroundImgName]];
+        
+        
+        
+        NSURL* url = [[NSURL alloc] initWithString:self.classdata.bg_image];
+        
+        _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url]]];
+        
         _cellBackgroundImg.frame = CGRectMake(15, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2);
         
         UIView* view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2)];
-        
         view.backgroundColor = COLOR_RGBA(0, 0, 0, 0.4);
         [_cellBackgroundImg addSubview:view];
 
@@ -143,7 +126,10 @@
 -(UIImageView*)avataImage{
     if (!_avataImage) {
         _avataImage = [[UIImageView alloc] initWithFrame:CGRectMake(15, 10, AVATAIMG_WIDTH, AVATAIMG_HEIGHT)];
-        [_avataImage setImage:[UIImage imageNamed:self.data.AvataImgName]];
+        
+//        [_avataImage setImage:[UIImage imageNamed:self.data.AvataImgName]];
+        NSURL *url = [[NSURL alloc] initWithString:self.classdata.avata];
+        [_avataImage sd_setImageWithURL:url placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload];
         
         // img显示为圆形
         _avataImage.layer.cornerRadius = _avataImage.frame.size.width/2;
@@ -163,7 +149,8 @@
         _nickNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(65, 10, 250, 30)];
         _nickNameLabel.textColor = [UIColor whiteColor];
         [_nickNameLabel setFont:[UIFont systemFontOfSize:12.f]];
-        [_nickNameLabel setText:self.data.nickName];
+//        [_nickNameLabel setText:self.data.nickName];
+        [_nickNameLabel setText:self.classdata.nickname];
         
     }
     return _nickNameLabel;
@@ -180,7 +167,8 @@
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 35, self.cellBackgroundImg.frame.size.width, 30)];
         _titleLabel.textColor = [UIColor whiteColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
-        [_titleLabel setText:self.data.title];
+//        [_titleLabel setText:self.data.title];
+        [_titleLabel setText:self.classdata.title];
     }
     
     return _titleLabel;
@@ -193,8 +181,10 @@
  */
 - (UILabel *)descLabel {
     if (!_descLabel) {
-        _descLabel = [[UILabel alloc] initWithFrame:CGRectMake((self.cellBackgroundImg.frame.size.width-275)/2, (CGFloat)((self.data.cellHeight-40)/2)+45, 275, 40)];
-        _descLabel.text = self.data.desc;
+        _descLabel = [[UILabel alloc] initWithFrame:CGRectMake((self.cellBackgroundImg.frame.size.width-275)/2, (CGFloat)((200-40)/2)+45, 275, 40)];
+//        _descLabel.text = self.data.desc;
+        
+        _descLabel.text = self.classdata.desc;
         _descLabel.textColor = [UIColor whiteColor];
         _descLabel.textAlignment = NSTextAlignmentCenter;
         _descLabel.numberOfLines = 2;
@@ -227,7 +217,9 @@
     if (!_numberLabel) {
         _numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 15, 80, 30)];
         //        _joinLabel.text = [NSString stringWithFormat:@"%d人参与讨论", self.data.comments];
-        _numberLabel.text = [NSString stringWithFormat:@"%d人学习",self.data.number];
+//        _numberLabel.text = [NSString stringWithFormat:@"%d人学习",self.data.number];
+        
+        _numberLabel.text = [NSString stringWithFormat:@"%d人学习",self.classdata.learn];
         _numberLabel.textColor = [UIColor whiteColor];
         [_numberLabel setFont:[UIFont systemFontOfSize:12.f]];
         

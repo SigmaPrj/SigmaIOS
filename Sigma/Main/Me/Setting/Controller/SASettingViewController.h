@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SAViewController.h"
 
-@interface SASettingViewController : UIViewController
+
+@interface SASettingViewController : SAViewController
 
 @end

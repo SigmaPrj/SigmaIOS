@@ -2,12 +2,18 @@
 //  AppDelegate.m
 //  Sigma
 //
-//  Created by 韩佳成 on 16/7/28.
-//  Copyright © 2016年 韩佳成. All rights reserved.
+//  Created by 汤轶侬 on 16/8/4.
+//  Copyright © 2016年 sigma. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "SAUserDataManager.h"
 #import "SARootViewController.h"
+#import "CacheManager.h"
+#import "SAAnimationNavController.h"
+#import "SAHomeViewController.h"
+#import "JSMSSDK.h"
+
 @interface AppDelegate ()
 
 @end
@@ -16,19 +22,37 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] init];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window.frame = [[UIScreen mainScreen] bounds];
+    /**
+     * 判断用户是否已经登录
+     */
+    NSMutableDictionary* userData = (NSMutableDictionary *)[SAUserDataManager readUserData];
     
-    SARootViewController *viewController = [[SARootViewController alloc]init];
+    // 验证有效性
+    if (userData) {
+        if (userData[@"token"] && userData[@"time"]) {
+            NSTimeInterval timeInterval = [userData[@"time"] intValue];
+            NSTimeInterval nowInterval = [NSDate date].timeIntervalSince1970;
+            if (timeInterval > nowInterval) {
+                // 直接进入主页面
+                SARootViewController *rootController = [[SARootViewController alloc] init];
+                self.window.rootViewController = rootController;
+                [self.window makeKeyAndVisible];
+                return YES;
+            }
+        }
+    }
     
-    self.window.rootViewController = viewController;
+    // 显示home页面,选择注册和登录
+    SAHomeViewController *homeViewController = [[SAHomeViewController alloc] init];
+    SAAnimationNavController *navController = [[SAAnimationNavController alloc] initWithRootViewController:homeViewController];
     
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
-    return YES;
 
-    
+    [JSMSSDK registerWithAppKey:KEY_APP_KEY];
+
     return YES;
 }
 
@@ -52,6 +76,100 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    // Saves changes in the application's managed object context before the application terminates.
+    [self saveContext];
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+    [[CacheManager defaultManager] clearMemoryCaches];
+}
+
++ (instancetype)sharedDelegate {
+    return [UIApplication sharedApplication].delegate;
+}
+
+
+#pragma mark - Core Data stack
+
+@synthesize managedObjectContext = _managedObjectContext;
+@synthesize managedObjectModel = _managedObjectModel;
+@synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize supportsCoreData = _supportsCoreData;
+
+- (NSManagedObjectModel *)managedObjectModel {
+    if (_managedObjectModel == nil) {
+        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Sigma" withExtension:@"momd"];
+        _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+    }
+    return _managedObjectModel;
+}
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
+    }
+    
+    // Create the coordinator and store
+    
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Sigma.sqlite"];
+    NSError *error = nil;
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+        _supportsCoreData = NO;
+    } else {
+        _supportsCoreData = YES;
+    }
+    
+    return _persistentStoreCoordinator;
+}
+
+- (void)initializeManagedObjectContext {
+    NSPersistentStoreCoordinator *coordinator = self.persistentStoreCoordinator;
+    if (!coordinator) {
+        return;
+    }
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    _managedObjectContext.persistentStoreCoordinator = coordinator;
+}
+
+
+- (NSManagedObjectContext *)managedObjectContext {
+    // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.)
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (!coordinator) {
+        return nil;
+    }
+    _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    [_managedObjectContext setPersistentStoreCoordinator:coordinator];
+    return _managedObjectContext;
+}
+
+#pragma mark - Core Data Saving support
+
+- (void)saveContext {
+    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    if (managedObjectContext != nil) {
+        NSError *error = nil;
+        if (managedObjectContext.hasChanges && ![managedObjectContext save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, error.userInfo);
+            _supportsCoreData = NO;
+        }
+    }
+}
+
+#pragma mark - Utility
+
+- (NSURL *)applicationDocumentsDirectory {
+    return [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask].lastObject;
+}
+
+- (NSURL *)applicationCachesDirectory {
+    return [[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask].lastObject;
 }
 
 @end

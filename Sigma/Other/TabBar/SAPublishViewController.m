@@ -31,11 +31,12 @@ static CGFloat SpringDelay = 0.03;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.backgroundColor = [UIColor colorWithRed:0.937  green:0.929  blue:0.933 alpha:0.7];
     self.view.userInteractionEnabled = NO;
     
     
     // 初始化btn 图片和title
-    NSArray *images = @[@"tabbar_compose_idea.png", @"tabbar_compose_book.png", @"camera_video_download.png", @"tabbar_compose_lbs.png", @"messagescenter_good.png", @"tabbar_compose_friend.png"];
+    NSArray *images = @[@"btn-fb.png", @"btn-tw.png", @"btn-xz.png", @"btn-qd.png", @"btn-sc.png", @"btn-fh.png"];
     NSArray *titles = @[@"发布", @"提问",@"下载", @"签到", @"收藏", @"返回"];
     
     NSUInteger cols = 3;
@@ -103,7 +104,7 @@ static CGFloat SpringDelay = 0.03;
     }
     
     /** 添加sloganView指示条 */
-    UIImageView *sloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
+    UIImageView *sloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
     
     sloganView.y = - SCREEN_WIDTH;
     
@@ -194,14 +195,14 @@ static CGFloat SpringDelay = 0.03;
     POPBasicAnimation *anima = [POPBasicAnimation animationWithPropertyNamed:kPOPViewScaleXY];
     
     anima.toValue = [NSValue valueWithCGSize:CGSizeMake(1.1, 1.1)];
-    
+
     [btn pop_addAnimation:anima forKey:nil];
     
     __weak typeof(self) weakself = self;
 
         
         POPBasicAnimation *anima2 = [POPBasicAnimation animationWithPropertyNamed:kPOPViewAlpha];
-        
+
         anima2.toValue = @(0);
         
         [btn pop_addAnimation:anima2 forKey:nil];

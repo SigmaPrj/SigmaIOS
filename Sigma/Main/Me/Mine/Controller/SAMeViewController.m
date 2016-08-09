@@ -16,8 +16,11 @@
 
 #import "SAMineSubViewController.h"
 #import "SASettingViewController.h"
+#import "UIImageView+WebCache.h"
+
 
 #import "SAQuesViewController.h"
+#import "TimelineViewController.h"
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
 #define HEIGHT_BASIC_INFO_OF_HEADER_VIEW 66
@@ -118,8 +121,17 @@
 -(UIImageView*)headImageViewOfHeaderView{
     if (!_headImageViewOfHeaderView) {
         _headImageViewOfHeaderView = [[UIImageView alloc] initWithFrame:CGRectMake(MARGIN*1.5, (HEIGHT_TABLE_HEADER_VIEW-HEIGHT_BASIC_INFO_OF_HEADER_VIEW-IMAGE_REC_SIZE)/2, IMAGE_REC_SIZE, IMAGE_REC_SIZE)];
-        _headImageViewOfHeaderView.image = [[UIImage imageNamed:self.user.headImageName] imageWithRenderingMode:UIImageRenderingModeAutomatic];
+//        _headImageViewOfHeaderView.image = [[UIImage imageNamed:self.user.headImageName] imageWithRenderingMode:UIImageRenderingModeAutomatic];
         
+        NSURL *avatarImageUrl = [NSURL URLWithString:self.user.headImageName];
+        [_headImageViewOfHeaderView sd_setImageWithURL:avatarImageUrl placeholderImage:[UIImage imageNamed:@"avatar60"] options:SDWebImageRetryFailed | SDWebImageProgressiveDownload];
+    
+    // 设置边框和圆形
+        _headImageViewOfHeaderView.layer.borderWidth = 1;
+        _headImageViewOfHeaderView.layer.borderColor = COMMUNITY_BORDER_COLOR.CGColor;
+        _headImageViewOfHeaderView.layer.cornerRadius = IMAGE_REC_SIZE/2;
+        _headImageViewOfHeaderView.layer.masksToBounds = YES;
+       
     }
     return _headImageViewOfHeaderView;
 }
@@ -418,6 +430,11 @@
                 SAQuesViewController *vc=[[SAQuesViewController alloc]init];
                 [vc setHidesBottomBarWhenPushed:YES];
                 [self.navigationController pushViewController:vc animated:YES];
+
+//                TimelineViewController *vc=[[TimelineViewController alloc]init];
+//                [vc setHidesBottomBarWhenPushed:YES];
+//                [self.navigationController pushViewController:vc animated:YES];
+                
             }
                 break;
             case 3:

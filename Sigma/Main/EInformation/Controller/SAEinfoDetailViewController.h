@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SAViewController.h"
+#import "SAEInfoDetailModel.h"
 
-@interface SAEinfoDetailViewController : UIViewController
+@interface SAEinfoDetailViewController : SAViewController
+
+
+@property(nonatomic, assign) int currectIndex;
+
+
+@property(nonatomic, strong) NSArray* detailDataArray;
+
+-(instancetype)initWithDetailData:(NSArray*)data index:(int)index;
 
 @end

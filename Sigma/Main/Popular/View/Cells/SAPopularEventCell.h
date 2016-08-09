@@ -14,6 +14,7 @@
 
 -(void)setData:(SAPopularModel *)data;
 
+
 -(instancetype)initUI;
 
 @end

@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) NSArray *images; // 附加图片
 
+@property (nonatomic, assign) int publish_time; // 发布动态时间
 @property (nonatomic, assign) int is_approved; // 用户是否被认证
 @property (nonatomic, assign) int user_type; // 用户类型
 @property (nonatomic, assign) int has_topic; // 是否和动态相关联

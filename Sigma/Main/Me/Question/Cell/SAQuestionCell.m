@@ -22,4 +22,14 @@
     return self;
 }
 
+-(instancetype)initWithTitle:(NSString*)title andDetail:(NSString*)detail
+{
+    self=[super init];
+    if (self) {
+        self.title=title;
+        self.detail=detail;
+    }
+    return self;
+}
+
 @end
