@@ -27,6 +27,7 @@
 #import "ContentOfSourceViewController.h"
 #import "SourceEngineInterface.h"
 #import "SourceMainPageInfo.h"
+#import "SearchViewOfCategoryController.h"
 
 
 
@@ -56,6 +57,13 @@
     [self createNavigationRightButton];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[SourceEngineInterface shareInstances] removeAllNotification];
+    [self removeAllNotification];
+}
+
+
 -(void)initUI{
     self.title = @"资源";
     [self.view addSubview:self.tableView];
@@ -63,13 +71,9 @@
     self.tableView.tableHeaderView = self.headView;
     [SourceEngineInterface shareInstances];
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_RESOURCE_MAINPAGE_DATA object:nil];
-    
-//    self.dataArray = [[[SourceEngineInterface shareInstances] sourcePageWithData] mutableCopy];
+    self.dataArray = [[[SourceEngineInterface shareInstances] sourcePageWithData] mutableCopy];
+
     [self addAllNotification];
-//    NSLog(@"%lu",self.dataArray.count);
-//    if(self.dataArray && self.dataArray.count>0){
-//        [self.tableView reloadData];
-//    }
 }
 
 /*
@@ -111,15 +115,17 @@
 
 //创建右上角分类按钮
 -(void)createNavigationRightButton{
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"rightButtonOfSource.png" ] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ]style:UIBarButtonItemStylePlain target:self action:@selector(rightNavigationBarClicked:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"putongjieguo.png" ] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ]style:UIBarButtonItemStylePlain target:self action:@selector(rightNavigationBarClicked:)];
 }
 
 //实现那 navigation上右边按钮的事件
 -(void)rightNavigationBarClicked:(id)sender{
     if(sender && [sender isKindOfClass:[UIBarButtonItem class]]){
          self.hidesBottomBarWhenPushed = YES;
-        CategoryViewController* categoryViewController = [[CategoryViewController alloc] init];
-        [self.navigationController pushViewController:categoryViewController animated:YES];
+        SearchViewOfCategoryController* searchViewOfCategoryController = [[SearchViewOfCategoryController alloc] init];
+        [self.navigationController pushViewController:searchViewOfCategoryController animated:YES];
+//        CategoryViewController* categoryViewController = [[CategoryViewController alloc] init];
+//        [self.navigationController pushViewController:categoryViewController animated:YES];
     }
 }
 
@@ -139,6 +145,11 @@
             [self.tableView reloadData];
         }
     }
+}
+
+//移除通知
+-(void)removeAllNotification{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UITableViewDataSource

@@ -19,4 +19,19 @@
 //每个cell课程学习的数量
 @property(nonatomic,assign)int numOfStudy;
 
+//每个课程的具体描述
+@property(nonatomic,copy)NSString* descriptionOfCourse;
+
+//作者的头像的名称
+@property(nonatomic,copy)NSString* headImageName;
+
+//作者的别称
+@property(nonatomic,copy)NSString* nickname;
+
+//作者的城市
+@property(nonatomic,copy)NSString* city;
+
+//课程视频的url地址
+@property(nonatomic,copy)NSString* courseVideoUrlPath;
+
 @end

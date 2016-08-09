@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class CategoryInfo;
+@class CategoryDataInfo;
 
 @interface CategoryViewCell : UITableViewCell
 
-@property(nonatomic,strong)CategoryInfo* categoryInfor;
+@property(nonatomic,strong)CategoryDataInfo* categoryInfor;
 
 //将cell中的内容显示出来
 -(void)showCategoryCell;

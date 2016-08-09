@@ -25,6 +25,8 @@
 #import "ContentOfSourceInfo.h"
 #import "ResourceMainPageModel.h"
 #import "ResourceMainPageRequest.h"
+#import "CategoryPageModel.h"
+#import "ResourceCategoryRequest.h"
 
 @interface SourceEngineInterface ()
 
@@ -109,37 +111,40 @@
 //        [self sourcePageWithArray:listArray];
         
         
+        
         _categoryInfoArray = [NSMutableArray array];
         
+        [self addCategoryNotification];
         
+        [ResourceCategoryRequest requestCategoryOfResourceData];
         
-        //category界面测试用的数据
-        NSMutableArray* listArrayForCategory = [NSMutableArray array];
-        
-        NSDictionary* dic1 = @{@"cellName":@"前端开发",
-                              @"imageName1":@"catogorySecondInfo3.png",
-                               @"desLabel1":@"HTML",
-                               @"numLabel1":@"44",
-                               @"imageName2":@"catogorySecondInfo3.png",
-                               @"desLabel2":@"JavaScipt",
-                               @"numLabel2":@"44",
-                               @"imageName3":@"catogorySecondInfo3.png",
-                               @"desLabel3":@"HTML",
-                               @"numLabel3":@"44",
-                               @"imageName4":@"catogorySecondInfo3.png",
-                               @"desLabel4":@"JavaScipt",
-                               @"numLabel4":@"44",
-                               @"imageName5":@"catogorySecondInfo3.png",
-                               @"desLabel5":@"HTML",
-                               @"numLabel5":@"44",
-                               @"imageName6":@"catogorySecondInfo3.png",
-                               @"desLabel6":@"JavaScipt",
-                               @"numLabel6":@"44"
-                              };
-        [listArrayForCategory addObject:dic1];
-    ///////////////////////////////////////////////////////////////////
-        
-        [self categoryPageWithArray:listArrayForCategory];
+//        //category界面测试用的数据
+//        NSMutableArray* listArrayForCategory = [NSMutableArray array];
+//        
+//        NSDictionary* dic1 = @{@"cellName":@"前端开发",
+//                              @"imageName1":@"catogorySecondInfo3.png",
+//                               @"desLabel1":@"HTML",
+//                               @"numLabel1":@"44",
+//                               @"imageName2":@"catogorySecondInfo3.png",
+//                               @"desLabel2":@"JavaScipt",
+//                               @"numLabel2":@"44",
+//                               @"imageName3":@"catogorySecondInfo3.png",
+//                               @"desLabel3":@"HTML",
+//                               @"numLabel3":@"44",
+//                               @"imageName4":@"catogorySecondInfo3.png",
+//                               @"desLabel4":@"JavaScipt",
+//                               @"numLabel4":@"44",
+//                               @"imageName5":@"catogorySecondInfo3.png",
+//                               @"desLabel5":@"HTML",
+//                               @"numLabel5":@"44",
+//                               @"imageName6":@"catogorySecondInfo3.png",
+//                               @"desLabel6":@"JavaScipt",
+//                               @"numLabel6":@"44"
+//                              };
+//        [listArrayForCategory addObject:dic1];
+//    ///////////////////////////////////////////////////////////////////
+//        
+//        [self categoryPageWithArray:listArrayForCategory];
         
         _searchInfoArray = [NSMutableArray array];
         //source界面测试用的数据
@@ -159,7 +164,6 @@
         [self searchPageWithArray:listArrayForSearch];
         
     
-        
         
     }
     return self;
@@ -228,6 +232,11 @@
     [self contentOfSourcePageWithArray:listArrayForContentHeadview];
 }
 
+//一个获得category界面数据的接口
+-(void)categoryGetData{
+    
+}
+
 
 -(NSArray*)sourcePageWithData{
     return self.sourceInfoArray;
@@ -286,7 +295,47 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_RESOURCE_MAINPAGE_MAINQUEUE_DATA object:nil];
         
     });
-    NSLog(@"%ld", sourceMainPageArray.count);
+}
+
+/*
+ 
+ category界面通知处理
+ 
+ */
+
+//添加通知
+-(void)addCategoryNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(categoryReceiveSuccessData:) name:CATEGORY_PAGE_DATA object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(categoryReceiveFailData:) name:REQUEST_DATA_ERROR object:nil];
+}
+
+//通知的处理方法
+-(void)categoryReceiveSuccessData:(NSNotification*)noti{
+    if([noti.name isEqualToString:CATEGORY_PAGE_DATA]){
+        if([noti.userInfo[@"status"] intValue] == 1){
+            [self setCategoryPageData:noti.userInfo[@"data"]];
+            NSArray* array = noti.userInfo[@"data"];
+            NSLog(@"%lu", array.count);
+            
+        }
+    }
+}
+
+-(void)categoryReceiveFailData:notification{
+    NSLog(@"category界面加载数据失败");
+}
+
+//category界面解析数据的方法
+-(void)setCategoryPageData:(NSArray*)categoryPageArray{
+    for(int i=0 ; i<categoryPageArray.count ; i++){
+//        CategoryPageModel* categoryPageModel = [CategoryPageModel categoryModelWithDict:categoryPageArray[(NSInteger)(i)]];
+//        [_categoryInfoArray addObject:categoryPageModel];
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:CATEGORY_PAGE_MAINQUEUE_DATA object:nil];
+    });
 }
 
 @end

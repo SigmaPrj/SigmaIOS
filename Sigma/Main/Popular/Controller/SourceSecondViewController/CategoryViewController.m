@@ -13,6 +13,7 @@
 #import "SourceEngineInterface.h"
 #import "CategoryInfo.h"
 #import "SearchViewOfCategoryController.h"
+#import "CategoryDataInfo.h"
 
 @interface CategoryViewController()<UITableViewDataSource,UITableViewDelegate>
 
@@ -40,11 +41,14 @@
     [self createRightButtonOfSearch];
     [self.view addSubview:self.tableView];
 //    self.tableView.tableHeaderView = self.categoryHeadView;
+    [SourceEngineInterface shareInstances];
+    [[NSNotificationCenter defaultCenter] postNotificationName:CATEGORY_PAGE_DATA object:nil];
     
     self.dataArray = [[[SourceEngineInterface shareInstances] categoryPageWithData] mutableCopy];
-    if(self.dataArray && self.dataArray.count>0){
-        [self.tableView reloadData];
-    }
+    [self addNotification];
+//    if(self.dataArray && self.dataArray.count>0){
+//        [self.tableView reloadData];
+//    }
 }
 
 //在navigationbar上的右侧创建搜索按钮
@@ -84,6 +88,26 @@
     return _categoryHeadView;
 }
 
+//添加返回主线程的通知
+-(void)addNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(categoryReceiveSuccessData:) name:CATEGORY_PAGE_MAINQUEUE_DATA object:nil];
+}
+
+//通知方法实现
+-(void)categoryReceiveSuccessData:(NSNotification*)noti{
+    if([noti.name isEqualToString:CATEGORY_PAGE_MAINQUEUE_DATA]){
+        self.dataArray = [[[SourceEngineInterface shareInstances] categoryPageWithData] mutableCopy];
+        if(self.dataArray && self.dataArray.count>0){
+            [self.tableView reloadData];
+        }
+    }
+}
+
+//移除通知
+-(void)removeNotification{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataArray.count;
@@ -97,9 +121,13 @@
          cell = [[CategoryViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         if((indexPath.row>=0) && (indexPath.row < self.dataArray.count)){
             
-            NSDictionary* dict = [self.dataArray objectAtIndex:indexPath.row];
-            CategoryInfo* categoryInfo = [[CategoryInfo alloc] initWithDictionary:dict];
-            cell.categoryInfor = categoryInfo;
+//            NSDictionary* dict = [self.dataArray objectAtIndex:indexPath.row];
+//            CategoryInfo* categoryInfo = [[CategoryInfo alloc] initWithDictionary:dict];
+//            cell.categoryInfor = categoryInfo;
+//            [cell showCategoryCell];
+            
+            CategoryDataInfo* categoryDataInfo = (CategoryDataInfo*)[self.dataArray objectAtIndex:indexPath.row];
+            cell.categoryInfor = categoryDataInfo;
             [cell showCategoryCell];
             self.tableView.rowHeight = 450*(SCREEN_WIDTH/SCREEN_HEIGHT);
         }

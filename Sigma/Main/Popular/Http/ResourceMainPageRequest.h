@@ -10,7 +10,7 @@
 
 @interface ResourceMainPageRequest : SARequestBase
 
-//请求resource的图片
+//请求resource的数据
 +(void)requestResourceMainPageData;
 
 @end
