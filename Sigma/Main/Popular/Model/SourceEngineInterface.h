@@ -60,7 +60,7 @@
  
  */
 
--(void)getDataFromView:(NSString*)sourceName andSupportNumber:(NSString*)supportNumber andDownloadNumber:(NSString*)downloadNumber;
+-(void)getDataFromView:(NSString*)sourceName andSupportNumber:(NSString*)supportNumber andDownloadNumber:(NSString*)downloadNumber andDescription:(NSString*)description;
 
 
 /*
@@ -69,5 +69,21 @@
  
  */
 -(NSArray*)contentOfSourceCellWithData;
+
+/*
+ 
+ 移除获取数据的通知
+ 
+ */
+
+-(void)removeAllNotification;
+
+/*
+ 
+ 获得category界面数据的接口
+ 
+ */
+-(void)categoryGetData;
+
 
 @end
