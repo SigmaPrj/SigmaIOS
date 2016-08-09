@@ -40,6 +40,11 @@ static SAUserDataManager *manager = nil;
     return userDict[@"user"];
 }
 
++ (NSInteger)readUserId {
+    NSDictionary *userDict = [NSDictionary dictionaryWithContentsOfFile:[self getFilePath]];
+    return [userDict[@"user"][@"id"] intValue];
+}
+
 + (void)deleteUserData {
     NSFileManager *manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath:[self getFilePath]]) {
@@ -67,7 +72,11 @@ static SAUserDataManager *manager = nil;
 
 + (NSString *)getFilePath {
     NSString *path = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES)[0];
-    return [path stringByAppendingPathComponent:[NSString stringWithFormat:@"Caches/%@", USER_FILE_NAME]];
+    NSString *filePath = [path stringByAppendingPathComponent:[NSString stringWithFormat:@"Caches/%@", USER_FILE_NAME]];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:filePath]) {
+        [[NSFileManager defaultManager] createFileAtPath:filePath contents:nil attributes:nil];
+    }
+    return filePath;
 }
 
 @end

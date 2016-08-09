@@ -23,6 +23,10 @@
 #import "SAPopularClassModel.h"
 #import "SAPopularResourceModel.h"
 #import "TimelineViewController.h"
+
+#import "SAAnimationNavController.h"
+#import "SATeamViewController.h"
+#import "SAAnimationButton.h"
 #import "JCAlertView.h"
 #import "SVProgressHUD.h"
 
@@ -665,6 +669,11 @@
 }
 
 
+-(void)teamButtonClicked:(UIButton *)btn {
+    SATeamViewController *teamViewController = [[SATeamViewController alloc] init];
+    [self.navigationController pushViewController:teamViewController animated:YES];
+
+}
 
 #pragma mark - 关于加载失败的操作
 - (void)alert:(NSString *)title message:(NSString *)msg {

@@ -20,6 +20,8 @@
 
 + (id)readUser;
 
++ (NSInteger)readUserId;
+
 + (void)deleteUserData;
 
 + (void)deleteToken;

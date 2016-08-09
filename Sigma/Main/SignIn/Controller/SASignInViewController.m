@@ -131,7 +131,7 @@
         _usernameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
         _usernameTextField.leftView = self.leftUsernameView;
         _usernameTextField.leftViewMode = UITextFieldViewModeAlways;
-        _usernameTextField.keyboardType = UIKeyboardTypeNamePhonePad;
+        _usernameTextField.keyboardType = UIKeyboardTypeEmailAddress;
         _usernameTextField.placeholder = @"请输入电话/邮箱/自定义账号";
     }
     return _usernameTextField;

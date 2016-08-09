@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class SASignUpWithTelephoneView;
+
+@protocol SASignUpWithTelephoneViewDelegate<NSObject>
+
+- (void)phoneRegisterBtnClicked:(SASignUpWithTelephoneView *)phoneView phone:(NSString *)phone;
+
+@end
+
 @interface SASignUpWithTelephoneView : UIView
+
+@property (nonatomic, weak) id<SASignUpWithTelephoneViewDelegate> delegate;
 
 @end

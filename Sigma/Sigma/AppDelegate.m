@@ -12,6 +12,7 @@
 #import "CacheManager.h"
 #import "SAAnimationNavController.h"
 #import "SAHomeViewController.h"
+#import "JSMSSDK.h"
 
 @interface AppDelegate ()
 
@@ -49,6 +50,9 @@
     
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
+
+    [JSMSSDK registerWithAppKey:KEY_APP_KEY];
+
     return YES;
 }
 

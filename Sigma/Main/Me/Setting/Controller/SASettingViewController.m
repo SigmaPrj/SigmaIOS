@@ -12,6 +12,9 @@
 #import "SASettingCell.h"
 
 #import "SASettingAboutViewController.h"
+#import "SAUserDataManager.h"
+#import "SAHomeViewController.h"
+#import "SAAnimationNavController.h"
 
 #import "CacheManagement.h"
 #import <MessageUI/MessageUI.h>
@@ -433,7 +436,10 @@
         
         
         UIAlertAction* yesAction=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *yesAction){
-            NSLog(@"Yes");
+            [SAUserDataManager deleteUserData];
+            SAHomeViewController *homeViewController = [[SAHomeViewController alloc] init];
+            SAAnimationNavController *navController = [[SAAnimationNavController alloc] initWithRootViewController:homeViewController];
+            [UIApplication sharedApplication].keyWindow.rootViewController = navController;
         }];
         [alert addAction:cancleAction];
         [alert addAction:yesAction];
