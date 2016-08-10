@@ -153,7 +153,7 @@
 - (UIView *)underline {
     if (!_underline) {
         _underline = [[UIView alloc] initWithFrame:CGRectMake(PADDING_LEFT+AVATAR_SIZE+AVATAR_PADDING_RIGHT, 0, (SCREEN_WIDTH-(PADDING_LEFT+AVATAR_SIZE+AVATAR_PADDING_RIGHT)-PADDING_LEFT), 0.5)];
-        _underline.backgroundColor = SIGMA_BG_COLOR;
+        _underline.backgroundColor = [UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:1.00];
     }
     return _underline;
 }

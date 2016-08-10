@@ -13,6 +13,7 @@
 - (instancetype)initWithDict:(NSDictionary *)dict {
     if (self = [super init]) {
         _userId = [dict[@"id"] intValue];
+        _username = dict[@"username"];
         _nickname = dict[@"nickname"];
         _avatar = dict[@"image"];
         _vip = [dict[@"is_approved"] intValue];

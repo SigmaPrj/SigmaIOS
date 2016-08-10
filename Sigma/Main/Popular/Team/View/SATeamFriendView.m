@@ -143,6 +143,16 @@
     return headerView;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SAFriendCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+    [cell setSelected:!cell.isSelected];
+
+    if ([self.ownDelegate respondsToSelector:@selector(friendView:cellDidClicked:)]) {
+        [self.ownDelegate friendView:self cellDidClicked:cell];
+    }
+}
+
 #pragma mark -
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

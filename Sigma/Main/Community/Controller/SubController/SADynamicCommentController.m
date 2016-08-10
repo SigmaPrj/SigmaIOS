@@ -31,6 +31,7 @@ static CGFloat const kBottomViewHeight = 46.0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     [self.view addSubview:self.bottomView];
 }
 

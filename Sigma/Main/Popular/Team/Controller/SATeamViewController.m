@@ -19,13 +19,17 @@
 #import "JCAlertView.h"
 #import "SATeamRequest.h"
 #import "CLProgressHUD.h"
+#import "SAFriendModel.h"
+#import "SAFriendCell.h"
+#import "SAFriendFrameModel.h"
+#import "SAUserDataManager.h"
 //#import "SAChatView.h"
 
 #define KStatusHeight 20
 #define KNavBarHeight 44
 #define ICON_BTN_SIZE 30
 
-@interface SATeamViewController () <SATeamMessageViewDelegate, selectIndexPathDelegate>
+@interface SATeamViewController () <SATeamMessageViewDelegate, selectIndexPathDelegate, SATeamFriendViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIButton *customBtn;
@@ -206,6 +210,7 @@
             case 1:
             {
                 teamView = [[SATeamFriendView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, HEIGHT(self.scrollView)-KNavBarHeight)];
+                ((SATeamFriendView *)teamView).ownDelegate = self;
             }
                 break;
             case 2:
@@ -280,6 +285,32 @@
 
 - (void)addFriendFailed:(NSNotification *)notification {
     [CLProgressHUD showErrorInView:self.view delegate:self title:@"稍后再试!" duration:.5];
+}
+
+#pragma mark -
+#pragma mark SATeamFriendViewDelegate
+- (void)friendView:(SATeamFriendView *)friendView cellDidClicked:(SAFriendCell *)friendCell {
+    SAFriendFrameModel *frameModel = friendCell.frameModel;
+    SAFriendModel *friendModel = frameModel.friendModel;
+
+    NSDictionary *userDict = [SAUserDataManager readUser];
+
+    ChatCollectionViewController *chatCollectionViewController = [[ChatCollectionViewController alloc] init];
+    [chatCollectionViewController setLeftUserData:friendModel.userId username:friendModel.nickname avatar:friendModel.avatar];
+    [chatCollectionViewController setRightUserData:[userDict[@"id"] intValue] username:userDict[@"username"] avatar:userDict[@"image"]];
+
+
+    __weak typeof(self) weakSelf = self;
+    [JMSGConversation createSingleConversationWithUsername:friendModel.username completionHandler:^(id resultObject, NSError *error) {
+        if (!error) {
+            weakSelf.hidesBottomBarWhenPushed = YES;
+            [weakSelf.navigationController pushViewController:chatCollectionViewController animated:YES];
+            weakSelf.hidesBottomBarWhenPushed = NO;
+        } else {
+            [CLProgressHUD showErrorInView:weakSelf.view delegate:weakSelf title:@"稍后再试!" duration:.5];
+        }
+    }];
+
 }
 
 @end

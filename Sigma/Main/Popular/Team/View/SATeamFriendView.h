@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class SATeamFriendView;
+@class SAFriendCell;
+
+@protocol SATeamFriendViewDelegate<NSObject>
+
+- (void)friendView:(SATeamFriendView *)friendView cellDidClicked:(SAFriendCell *)friendCell;
+
+@end
+
 @interface SATeamFriendView : UIView
+
+@property (nonatomic, weak) id<SATeamFriendViewDelegate> ownDelegate;
 
 @end

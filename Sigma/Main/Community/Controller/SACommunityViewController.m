@@ -35,6 +35,8 @@
     // Do any additional setup after loading the view.
     [self render];
 
+    self.navigationController.navigationBar.tintColor = SIGMA_FONT_COLOR;
+
     self.firstRequest = YES;
 }
 
