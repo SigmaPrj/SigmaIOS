@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger,XCAVPlayerStatues){
     XCPlayerStatusPlayEnd,
 };
 
+@class AVPlayerItem;
 @class XCAVPlayerView;
 
 @protocol XCAVPlayerDelegate <NSObject>
@@ -61,5 +62,10 @@ typedef NS_ENUM(NSInteger,XCAVPlayerStatues){
 
 /** 播放时间 00:00:00 */
 - (NSString *)convertTimeToString:(CGFloat)second;
+
+-(AVPlayerItem*)getPlayerItem;
+
+//退出controller时移除资源
+-(void)removeDataSource;
 
 @end

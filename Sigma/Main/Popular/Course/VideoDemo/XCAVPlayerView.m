@@ -130,6 +130,27 @@
     }
 }
 
+//退出controller时移除资源
+-(void)removeDataSource{
+    if (_avPlayer) {
+        [_avPlayer pause];
+        [self.avPlayer setRate:0];
+        [self.avPlayer.currentItem removeObserver:self forKeyPath:@"loadedTimeRanges" context:nil];
+        [self.avPlayer.currentItem removeObserver:self forKeyPath:@"status" context:nil];
+        [self.avPlayer replaceCurrentItemWithPlayerItem:nil];
+        //            [_avPlayerLayer removeFromSuperlayer];
+        //            [self.playerItem removeObserver:self forKeyPath:@"status"];
+        //            [self.playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
+        _totalDuration = 0.0f;
+        _timeInterval = 0.0f;
+        _currentPlayTime = 0.0f;
+        self.playerItem = nil;
+        self.avPlayer = nil;
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+    }
+
+}
+
 - (void)setIsShowBottomProgressView:(BOOL)isShowBottomProgressView{
     _isShowBottomProgressView = isShowBottomProgressView;
     self.progressView.hidden = !isShowBottomProgressView;
@@ -314,6 +335,10 @@
             [self hiddenProgressView:YES];
         }
     }
+}
+
+-(AVPlayerItem*)getPlayerItem{
+    return self.playerItem;
 }
 
 

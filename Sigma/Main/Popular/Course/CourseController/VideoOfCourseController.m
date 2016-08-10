@@ -56,7 +56,8 @@
 //     NSURL *videoURL = [[NSBundle mainBundle] URLForResource:@"150511_JiveBike" withExtension:@"mov"];
     self.playerView.playerUrl = [NSURL URLWithString:self.movieUrlPath];
 //    self.playerView.playerUrl = videoURL;
-    [self.playerView play];
+//    [self.playerView play];
+    [self.playerView resume];
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -66,6 +67,18 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
+//    [self.playerView pause];
+//    [[self.playerView getPlayerItem] cancelPendingSeeks];
+//    [[self.playerView getPlayerItem].asset cancelLoading];
+//    [self.playerView removeDataSource];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    
+}
+
+-(void)dealloc{
+    [self.playerView removeDataSource];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 -(void)initUI{
