@@ -21,6 +21,9 @@
 #import "NSDate+Addition.h"
 
 #import "DownloadFileHelper.h"
+#import "SATeamRequest.h"
+#import "CLProgressHUD.h"
+#import "SAChatModel.h"
 
 @interface ChatCollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,VoiceReordingDelegate,TextInputDelegate,MoreViewDelegate,EmotionViewDelegate,chatCellClickDelegate,IMServiceDelegate>
 
@@ -37,6 +40,16 @@
 @property(nonatomic,strong) NSIndexPath *lastVoiceIndexPath;
 //上一次消息发送接收时间
 @property(nonatomic,strong) NSString *lastMessageDate;
+
+// 用户头像
+@property (nonatomic, copy) NSString *rightAvatar;
+@property (nonatomic, copy) NSString *leftAvatar;
+// 用户username
+@property (nonatomic, copy) NSString *rightUsername;
+@property (nonatomic, copy) NSString *leftUsername;
+// 用户id
+@property (nonatomic, assign) NSInteger rightUserId;
+@property (nonatomic, assign) NSInteger leftUserId;
 
 @end
 
@@ -55,10 +68,6 @@
     
     [self.view addSubview:self.keyBoardView];
     [self.chatCollectionView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
-    
-    
-    [self.chatCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.chatFakeMessages.count-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
-
 
 
 #pragma mark --- 废弃用通知监听imServie层的监听，采用代理方式实行
@@ -72,6 +81,25 @@
 
 
     // Do any additional setup after loading the view.
+    [self addAllNotifications];
+    [self sendRequest];
+}
+
+- (void)sendRequest {
+    [SATeamRequest requestMessagesOfUser:self.rightUserId sUser:self.leftUserId];
+}
+
+- (void)setLeftUserData:(NSInteger)userId username:(NSString *)username avatar:(NSString *)avatar {
+    _leftUserId = userId;
+    _leftUsername = username;
+    _leftAvatar = avatar;
+    self.title = username;
+}
+
+- (void)setRightUserData:(NSInteger)userId username:(NSString *)username avatar:(NSString *)avatar {
+    _rightUserId = userId;
+    _rightUsername = username;
+    _rightAvatar = avatar;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -127,8 +155,9 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
         ChatCollectionCell *messageCell = (ChatCollectionCell *)cell;
         MessageModel *message = (MessageModel *)obj;
         if (message.isSender) {
+            // 判断是否为 发起聊天的用户
             messageCell = [collectionView dequeueReusableCellWithReuseIdentifier:rightChatCollectionCellIdentifier forIndexPath:indexPath];
-            
+
         }else{
             messageCell = [collectionView dequeueReusableCellWithReuseIdentifier:leftChatCollectionCellIdentifier forIndexPath:indexPath];
             
@@ -176,7 +205,7 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
 - (void)sendLocationMessage:(CLLocation *)location address:(NSString *)address locationPhoto:(NSString *)locationPhoto
 {
    LocationMessageModel *message = [LocationMessageModel LocalPositionPhoto:locationPhoto address:address location:location username:@"" timeStamp:[NSDate date:[NSDate date] WithFormate:KDateFormate] isSender:YES];
-    message.avatarUrl = @"http://d.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=603e37439313b07ebde8580c39e7bd15/a8014c086e061d9591b7875a7bf40ad163d9cadb.jpg";
+    message.avatarUrl = self.rightAvatar;
     
     
     [self sendMessage:message];
@@ -270,7 +299,7 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
             [[MediaAttachmentHelper helper]imageHandle:data completionCache:^(NSString *imagePath) {
                 
                 PhotoMessageModel *message =  [PhotoMessageModel Photo:imagePath thumbnailUrl:nil originPhotoUrl:nil username:nil timeStamp:[NSDate date:[NSDate date] WithFormate:KDateFormate] isSender:YES];
-                message.avatarUrl = @"http://d.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=603e37439313b07ebde8580c39e7bd15/a8014c086e061d9591b7875a7bf40ad163d9cadb.jpg";
+                message.avatarUrl = self.rightAvatar;
                 message.isGif = NO;
                 
                 
@@ -292,7 +321,7 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
                 
             
                 VideoMessageModel *message = [VideoMessageModel VideoThumbPhoto:videoThumbPath videoThumbUrl:nil videoUrl:nil username:nil timeStamp:[NSDate date:[NSDate date] WithFormate:KDateFormate] isSender:YES];
-                message.avatarUrl = @"http://d.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=603e37439313b07ebde8580c39e7bd15/a8014c086e061d9591b7875a7bf40ad163d9cadb.jpg";
+                message.avatarUrl = self.rightAvatar;
                 message.isVideoCache = YES;
                 message.locationVideoPath = videoPath;
                 [self sendMessage:message];
@@ -328,7 +357,7 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
         
         VoiceMessageModel *message =  [VoiceMessageModel VoicePath:audioPath voiceUrl:nil voiceDuration:voiceDuration username:nil timeStamp:[NSDate date:[NSDate date] WithFormate:KDateFormate] isRead:YES isSender:YES];
         message.isRead = NO;
-        message.avatarUrl = @"http://d.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=603e37439313b07ebde8580c39e7bd15/a8014c086e061d9591b7875a7bf40ad163d9cadb.jpg";
+        message.avatarUrl = self.rightAvatar;
         
         [self sendMessage:message];
         
@@ -926,9 +955,9 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
 - (NSMutableArray *)chatFakeMessages
 {
     if (_chatFakeMessages == nil) {
-        _chatFakeMessages = [[NSMutableArray alloc]init];
-        [_chatFakeMessages addObjectsFromArray:[ChatDemoDataSourceHelper getFakeMessages]];
-        }
+        _chatFakeMessages = [NSMutableArray array];
+//        [_chatFakeMessages addObjectsFromArray:[ChatDemoDataSourceHelper getFakeMessages]];
+    }
     return _chatFakeMessages;
 }
 
@@ -1012,9 +1041,9 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
 {
     
     TextMessageModel *message =  [TextMessageModel text:text username:@"" timeStamp:[NSDate date:[NSDate date] WithFormate:KDateFormate] isSender:YES];
-    message.avatarUrl = @"http://d.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=603e37439313b07ebde8580c39e7bd15/a8014c086e061d9591b7875a7bf40ad163d9cadb.jpg";
-    
-    
+    message.avatarUrl = [self rightAvatar];
+
+
     [self sendMessage:message];
     
 }
@@ -1025,8 +1054,8 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
 - (void)sendEmoijMessage:(NSString *)text
 {
     TextMessageModel *message =  [TextMessageModel text:text username:@"" timeStamp:[NSDate date:[NSDate date] WithFormate:KDateFormate] isSender:YES];
-    message.avatarUrl = @"http://d.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=603e37439313b07ebde8580c39e7bd15/a8014c086e061d9591b7875a7bf40ad163d9cadb.jpg";
-    
+    message.avatarUrl = [self rightAvatar];
+
     [self sendMessage:message];
     
     
@@ -1047,21 +1076,107 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
         message.isGif = NO;
     }
     
-    message.avatarUrl = @"http://d.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=603e37439313b07ebde8580c39e7bd15/a8014c086e061d9591b7875a7bf40ad163d9cadb.jpg";
-    
+    message.avatarUrl = [self rightAvatar];
+
     [self sendMessage:message];
     
 }
 
+/*!
+ * 将远程消息数据转化为实体数据
+ * @param messages
+ */
+- (void)setupMessages:(NSMutableArray *)messages {
+    for (int i = 0; i < messages.count; ++i) {
+        SAChatModel *chatModel = [SAChatModel chatWthDict:messages[(NSUInteger)i]];
+        MessageModel *messageModel = nil;
+        switch (chatModel.messageType) {
+            case SAChatMessageDefault:
+            {
+                if (self.rightUserId == chatModel.fromUser) {
+                    // 右侧
+                    messageModel = [TextMessageModel text:chatModel.message username:self.rightUsername timeStamp:chatModel.date isSender:YES];
+                } else {
+                    // 左侧
+                   messageModel = [TextMessageModel text:chatModel.message username:self.leftUsername timeStamp:chatModel.date isSender:NO];
+                }
+
+            }
+                break;
+            case SAChatMessageImage:
+            {
+                if (self.rightUserId == chatModel.fromUser) {
+                    // 右侧
+                    messageModel = [PhotoMessageModel Photo:nil thumbnailUrl:chatModel.message originPhotoUrl:chatModel.message username:self.rightUsername timeStamp:chatModel.date isSender:YES];
+                } else {
+                    // 左侧
+                    messageModel = [PhotoMessageModel Photo:nil thumbnailUrl:chatModel.message originPhotoUrl:chatModel.message username:self.leftUsername timeStamp:chatModel.date isSender:NO];
+                }
+            }
+                break;
+            case SAChatMessageVoice:
+            {
+                if (self.rightUserId == chatModel.fromUser) {
+                    // 右侧
+                    messageModel = [VoiceMessageModel VoicePath:nil voiceUrl:chatModel.message voiceDuration:@"2\"" username:self.rightUsername timeStamp:chatModel.date isSender:YES];
+                } else {
+                    // 左侧
+                    messageModel = [VoiceMessageModel VoicePath:nil voiceUrl:chatModel.message voiceDuration:@"2\"" username:self.leftUsername timeStamp:chatModel.date isSender:YES];
+                }
+            }
+                break;
+            case SAChatMessageVideo:
+            {
+                // TODO : 添加视频消息转化
+            }
+                break;
+        }
+
+        [self.chatFakeMessages addObject:messageModel];
+    }
+
+    [self.chatCollectionView reloadData];
+
+    // 滚动到底部
+    [self.chatCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.chatFakeMessages.count-1 inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
+}
 
 
+#pragma mark --
+#pragma mark Notifications
+- (void)addAllNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUserMessagesSuccess:) name:NOTI_TEAM_USER_MESSAGES object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUserMessagesFailed:) name:NOTI_TEAM_USER_MESSAGES_ERROR object:nil];
+}
+
+- (void)removeAllNotifications {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark -- NOTI_TEAM_USER_MESSAGES
+- (void)receiveUserMessagesSuccess:(NSNotification *)notification {
+    if ([notification.userInfo[@"code"] intValue] == 200) {
+        [self setupMessages:notification.userInfo[@"data"]];
+    } else {
+        [CLProgressHUD showErrorInView:self.view delegate:self title:@"消息加载失败!" duration:.5];
+    }
+}
+
+- (void)receiveUserMessagesFailed:(NSNotification *)notification {
+    if ([notification.userInfo[@"code"] intValue] == 404) {
+        // 没有消息
+    } else {
+        [CLProgressHUD showErrorInView:self.view delegate:self title:@"请稍后再试!" duration:.5];
+    }
+}
 
 #pragma mark -- dealloc
 - (void)dealloc
 {
-    
     [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:@"contentSize"];
     [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:@"keyBoardDetalChange"];
+
+    [self removeAllNotifications];
 }
 
 @end

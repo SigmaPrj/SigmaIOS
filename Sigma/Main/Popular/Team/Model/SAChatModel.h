@@ -11,13 +11,15 @@
 typedef NS_ENUM(NSUInteger , SAChatMessageType) {
     SAChatMessageDefault = 0, // 文本
     SAChatMessageImage = 1, // 图片
-    SAChatMessageVoice = 2 // 声音
+    SAChatMessageVoice = 2, // 声音
+    SAChatMessageVideo = 3 // 视频
 };
 
 @interface SAChatModel : NSObject
 
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, copy) NSString *date;
+@property (nonatomic, assign) NSInteger datetime;
 @property (nonatomic, assign) NSInteger fromUser;
 @property (nonatomic, assign) NSInteger toUser;
 @property (nonatomic, assign) SAChatMessageType messageType;

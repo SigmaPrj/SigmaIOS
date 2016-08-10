@@ -265,7 +265,11 @@
 - (void)addFriendSuccess:(NSNotification *)notification {
     if ([notification.userInfo[@"code"] intValue] == 200) {
         // 添加用户成功 跳转到对话页面
+        NSDictionary *userDict = notification.userInfo[@"data"][@"user"];
+        NSDictionary *friendDict = notification.userInfo[@"data"][@"friend"];
         ChatCollectionViewController *chatCollectionViewController = [[ChatCollectionViewController alloc] init];
+        [chatCollectionViewController setLeftUserData:[friendDict[@"id"] intValue] username:friendDict[@"username"] avatar:friendDict[@"image"]];
+        [chatCollectionViewController setRightUserData:[userDict[@"id"] intValue] username:userDict[@"username"] avatar:userDict[@"image"]];
         self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:chatCollectionViewController animated:YES];
         self.hidesBottomBarWhenPushed = NO;
