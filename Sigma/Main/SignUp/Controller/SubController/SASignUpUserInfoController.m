@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 sigma. All rights reserved.
 //
 
+#import <JMessage/JMessage.h>
 #import "SASignUpUserInfoController.h"
 #import "UIView+HRExtention.h"
 #import "SASignUpSetPasswordView.h"
@@ -361,15 +362,46 @@
 
         [SAUserDataManager saveUserData:saveUserDict];
 
-        // 关闭弹出层
-        [CLProgressHUD dismissHUDByTag:2 delegate:self inView:self.view];
-        [CLProgressHUD showSuccessInView:self.view delegate:self title:@"注册成功!" duration:.5];
+        // TODO : 请求注册用户信息到 极光服务器
+        __weak typeof(self) weakSelf = self;
+        NSString *tmpUsername = [NSString stringWithFormat:@"%@", newUserDict[@"username"]];
+        [JMSGUser registerWithUsername:tmpUsername password:newUserDict[@"password"] completionHandler:^(id resultObject, NSError *error) {
+            if (!error) {
+                // 没有错误
+                [JMSGUser loginWithUsername:tmpUsername password:newUserDict[@"password"] completionHandler:^(id res, NSError *err) {
+                    if (!err) {
+                        [JMSGUser updateMyInfoWithParameter:newUserDict[@"nickname"] userFieldType:kJMSGUserFieldsNickname completionHandler:^(id result, NSError *erro) {
+                            if (!erro) {
+                                // 关闭弹出层
+                                [CLProgressHUD dismissHUDByTag:2 delegate:weakSelf inView:weakSelf.view];
+                                [CLProgressHUD showSuccessInView:weakSelf.view delegate:weakSelf title:@"注册成功!" duration:.5];
 
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            // 切换主界面
-            SARootViewController *rootViewController = [[SARootViewController alloc] init];
-            [UIApplication sharedApplication].keyWindow.rootViewController = rootViewController;
-        });
+                                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                    // 切换主界面
+                                    SARootViewController *rootViewController = [[SARootViewController alloc] init];
+                                    [UIApplication sharedApplication].keyWindow.rootViewController = rootViewController;
+                                });
+                            } else {
+                                [CLProgressHUD dismissHUDByTag:2 delegate:weakSelf inView:weakSelf.view];
+                                [CLProgressHUD showErrorInView:weakSelf.view delegate:weakSelf title:@"稍后再试!" duration:.5];
+                                NSLog(@"resultObj : %@", result);
+                                NSLog(@"error : %d ; %@", erro.code, erro.description);
+                            }
+                        }];
+                    } else {
+                        [CLProgressHUD dismissHUDByTag:2 delegate:weakSelf inView:weakSelf.view];
+                        [CLProgressHUD showErrorInView:weakSelf.view delegate:weakSelf title:@"稍后再试!" duration:.5];
+                        NSLog(@"resultObj : %@", res);
+                        NSLog(@"error : %d ; %@", err.code, err.description);
+                    }
+                }];
+            } else {
+                [CLProgressHUD dismissHUDByTag:2 delegate:weakSelf inView:weakSelf.view];
+                [CLProgressHUD showErrorInView:weakSelf.view delegate:weakSelf title:@"稍后再试!" duration:.5];
+                NSLog(@"resultObj : %@", resultObject);
+                NSLog(@"error : %d ; %@", error.code, error.description);
+            }
+        }];
     } else {
         [CLProgressHUD dismissHUDByTag:2 delegate:self inView:self.view];
         [CLProgressHUD showErrorInView:self.view delegate:self title:@"信息设置失败!" duration:.4];

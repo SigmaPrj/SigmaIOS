@@ -6,6 +6,7 @@
 //  Copyright (c) 2016 sigma. All rights reserved.
 //
 
+#import <JMessage/JMessage.h>
 #import "SASignInViewController.h"
 #import "SAVerticalButton.h"
 #import "UIView+HRExtention.h"
@@ -314,6 +315,14 @@
                 saveUserDict[@"user"] = newUserDict;
 
                 [SAUserDataManager saveUserData:saveUserDict];
+
+
+                // TODO : 请求注册用户信息到 极光服务器
+                [JMSGUser loginWithUsername:newUserDict[@"username"] password:newUserDict[@"password"] completionHandler:^(id resultObject, NSError *error) {
+                    NSLog(@"resultObj : %@", resultObject);
+                    NSLog(@"error : %ld ; %@", (long)error.code, error.description);
+                }];
+
 
                 // 关闭弹出层
                 [CLProgressHUD dismissHUDByTag:10 delegate:self inView:self.view];

@@ -17,6 +17,7 @@
 #import "SAAnimationNavController.h"
 
 #import <MessageUI/MessageUI.h>
+#import <JMessage/JMessage.h>
 
 
 #define MINE_SETTINGS_ICON @"Mine_Settings_Gray"
@@ -437,10 +438,16 @@
         
         
         UIAlertAction* yesAction=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *yesAction){
-            [SAUserDataManager deleteUserData];
-            SAHomeViewController *homeViewController = [[SAHomeViewController alloc] init];
-            SAAnimationNavController *navController = [[SAAnimationNavController alloc] initWithRootViewController:homeViewController];
-            [UIApplication sharedApplication].keyWindow.rootViewController = navController;
+
+            // 退出 极光IM
+            [JMSGUser logout:^(id resultObject, NSError *error) {
+                if (!error) {
+                    [SAUserDataManager deleteUserData];
+                    SAHomeViewController *homeViewController = [[SAHomeViewController alloc] init];
+                    SAAnimationNavController *navController = [[SAAnimationNavController alloc] initWithRootViewController:homeViewController];
+                    [UIApplication sharedApplication].keyWindow.rootViewController = navController;
+                }
+            }];
         }];
         [alert addAction:cancleAction];
         [alert addAction:yesAction];

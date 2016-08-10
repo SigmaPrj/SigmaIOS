@@ -6,6 +6,7 @@
 //  Copyright © 2016年 Terence. All rights reserved.
 //
 
+#import <JMessage/JMessage.h>
 #import "SAPopularViewController.h"
 #import "SAPopularTableView.h"
 #import "SourceSubViewController.h"
@@ -26,6 +27,7 @@
 #import "SAAnimationNavController.h"
 #import "SATeamViewController.h"
 #import "SAAnimationButton.h"
+#import "SAUserDataManager.h"
 
 #define HEADER_OF_SECTION_X 0
 #define HEADER_OF_SECTION_Y 0
@@ -641,8 +643,11 @@
 }
 
 -(void)teamButtonClicked:(UIButton *)btn {
-    SATeamViewController *teamViewController = [[SATeamViewController alloc] init];
-    [self.navigationController pushViewController:teamViewController animated:YES];
+    NSDictionary *dict = [SAUserDataManager readUser];
+    [JMSGUser loginWithUsername:[NSString stringWithFormat:@"%@", dict[@"username"]] password:dict[@"password"] completionHandler:^(id resultObject, NSError *error) {
+        SATeamViewController *teamViewController = [[SATeamViewController alloc] init];
+        [self.navigationController pushViewController:teamViewController animated:YES];
+    }];
 }
 
 @end

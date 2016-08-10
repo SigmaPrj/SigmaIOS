@@ -28,7 +28,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
+
+    [JSMSSDK registerWithAppKey:KEY_APP_KEY];
+
+    // IM集成
+    /// Required - 添加 JMessage SDK 监听。这个动作放在启动前
+    [JMessage addDelegate:self withConversation:nil];
+
+    /// Required - 启动 JMessage SDK
+    [JMessage setupJMessage:launchOptions
+                     appKey:JMSSAGE_APPKEY
+                    channel:CHANNEL
+           apsForProduction:NO
+                   category:nil];
+
+    /// Required - 注册 APNs 通知
+    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        /// 可以添加自定义categories
+        [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil];
+    } else {
+        /// categories 必须为nil
+        [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert) categories:nil];
+    }
+
     /**
      * 判断用户是否已经登录
      */
@@ -40,10 +62,12 @@
             NSTimeInterval timeInterval = [userData[@"time"] intValue];
             NSTimeInterval nowInterval = [NSDate date].timeIntervalSince1970;
             if (timeInterval > nowInterval) {
+
                 // 直接进入主页面
                 SARootViewController *rootController = [[SARootViewController alloc] init];
                 self.window.rootViewController = rootController;
                 [self.window makeKeyAndVisible];
+
             }
         }
     } else {
@@ -55,27 +79,6 @@
         [self.window makeKeyAndVisible];
     }
 
-    [JSMSSDK registerWithAppKey:KEY_APP_KEY];
-
-    // IM集成
-    /// Required - 添加 JMessage SDK 监听。这个动作放在启动前
-    [JMessage addDelegate:self withConversation:nil];
-    
-    /// Required - 启动 JMessage SDK
-    [JMessage setupJMessage:launchOptions
-                     appKey:JMSSAGE_APPKEY
-                    channel:CHANNEL
-           apsForProduction:NO
-                   category:nil];
-    
-    /// Required - 注册 APNs 通知
-    if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
-        /// 可以添加自定义categories
-        [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil];
-    } else {
-        /// categories 必须为nil
-        [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert) categories:nil];
-    }
     return YES;
 }
 
