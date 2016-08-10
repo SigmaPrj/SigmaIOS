@@ -25,4 +25,10 @@
  */
 + (void)requestMessagesOfUser:(NSInteger )mUser sUser:(NSInteger)sUser;
 
+/**
+ * 请求添加好友
+ * @param username
+ */
++ (void)addFriend:(NSString *)username;
+
 @end

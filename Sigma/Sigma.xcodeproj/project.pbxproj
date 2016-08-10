@@ -576,6 +576,7 @@
 		9E8E8AFE7E134017BC2602F2 /* EmotionFaceToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8CF15CE6D473C9E26E81 /* EmotionFaceToolBar.m */; };
 		9E8E8B15498863C8807E62D1 /* BubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E855A1529729CFAAF7EE4 /* BubbleView.m */; };
 		9E8E8B2D4EBC735AFDE98271 /* playVideo2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E80AB93105D3EC65A3E47 /* playVideo2.jpg */; };
+		9E8E8B3494C6D56B3EF0C232 /* XTPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8F47F5E3CB91DF09259F /* XTPopView.m */; };
 		9E8E8B5850F48D6464BC87CB /* DownloadFileHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E85BD21B5FC4BC9FA01F5 /* DownloadFileHelper.m */; };
 		9E8E8B868828AEC526908457 /* BubblePressHandleHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8768F79ADFD748FF0F2D /* BubblePressHandleHelper.m */; };
 		9E8E8B8887CBBF0A53273C59 /* Expression_12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E805B9972CC494425B5F3 /* Expression_12@2x.png */; };
@@ -1656,6 +1657,7 @@
 		9E8E8D4CCDBD7334596DFB73 /* SASignUpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SASignUpRequest.h; sourceTree = "<group>"; };
 		9E8E8D5B4264ABCC9FDB9D6C /* Expression_62@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_62@2x.png"; sourceTree = "<group>"; };
 		9E8E8D5DE9F59AB9E49E5C09 /* Expression_34@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_34@2x.png"; sourceTree = "<group>"; };
+		9E8E8D698FFC975A060430EF /* XTPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTPopView.h; sourceTree = "<group>"; };
 		9E8E8D71442088F9B8376D9E /* AudioPlayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayHelper.h; sourceTree = "<group>"; };
 		9E8E8D726B099AD5EA28F7EA /* KeyBoardBottomActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyBoardBottomActivityView.h; sourceTree = "<group>"; };
 		9E8E8DACB9C8AED8FB611776 /* SACitySearchTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SACitySearchTableView.m; sourceTree = "<group>"; };
@@ -1717,6 +1719,7 @@
 		9E8E8F3CD0CB8E53DFB293EC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		9E8E8F3D414CCD20D71FFFC9 /* playVideo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = playVideo1.jpg; sourceTree = "<group>"; };
 		9E8E8F4743C94BBF035120DF /* Expression_19@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_19@2x.png"; sourceTree = "<group>"; };
+		9E8E8F47F5E3CB91DF09259F /* XTPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTPopView.m; sourceTree = "<group>"; };
 		9E8E8F4BD9F451B97E0B4F17 /* house.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = house.jpg; sourceTree = "<group>"; };
 		9E8E8F544E8D2F5D39E64AB6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
 		9E8E8F5A4710C306F30442F5 /* chatBar_colorMore_audioCall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chatBar_colorMore_audioCall@2x.png"; sourceTree = "<group>"; };
@@ -4224,6 +4227,8 @@
 		9E8E8EB57E00133B0030AAD8 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
+				9E8E8D698FFC975A060430EF /* XTPopView.h */,
+				9E8E8F47F5E3CB91DF09259F /* XTPopView.m */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -5023,6 +5028,7 @@
 				9E8E8AAD5725E9C80EE01EA1 /* ViewController.m in Sources */,
 				9E8E873B33C4D5D43FB0B5A9 /* Sigma.xcdatamodeld in Sources */,
 				9E8E8E68A9B2C98F3D09F662 /* main.m in Sources */,
+				9E8E8B3494C6D56B3EF0C232 /* XTPopView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

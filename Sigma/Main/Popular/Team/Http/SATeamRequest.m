@@ -7,6 +7,7 @@
 //
 
 #import "SATeamRequest.h"
+#import "SAUserDataManager.h"
 
 @implementation SATeamRequest
 
@@ -20,6 +21,16 @@
     NSString *path = [NSString stringWithFormat:@"message/%d/user/%d", mUser, sUser];
     SARequestBase *request = [self requestWithPath:path method:@"GET" parameters:nil token:nil notification:NOTI_TEAM_USER_MESSAGES];
     [request sendRequest:NOTI_TEAM_USER_MESSAGES_ERROR];
+}
+
++ (void)addFriend:(NSString *)username {
+    NSInteger userId = [SAUserDataManager readUserId];
+    NSString *path = [NSString stringWithFormat:@"friend/%d", userId];
+    SARequestBase *request = [self requestFormWithPath:path parameters:@{
+            @"username" : username
+    } notification:NOTI_TEAM_ADD_USER];
+
+    [request sendRequest:NOTI_TEAM_ADD_USER_ERROR];
 }
 
 @end
