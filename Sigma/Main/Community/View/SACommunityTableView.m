@@ -119,6 +119,7 @@
 - (SACommunityTableHeaderView *)headerView {
     if (!_headerView) {
         _headerView = [[SACommunityTableHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, COMMUNITY_HEADER_VIEW_HEIGHT)];
+        _headerView.delegate = self;
     }
     
     return _headerView;

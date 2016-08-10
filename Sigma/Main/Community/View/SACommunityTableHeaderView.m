@@ -112,6 +112,7 @@
     if (!_bgImageView) {
         _bgImageView  = [[UIImageView alloc] init];
         _bgImageView.frame = self.frame;
+        _bgImageView.userInteractionEnabled = YES;
     }
     
     return _bgImageView;

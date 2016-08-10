@@ -121,7 +121,10 @@
     // TODO : 修改这儿
 
     ChatCollectionViewController *chatCollectionViewController = [[ChatCollectionViewController alloc] init];
+
+    self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chatCollectionViewController animated:YES];
+    self.hidesBottomBarWhenPushed = NO;
 
 //    SATeamChatViewController *viewController = [[SATeamChatViewController alloc] initWithMessageModel:messageModel];
 //    self.hidesBottomBarWhenPushed = YES;

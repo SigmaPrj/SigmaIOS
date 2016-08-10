@@ -9,6 +9,7 @@
 #import "KeyBoardView.h"
 
 #define KeyBoardSystemMargin 3
+#define VIEW_HEIGHT (SCREEN_HEIGHT-64)
 @interface KeyBoardView ()<VoiceReordingDelegate,TextInputDelegate,MoreViewDelegate,EmotionViewDelegate>
 
 @property(nonatomic,strong) KeyBoardToolBarView *toolBarView;
@@ -28,7 +29,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-         self.frame = CGRectMake(0, SCREEN_HEIGHT-KeyToolBarHeight, SCREEN_WIDTH, KeyToolBarHeight);
+         self.frame = CGRectMake(0, VIEW_HEIGHT-KeyToolBarHeight, SCREEN_WIDTH, KeyToolBarHeight);
         
         [self setUpUi];
         
@@ -76,7 +77,7 @@
         if (index == KeyBoardTypeSystem) {
             
             
-             rect.origin.y = SCREEN_HEIGHT-KeyToolBarHeight-self.keyBoardHeight-KeyBoardSystemMargin;
+             rect.origin.y = VIEW_HEIGHT-KeyToolBarHeight-self.keyBoardHeight-KeyBoardSystemMargin;
            
             
         }
@@ -89,7 +90,7 @@
                 case 0:
                     weakSelf.height0 = KeyToolBarHeight;
                     rect = self.frame;
-                    isInput ?(rect.origin.y = SCREEN_HEIGHT-KeyToolBarHeight-self.keyBoardHeight-KeyBoardSystemMargin):(rect.origin.y = SCREEN_HEIGHT-KeyToolBarHeight);
+                    isInput ?(rect.origin.y = VIEW_HEIGHT-KeyToolBarHeight-self.keyBoardHeight-KeyBoardSystemMargin):(rect.origin.y = VIEW_HEIGHT-KeyToolBarHeight);
                     
                     break;
                 case 1:
@@ -102,7 +103,7 @@
                     //改变底部activityView的尺寸:在layoutsubview中写就不用重复设置
                     weakSelf.bottomActivityView.height0 = 250-KeyToolBarHeight;
                 
-                    isInput ? (rect.origin.y = SCREEN_HEIGHT-KeyToolBarHeight-self.keyBoardHeight-KeyBoardSystemMargin):(rect.origin.y = SCREEN_HEIGHT-250);
+                    isInput ? (rect.origin.y = VIEW_HEIGHT-KeyToolBarHeight-self.keyBoardHeight-KeyBoardSystemMargin):(rect.origin.y = VIEW_HEIGHT-250);
                      [weakSelf.bottomActivityView addSubview:weakSelf.emotionView];
                     
                     break;
@@ -114,7 +115,7 @@
                     weakSelf.bottomActivityView.height0 = 280-KeyToolBarHeight;
                     
             
-                    isInput ? (rect.origin.y = SCREEN_HEIGHT-KeyToolBarHeight-self.keyBoardHeight-KeyBoardSystemMargin):(rect.origin.y = SCREEN_HEIGHT-280);
+                    isInput ? (rect.origin.y = VIEW_HEIGHT-KeyToolBarHeight-self.keyBoardHeight-KeyBoardSystemMargin):(rect.origin.y = VIEW_HEIGHT-280);
                     
                     
                     [weakSelf.bottomActivityView addSubview:weakSelf.bottomMoreView];
@@ -129,7 +130,7 @@
         
         
 
-        weakSelf.keyBoardDetalChange =  SCREEN_HEIGHT - CGRectGetMinY(rect);
+        weakSelf.keyBoardDetalChange =  VIEW_HEIGHT - CGRectGetMinY(rect);
         
         [UIView animateWithDuration:0.3 animations:^{
             
@@ -172,7 +173,7 @@
     
     [UIView animateWithDuration:0.3 animations:^{
        
-        self.top0 = SCREEN_HEIGHT-KeyToolBarHeight;
+        self.top0 = VIEW_HEIGHT-KeyToolBarHeight;
     }];
 }
 
@@ -338,7 +339,7 @@
 //加个通知来监听实时textView行高变化：
 - (void)textViewHeightChange:(NSNotification *)notify
 {
-    self.keyBoardDetalChange = SCREEN_HEIGHT-self.top0+[notify.object floatValue];
+    self.keyBoardDetalChange = VIEW_HEIGHT-self.top0+[notify.object floatValue];
 }
 
 

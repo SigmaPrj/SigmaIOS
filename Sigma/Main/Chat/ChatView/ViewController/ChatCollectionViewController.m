@@ -2,8 +2,6 @@
 //  ChatCollectionViewController.m
 //  KeyBoardView
 //
-//  Created by 余强 on 16/3/25.
-//  Copyright © 2016年 你好，我是余强，一位来自上海的ios开发者，现就职于bdcluster(上海大数聚科技有限公司)。这个工程致力于完成一个优雅的IM实现方案，如果您有兴趣，请来到项目交流群：533793277. All rights reserved.
 //
 
 #import "ChatCollectionViewController.h"
@@ -46,9 +44,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64);
     
-    
-    self.view.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:0.45];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"ChatBackground"]];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"接收消息" style:UIBarButtonItemStylePlain target:self action:@selector(insertMessage:)];
     
     
@@ -136,8 +135,8 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
         }
         messageCell.message = message;
         messageCell.delegate = self;
-        messageCell.backgroundColor = [[UIColor lightGrayColor]colorWithAlphaComponent:0.45];
-        
+        messageCell.backgroundColor = [UIColor whiteColor];
+
         return messageCell;
         
     }
@@ -149,8 +148,8 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
         NSString *time = (NSString *)obj;
         timeCell.time = time;
         
-        timeCell.backgroundColor = [[UIColor lightGrayColor]colorWithAlphaComponent:0.45];
-        
+        timeCell.backgroundColor = [UIColor whiteColor];
+
         return timeCell;
     }
 }
@@ -909,7 +908,7 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
         springlayOut.minimumInteritemSpacing = 0;
         springlayOut.minimumLineSpacing = 0;
         _chatCollectionView = [[UICollectionView alloc]initWithFrame:self.view.bounds collectionViewLayout:springlayOut];
-        _chatCollectionView.backgroundColor = [[UIColor whiteColor]colorWithAlphaComponent:0.45];
+        _chatCollectionView.backgroundColor = [UIColor whiteColor];
         [_chatCollectionView registerClass:[ChatCollectionCell class] forCellWithReuseIdentifier:leftChatCollectionCellIdentifier];
 
          [_chatCollectionView registerClass:[ChatCollectionCell class] forCellWithReuseIdentifier:rightChatCollectionCellIdentifier];

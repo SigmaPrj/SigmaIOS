@@ -12,7 +12,7 @@
 @implementation SASignInRequest
 
 + (void)requestSignInWithUsername:(NSString *)username password:(NSString *)password {
-    NSString *url = [NSString stringWithFormat:@"/login/auth"];
+    NSString *url = [NSString stringWithFormat:@"auth"];
 
     // 加密password 为了安全
     NSString *pass = [SASecurity md5WithString:[NSString stringWithFormat:@"%@%@", PREFIX_PASSWORD, password]];
