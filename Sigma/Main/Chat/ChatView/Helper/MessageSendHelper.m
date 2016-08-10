@@ -6,6 +6,7 @@
 //  Copyright © 2016年 你好，我是余强，一位来自上海的ios开发者，现就职于bdcluster(上海大数聚科技有限公司)。这个工程致力于完成一个优雅的IM实现方案，如果您有兴趣，请来到项目交流群：533793277. All rights reserved.
 //
 
+#import <JMessage/JMessage.h>
 #import "MessageSendHelper.h"
 #import "UpLoadFileHelper.h"
 
@@ -25,10 +26,19 @@
     switch (message.bubbleMessageBodyType) {
             
         case MessageBodyTypeText:
+        {
+            NSLog(@"message im to : %@", message.imMessage.to);
+            [JMSGMessage sendSingleTextMessage:message.text toUser:message.imMessage.to];
             break;
+        }
             
         case MessageBodyTypePhoto: {
-            
+
+            NSData *data = [NSData dataWithContentsOfFile:message.localPhotoPath];
+
+            // 发送
+            [JMSGMessage sendSingleImageMessage:data toUser:message.imMessage.to];
+
             FileConfig *fileConfig =[FileConfig fileConfigWithUrl:@"" fileData:nil serveName:nil fileName:nil mimeType:nil];
             [[UpLoadFileHelper helper]uploadFiles:fileConfig progress:^(NSProgress *progress) {
                 
@@ -36,8 +46,9 @@
                 
                 //getMessageUrl:
                 NSString *remoteFileUrl = responseObject[@"url"];
-                
-                
+
+//                [JMSGMessage sendSingleImageMessage: toUser:message.imMessage.to];
+
                 message.imMessage.messageType = MessageBodyTypePhoto;
                 message.imMessage.messageBody = remoteFileUrl;
                 
@@ -50,7 +61,6 @@
             break;
         }
         case MessageBodyTypeVideo: {
-            
             FileConfig *fileConfig =[FileConfig fileConfigWithUrl:@"" fileData:nil serveName:nil fileName:nil mimeType:nil];
             [[UpLoadFileHelper helper]uploadFiles:fileConfig progress:^(NSProgress *progress) {
                 
@@ -68,7 +78,11 @@
             break;
         }
         case MessageBodyTypeVoice: {
-            
+
+            NSData *data = [NSData dataWithContentsOfFile:message.voicePath];
+
+            [JMSGMessage sendSingleVoiceMessage:data voiceDuration:@([message.voiceDuration intValue]) toUser:message.imMessage.to];
+
             FileConfig *fileConfig =[FileConfig fileConfigWithUrl:@"" fileData:nil serveName:nil fileName:nil mimeType:nil];
             [[UpLoadFileHelper helper]uploadFiles:fileConfig progress:^(NSProgress *progress) {
                 
@@ -112,7 +126,6 @@
          message.deliveryState = arc4random_uniform(3);
         completionBlock ? completionBlock(messageService): nil;
     });
-    
 }
 
 

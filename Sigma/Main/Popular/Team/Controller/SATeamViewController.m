@@ -296,7 +296,7 @@
     NSDictionary *userDict = [SAUserDataManager readUser];
 
     ChatCollectionViewController *chatCollectionViewController = [[ChatCollectionViewController alloc] init];
-    [chatCollectionViewController setLeftUserData:friendModel.userId username:friendModel.nickname avatar:friendModel.avatar];
+    [chatCollectionViewController setLeftUserData:friendModel.userId username:friendModel.username avatar:friendModel.avatar];
     [chatCollectionViewController setRightUserData:[userDict[@"id"] intValue] username:userDict[@"username"] avatar:userDict[@"image"]];
 
 

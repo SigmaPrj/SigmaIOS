@@ -453,14 +453,14 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
     
     
     //服务层数据包装
-    message.imMessage.from = @"";
-    message.imMessage.to = @"";
+    message.imMessage = [[MessageServiceModel alloc] init];
+    message.imMessage.from = self.rightUsername;
+    message.imMessage.to = self.leftUsername;
     message.messageId = @"";
     
     
     switch (message.bubbleMessageBodyType) {
         case MessageBodyTypeText: {
-            
             NSLog(@"messageSend  <Text>:%@",message.text);
             break;
         }
