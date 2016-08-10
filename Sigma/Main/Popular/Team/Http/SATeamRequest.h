@@ -36,4 +36,10 @@
  */
 + (void)getFriends;
 
+/**
+ * 获取群组列表
+ * @param groupsStr
+ */
++ (void)getGroups:(NSString *)groupsStr;
+
 @end

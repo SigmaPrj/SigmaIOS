@@ -42,4 +42,13 @@
     [request sendRequest:NOTI_TEAM_FRIEND_ERROR];
 }
 
++ (void)getGroups:(NSString *)groupsStr {
+    NSString *path = @"group";
+    SARequestBase *request = [self requestFormWithPath:path parameters:@{
+            @"groups" :groupsStr
+    } notification:NOTI_TEAM_GROUP];
+
+    [request sendRequest:NOTI_TEAM_GROUP_ERROR];
+}
+
 @end

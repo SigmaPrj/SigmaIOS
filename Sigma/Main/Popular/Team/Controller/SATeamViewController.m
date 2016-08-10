@@ -89,7 +89,7 @@
 - (void)addBtnClicked:(UIButton *)btn {
     CGPoint point = CGPointMake(btn.center.x , btn.frame.origin.y+55);
     _popView = [[XTPopView alloc] initWithOrigin:point Width:130 Height:40 * 4 Type:XTTypeOfUpRight Color:[UIColor colorWithRed:0.2737 green:0.2737 blue:0.2737 alpha:1.0]];
-    _popView.dataArray = @[@"添加好友",@"加入队伍", @"创建队伍", @"扫一扫"];
+    _popView.dataArray = @[@"添加好友",@"邀请入队", @"创建队伍", @"扫一扫"];
     _popView.images = @[@"add_person",@"join_group", @"create_group", @"scan"];
     _popView.fontSize = 13;
     _popView.row_height = 40;
@@ -133,7 +133,7 @@
             break;
         case 1:
         {
-            NSLog(@"加入队伍");
+            NSLog(@"邀请入队");
         }
             break;
         case 2:
