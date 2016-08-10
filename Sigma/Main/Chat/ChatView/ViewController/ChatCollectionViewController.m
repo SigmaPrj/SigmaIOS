@@ -445,7 +445,7 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
     if ([message isKindOfClass:[MessageModel class]] &&  message.isSender ) {
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.chatCollectionView setContentOffset:CGPointMake(0, self.chatCollectionView.contentSize.height+self.keyBoardView.keyBoardDetalChange-SCREEN_HEIGHT) animated:YES];
+            [self.chatCollectionView setContentOffset:CGPointMake(0, self.chatCollectionView.contentSize.height+self.keyBoardView.keyBoardDetalChange-SCREEN_HEIGHT+64) animated:YES];
         });
     }
 
@@ -903,7 +903,7 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
     //监测键盘变化：改变chatTable的offset
     if ([keyPath isEqualToString:@"keyBoardDetalChange"]){
         
-        [self.chatCollectionView setContentOffset:CGPointMake(0, self.chatCollectionView.contentSize.height+self.keyBoardView.keyBoardDetalChange-SCREEN_HEIGHT) animated:YES];
+        [self.chatCollectionView setContentOffset:CGPointMake(0, self.chatCollectionView.contentSize.height+self.keyBoardView.keyBoardDetalChange-SCREEN_HEIGHT+64) animated:YES];
         
     }
     
@@ -1096,11 +1096,12 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
                 if (self.rightUserId == chatModel.fromUser) {
                     // 右侧
                     messageModel = [TextMessageModel text:chatModel.message username:self.rightUsername timeStamp:chatModel.date isSender:YES];
+                    messageModel.avatarUrl = self.rightAvatar;
                 } else {
                     // 左侧
-                   messageModel = [TextMessageModel text:chatModel.message username:self.leftUsername timeStamp:chatModel.date isSender:NO];
+                    messageModel = [TextMessageModel text:chatModel.message username:self.leftUsername timeStamp:chatModel.date isSender:NO];
+                    messageModel.avatarUrl = self.leftAvatar;
                 }
-
             }
                 break;
             case SAChatMessageImage:
@@ -1108,9 +1109,11 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
                 if (self.rightUserId == chatModel.fromUser) {
                     // 右侧
                     messageModel = [PhotoMessageModel Photo:nil thumbnailUrl:chatModel.message originPhotoUrl:chatModel.message username:self.rightUsername timeStamp:chatModel.date isSender:YES];
+                    messageModel.avatarUrl = self.rightAvatar;
                 } else {
                     // 左侧
                     messageModel = [PhotoMessageModel Photo:nil thumbnailUrl:chatModel.message originPhotoUrl:chatModel.message username:self.leftUsername timeStamp:chatModel.date isSender:NO];
+                    messageModel.avatarUrl = self.leftAvatar;
                 }
             }
                 break;
@@ -1119,9 +1122,11 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
                 if (self.rightUserId == chatModel.fromUser) {
                     // 右侧
                     messageModel = [VoiceMessageModel VoicePath:nil voiceUrl:chatModel.message voiceDuration:@"2\"" username:self.rightUsername timeStamp:chatModel.date isSender:YES];
+                    messageModel.avatarUrl = self.rightAvatar;
                 } else {
                     // 左侧
-                    messageModel = [VoiceMessageModel VoicePath:nil voiceUrl:chatModel.message voiceDuration:@"2\"" username:self.leftUsername timeStamp:chatModel.date isSender:YES];
+                    messageModel = [VoiceMessageModel VoicePath:nil voiceUrl:chatModel.message voiceDuration:@"2\"" username:self.leftUsername timeStamp:chatModel.date isSender:NO];
+                    messageModel.avatarUrl = self.leftAvatar;
                 }
             }
                 break;
@@ -1129,6 +1134,8 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
             {
                 // TODO : 添加视频消息转化
             }
+                break;
+            default:
                 break;
         }
 
@@ -1150,7 +1157,8 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
 }
 
 - (void)removeAllNotifications {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NOTI_TEAM_USER_MESSAGES object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NOTI_TEAM_USER_MESSAGES_ERROR object:nil];
 }
 
 #pragma mark -- NOTI_TEAM_USER_MESSAGES
@@ -1173,8 +1181,10 @@ NSString *const chatCollectionTimeCellIdentifier = @"collectiontimeCellId";
 #pragma mark -- dealloc
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:@"contentSize"];
-    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:@"keyBoardDetalChange"];
+    [self.chatCollectionView removeObserver:self forKeyPath:@"contentSize"];
+    [self.keyBoardView removeObserver:self forKeyPath:@"keyBoardDetalChange"];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self.keyBoardView forKeyPath:@"contentSize"];
+//    [[NSNotificationCenter defaultCenter]removeObserver:self forKeyPath:@"keyBoardDetalChange"];
 
     [self removeAllNotifications];
 }
