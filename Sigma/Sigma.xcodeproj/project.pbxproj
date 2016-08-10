@@ -431,6 +431,10 @@
 		5AD272121D5B1313003BA5AF /* Resource3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD272111D5B1313003BA5AF /* Resource3@2x.png */; };
 		5AD272141D5B19A0003BA5AF /* Resource4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD272131D5B19A0003BA5AF /* Resource4@2x.png */; };
 		5AD272161D5B19D6003BA5AF /* Resource5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD272151D5B19D6003BA5AF /* Resource5@2x.png */; };
+		5AD2723D1D5B2186003BA5AF /* Course1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD272391D5B2186003BA5AF /* Course1@2x.png */; };
+		5AD2723E1D5B2186003BA5AF /* Course2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD2723A1D5B2186003BA5AF /* Course2@2x.png */; };
+		5AD2723F1D5B2186003BA5AF /* Course3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD2723B1D5B2186003BA5AF /* Course3@2x.png */; };
+		5AD272401D5B2186003BA5AF /* Course4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD2723C1D5B2186003BA5AF /* Course4@2x.png */; };
 		7B5CAC6C1D52D6BC0057FED6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAC6B1D52D6BC0057FED6 /* main.m */; };
 		7B5CAC6F1D52D6BC0057FED6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAC6E1D52D6BC0057FED6 /* AppDelegate.m */; };
 		7B5CAC721D52D6BC0057FED6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAC711D52D6BC0057FED6 /* ViewController.m */; };
@@ -1161,6 +1165,10 @@
 		5AD272111D5B1313003BA5AF /* Resource3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resource3@2x.png"; sourceTree = "<group>"; };
 		5AD272131D5B19A0003BA5AF /* Resource4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resource4@2x.png"; sourceTree = "<group>"; };
 		5AD272151D5B19D6003BA5AF /* Resource5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resource5@2x.png"; sourceTree = "<group>"; };
+		5AD272391D5B2186003BA5AF /* Course1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Course1@2x.png"; sourceTree = "<group>"; };
+		5AD2723A1D5B2186003BA5AF /* Course2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Course2@2x.png"; sourceTree = "<group>"; };
+		5AD2723B1D5B2186003BA5AF /* Course3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Course3@2x.png"; sourceTree = "<group>"; };
+		5AD2723C1D5B2186003BA5AF /* Course4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Course4@2x.png"; sourceTree = "<group>"; };
 		7B5CAC671D52D6BC0057FED6 /* Sigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5CAC6B1D52D6BC0057FED6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7B5CAC6D1D52D6BC0057FED6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2037,6 +2045,10 @@
 		0017C1821D59AE8D0073B9B3 /* CourseSource */ = {
 			isa = PBXGroup;
 			children = (
+				5AD272391D5B2186003BA5AF /* Course1@2x.png */,
+				5AD2723A1D5B2186003BA5AF /* Course2@2x.png */,
+				5AD2723B1D5B2186003BA5AF /* Course3@2x.png */,
+				5AD2723C1D5B2186003BA5AF /* Course4@2x.png */,
 				0017C1831D59AE8D0073B9B3 /* scrollView1@2x.png */,
 				0017C1841D59AE8D0073B9B3 /* scrollView1@3x.png */,
 				0017C1851D59AE8D0073B9B3 /* scrollView2@2x.png */,
@@ -3398,6 +3410,7 @@
 				0017C4881D59AE8E0073B9B3 /* tabbar_compose_review@2x.png in Resources */,
 				0017C4BE1D59AE8E0073B9B3 /* nebula_back.png in Resources */,
 				0017C4A11D59AE8E0073B9B3 /* avata.jpg in Resources */,
+				5AD2723F1D5B2186003BA5AF /* Course3@2x.png in Resources */,
 				0017C5071D59AE8E0073B9B3 /* camera_icon_new@3x.png in Resources */,
 				0017C3FE1D59AE8E0073B9B3 /* clickedSupportNumber@3x.png in Resources */,
 				0017C49A1D59AE8E0073B9B3 /* resource4.png in Resources */,
@@ -3575,10 +3588,12 @@
 				0017C4061D59AE8E0073B9B3 /* supportNumber@3x.png in Resources */,
 				0017C4E91D59AE8E0073B9B3 /* toolbar_compose_highlighted@3x.png in Resources */,
 				0017C3E71D59AE8E0073B9B3 /* icon_play@2x.png in Resources */,
+				5AD272401D5B2186003BA5AF /* Course4@2x.png in Resources */,
 				0017C3A91D59AE8E0073B9B3 /* TimelineSectionHeaderView.xib in Resources */,
 				0017C50A1D59AE8E0073B9B3 /* ios7-contact-outline.png in Resources */,
 				0017C4AC1D59AE8E0073B9B3 /* competition3.png in Resources */,
 				0017C4D91D59AE8E0073B9B3 /* tabbar_home@2x.png in Resources */,
+				5AD2723D1D5B2186003BA5AF /* Course1@2x.png in Resources */,
 				0017C4011D59AE8E0073B9B3 /* leftBottomLabelImage1@2x.png in Resources */,
 				0017C4ED1D59AE8E0073B9B3 /* triangle_selected.png in Resources */,
 				0017C4FA1D59AE8E0073B9B3 /* dimond_selected@2x.png in Resources */,
@@ -3597,6 +3612,7 @@
 				0017C45A1D59AE8E0073B9B3 /* success.png in Resources */,
 				0017C4E61D59AE8E0073B9B3 /* toolbar_compose@2x.png in Resources */,
 				0017C4621D59AE8E0073B9B3 /* chat_bottom_smile_nor@2x.png in Resources */,
+				5AD2723E1D5B2186003BA5AF /* Course2@2x.png in Resources */,
 				0017C5051D59AE8E0073B9B3 /* bulletscreen_icon_share_midscreen@3x.png in Resources */,
 				0017C48B1D59AE8E0073B9B3 /* tabbar_compose_voice@3x.png in Resources */,
 				0017C50B1D59AE8E0073B9B3 /* ios7-undo-outline.png in Resources */,

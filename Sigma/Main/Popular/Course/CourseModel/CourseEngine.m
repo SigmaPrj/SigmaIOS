@@ -57,10 +57,10 @@
         
         //主页scrollview用到的热门图片测试数据
         NSMutableArray* scrollViewImageListArray = [NSMutableArray array];
-        NSDictionary* dictForScrollView1 = @{@"imageName":@"scrollView1.png"};
-        NSDictionary* dictForScrollView2 = @{@"imageName":@"scrollView2.png"};
-        NSDictionary* dictForScrollView3 = @{@"imageName":@"scrollView3.png"};
-        NSDictionary* dictForScrollView4 = @{@"imageName":@"scrollView4.png"};
+        NSDictionary* dictForScrollView1 = @{@"imageName":@"Course1.png"};
+        NSDictionary* dictForScrollView2 = @{@"imageName":@"Course2.png"};
+        NSDictionary* dictForScrollView3 = @{@"imageName":@"Course3.png"};
+        NSDictionary* dictForScrollView4 = @{@"imageName":@"Course4.png"};
         
         [scrollViewImageListArray addObject:dictForScrollView1];
         [scrollViewImageListArray addObject:dictForScrollView2];
