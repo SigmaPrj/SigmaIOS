@@ -33,4 +33,13 @@
     [request sendRequest:NOTI_TEAM_ADD_USER_ERROR];
 }
 
++ (void)getFriends {
+    NSInteger userId = [SAUserDataManager readUserId];
+    NSString *token = [SAUserDataManager readToken];
+    NSString *path = [NSString stringWithFormat:@"friend/%d/user", userId];
+    SARequestBase *request = [self requestWithPath:path method:@"GET" parameters:nil token:token notification:NOTI_TEAM_FRIEND];
+
+    [request sendRequest:NOTI_TEAM_FRIEND_ERROR];
+}
+
 @end

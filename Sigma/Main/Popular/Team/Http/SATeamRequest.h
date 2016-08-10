@@ -31,4 +31,9 @@
  */
 + (void)addFriend:(NSString *)username;
 
+/**
+ * 获取好友
+ */
++ (void)getFriends;
+
 @end
