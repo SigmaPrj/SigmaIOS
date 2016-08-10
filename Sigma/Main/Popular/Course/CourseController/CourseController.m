@@ -83,7 +83,7 @@
 //延时加载tableView
 -(UITableView*)mainPagetableView{
     if(_mainPagetableView == nil){
-        _mainPagetableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-140*(SCREEN_WIDTH/SCREEN_HEIGHT)) style:UITableViewStylePlain];
+        _mainPagetableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-100*(SCREEN_WIDTH/SCREEN_HEIGHT)) style:UITableViewStylePlain];
         
         _mainPagetableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCROLL_HEIGHT)];
         _mainPagetableView.backgroundColor = [UIColor whiteColor];

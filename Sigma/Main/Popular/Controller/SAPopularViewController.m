@@ -140,11 +140,17 @@
 - (void)sendRequest {
     
     // 热门问答请求
-    [SAPopularRequest requestQuestionData];
+//    [SAPopularRequest requestQuestionData];
+    int temp = [self getRandomNumber:1 to:8];
+    NSString* page = [NSString stringWithFormat:@"%d", temp];
+    
+    [SAPopularRequest requestHotQuestionData:@{@"p":page, @"state":@"hot"}];
     
     [SAPopularRequest requestVideoData];
     
-    [SAPopularRequest requestResourceData];
+//    [SAPopularRequest requestResourceData];
+    
+    [SAPopularRequest requestHotResourceData:@{@"p":page, @"state":@"hot"}];
 }
 
 #pragma mark - 添加通知
@@ -441,29 +447,31 @@
     }
 }
 
-/**
- *  这个要被删除 了
- *
- *  @param model SAPopularModel --- 暂时好像也没用
- *
- *  @return cellHeight
- */
-- (double)getHeight:(SAPopularModel *)model {
-    UIImage *image = [UIImage imageNamed:model.cellBackgroundImgName];
-    return (image.size.height/2+20);
+
+#pragma mark - cell点击
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        self.hidesBottomBarWhenPushed = YES;
+        TimelineViewController* vc = [[TimelineViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+    }
+    
+    else if (indexPath.section == 1) {
+        self.hidesBottomBarWhenPushed = YES;
+        CourseController* courseController = [[CourseController alloc] init];
+        [self.navigationController pushViewController:courseController animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+    }
+    
+    else if (indexPath.section == 2) {
+        self.hidesBottomBarWhenPushed = YES;
+        SourceSubViewController* sourceSubViewController = [[SourceSubViewController alloc] init];
+        [self.navigationController pushViewController:sourceSubViewController animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+    }
 }
 
-/**
- *  取得classCell的高度 --- 暂时好像也没用
- *
- *  @param model <#model description#>
- *
- *  @return <#return value description#>
- */
-- (double)getClassCellHeight:(SAPopularClassModel *)model{
-    UIImage *image = [UIImage imageNamed:model.bg_image];
-    return (image.size.height/2+20);
-}
 
 /**
  *  设置section的header
@@ -668,11 +676,12 @@
     self.hidesBottomBarWhenPushed = NO;
 }
 
-
+//队伍按钮点击事件
 -(void)teamButtonClicked:(UIButton *)btn {
+    self.hidesBottomBarWhenPushed = YES;
     SATeamViewController *teamViewController = [[SATeamViewController alloc] init];
     [self.navigationController pushViewController:teamViewController animated:YES];
-
+    self.hidesBottomBarWhenPushed = NO;
 }
 
 #pragma mark - 关于加载失败的操作

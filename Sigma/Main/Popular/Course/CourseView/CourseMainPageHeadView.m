@@ -96,11 +96,15 @@
 }
 
 
+
 #pragma mark -
 #pragma mark 定时器操作
 - (void)startTimer
 {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(changeScrollViewIndex) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(changeScrollViewIndex) userInfo:nil repeats:YES];
+    // 将定时器放入事件循环中
+    NSRunLoop *mainRunLoop = [NSRunLoop mainRunLoop];
+    [mainRunLoop addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)stopTimer
@@ -110,7 +114,7 @@
 }
 
 - (void)changeScrollViewIndex {
-    int index = self.currentPage;
+    int index = (int)self.currentPage;
     if ((index+1) >= self.scrollViewImageArray.count) {
         [UIView animateWithDuration:0.4 delay:0.0 options:(UIViewAnimationOptions) UIViewAnimationCurveEaseInOut animations:^{
             self.scrollView.contentOffset = CGPointMake(0, 0);

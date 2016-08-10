@@ -37,6 +37,23 @@
     [request sendRequest];
 }
 
++ (void) requestHotQuestionData:(NSDictionary*)dict{
+    
+    NSString* url = [NSString stringWithFormat:@"question"];
+    
+    SARequestBase* request = [self requestWithPath:url method:@"GET" parameters:dict token:nil notification:NOTI_POPULAR_QUESTION_DATA];
+    
+    [request sendRequest];
+}
+
++ (void) requestHotResourceData:(NSDictionary*)dict{
+    NSString* url = [NSString stringWithFormat:@"resource"];
+    
+    SARequestBase* request = [self requestWithPath:url method:@"GET" parameters:dict token:nil notification:NOTI_POPULAR_RESOURCE_DATA];
+    
+    [request sendRequest];
+}
+
 
 
 @end

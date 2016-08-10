@@ -21,8 +21,8 @@
         _headImageName = [dic valueForKeyPath:@"ouser.image"];
         _nickname = [dic valueForKeyPath:@"ouser.nickname"];
         _city = [dic valueForKeyPath:@"ouser.city"];
-//        _courseVideoUrlPath = dic[@"url"];
-        _courseVideoUrlPath = @"http://baobab.wandoujia.com/api/v1/playUrl?vid=8496&editionType=high&f=iphone&u=011f2924aa2cf27aa5dc8066c041fe08116a9a0c&vc=67";
+        _courseVideoUrlPath = dic[@"url"];
+//        _courseVideoUrlPath = @"http://baobab.wandoujia.com/api/v1/playUrl?vid=8496&editionType=high&f=iphone&u=011f2924aa2cf27aa5dc8066c041fe08116a9a0c&vc=67";
         
     }
     return self;
