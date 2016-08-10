@@ -13,8 +13,11 @@
 #import "SAAnimationNavController.h"
 #import "SAHomeViewController.h"
 #import "JSMSSDK.h"
-#import "JPUSHService.h"
+#import <JMessage/JMessage.h>
 #import <AdSupport/ASIdentifierManager.h>
+
+#define CHANNEL @"App Store"
+#define JMSSAGE_APPKEY @"ef919ab66a2c2afc4d8b812a"
 
 @interface AppDelegate ()
 
@@ -54,37 +57,47 @@
 
     [JSMSSDK registerWithAppKey:KEY_APP_KEY];
 
-    // JSPush
-    NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    // IM集成
+    /// Required - 添加 JMessage SDK 监听。这个动作放在启动前
+    [JMessage addDelegate:self withConversation:nil];
+    
+    /// Required - 启动 JMessage SDK
+    [JMessage setupJMessage:launchOptions
+                     appKey:JMSSAGE_APPKEY
+                    channel:CHANNEL
+           apsForProduction:NO
+                   category:nil];
+    
+    /// Required - 注册 APNs 通知
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
+        /// 可以添加自定义categories
         [JPUSHService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert) categories:nil];
     } else {
+        /// categories 必须为nil
         [JPUSHService registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert) categories:nil];
     }
-
-    NSString *pushConfigFilePath = [[NSBundle mainBundle] pathForResource:@"PushConfig.plist" ofType:nil];
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:pushConfigFilePath];
-
-    [JPUSHService setupWithOption:launchOptions appKey:dict[@"APP_KEY"] channel:dict[@"CHANNEL"] apsForProduction:NO advertisingIdentifier:advertisingId];
-
     return YES;
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    /// Required - 注册 DeviceToken
     [JPUSHService registerDeviceToken:deviceToken];
 }
 
 - (void)application :(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    // Required - 处理收到的通知
     [JPUSHService handleRemoteNotification:userInfo];
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+    // IOS 7 Support Required
     [JPUSHService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
 - (void)application :(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    NSLog(@"did Failed To Register For Remote Notifications With Error: %@", error);
+    //Optional
+    NSLog(@"did Fail To Register For Remote Notifications With Error: %@", error);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

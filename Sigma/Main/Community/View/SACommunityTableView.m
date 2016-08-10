@@ -15,7 +15,7 @@
 #import "SADynamicTableViewCell.h"
 #import "SAUserDataManager.h"
 
-@interface SACommunityTableView() <UITableViewDataSource, UITableViewDelegate, SADynamicTableViewCellDelegate>
+@interface SACommunityTableView() <UITableViewDataSource, UITableViewDelegate, SADynamicTableViewCellDelegate, SACommunityTableHeaderViewDelegate>
 
 @property (nonatomic, strong) SACommunityTableHeaderView *headerView;
 
@@ -171,6 +171,14 @@
 
     if ([self.ownDelegate respondsToSelector:@selector(commentBtnDidClicked:dynamicModel:)]) {
         [self.ownDelegate commentBtnDidClicked:dynamic_id dynamicModel:dynamicModel];
+    }
+}
+
+#pragma mark -
+#pragma mark SACommunityTableHeaderViewDelegate
+- (void)bgImageViewDidClicked:(UIImageView *)bgImageView {
+    if ([self.ownDelegate respondsToSelector:@selector(bgImageViewDidClickd:)]) {
+        [self.ownDelegate bgImageViewDidClickd:bgImageView];
     }
 }
 

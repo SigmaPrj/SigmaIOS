@@ -10,8 +10,17 @@
 
 @class SACommunityUserModel;
 
+@protocol SACommunityTableHeaderViewDelegate<NSObject>
+
+@required
+- (void)bgImageViewDidClicked:(UIImageView *)bgImageView;
+
+@end
+
 @interface SACommunityTableHeaderView : UIView
 
 @property (nonatomic, strong) SACommunityUserModel *userModel;
+
+@property (nonatomic, weak) id<SACommunityTableHeaderViewDelegate> delegate;
 
 @end

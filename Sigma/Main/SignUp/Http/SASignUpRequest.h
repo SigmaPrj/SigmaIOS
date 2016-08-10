@@ -36,4 +36,9 @@
  */
 + (void)requestSetUserInfo:(NSMutableDictionary *)dict;
 
+/**
+ * 获取头像上传token
+ */
++ (void)requestQNUploadToken;
+
 @end

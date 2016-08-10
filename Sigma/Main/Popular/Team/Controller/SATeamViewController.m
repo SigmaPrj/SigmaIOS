@@ -13,6 +13,7 @@
 #import "SATeamFriendView.h"
 #import "SATeamTeamView.h"
 #import "SAMessageModel.h"
+#import "ChatCollectionViewController.h"
 //#import "SAChatView.h"
 
 #define KStatusHeight 20
@@ -118,6 +119,10 @@
 #pragma mark SATeamMessageViewDelegate
 - (void)messageCellDidClicked:(SAMessageModel *)messageModel {
     // TODO : 修改这儿
+
+    ChatCollectionViewController *chatCollectionViewController = [[ChatCollectionViewController alloc] init];
+    [self.navigationController pushViewController:chatCollectionViewController animated:YES];
+
 //    SATeamChatViewController *viewController = [[SATeamChatViewController alloc] initWithMessageModel:messageModel];
 //    self.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:viewController animated:YES];

@@ -15,6 +15,9 @@
 #import "SAUserDataManager.h"
 #import "SASignInRequest.h"
 #import "SARootViewController.h"
+#import "QNUploadManager.h"
+#import "QNUploadOption.h"
+#import "JCAlertView.h"
 
 #define KStatusHeight 20
 #define KNavBarHeight 44
@@ -24,6 +27,7 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) SASignUpSetInfoView *bkInfoView;
 @property (nonatomic, copy) NSString *password;
+@property (nonatomic, copy) NSString *avatarFilePath;
 
 @end
 
@@ -128,11 +132,11 @@
 #pragma mark -
 #pragma mark SASignUpSetPasswordViewDelegate
 - (void)nextStepBtnClicked:(SASignUpSetPasswordView *)passwordView password:(NSString *)password {
-//    // 测试
-//    [self.segment setEnabled:NO forSegmentAtIndex:0];
-//    [self.segment setEnabled:YES forSegmentAtIndex:1];
-//    [self.segment setSelectedSegmentIndex:1];
-//    [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH, -(KStatusHeight+KNavBarHeight)) animated:YES];
+    // 测试
+/*    [self.segment setEnabled:NO forSegmentAtIndex:0];
+    [self.segment setEnabled:YES forSegmentAtIndex:1];
+    [self.segment setSelectedSegmentIndex:1];
+    [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH, -(KStatusHeight+KNavBarHeight)) animated:YES];*/
 
     _password = password;
     // 显示等待
@@ -194,8 +198,67 @@
         [self.bkInfoView setupAvatar:[self scaleFromImage:image toSize:CGSizeMake(80, 80)]];
         [self dismissViewControllerAnimated:YES completion:^{}];
 
-        //  TODO :  七牛保存图片
+        //  七牛保存图片
+        NSString *filePath = [self saveImageToLocal:image];
+        [self uploadImageToQN:filePath];
     }
+}
+
+- (void)uploadImageToQN:(NSString *)filePath {
+    _avatarFilePath = filePath;
+    // 发送请求 获取 文件上传token
+    [self sendQNToenRequest];
+}
+
+- (void)sendQNToenRequest {
+    [SASignUpRequest requestQNUploadToken];
+}
+
+- (void)receiveQNTokenSuccess:(NSNotification *)notification {
+    if ([notification.userInfo[@"code"] intValue] == 200) {
+        NSInteger userId = [SAUserDataManager readUserId];
+        QNUploadManager *uploadManager = [[QNUploadManager alloc] init];
+        QNUploadOption *uploadOption = [[QNUploadOption alloc] initWithMime:nil progressHandler:nil params:@{@"x:userId": [NSString stringWithFormat:@"%d", userId]} checkCrc:NO cancellationSignal:nil];
+        [uploadManager putFile:_avatarFilePath key:nil token:[notification.userInfo valueForKeyPath:@"data.token"] complete:^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
+            NSLog(@"qiniu info : %@", info);
+            NSLog(@"qiniu resp : %@", resp);
+        } option:uploadOption];
+    } else {
+        [JCAlertView showOneButtonWithTitle:@"头像上传失败" Message:@"请稍后再试" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{}];
+    }
+}
+
+- (void)receiveQNTokenFailed:(NSNotification *)notification {
+    [JCAlertView showOneButtonWithTitle:@"头像上传失败" Message:@"网络异常!" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{}];
+}
+
+- (NSString *)saveImageToLocal:(UIImage *)image {
+    NSString *filePath = nil;
+    NSData *data = nil;
+    if (UIImagePNGRepresentation(image) == nil) {
+        data = UIImageJPEGRepresentation(image, 1.0);
+    } else {
+        data = UIImagePNGRepresentation(image);
+    }
+
+    //图片保存的路径
+    //这里将图片放在沙盒的documents文件夹中
+    NSString *DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+
+    //文件管理器
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    //把刚刚图片转换的data对象拷贝至沙盒中
+    [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
+
+    NSDictionary *userDict = [SAUserDataManager readUser];
+    NSString *filename = [NSString stringWithFormat:@"%@_avatar", userDict[@"username"]];
+
+    NSString *ImagePath = [[NSString alloc] initWithFormat:@"/%@.png", filename];
+    [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:ImagePath] contents:data attributes:nil];
+
+    //得到选择后沙盒中图片的完整路径
+    filePath = [[NSString alloc] initWithFormat:@"%@%@", DocumentsPath, ImagePath];
+    return filePath;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -220,6 +283,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(infoSetFailed:) name:NOTI_SIGNUP_INFO_ERROR object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUserDataSuccess:) name:NOTI_SIGNIN_AUTH object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveUserDataFailed:) name:NOTI_SIGNIN_AUTH_ERRPR object:nil];
+
+    // 七牛
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveQNTokenSuccess:) name:NOTI_QINIU_TOKEN object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveQNTokenFailed:) name:NOTI_QINIU_TOKEN_ERROR object:nil];
 }
 
 - (void)removeAllNotifications {

@@ -13,7 +13,7 @@
 @implementation SASignUpRequest
 
 + (void)registerWithPhone:(NSString *)phone {
-    NSString *url = @"/login/register";
+    NSString *url = @"user";
 
     SARequestBase *request = [self requestFormWithPath:url parameters:@{
             @"username_type" : @"phone",
@@ -32,14 +32,12 @@
 }
 
 + (void)requestSetPass:(NSString *)password{
-    NSString *url = @"/login/setpass";
-
     NSInteger userId = [SAUserDataManager readUserId];
+    NSString *url = [NSString stringWithFormat:@"user/%d", userId];
 
     NSString *certPassword = [SASecurity md5WithString:[NSString stringWithFormat:@"%@%@", PREFIX_PASSWORD, password]];
 
     SARequestBase *request = [SARequestBase requestFormWithPath:url parameters:@{
-            @"user_id" : @(userId),
             @"password" : certPassword
     } notification:NOTI_SIGNUP_PASS];
 
@@ -47,15 +45,20 @@
 }
 
 + (void)requestSetUserInfo:(NSMutableDictionary *)dict {
-    NSString *url = @"/login/setinfo";
-
     NSInteger userId = [SAUserDataManager readUserId];
-
-    dict[@"user_id"] = @(userId);
+    NSString *url = [NSString stringWithFormat:@"user/%d", userId];
 
     SARequestBase *request = [SARequestBase requestFormWithPath:url parameters:dict notification:NOTI_SIGNUP_INFO];
 
     [request sendRequest:NOTI_SIGNUP_INFO_ERROR];
+}
+
++ (void)requestQNUploadToken {
+    NSString *url = @"upload/user_avatar";
+
+    SARequestBase *request = [SARequestBase requestWithPath:url method:@"GET" parameters:nil token:nil notification:NOTI_QINIU_TOKEN];
+
+    [request sendRequest:NOTI_QINIU_TOKEN_ERROR];
 }
 
 @end

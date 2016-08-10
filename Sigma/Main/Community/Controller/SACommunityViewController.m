@@ -19,11 +19,12 @@
 
 
 
-@interface SACommunityViewController () <SACommunityTableViewDelegate, SALoadingTableViewDelegate>
+@interface SACommunityViewController () <SACommunityTableViewDelegate, SALoadingTableViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (nonatomic, strong) SACommunityTableView *communityTableView;
 @property (nonatomic, strong) UIView *maskView;
 @property (nonatomic, assign) BOOL firstRequest;
+@property (nonatomic, weak) UIImageView *bgImageView;
 
 @end
 
@@ -223,6 +224,94 @@
     [self.navigationController pushViewController:commentController animated:YES];
 }
 
+- (void)bgImageViewDidClickd:(UIImageView *)imageView {
+    _bgImageView = imageView;
+
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"图片选择" message:@"选择可以获得图片的方式" preferredStyle:UIAlertControllerStyleActionSheet];
+
+    __weak typeof(self) weakSelf = self;
+    // 照相机
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"照相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = weakSelf;
+        imagePicker.allowsEditing = YES;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [weakSelf presentViewController:imagePicker animated:YES completion:nil];
+    }];
+
+    // 相册
+    UIAlertAction *albumAction = [UIAlertAction actionWithTitle:@"本地相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = weakSelf;
+        imagePicker.allowsEditing = YES;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [weakSelf presentViewController:imagePicker animated:YES completion:nil];
+    }];
+
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {}];
+
+    [alertController addAction:cameraAction];
+    [alertController addAction:albumAction];
+    [alertController addAction:cancelAction];
+
+    [self presentViewController:alertController animated:YES completion:^{}];
+}
+
+#pragma mark -
+#pragma mark UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info {
+    if ([[info allKeys] containsObject:@"UIImagePickerControllerEditedImage"]) {
+        UIImage *image = (UIImage *)info[@"UIImagePickerControllerEditedImage"];
+        self.bgImageView.image = [self scaleFromImage:image toSize:CGSizeMake(640, 480)];
+        [self dismissViewControllerAnimated:YES completion:^{}];
+
+        // TODO : 七牛保存图片
+        [self saveImageToLocal:image];
+    }
+}
+
+- (NSString *)saveImageToLocal:(UIImage *)image {
+    NSString *filePath = nil;
+    NSData *data = nil;
+    if (UIImagePNGRepresentation(image) == nil) {
+        data = UIImageJPEGRepresentation(image, 1.0);
+    } else {
+        data = UIImagePNGRepresentation(image);
+    }
+
+    //图片保存的路径
+    //这里将图片放在沙盒的documents文件夹中
+    NSString *DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+
+    //文件管理器
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    //把刚刚图片转换的data对象拷贝至沙盒中
+    [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
+
+    NSDictionary *userDict = [SAUserDataManager readUser];
+    NSString *filename = [NSString stringWithFormat:@"%@_bgImage", userDict[@"username"]];
+
+    NSString *ImagePath = [[NSString alloc] initWithFormat:@"/%@.png", filename];
+    [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:ImagePath] contents:data attributes:nil];
+
+    //得到选择后沙盒中图片的完整路径
+    filePath = [[NSString alloc] initWithFormat:@"%@%@", DocumentsPath, ImagePath];
+    return filePath;
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [self dismissViewControllerAnimated:YES completion:^{}];
+}
+
+- (UIImage *) scaleFromImage: (UIImage *) image toSize: (CGSize) size
+{
+    UIGraphicsBeginImageContext(size);
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 #pragma mark -
 #pragma mark SALoadingTableViewDelegate
 - (void)endHeaderLoadingAnimation:(SAHeaderLoadingView *)loadingView {
@@ -237,5 +326,6 @@
     NSString *token = [SAUserDataManager readToken];
     [SACommunityRequest requestDynamics:@{@"t": @(self.communityTableView.time), @"c": @(self.communityTableView.count)} user_id:28 token:token];
 }
+
 
 @end

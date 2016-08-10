@@ -166,9 +166,9 @@ static NSString * const reuseIdentifier = @"SignUpCollectionCell";
 #pragma mark -
 #pragma mark SASignUpWithTelephoneViewDelegate
 - (void)phoneRegisterBtnClicked:(SASignUpWithTelephoneView *)phoneView phone:(NSString *)phone{
-//    // 测试
-//    SASignUpUserInfoController *userInfoController = [[SASignUpUserInfoController alloc] init];
-//    [self.navigationController pushViewController:userInfoController animated:YES];
+    // 测试
+/*    SASignUpUserInfoController *userInfoController = [[SASignUpUserInfoController alloc] init];
+    [self.navigationController pushViewController:userInfoController animated:YES];*/
 
     _username = phone;
     // 显示加载HUD
@@ -191,6 +191,8 @@ static NSString * const reuseIdentifier = @"SignUpCollectionCell";
                         @"username" : self.username
                 }
         }];
+
+        NSDictionary *dict = [SAUserDataManager readUser];
 
         // 进入用户信息设置页面
         SASignUpUserInfoController *userInfoController = [[SASignUpUserInfoController alloc] init];

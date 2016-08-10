@@ -12,6 +12,7 @@
 
 @required
 - (void)commentBtnDidClicked:(NSInteger)dynamic_id dynamicModel:(SADynamicModel *)dynamicModel;
+- (void)bgImageViewDidClickd:(UIImageView *)imageView;
 
 @end
 

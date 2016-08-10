@@ -9,6 +9,7 @@
 #import "SACommunityTableHeaderView.h"
 #import "SACommunityUserModel.h"
 #import "UIImageView+WebCache.h"
+#import "SAUserDataManager.h"
 
 #define COMMUNITY_HEADER_VIEW_AVATAR_SIZE 60
 #define COMMUNITY_HEADER_VIEW_PADDING 10
@@ -55,11 +56,29 @@
     // 设置背景图片
     NSURL *bgImageUrl = [NSURL URLWithString:self.userModel.bgImage];
     [self.bgImageView sd_setImageWithURL:bgImageUrl placeholderImage:nil options:SDWebImageRetryFailed | SDWebImageProgressiveDownload];
-    
+    // 背景图被点击,设置图片
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bgImageViewClicked:)];
+    recognizer.numberOfTapsRequired = 1;
+    [self.bgImageView addGestureRecognizer:recognizer];
+
     // 设置avatarImageView frame
-    NSURL *avatarImageUrl = [NSURL URLWithString:self.userModel.image];
-    [self.avatarImageView sd_setImageWithURL:avatarImageUrl placeholderImage:[UIImage imageNamed:@"avatar60"] options:SDWebImageRetryFailed | SDWebImageProgressiveDownload];
-    
+    NSString *avatarPath = self.userModel.image;
+
+    if ([avatarPath isEqualToString:@""]) {
+         // 使用本地图片
+        NSString *DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+        NSDictionary *userDict = [SAUserDataManager readUser];
+        NSString *filename = [NSString stringWithFormat:@"%@_avatar", userDict[@"username"]];
+
+        NSString *ImagePath = [[NSString alloc] initWithFormat:@"/%@.png", filename];
+        NSString *filePath = [[NSString alloc] initWithFormat:@"%@%@", DocumentsPath, ImagePath];
+        NSData *imageDatas = [NSData dataWithContentsOfFile:filePath];
+        self.avatarImageView.image = [UIImage imageWithData:imageDatas];
+    } else {
+        NSURL *avatarImageUrl = [NSURL fileURLWithPath:avatarPath];
+        [self.avatarImageView sd_setImageWithURL:avatarImageUrl placeholderImage:[UIImage imageNamed:@"avatar60"] options:SDWebImageRetryFailed | SDWebImageProgressiveDownload];
+    }
+
     // 设置approvedImageView frame
     if (self.userModel.is_approved == 1) {
         CGFloat aImageLeft = MinX(self.avatarImageView)-COMMUNITY_APPROVED_IMAGE_SIZE-COMMUNITY_HEADER_VIEW_PADDING;
@@ -80,6 +99,12 @@
         newNickNameLabelFrame.origin.y = self.frame.size.height - COMMUNITY_COMPONENT_PADDING - newNickNameLabelFrame.size.height;
         self.nickNameLabel.frame = newNickNameLabelFrame;
         _nickNameLabel.textColor = COMMUNITY_TEXT_COLOR;
+    }
+}
+
+- (void)bgImageViewClicked:(NSNotification *)notification {
+    if ([self.delegate respondsToSelector:@selector(bgImageViewDidClicked:)]) {
+        [self.delegate bgImageViewDidClicked:self.bgImageView];
     }
 }
 

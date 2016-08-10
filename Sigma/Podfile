@@ -2,4 +2,8 @@ platform :ios ,'9.3'
 
 target 'Sigma' do
   pod "Qiniu", "~> 7.1"
+  pod 'SDWebImage', '~> 3.7.5'
+  pod 'TTTAttributedLabel', '~> 1.13.4'
+  pod 'Masonry'
+  pod 'XXNibBridge'
 end

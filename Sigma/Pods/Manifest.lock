@@ -15,18 +15,32 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - HappyDNS (0.3.7)
+  - Masonry (1.0.1)
   - Qiniu (7.1.0.1):
     - AFNetworking (~> 3)
     - HappyDNS (~> 0.3)
+  - SDWebImage (3.7.6):
+    - SDWebImage/Core (= 3.7.6)
+  - SDWebImage/Core (3.7.6)
+  - TTTAttributedLabel (1.13.4)
+  - XXNibBridge (2.3.1)
 
 DEPENDENCIES:
+  - Masonry
   - Qiniu (~> 7.1)
+  - SDWebImage (~> 3.7.5)
+  - TTTAttributedLabel (~> 1.13.4)
+  - XXNibBridge
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   HappyDNS: ec476226e119bf4766b74975ec4873f6fa078cf2
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   Qiniu: 0e92ff0d1b9afbc55275306671284e4ebeb08d03
+  SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  TTTAttributedLabel: 0a2ac7b2dd726d32a070dafb01446026b11e624f
+  XXNibBridge: addb780e6db076eb2c61716aa60b176a6799b80f
 
-PODFILE CHECKSUM: 3316a93c06e25ee7d5a4ebd07aa8bb9f69779d02
+PODFILE CHECKSUM: 93aedcc308e71404a80e1799bf2c0a2563bd19ba
 
 COCOAPODS: 1.1.0.beta.1
