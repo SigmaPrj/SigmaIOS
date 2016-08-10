@@ -426,6 +426,11 @@
 		0017C50A1D59AE8E0073B9B3 /* ios7-contact-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 0017C3671D59AE8E0073B9B3 /* ios7-contact-outline.png */; };
 		0017C50B1D59AE8E0073B9B3 /* ios7-undo-outline.png in Resources */ = {isa = PBXBuildFile; fileRef = 0017C3681D59AE8E0073B9B3 /* ios7-undo-outline.png */; };
 		0017C50C1D59AE8E0073B9B3 /* ios7-undo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0017C3691D59AE8E0073B9B3 /* ios7-undo.png */; };
+		5AD2720E1D5B1158003BA5AF /* Resource1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD2720D1D5B1158003BA5AF /* Resource1@2x.png */; };
+		5AD272101D5B12BF003BA5AF /* Resource2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD2720F1D5B12BF003BA5AF /* Resource2@2x.png */; };
+		5AD272121D5B1313003BA5AF /* Resource3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD272111D5B1313003BA5AF /* Resource3@2x.png */; };
+		5AD272141D5B19A0003BA5AF /* Resource4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD272131D5B19A0003BA5AF /* Resource4@2x.png */; };
+		5AD272161D5B19D6003BA5AF /* Resource5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AD272151D5B19D6003BA5AF /* Resource5@2x.png */; };
 		7B5CAC6C1D52D6BC0057FED6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAC6B1D52D6BC0057FED6 /* main.m */; };
 		7B5CAC6F1D52D6BC0057FED6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAC6E1D52D6BC0057FED6 /* AppDelegate.m */; };
 		7B5CAC721D52D6BC0057FED6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5CAC711D52D6BC0057FED6 /* ViewController.m */; };
@@ -1151,6 +1156,11 @@
 		0017C3671D59AE8E0073B9B3 /* ios7-contact-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-contact-outline.png"; sourceTree = "<group>"; };
 		0017C3681D59AE8E0073B9B3 /* ios7-undo-outline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-undo-outline.png"; sourceTree = "<group>"; };
 		0017C3691D59AE8E0073B9B3 /* ios7-undo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-undo.png"; sourceTree = "<group>"; };
+		5AD2720D1D5B1158003BA5AF /* Resource1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resource1@2x.png"; sourceTree = "<group>"; };
+		5AD2720F1D5B12BF003BA5AF /* Resource2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resource2@2x.png"; sourceTree = "<group>"; };
+		5AD272111D5B1313003BA5AF /* Resource3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resource3@2x.png"; sourceTree = "<group>"; };
+		5AD272131D5B19A0003BA5AF /* Resource4@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resource4@2x.png"; sourceTree = "<group>"; };
+		5AD272151D5B19D6003BA5AF /* Resource5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Resource5@2x.png"; sourceTree = "<group>"; };
 		7B5CAC671D52D6BC0057FED6 /* Sigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5CAC6B1D52D6BC0057FED6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7B5CAC6D1D52D6BC0057FED6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2134,6 +2144,11 @@
 		0017C1C91D59AE8D0073B9B3 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5AD272151D5B19D6003BA5AF /* Resource5@2x.png */,
+				5AD272131D5B19A0003BA5AF /* Resource4@2x.png */,
+				5AD272111D5B1313003BA5AF /* Resource3@2x.png */,
+				5AD2720F1D5B12BF003BA5AF /* Resource2@2x.png */,
+				5AD2720D1D5B1158003BA5AF /* Resource1@2x.png */,
 				0017C1CA1D59AE8D0073B9B3 /* catogorySecondInfo3@2x.png */,
 				0017C1CB1D59AE8D0073B9B3 /* clickedSupportNumber@2x.png */,
 				0017C1CC1D59AE8D0073B9B3 /* clickedSupportNumber@3x.png */,
@@ -3477,6 +3492,7 @@
 				0017C4911D59AE8E0073B9B3 /* ques4.png in Resources */,
 				0017C3E91D59AE8E0073B9B3 /* icon_play_hl@2x.png in Resources */,
 				0017C4AE1D59AE8E0073B9B3 /* competition5.png in Resources */,
+				5AD272101D5B12BF003BA5AF /* Resource2@2x.png in Resources */,
 				0017C4CD1D59AE8E0073B9B3 /* sigma.png in Resources */,
 				0017C4741D59AE8E0073B9B3 /* camera_video_download@3x.png in Resources */,
 				0017C47B1D59AE8E0073B9B3 /* tabbar_compose_friend@3x.png in Resources */,
@@ -3488,6 +3504,7 @@
 				0017C4C21D59AE8E0073B9B3 /* piicon.png in Resources */,
 				0017C4F01D59AE8E0073B9B3 /* circle.png in Resources */,
 				0017C4B81D59AE8E0073B9B3 /* icon-update-tips-black@2x.png in Resources */,
+				5AD272121D5B1313003BA5AF /* Resource3@2x.png in Resources */,
 				0017C4F71D59AE8E0073B9B3 /* dimond@2x.png in Resources */,
 				0017C3E31D59AE8E0073B9B3 /* icon_full@2x.png in Resources */,
 				0017C4811D59AE8E0073B9B3 /* tabbar_compose_lbs@3x.png in Resources */,
@@ -3517,6 +3534,7 @@
 				0017C49D1D59AE8E0073B9B3 /* resource7.png in Resources */,
 				0017C4D21D59AE8E0073B9B3 /* sigmaicon@3x.png in Resources */,
 				0017C4BA1D59AE8E0073B9B3 /* infinityicon.png in Resources */,
+				5AD2720E1D5B1158003BA5AF /* Resource1@2x.png in Resources */,
 				0017C4D41D59AE8E0073B9B3 /* tabbar_compose_icon_add@3x.png in Resources */,
 				0017C4731D59AE8E0073B9B3 /* camera_video_download@2x.png in Resources */,
 				7B5CAC751D52D6BC0057FED6 /* Main.storyboard in Resources */,
@@ -3573,6 +3591,7 @@
 				0017C46F1D59AE8E0073B9B3 /* Head_Img_Of_HeaderView@3x.png in Resources */,
 				0017C4611D59AE8E0073B9B3 /* chat_bottom_bg@2x.png in Resources */,
 				0017C46B1D59AE8E0073B9B3 /* chat_send_nor@2x.png in Resources */,
+				5AD272141D5B19A0003BA5AF /* Resource4@2x.png in Resources */,
 				0017C4C01D59AE8E0073B9B3 /* omegaicon@2x.png in Resources */,
 				0017C5001D59AE8E0073B9B3 /* square_selected@2x.png in Resources */,
 				0017C45A1D59AE8E0073B9B3 /* success.png in Resources */,
@@ -3601,6 +3620,7 @@
 				0017C4D31D59AE8E0073B9B3 /* tabbar_compose_icon_add@2x.png in Resources */,
 				0017C4A71D59AE8E0073B9B3 /* camera_close_highlighted@2x.png in Resources */,
 				9E8E8D560A1B2C24FABF13F0 /* school.plist in Resources */,
+				5AD272161D5B19D6003BA5AF /* Resource5@2x.png in Resources */,
 				0017C46C1D59AE8E0073B9B3 /* chat_send_press_pic@2x.png in Resources */,
 				0017C4A41D59AE8E0073B9B3 /* bg1.jpg in Resources */,
 				0017C47D1D59AE8E0073B9B3 /* tabbar_compose_headlines@3x.png in Resources */,
