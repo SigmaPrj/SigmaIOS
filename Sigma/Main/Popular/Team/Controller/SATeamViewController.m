@@ -271,19 +271,19 @@
         switch (i) {
             case 0:
             {
-                teamView = [[SATeamMessageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEIGHT(self.scrollView)-KNavBarHeight)];
+                teamView = [[SATeamMessageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEIGHT(self.scrollView))];
                 ((SATeamMessageView *)teamView).ownDelegate = self;
             }
                 break;
             case 1:
             {
-                teamView = [[SATeamFriendView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, HEIGHT(self.scrollView)-KNavBarHeight)];
+                teamView = [[SATeamFriendView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, HEIGHT(self.scrollView))];
                 ((SATeamFriendView *)teamView).ownDelegate = self;
             }
                 break;
             case 2:
             {
-                teamView = [[SATeamTeamView alloc] initWithFrame:CGRectMake(2*SCREEN_WIDTH, 0, SCREEN_WIDTH, HEIGHT(self.scrollView)-KNavBarHeight)];
+                teamView = [[SATeamTeamView alloc] initWithFrame:CGRectMake(2*SCREEN_WIDTH, 0, SCREEN_WIDTH, HEIGHT(self.scrollView))];
             }
                 break;
             default:

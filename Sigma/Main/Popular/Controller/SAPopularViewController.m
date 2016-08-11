@@ -646,7 +646,9 @@
     NSDictionary *dict = [SAUserDataManager readUser];
     [JMSGUser loginWithUsername:[NSString stringWithFormat:@"%@", dict[@"username"]] password:dict[@"password"] completionHandler:^(id resultObject, NSError *error) {
         SATeamViewController *teamViewController = [[SATeamViewController alloc] init];
+        self.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:teamViewController animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
     }];
 }
 
