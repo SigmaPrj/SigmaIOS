@@ -567,6 +567,7 @@
 		9E8E8A7B231A6454FCDFAE52 /* Expression_80@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E8B880B1B318F800FE7CD /* Expression_80@2x.png */; };
 		9E8E8A7B59049AC9B8DA3E21 /* LocationMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8E7CC5CB60B6B3590C05 /* LocationMessageModel.m */; };
 		9E8E8A8BC2C1C859AD6AE853 /* 150511_JiveBike.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E85446B6E2EEF04198FED /* 150511_JiveBike.mov */; };
+		9E8E8A8E10517CA7F6261F1F /* SATeamAddUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E898B490AE49003085314 /* SATeamAddUserView.m */; };
 		9E8E8A9B6AEB4CC3F9EBDE15 /* Expression_49@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E8E820F5AF13B9E8DC1C82F /* Expression_49@2x.png */; };
 		9E8E8AAD5725E9C80EE01EA1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E8490B40E49F23CE79EB5 /* ViewController.m */; };
 		9E8E8AB7862E55C197BBEED1 /* TextMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8E875B987322A8E505C94D /* TextMessageModel.m */; };
@@ -1473,6 +1474,7 @@
 		9E8E86D92683C5BFE6BD7A32 /* VoiceSearchFeedback013@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VoiceSearchFeedback013@2x.png"; sourceTree = "<group>"; };
 		9E8E86E0647DC1105897EB90 /* EmotionViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionViewDelegate.h; sourceTree = "<group>"; };
 		9E8E86E32FD073972F520D92 /* UIImage+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Addition.h"; sourceTree = "<group>"; };
+		9E8E86EFAAC30D2D092F15EE /* SATeamAddUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SATeamAddUserView.h; sourceTree = "<group>"; };
 		9E8E86F1FEA58072046C4633 /* Expression_56@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_56@2x.png"; sourceTree = "<group>"; };
 		9E8E86F44C8B9680923288B3 /* chatBar_colorMore_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chatBar_colorMore_location@2x.png"; sourceTree = "<group>"; };
 		9E8E86F8FF59C150A617FA74 /* group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "group@2x.png"; sourceTree = "<group>"; };
@@ -1570,6 +1572,7 @@
 		9E8E897BCD2B4894CD2FB656 /* messageVideo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageVideo@2x.png"; sourceTree = "<group>"; };
 		9E8E8981335D142142085504 /* Expression_46@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_46@2x.png"; sourceTree = "<group>"; };
 		9E8E898A59436F9A5D929512 /* Expression_72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_72@2x.png"; sourceTree = "<group>"; };
+		9E8E898B490AE49003085314 /* SATeamAddUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SATeamAddUserView.m; sourceTree = "<group>"; };
 		9E8E898D4EB686F69F2FE0BB /* Expression_55@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_55@2x.png"; sourceTree = "<group>"; };
 		9E8E898EB96B63D94CF24586 /* section0_emotion13@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "section0_emotion13@2x.png"; sourceTree = "<group>"; };
 		9E8E89944A72DF4BD2CD4B0C /* Expression_8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_8@2x.png"; sourceTree = "<group>"; };
@@ -4269,6 +4272,8 @@
 				9E8E8F47F5E3CB91DF09259F /* XTPopView.m */,
 				9E8E8A26B501A052627F3DC7 /* SAFriendHeaderView.h */,
 				9E8E80B632DB13D2122D9A80 /* SAFriendHeaderView.m */,
+				9E8E86EFAAC30D2D092F15EE /* SATeamAddUserView.h */,
+				9E8E898B490AE49003085314 /* SATeamAddUserView.m */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -5077,6 +5082,7 @@
 				9E8E801191DF099D46C25F5D /* SATeamFrameModel.m in Sources */,
 				9E8E8E69C08EE37752473CB0 /* SATeamModel.m in Sources */,
 				9E8E82E00F5FD632DD7DD66E /* SATeamCell.m in Sources */,
+				9E8E8A8E10517CA7F6261F1F /* SATeamAddUserView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

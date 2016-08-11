@@ -23,19 +23,22 @@
 #import "SAFriendCell.h"
 #import "SAFriendFrameModel.h"
 #import "SAUserDataManager.h"
+#import "SATeamAddUserView.h"
 //#import "SAChatView.h"
 
 #define KStatusHeight 20
 #define KNavBarHeight 44
 #define ICON_BTN_SIZE 30
 
-@interface SATeamViewController () <SATeamMessageViewDelegate, selectIndexPathDelegate, SATeamFriendViewDelegate>
+@interface SATeamViewController () <SATeamMessageViewDelegate, selectIndexPathDelegate, SATeamFriendViewDelegate, SATeamAddUserViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIButton *customBtn;
 @property (nonatomic, strong) XTPopView *popView;
-@property (nonatomic, copy) NSString *friendUsername;
-@property (nonatomic, copy) NSString *groupName;
+
+@property (nonatomic, strong) JCAlertView *alertView1;
+@property (nonatomic, strong) JCAlertView *alertView2;
+@property (nonatomic, strong) JCAlertView *alertView3;
 
 @end
 
@@ -106,39 +109,22 @@
         case 0:
         {
             NSLog(@"添加好友");
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"添加好友" message:@"请输入好友的用户名" preferredStyle:UIAlertControllerStyleAlert];
-            __weak typeof(alertController) alertC = alertController;
-            __weak typeof(self) weakSelf = self;
-            [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-                [textField addTarget:weakSelf action:@selector(friendUsernameChanged:) forControlEvents:UIControlEventEditingChanged];
-            }];
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-                NSLog(@"cancel");
-            }];
-            UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"添加" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                [JMSGConversation createSingleConversationWithUsername:weakSelf.friendUsername completionHandler:^(id resultObject, NSError *error) {
-                    if (!error) {
-                        // 请求添加好友
-                        [SATeamRequest addFriend:weakSelf.friendUsername];
-                    } else {
-                        NSLog(@"单人聊天创建失败!\nerror : %ld ; %@", (long)error.code, error.description);
-                    }
-                }];
-            }];
-            [alertController addAction:cancelAction];
-            [alertController addAction:sureAction];
-
-            [self presentViewController:alertController animated:YES completion:nil];
+            SATeamAddUserView *addUserView = [[SATeamAddUserView alloc] initWithFrame:CGRectMake(0, 0, 300, 0)];
+            addUserView.delegate = self;
+            _alertView1 = [[JCAlertView alloc] initWithCustomView:addUserView dismissWhenTouchedBackground:YES];
+            [_alertView1 show];
         }
             break;
         case 1:
         {
             NSLog(@"邀请入队");
+
         }
             break;
         case 2:
         {
             NSLog(@"创建队伍");
+
         }
             break;
         case 3:
@@ -151,8 +137,22 @@
     }
 }
 
-- (void)friendUsernameChanged:(UITextField *)textField {
-    _friendUsername = textField.text;
+#pragma mark -
+#pragma mark SATeamAddUserViewDelegate
+- (void)customView:(SATeamAddUserView *)addUserView cancelBtnDidClicked:(UIButton *)cancelBtn {
+    [_alertView1 dismissWithCompletion:nil];
+}
+
+- (void)customView:(SATeamAddUserView *)addUserView sureBtnDidClicked:(UIButton *)sureBtn username:(NSString *)username {
+    [JMSGConversation createSingleConversationWithUsername:username completionHandler:^(id resultObject, NSError *error) {
+        if (!error) {
+            // 请求添加好友
+            [_alertView1 dismissWithCompletion:nil];
+            [SATeamRequest addFriend:username];
+        } else {
+            NSLog(@"单人聊天创建失败!\nerror : %ld ; %@", (long)error.code, error.description);
+        }
+    }];
 }
 
 -(void) setupTitle {
