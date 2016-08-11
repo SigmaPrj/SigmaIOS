@@ -27,11 +27,11 @@
 //资源点赞button的横坐标
 #define SUPPORTBUTTON_X 30*(SCREEN_WIDTH/SCREEN_HEIGHT)
 //资源点赞button的宽度
-#define SUPPORTBUTTON_WIDHT 60*(SCREEN_WIDTH/SCREEN_HEIGHT)
+#define SUPPORTBUTTON_WIDHT 40*(SCREEN_WIDTH/SCREEN_HEIGHT)
 //资源下载button的横坐标
 #define DOWNLOADBUTTON_X DOWNLOADNUM_X-SUPPORTBUTTON_WIDHT
 //资源下载button的宽度
-#define DOWNLOADBUTTON_WIDTH 40*(SCREEN_WIDTH/SCREEN_HEIGHT)
+#define DOWNLOADBUTTON_WIDTH 35*(SCREEN_WIDTH/SCREEN_HEIGHT)
 //写评论的button的纵坐标
 #define WRITECOMMENT_Y SUPPORTNUM_Y+SUPPORTNUM_HEIGHT+10*(SCREEN_WIDTH/SCREEN_HEIGHT)
 //写评论的button的宽度
@@ -103,7 +103,7 @@
 //延时加载资源名称的label
 -(UILabel*)sourceNameLabel{
     if(_sourceNameLabel == nil){
-        _sourceNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SOURCENAMELABLE_WIDTH, SOURCENAMELABLE_HEIGHT)];
+        _sourceNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20*SCREEN_WIDTH/SCREEN_HEIGHT, 30*SCREEN_WIDTH/SCREEN_HEIGHT, SOURCENAMELABLE_WIDTH, SOURCENAMELABLE_HEIGHT)];
         _sourceNameLabel.text = self.contentOfSourceHeadInfo.sourceName;
         _sourceNameLabel.backgroundColor = [UIColor clearColor];
         [_sourceNameLabel setTextColor:[UIColor blackColor]];
@@ -115,7 +115,7 @@
 //延时加载资源的具体描述
 -(UILabel*)descriptionOfSource{
     if(_descriptionOfSource == nil){
-        _descriptionOfSource = [[UILabel alloc] initWithFrame:CGRectMake(0, SOURCEDESCRIPTION_Y, SCREEN_WIDTH, SOURCEDESCRIPTION_HEIGHT)];
+        _descriptionOfSource = [[UILabel alloc] initWithFrame:CGRectMake(20*SCREEN_WIDTH/SCREEN_HEIGHT, SOURCEDESCRIPTION_Y, SCREEN_WIDTH-40*SCREEN_WIDTH/SCREEN_HEIGHT, SOURCEDESCRIPTION_HEIGHT)];
         _descriptionOfSource.text = self.contentOfSourceHeadInfo.descriptionOfSource;
         _descriptionOfSource.backgroundColor = [UIColor clearColor];
         [_descriptionOfSource setTextColor:COLOR_RGB(153, 153, 153)];
@@ -135,6 +135,7 @@
         _supportNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(SUPPORTNUM_X, SUPPORTNUM_Y, SUPPORTNUM_WIDTH, SUPPORTNUM_HEIGHT)];
         _supportNumberLabel.text = self.contentOfSourceHeadInfo.supportNumber;
         _supportNumberLabel.backgroundColor = [UIColor clearColor];
+        [_supportNumberLabel setFont:[UIFont systemFontOfSize:12.f]];
         [_supportNumberLabel setTextColor:COLOR_RGB(153, 153, 153)];
     }
     return _supportNumberLabel;
@@ -145,6 +146,7 @@
     if(_downloadNumberLabel == nil){
         _downloadNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(DOWNLOADNUM_X, SUPPORTNUM_Y, SUPPORTNUM_WIDTH, SUPPORTNUM_HEIGHT)];
         _downloadNumberLabel.text = self.contentOfSourceHeadInfo.downloadNumber;
+        [_downloadNumberLabel setFont:[UIFont systemFontOfSize:12.f]];
         _downloadNumberLabel.backgroundColor = [UIColor clearColor];
         [_downloadNumberLabel setTextColor:COLOR_RGB(153, 153, 153)];
     }
@@ -154,7 +156,7 @@
 //延时加载资源点赞数量的button
 -(UIButton*)supportNumberButton{
     if(_supportNumberButton == nil){
-        _supportNumberButton = [[UIButton alloc] initWithFrame:CGRectMake(SUPPORTBUTTON_X, SUPPORTNUM_Y, SUPPORTBUTTON_WIDHT, SUPPORTNUM_HEIGHT)];
+        _supportNumberButton = [[UIButton alloc] initWithFrame:CGRectMake(SUPPORTBUTTON_X, SUPPORTNUM_Y, SUPPORTBUTTON_WIDHT, 35*SCREEN_WIDTH/SCREEN_HEIGHT)];
         [_supportNumberButton setImage:[UIImage imageNamed:@"supportNumber.png"] forState:UIControlStateNormal];
         [_supportNumberButton addTarget:self action:@selector(supportButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -190,7 +192,7 @@
 //延时加载写评论的button
 -(UIButton*)writeCommentButton{
     if(_writeCommentButton == nil){
-        _writeCommentButton = [[UIButton alloc] initWithFrame:CGRectMake(SUPPORTBUTTON_X, WRITECOMMENT_Y, WRITECOMMENT_WIDTH, WRITECOMMENT_HEIGHT)];
+        _writeCommentButton = [[UIButton alloc] initWithFrame:CGRectMake(SUPPORTBUTTON_X, WRITECOMMENT_Y+40*SCREEN_WIDTH/SCREEN_HEIGHT, WRITECOMMENT_WIDTH, WRITECOMMENT_HEIGHT)];
         _writeCommentButton.backgroundColor = [UIColor clearColor];
         //设置button边界线的宽度和颜色
         [_writeCommentButton.layer setBorderWidth:1.0];
