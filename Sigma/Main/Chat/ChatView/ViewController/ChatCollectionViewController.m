@@ -50,6 +50,9 @@
 // 用户id
 @property (nonatomic, assign) NSInteger rightUserId;
 @property (nonatomic, assign) NSInteger leftUserId;
+// 用户昵称
+@property (nonatomic, copy) NSString *rightNickname;
+@property (nonatomic, copy) NSString *leftNickname;
 
 @end
 
@@ -89,16 +92,18 @@
     [SATeamRequest requestMessagesOfUser:self.rightUserId sUser:self.leftUserId];
 }
 
-- (void)setLeftUserData:(NSInteger)userId username:(NSString *)username avatar:(NSString *)avatar {
+- (void)setLeftUserData:(NSInteger)userId username:(NSString *)username avatar:(NSString *)avatar nickname:(NSString *)nickname{
     _leftUserId = userId;
     _leftUsername = username;
     _leftAvatar = avatar;
-    self.title = username;
+    _leftNickname = nickname;
+    self.title = [NSString stringWithFormat:@"%@", nickname];
 }
 
-- (void)setRightUserData:(NSInteger)userId username:(NSString *)username avatar:(NSString *)avatar {
+- (void)setRightUserData:(NSInteger)userId username:(NSString *)username avatar:(NSString *)avatar nickname:(NSString *)nickname{
     _rightUserId = userId;
     _rightUsername = username;
+    _rightNickname = nickname;
     _rightAvatar = avatar;
 }
 

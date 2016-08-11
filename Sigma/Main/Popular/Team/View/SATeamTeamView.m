@@ -110,11 +110,22 @@
     [CLProgressHUD showErrorInView:self delegate:self title:@"请稍后再试!" duration:.5];
 }
 
+- (void)createTeamSuccess:(NSNotification *)notification {
+    SATeamModel *teamModel = [[SATeamModel alloc] initWithDict:notification.userInfo];
+    SATeamFrameModel *frameModel = [[SATeamFrameModel alloc] init];
+    frameModel.teamModel = teamModel;
+
+    [self.teams addObject:frameModel];
+
+    [self.tableView reloadData];
+}
+
 #pragma mark -
 #pragma mark Notifications
 - (void)addAllNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveGroupsSuccess:) name:NOTI_TEAM_GROUP object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveGroupsFailed:) name:NOTI_TEAM_GROUP_ERROR object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(createTeamSuccess:) name:NOTI_TEAM_CREATE_TEAM object:nil];
 }
 
 - (void)removeAllNotifications {

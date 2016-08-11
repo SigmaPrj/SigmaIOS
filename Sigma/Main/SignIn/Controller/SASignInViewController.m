@@ -174,7 +174,7 @@
 - (UIButton *)loginBtn {
     if (!_loginBtn) {
         _loginBtn = [[UIButton alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2, MaxY(self.passwordTextField)+30, 200, 44)];
-        [_loginBtn setTitle:@"立即注册" forState:UIControlStateNormal];
+        [_loginBtn setTitle:@"立即登录" forState:UIControlStateNormal];
         [_loginBtn setTitleColor:SIGMA_FONT_COLOR forState:UIControlStateNormal];
         [_loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         _loginBtn.layer.borderWidth = 2;

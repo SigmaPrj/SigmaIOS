@@ -51,4 +51,10 @@
     [request sendRequest:NOTI_TEAM_GROUP_ERROR];
 }
 
++ (void)createGroup:(NSDictionary *)params {
+    NSString *path = @"group";
+    SARequestBase *requestBase = [self requestFormWithPath:path parameters:params notification:NOTI_TEAM_ADD_TEAM];
+    [requestBase sendRequest:NOTI_TEAM_ADD_TEAM_ERROR];
+}
+
 @end

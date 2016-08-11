@@ -42,4 +42,10 @@
  */
 + (void)getGroups:(NSString *)groupsStr;
 
+/**
+ * 创建队伍
+ * @param params
+ */
++ (void)createGroup:(NSDictionary *)params;
+
 @end

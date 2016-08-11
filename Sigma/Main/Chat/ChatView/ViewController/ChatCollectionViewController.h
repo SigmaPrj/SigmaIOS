@@ -8,7 +8,7 @@
 
 @interface ChatCollectionViewController : UIViewController
 
-- (void)setLeftUserData:(NSInteger)userId username:(NSString *)username avatar:(NSString *)avatar;
-- (void)setRightUserData:(NSInteger)userId username:(NSString *)username avatar:(NSString *)avatar;
+- (void)setLeftUserData:(NSInteger)userId username:(NSString *)username avatar:(NSString *)avatar nickname:(NSString *)nickname;
+- (void)setRightUserData:(NSInteger)userId username:(NSString *)username avatar:(NSString *)avatar nickname:(NSString *)nickname;
 
 @end

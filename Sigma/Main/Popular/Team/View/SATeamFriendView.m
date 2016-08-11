@@ -12,6 +12,8 @@
 #import "SAGroupModel.h"
 #import "SAFriendCell.h"
 #import "SAFriendHeaderView.h"
+#import "SAFriendModel.h"
+#import "SAFriendFrameModel.h"
 
 #define CELL_HEIGHT 55
 #define HEADER_HEIGHT 45
@@ -101,11 +103,32 @@
     [CLProgressHUD showErrorInView:self delegate:self title:@"请稍后再试!" duration:.5];
 }
 
+- (void)receiveNewFriend:(NSNotification *)notification {
+    SAFriendModel *friendModel = [SAFriendModel friendsModelWith:notification.userInfo];
+    SAFriendFrameModel *frameModel = [[SAFriendFrameModel alloc] init];
+
+    frameModel.friendModel = friendModel;
+
+    for (int i = 0; i < self.groups.count; ++i) {
+        SAGroupModel *groupModel = self.groups[(NSUInteger)i];
+        if ([groupModel.name isEqualToString:@"我的好友"]) {
+            if (frameModel.isOnline) {
+                [groupModel.friends insertObject:frameModel atIndex:0];
+            } else {
+                [groupModel.friends addObject:frameModel];
+            }
+        }
+    }
+
+    [self.tableView reloadData];
+}
+
 #pragma mark -
 #pragma mark Notifications
 - (void)addAllNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveFriendsSuccess:) name:NOTI_TEAM_FRIEND object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveFriendsFailed:) name:NOTI_TEAM_FRIEND_ERROR object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNewFriend:) name:NOTI_TEAM_USER_ADD object:nil];
 }
 
 - (void)removeAllNotifications {

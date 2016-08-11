@@ -28,7 +28,7 @@
         case MessageBodyTypeText:
         {
             NSLog(@"message im to : %@", message.imMessage.to);
-            [JMSGMessage sendSingleTextMessage:message.text toUser:message.imMessage.to];
+            [JMSGMessage sendSingleTextMessage:message.text toUser:[NSString stringWithFormat:@"%@", message.imMessage.to]];
             break;
         }
             
@@ -37,7 +37,7 @@
             NSData *data = [NSData dataWithContentsOfFile:message.localPhotoPath];
 
             // 发送
-            [JMSGMessage sendSingleImageMessage:data toUser:message.imMessage.to];
+            [JMSGMessage sendSingleImageMessage:data toUser:[NSString stringWithFormat:@"%@", message.imMessage.to]];
 
             FileConfig *fileConfig =[FileConfig fileConfigWithUrl:@"" fileData:nil serveName:nil fileName:nil mimeType:nil];
             [[UpLoadFileHelper helper]uploadFiles:fileConfig progress:^(NSProgress *progress) {
@@ -81,7 +81,7 @@
 
             NSData *data = [NSData dataWithContentsOfFile:message.voicePath];
 
-            [JMSGMessage sendSingleVoiceMessage:data voiceDuration:@([message.voiceDuration intValue]) toUser:message.imMessage.to];
+            [JMSGMessage sendSingleVoiceMessage:data voiceDuration:@([message.voiceDuration intValue]) toUser:[NSString stringWithFormat:@"%@", message.imMessage.to]];
 
             FileConfig *fileConfig =[FileConfig fileConfigWithUrl:@"" fileData:nil serveName:nil fileName:nil mimeType:nil];
             [[UpLoadFileHelper helper]uploadFiles:fileConfig progress:^(NSProgress *progress) {
@@ -127,12 +127,5 @@
         completionBlock ? completionBlock(messageService): nil;
     });
 }
-
-
-
-
-
-
-
 
 @end

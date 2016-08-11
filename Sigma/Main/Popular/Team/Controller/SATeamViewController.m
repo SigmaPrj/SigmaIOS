@@ -152,10 +152,15 @@
 }
 
 - (void)addCustomView:(SATeamAddUserView *)addUserView sureBtnDidClicked:(UIButton *)sureBtn username:(NSString *)username {
+
+    __weak typeof(self) weakSelf = self;
     [JMSGConversation createSingleConversationWithUsername:username completionHandler:^(id resultObject, NSError *error) {
         if (!error) {
             // 请求添加好友
             [_alertView1 dismissWithCompletion:nil];
+
+            [CLProgressHUD showInView:weakSelf.view delegate:weakSelf tag:8 title:@"正在添加好友...."];
+
             [SATeamRequest addFriend:username];
         } else {
             NSLog(@"单人聊天创建失败!\nerror : %ld ; %@", (long)error.code, error.description);
@@ -193,7 +198,25 @@
     __weak typeof(self) weakSelf = self;
     [JMSGGroup createGroupWithName:groupName desc:groupDesc memberArray:@[username] completionHandler:^(id resultObject, NSError *error) {
         if (!error) {
-            [CLProgressHUD showSuccessInView:weakSelf.view delegate:weakSelf title:@"队伍创建成功!" duration:.5];
+            [_alertView3 dismissWithCompletion:^{
+                // 显示加载图片
+                [CLProgressHUD showInView:weakSelf.view delegate:weakSelf tag:8 title:@"正在创建队伍..."];
+
+                NSString *groupId = ((JMSGGroup *)resultObject).gid;
+                NSDictionary *userData = [SAUserDataManager readUser];
+
+                NSDictionary *params = @{
+                        @"group_id" : groupId,
+                        @"group_name" : groupName,
+                        @"desc" : groupDesc,
+                        @"avatar" : @"http://oaetkzt9k.bkt.clouddn.com/avatar60@3x.png",
+                        @"creator" : userData[@"username"]
+                };
+
+                // 添加组信息到数据库
+                [SATeamRequest createGroup:params];
+            }];
+
         } else {
             [CLProgressHUD showErrorInView:weakSelf.view delegate:weakSelf title:@"队伍创建失败!" duration:.5];
         }
@@ -305,30 +328,62 @@
 - (void)addAllNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addFriendSuccess:) name:NOTI_TEAM_ADD_USER object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addFriendFailed:) name:NOTI_TEAM_ADD_USER_ERROR object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addTeamSuccess:) name:NOTI_TEAM_ADD_TEAM object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addTeamFailed:) name:NOTI_TEAM_ADD_TEAM_ERROR object:nil];
 }
 
 - (void)removeAllNotifications {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark --NOTI_TEAM_ADD_TEAM
+- (void)addTeamSuccess:(NSNotification *)notification {
+    if ([notification.userInfo[@"code"] intValue] == 200) {
+        [CLProgressHUD dismissHUDByTag:8 delegate:self inView:self.view];
+        [CLProgressHUD showSuccessInView:self.view delegate:self title:@"队伍创建成功!" duration:.5];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_TEAM_CREATE_TEAM object:nil userInfo:notification.userInfo[@"data"]];
+    } else {
+        [CLProgressHUD dismissHUDByTag:8 delegate:self inView:self.view];
+        [CLProgressHUD showErrorInView:self.view delegate:self title:@"队伍创建失败!" duration:.5];
+    }
+}
+
+- (void)addTeamFailed:(NSNotification *)notification {
+    [CLProgressHUD dismissHUDByTag:8 delegate:self inView:self.view];
+    [CLProgressHUD showErrorInView:self.view delegate:self title:@"请稍后再试!" duration:.5];
+}
+
 #pragma mark -- NOTI_TEAM_ADD_USER
 - (void)addFriendSuccess:(NSNotification *)notification {
     if ([notification.userInfo[@"code"] intValue] == 200) {
+        [CLProgressHUD dismissHUDByTag:8 delegate:self inView:self.view];
+        [CLProgressHUD showSuccessInView:self.view delegate:self title:@"好友添加成功!" duration:.5];
+
         // 添加用户成功 跳转到对话页面
         NSDictionary *userDict = notification.userInfo[@"data"][@"user"];
         NSDictionary *friendDict = notification.userInfo[@"data"][@"friend"];
-        ChatCollectionViewController *chatCollectionViewController = [[ChatCollectionViewController alloc] init];
-        [chatCollectionViewController setLeftUserData:[friendDict[@"id"] intValue] username:friendDict[@"username"] avatar:friendDict[@"image"]];
-        [chatCollectionViewController setRightUserData:[userDict[@"id"] intValue] username:userDict[@"username"] avatar:userDict[@"image"]];
-        self.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:chatCollectionViewController animated:YES];
-        self.hidesBottomBarWhenPushed = NO;
+        NSDictionary *userData = notification.userInfo[@"data"][@"userData"];
+
+        // 通知本地添加好友
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTI_TEAM_USER_ADD object:nil userInfo:userData];
+
+        __weak typeof(self) weakSelf = self;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            ChatCollectionViewController *chatCollectionViewController = [[ChatCollectionViewController alloc] init];
+            [chatCollectionViewController setLeftUserData:[friendDict[@"id"] intValue] username:friendDict[@"username"] avatar:friendDict[@"image"] nickname:friendDict[@"nickname"]];
+            [chatCollectionViewController setRightUserData:[userDict[@"id"] intValue] username:userDict[@"username"] avatar:userDict[@"image"] nickname:userDict[@"nickname"]];
+            weakSelf.hidesBottomBarWhenPushed = YES;
+            [weakSelf.navigationController pushViewController:chatCollectionViewController animated:YES];
+            weakSelf.hidesBottomBarWhenPushed = NO;
+        });
     } else {
+        [CLProgressHUD dismissHUDByTag:8 delegate:self inView:self.view];
         [CLProgressHUD showErrorInView:self.view delegate:self title:@"添加失败!" duration:.5];
     }
 }
 
 - (void)addFriendFailed:(NSNotification *)notification {
+    [CLProgressHUD dismissHUDByTag:8 delegate:self inView:self.view];
     [CLProgressHUD showErrorInView:self.view delegate:self title:@"稍后再试!" duration:.5];
 }
 
@@ -341,12 +396,13 @@
     NSDictionary *userDict = [SAUserDataManager readUser];
 
     ChatCollectionViewController *chatCollectionViewController = [[ChatCollectionViewController alloc] init];
-    [chatCollectionViewController setLeftUserData:friendModel.userId username:friendModel.username avatar:friendModel.avatar];
-    [chatCollectionViewController setRightUserData:[userDict[@"id"] intValue] username:userDict[@"username"] avatar:userDict[@"image"]];
+    [chatCollectionViewController setLeftUserData:friendModel.userId username:friendModel.username avatar:friendModel.avatar nickname:friendModel.nickname];
+    [chatCollectionViewController setRightUserData:[userDict[@"id"] intValue] username:userDict[@"username"] avatar:userDict[@"image"] nickname:userDict[@"nickname"]];
 
 
     __weak typeof(self) weakSelf = self;
-    [JMSGConversation createSingleConversationWithUsername:friendModel.username completionHandler:^(id resultObject, NSError *error) {
+    NSString *usernameStr = [NSString stringWithFormat:@"%@", friendModel.username];
+    [JMSGConversation createSingleConversationWithUsername:usernameStr completionHandler:^(id resultObject, NSError *error) {
         if (!error) {
             weakSelf.hidesBottomBarWhenPushed = YES;
             [weakSelf.navigationController pushViewController:chatCollectionViewController animated:YES];
