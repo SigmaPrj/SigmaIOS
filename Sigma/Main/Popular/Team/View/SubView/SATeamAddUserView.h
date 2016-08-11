@@ -12,8 +12,8 @@
 
 @protocol SATeamAddUserViewDelegate<NSObject>
 
-- (void)customView:(SATeamAddUserView *)addUserView cancelBtnDidClicked:(UIButton *)cancelBtn;
-- (void)customView:(SATeamAddUserView *)addUserView sureBtnDidClicked:(UIButton *)sureBtn username:(NSString *)username;
+- (void)addCustomView:(SATeamAddUserView *)addUserView cancelBtnDidClicked:(UIButton *)cancelBtn;
+- (void)addCustomView:(SATeamAddUserView *)addUserView sureBtnDidClicked:(UIButton *)sureBtn username:(NSString *)username;
 
 @end
 

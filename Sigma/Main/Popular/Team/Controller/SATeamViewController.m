@@ -24,13 +24,15 @@
 #import "SAFriendFrameModel.h"
 #import "SAUserDataManager.h"
 #import "SATeamAddUserView.h"
+#import "SATeamJoinGroupView.h"
+#import "SATeamCreateGroupView.h"
 //#import "SAChatView.h"
 
 #define KStatusHeight 20
 #define KNavBarHeight 44
 #define ICON_BTN_SIZE 30
 
-@interface SATeamViewController () <SATeamMessageViewDelegate, selectIndexPathDelegate, SATeamFriendViewDelegate, SATeamAddUserViewDelegate>
+@interface SATeamViewController () <SATeamMessageViewDelegate, selectIndexPathDelegate, SATeamFriendViewDelegate, SATeamAddUserViewDelegate, SATeamJoinGroupViewDelegate, SATeamCreateGroupViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIButton *customBtn;
@@ -118,13 +120,19 @@
         case 1:
         {
             NSLog(@"邀请入队");
-
+            SATeamJoinGroupView *joinGroupView = [[SATeamJoinGroupView alloc] initWithFrame:CGRectMake(0, 0, 300, 0)];
+            joinGroupView.delegate = self;
+            _alertView2 = [[JCAlertView alloc] initWithCustomView:joinGroupView dismissWhenTouchedBackground:YES];
+            [_alertView2 show];
         }
             break;
         case 2:
         {
             NSLog(@"创建队伍");
-
+            SATeamCreateGroupView *createGroupView = [[SATeamCreateGroupView alloc] initWithFrame:CGRectMake(0, 0, 300, 0)];
+            createGroupView.delegate = self;
+            _alertView3 = [[JCAlertView alloc] initWithCustomView:createGroupView dismissWhenTouchedBackground:YES];
+            [_alertView3 show];
         }
             break;
         case 3:
@@ -139,11 +147,11 @@
 
 #pragma mark -
 #pragma mark SATeamAddUserViewDelegate
-- (void)customView:(SATeamAddUserView *)addUserView cancelBtnDidClicked:(UIButton *)cancelBtn {
+- (void)addCustomView:(SATeamAddUserView *)addUserView cancelBtnDidClicked:(UIButton *)cancelBtn {
     [_alertView1 dismissWithCompletion:nil];
 }
 
-- (void)customView:(SATeamAddUserView *)addUserView sureBtnDidClicked:(UIButton *)sureBtn username:(NSString *)username {
+- (void)addCustomView:(SATeamAddUserView *)addUserView sureBtnDidClicked:(UIButton *)sureBtn username:(NSString *)username {
     [JMSGConversation createSingleConversationWithUsername:username completionHandler:^(id resultObject, NSError *error) {
         if (!error) {
             // 请求添加好友
@@ -151,6 +159,43 @@
             [SATeamRequest addFriend:username];
         } else {
             NSLog(@"单人聊天创建失败!\nerror : %ld ; %@", (long)error.code, error.description);
+        }
+    }];
+}
+
+#pragma mark -
+#pragma mark SATeamJoinGroupViewDelegate
+- (void)joinCustomView:(SATeamJoinGroupView *)joinGroupView cancelBtnDidClicked:(UIButton *)cancelBtn {
+    [_alertView2 dismissWithCompletion:nil];
+}
+
+- (void)joinCustomView:(SATeamJoinGroupView *)joinGroupView sureBtnDidClicked:(UIButton *)sureBtn group:(NSString *)group username:(NSString *)username {
+    JMSGConversation *groupConversation = [JMSGConversation groupConversationWithGroupId:group];
+    __weak typeof(self) weakSelf = self;
+    [((JMSGGroup *) (groupConversation.target)) addMembersWithUsernameArray:@[username] completionHandler:^(id resultObject, NSError *error) {
+        if (!error) {
+            [_alertView2 dismissWithCompletion:nil];
+            [CLProgressHUD showSuccessInView:weakSelf.view delegate:weakSelf title:@"队员添加成功!" duration:.5];
+        } else {
+            [CLProgressHUD showSuccessInView:weakSelf.view delegate:weakSelf title:@"队员添加失败!" duration:.5];
+        }
+    }];
+
+}
+
+#pragma mark -
+#pragma mark SATeamCreateGroupViewDelegate
+- (void)createCustomView:(SATeamCreateGroupView *)createGroupView cancelBtnDidClicked:(UIButton *)cancelBtn {
+    [_alertView3 dismissWithCompletion:nil];
+}
+
+- (void)createCustomView:(SATeamCreateGroupView *)createGroupView sureBtnDidClicked:(UIButton *)sureBtn groupName:(NSString *)groupName groupDesc:(NSString *)groupDesc username:(NSString *)username {
+    __weak typeof(self) weakSelf = self;
+    [JMSGGroup createGroupWithName:groupName desc:groupDesc memberArray:@[username] completionHandler:^(id resultObject, NSError *error) {
+        if (!error) {
+            [CLProgressHUD showSuccessInView:weakSelf.view delegate:weakSelf title:@"队伍创建成功!" duration:.5];
+        } else {
+            [CLProgressHUD showErrorInView:weakSelf.view delegate:weakSelf title:@"队伍创建失败!" duration:.5];
         }
     }];
 }

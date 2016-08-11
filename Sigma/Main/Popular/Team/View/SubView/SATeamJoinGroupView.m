@@ -1,32 +1,32 @@
 //
-//  SATeamAddUserView.m
+//  SATeamJoinGroupView.m
 //  Sigma
 //
 //  Created by 汤轶侬 on 16/8/11.
 //  Copyright (c) 2016 sigma. All rights reserved.
 //
 
-#import "SATeamAddUserView.h"
+#import "SATeamJoinGroupView.h"
 
 #define PADDING_LEFT 15
 
-@interface SATeamAddUserView()
+@interface SATeamJoinGroupView()
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *subTitleLabel;
 @property (nonatomic, strong) UITextField *usernameTextField;
+@property (nonatomic, strong) UITextField *groupTextField;
 @property (nonatomic, strong) UIButton *cancelBtn;
 @property (nonatomic, strong) UIButton *sureBtn;
 
 @end
 
-@implementation SATeamAddUserView
+@implementation SATeamJoinGroupView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.userInteractionEnabled = YES;
-
         [self setupUI];
     }
     return self;
@@ -39,10 +39,18 @@
 
     [self addSubview:self.titleLabel];
     [self addSubview:self.subTitleLabel];
+
     [self addSubview:self.usernameTextField];
-    UIView *underline = [[UIView alloc] initWithFrame:CGRectMake(PADDING_LEFT, (CGFloat)(MaxY(self.usernameTextField)+2), WIDTH(self.usernameTextField), 0.5)];
-    underline.backgroundColor = SIGMA_FONT_COLOR;
-    [self addSubview:underline];
+
+    UIView *underline1 = [[UIView alloc] initWithFrame:CGRectMake(PADDING_LEFT, (CGFloat)(MaxY(self.usernameTextField)+2), WIDTH(self.usernameTextField), 0.5)];
+    underline1.backgroundColor = SIGMA_FONT_COLOR;
+    [self addSubview:underline1];
+
+    [self addSubview:self.groupTextField];
+
+    UIView *underline2 = [[UIView alloc] initWithFrame:CGRectMake(PADDING_LEFT, (CGFloat)(MaxY(self.groupTextField)+2), WIDTH(self.groupTextField), 0.5)];
+    underline2.backgroundColor = SIGMA_FONT_COLOR;
+    [self addSubview:underline2];
 
     [self addSubview:self.cancelBtn];
     [self addSubview:self.sureBtn];
@@ -53,7 +61,7 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, self.frame.size.width, 20)];
-        _titleLabel.text = @"添加好友";
+        _titleLabel.text = @"邀请入队";
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = SIGMA_FONT_COLOR;
         _titleLabel.font = [UIFont systemFontOfSize:18];
@@ -84,9 +92,21 @@
     return _usernameTextField;
 }
 
+- (UITextField *)groupTextField {
+    if (!_groupTextField) {
+        _groupTextField = [[UITextField alloc] initWithFrame:CGRectMake(PADDING_LEFT, MaxY(self.usernameTextField)+8, WIDTH(self)-2*PADDING_LEFT, 18)];
+        _groupTextField.placeholder = @"请输入队伍id";
+        _groupTextField.textColor = SIGMA_FONT_COLOR;
+        _groupTextField.textAlignment = NSTextAlignmentCenter;
+        _groupTextField.font = [UIFont systemFontOfSize:16];
+        _groupTextField.borderStyle = UITextBorderStyleNone;
+    }
+    return _groupTextField;
+}
+
 - (UIButton *)cancelBtn {
     if (!_cancelBtn) {
-        _cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(PADDING_LEFT, MaxY(self.usernameTextField)+15, 100, 30)];
+        _cancelBtn = [[UIButton alloc] initWithFrame:CGRectMake(PADDING_LEFT, MaxY(self.groupTextField)+15, 100, 30)];
         _cancelBtn.layer.cornerRadius = 15;
         _cancelBtn.layer.borderColor = SIGMA_FONT_COLOR.CGColor;
         _cancelBtn.layer.borderWidth = 1;
@@ -100,7 +120,7 @@
 
 - (UIButton *)sureBtn {
     if (!_sureBtn) {
-        _sureBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH(self)-2*PADDING_LEFT-100, MaxY(self.usernameTextField)+15, 100, 30)];
+        _sureBtn = [[UIButton alloc] initWithFrame:CGRectMake(WIDTH(self)-2*PADDING_LEFT-100, MaxY(self.groupTextField)+15, 100, 30)];
         _sureBtn.layer.cornerRadius = 15;
         _sureBtn.layer.borderColor = SIGMA_FONT_COLOR.CGColor;
         _sureBtn.layer.borderWidth = 1;
@@ -113,14 +133,14 @@
 }
 
 - (void)cancelBtnClicked:(UIButton *)btn {
-    if ([self.delegate respondsToSelector:@selector(addCustomView:cancelBtnDidClicked:)]) {
-        [self.delegate addCustomView:self cancelBtnDidClicked:self.cancelBtn];
+    if ([self.delegate respondsToSelector:@selector(joinCustomView:cancelBtnDidClicked:)]) {
+        [self.delegate joinCustomView:self cancelBtnDidClicked:self.cancelBtn];
     }
 }
 
 - (void)sureBtnClicked:(UIButton *)btn {
-    if ([self.delegate respondsToSelector:@selector(addCustomView:sureBtnDidClicked:username:)]) {
-        [self.delegate addCustomView:self sureBtnDidClicked:self.sureBtn username:self.usernameTextField.text];
+    if ([self.delegate respondsToSelector:@selector(joinCustomView:sureBtnDidClicked:group:username:)]) {
+        [self.delegate joinCustomView:self sureBtnDidClicked:self.sureBtn group:self.groupTextField.text username:self.usernameTextField.text];
     }
 }
 

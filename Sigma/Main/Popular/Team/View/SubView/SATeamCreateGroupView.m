@@ -1,32 +1,33 @@
 //
-//  SATeamAddUserView.m
+//  SATeamCreateGroupView.m
 //  Sigma
 //
 //  Created by 汤轶侬 on 16/8/11.
 //  Copyright (c) 2016 sigma. All rights reserved.
 //
 
-#import "SATeamAddUserView.h"
+#import "SATeamCreateGroupView.h"
 
 #define PADDING_LEFT 15
 
-@interface SATeamAddUserView()
+@interface SATeamCreateGroupView()
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UILabel *subTitleLabel;
+@property (nonatomic, strong) UITextField *groupNameTextField;
+@property (nonatomic, strong) UITextField *groupDescTextField;
 @property (nonatomic, strong) UITextField *usernameTextField;
 @property (nonatomic, strong) UIButton *cancelBtn;
 @property (nonatomic, strong) UIButton *sureBtn;
 
 @end
 
-@implementation SATeamAddUserView
+@implementation SATeamCreateGroupView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.userInteractionEnabled = YES;
-
         [self setupUI];
     }
     return self;
@@ -39,10 +40,24 @@
 
     [self addSubview:self.titleLabel];
     [self addSubview:self.subTitleLabel];
+
+    [self addSubview:self.groupNameTextField];
+
+    UIView *underline1 = [[UIView alloc] initWithFrame:CGRectMake(PADDING_LEFT, (CGFloat)(MaxY(self.groupNameTextField)+2), WIDTH(self.groupNameTextField), 0.5)];
+    underline1.backgroundColor = SIGMA_FONT_COLOR;
+    [self addSubview:underline1];
+
+    [self addSubview:self.groupDescTextField];
+
+    UIView *underline2 = [[UIView alloc] initWithFrame:CGRectMake(PADDING_LEFT, (CGFloat)(MaxY(self.groupDescTextField)+2), WIDTH(self.groupDescTextField), 0.5)];
+    underline2.backgroundColor = SIGMA_FONT_COLOR;
+    [self addSubview:underline2];
+
     [self addSubview:self.usernameTextField];
-    UIView *underline = [[UIView alloc] initWithFrame:CGRectMake(PADDING_LEFT, (CGFloat)(MaxY(self.usernameTextField)+2), WIDTH(self.usernameTextField), 0.5)];
-    underline.backgroundColor = SIGMA_FONT_COLOR;
-    [self addSubview:underline];
+
+    UIView *underline3 = [[UIView alloc] initWithFrame:CGRectMake(PADDING_LEFT, (CGFloat)(MaxY(self.usernameTextField)+2), WIDTH(self.usernameTextField), 0.5)];
+    underline3.backgroundColor = SIGMA_FONT_COLOR;
+    [self addSubview:underline3];
 
     [self addSubview:self.cancelBtn];
     [self addSubview:self.sureBtn];
@@ -53,7 +68,7 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, self.frame.size.width, 20)];
-        _titleLabel.text = @"添加好友";
+        _titleLabel.text = @"邀请入队";
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = SIGMA_FONT_COLOR;
         _titleLabel.font = [UIFont systemFontOfSize:18];
@@ -72,10 +87,34 @@
     return _subTitleLabel;
 }
 
+- (UITextField *)groupNameTextField {
+    if (!_groupNameTextField) {
+        _groupNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(PADDING_LEFT, MaxY(self.subTitleLabel)+15, WIDTH(self)-2*PADDING_LEFT, 18)];
+        _groupNameTextField.placeholder = @"请输入队伍名称";
+        _groupNameTextField.textColor = SIGMA_FONT_COLOR;
+        _groupNameTextField.textAlignment = NSTextAlignmentCenter;
+        _groupNameTextField.font = [UIFont systemFontOfSize:16];
+        _groupNameTextField.borderStyle = UITextBorderStyleNone;
+    }
+    return _groupNameTextField;
+}
+
+- (UITextField *)groupDescTextField {
+    if (!_groupDescTextField) {
+        _groupDescTextField = [[UITextField alloc] initWithFrame:CGRectMake(PADDING_LEFT, MaxY(self.groupNameTextField)+8, WIDTH(self)-2*PADDING_LEFT, 18)];
+        _groupDescTextField.placeholder = @"请输入队伍简介";
+        _groupDescTextField.textColor = SIGMA_FONT_COLOR;
+        _groupDescTextField.textAlignment = NSTextAlignmentCenter;
+        _groupDescTextField.font = [UIFont systemFontOfSize:16];
+        _groupDescTextField.borderStyle = UITextBorderStyleNone;
+    }
+    return _groupDescTextField;
+}
+
 - (UITextField *)usernameTextField {
     if (!_usernameTextField) {
-        _usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(PADDING_LEFT, MaxY(self.subTitleLabel)+15, WIDTH(self)-2*PADDING_LEFT, 18)];
-        _usernameTextField.placeholder = @"请输入好友用户名";
+        _usernameTextField = [[UITextField alloc] initWithFrame:CGRectMake(PADDING_LEFT, MaxY(self.groupDescTextField)+8, WIDTH(self)-2*PADDING_LEFT, 18)];
+        _usernameTextField.placeholder = @"请输入队长的用户名";
         _usernameTextField.textColor = SIGMA_FONT_COLOR;
         _usernameTextField.textAlignment = NSTextAlignmentCenter;
         _usernameTextField.font = [UIFont systemFontOfSize:16];
@@ -113,14 +152,14 @@
 }
 
 - (void)cancelBtnClicked:(UIButton *)btn {
-    if ([self.delegate respondsToSelector:@selector(addCustomView:cancelBtnDidClicked:)]) {
-        [self.delegate addCustomView:self cancelBtnDidClicked:self.cancelBtn];
+    if ([self.delegate respondsToSelector:@selector(createCustomView:cancelBtnDidClicked:)]) {
+        [self.delegate createCustomView:self cancelBtnDidClicked:self.cancelBtn];
     }
 }
 
 - (void)sureBtnClicked:(UIButton *)btn {
-    if ([self.delegate respondsToSelector:@selector(addCustomView:sureBtnDidClicked:username:)]) {
-        [self.delegate addCustomView:self sureBtnDidClicked:self.sureBtn username:self.usernameTextField.text];
+    if ([self.delegate respondsToSelector:@selector(createCustomView:sureBtnDidClicked:groupName:groupDesc:username:)]) {
+        [self.delegate createCustomView:self sureBtnDidClicked:self.sureBtn groupName:self.groupNameTextField.text groupDesc:self.groupDescTextField.text username:self.usernameTextField.text];
     }
 }
 
