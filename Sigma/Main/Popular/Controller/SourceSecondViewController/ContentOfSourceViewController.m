@@ -37,6 +37,7 @@
 }
 
 -(void)initUI{
+    self.title = @"具体描述";
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.headView;
     

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class CategoryDataInfo;
+
 @interface CategoryViewController : UIViewController
 
 @end

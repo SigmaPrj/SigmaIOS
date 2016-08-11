@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "SAEInformationModel.h"
+#import "SAEInfoDetailModel.h"
+
 @interface SAEInformationCell : UITableViewCell
 
 -(void)setData:(SAEInformationModel *)data;
+
+-(void)setDetailModel:(SAEInfoDetailModel *)data;
 
 -(instancetype)initUI;
 

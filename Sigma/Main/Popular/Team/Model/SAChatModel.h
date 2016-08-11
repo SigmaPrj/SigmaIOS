@@ -19,7 +19,9 @@ typedef NS_ENUM(NSUInteger , SAChatMessageType) {
 
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, copy) NSString *date;
+
 @property (nonatomic, assign) NSInteger datetime;
+
 @property (nonatomic, assign) NSInteger fromUser;
 @property (nonatomic, assign) NSInteger toUser;
 @property (nonatomic, assign) SAChatMessageType messageType;

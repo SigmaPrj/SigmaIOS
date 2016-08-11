@@ -26,7 +26,6 @@
 #import "SATeamAddUserView.h"
 #import "SATeamJoinGroupView.h"
 #import "SATeamCreateGroupView.h"
-//#import "SAChatView.h"
 
 #define KStatusHeight 20
 #define KNavBarHeight 44
@@ -158,9 +157,7 @@
         if (!error) {
             // 请求添加好友
             [_alertView1 dismissWithCompletion:nil];
-
-            [CLProgressHUD showInView:weakSelf.view delegate:weakSelf tag:8 title:@"正在添加好友...."];
-
+            
             [SATeamRequest addFriend:username];
         } else {
             NSLog(@"单人聊天创建失败!\nerror : %ld ; %@", (long)error.code, error.description);
@@ -271,19 +268,25 @@
         switch (i) {
             case 0:
             {
+
                 teamView = [[SATeamMessageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, HEIGHT(self.scrollView))];
+
                 ((SATeamMessageView *)teamView).ownDelegate = self;
             }
                 break;
             case 1:
             {
+
                 teamView = [[SATeamFriendView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, HEIGHT(self.scrollView))];
                 ((SATeamFriendView *)teamView).ownDelegate = self;
+
             }
                 break;
             case 2:
             {
+
                 teamView = [[SATeamTeamView alloc] initWithFrame:CGRectMake(2*SCREEN_WIDTH, 0, SCREEN_WIDTH, HEIGHT(self.scrollView))];
+
             }
                 break;
             default:
@@ -299,29 +302,36 @@
 - (void)messageCellDidClicked:(SAMessageModel *)messageModel {
     // TODO : 修改这儿
 
+
     ChatCollectionViewController *chatCollectionViewController = [[ChatCollectionViewController alloc] init];
 
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chatCollectionViewController animated:YES];
     self.hidesBottomBarWhenPushed = NO;
 
+
 //    SATeamChatViewController *viewController = [[SATeamChatViewController alloc] initWithMessageModel:messageModel];
 //    self.hidesBottomBarWhenPushed = YES;
 //    [self.navigationController pushViewController:viewController animated:YES];
 //    self.hidesBottomBarWhenPushed=NO;
+
 /*    XMNChatController *chatController = [[XMNChatController alloc] initWithChatMode:XMNChatSingle];
+
     SAChatView *chatView = [[SAChatView alloc] initWithChatMode:XMNChatSingle];
     chatController.chatVM = chatView;
     chatView.messageModel = messageModel;
     self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:chatController animated:YES];
+
     self.hidesBottomBarWhenPushed = NO;*/
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark -
 #pragma mark Notifications
@@ -356,8 +366,6 @@
 #pragma mark -- NOTI_TEAM_ADD_USER
 - (void)addFriendSuccess:(NSNotification *)notification {
     if ([notification.userInfo[@"code"] intValue] == 200) {
-        [CLProgressHUD dismissHUDByTag:8 delegate:self inView:self.view];
-        [CLProgressHUD showSuccessInView:self.view delegate:self title:@"好友添加成功!" duration:.5];
 
         // 添加用户成功 跳转到对话页面
         NSDictionary *userDict = notification.userInfo[@"data"][@"user"];
@@ -377,13 +385,11 @@
             weakSelf.hidesBottomBarWhenPushed = NO;
         });
     } else {
-        [CLProgressHUD dismissHUDByTag:8 delegate:self inView:self.view];
         [CLProgressHUD showErrorInView:self.view delegate:self title:@"添加失败!" duration:.5];
     }
 }
 
 - (void)addFriendFailed:(NSNotification *)notification {
-    [CLProgressHUD dismissHUDByTag:8 delegate:self inView:self.view];
     [CLProgressHUD showErrorInView:self.view delegate:self title:@"稍后再试!" duration:.5];
 }
 

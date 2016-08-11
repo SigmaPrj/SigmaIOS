@@ -9,6 +9,7 @@
 #import "SATeamRequest.h"
 #import "SAUserDataManager.h"
 
+
 @implementation SATeamRequest
 
 + (void)requestAllMessages:(NSInteger)uid {
@@ -22,6 +23,7 @@
     SARequestBase *request = [self requestWithPath:path method:@"GET" parameters:nil token:nil notification:NOTI_TEAM_USER_MESSAGES];
     [request sendRequest:NOTI_TEAM_USER_MESSAGES_ERROR];
 }
+
 
 + (void)addFriend:(NSString *)username {
     NSInteger userId = [SAUserDataManager readUserId];

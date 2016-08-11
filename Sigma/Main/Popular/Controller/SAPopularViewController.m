@@ -29,9 +29,17 @@
 #import "SAAnimationButton.h"
 #import "SAUserDataManager.h"
 
+#import "SAAnimationNavController.h"
+#import "SATeamViewController.h"
+#import "SAAnimationButton.h"
+#import "JCAlertView.h"
+#import "SVProgressHUD.h"
+
+
 #define HEADER_OF_SECTION_X 0
 #define HEADER_OF_SECTION_Y 0
 #define HEADERVIEW_HEIGHT (280)
+#define COMMUNITY_BOTTOM 64
 
 @interface SAPopularViewController ()<UITableViewDelegate, UITableViewDataSource,SAPopularHeaderViewDelegate>
 
@@ -44,6 +52,8 @@
 @property (nonatomic, strong) NSMutableArray* classArray;
 @property (nonatomic, strong) NSMutableArray* resourcArray;
 
+@property (nonatomic, strong) UIView* maskView;
+@property (nonatomic, assign) BOOL firstReuqest;
 
 
 
@@ -56,12 +66,9 @@
     
 //    [self.view addSubview:self.tableView];
     
+    self.firstReuqest = YES;
     
-    // 添加通知
-    [self addAllNotification];
     
-    // 发送数据请求
-    [self sendRequest];
     
     [self initUI];
     [self initData];
@@ -69,6 +76,20 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+   
+    // 添加通知
+    [self addAllNotification];
+
+    if (self.firstReuqest) {
+        
+        [self startLoading];
+        // 发送数据请求
+        [self sendRequest];
+        
+    }
+    
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -124,11 +145,17 @@
 - (void)sendRequest {
     
     // 热门问答请求
-    [SAPopularRequest requestQuestionData];
+//    [SAPopularRequest requestQuestionData];
+    int temp = [self getRandomNumber:1 to:8];
+    NSString* page = [NSString stringWithFormat:@"%d", temp];
+    
+    [SAPopularRequest requestHotQuestionData:@{@"p":page, @"state":@"hot"}];
     
     [SAPopularRequest requestVideoData];
     
-    [SAPopularRequest requestResourceData];
+//    [SAPopularRequest requestResourceData];
+    
+    [SAPopularRequest requestHotResourceData:@{@"p":page, @"state":@"hot"}];
 }
 
 #pragma mark - 添加通知
@@ -160,12 +187,18 @@
             // 加载用户数据成功
             NSLog(@"question success");
             
+            
+            if (self.firstReuqest) {
+                self.firstReuqest = NO;
+                [self deleteMaskView];
+            }
             // 字典转入模型
             [self setQuesData:noti.userInfo[@"data"]];
             dispatch_async(dispatch_get_main_queue(), ^{
                  [self.tableView reloadData];
 
             });
+            [self endLoading];
         }
     }
     
@@ -181,6 +214,8 @@
             });
             
         }
+        [self endLoading];
+
     }
     
     if ([noti.name isEqualToString:NOTI_POPULAR_RESOURCE_DATA]) {
@@ -193,12 +228,14 @@
                 
             });
         }
+        [self endLoading];
     }
 }
 
 
 - (void) receiveDataErrorHandler:notification {
     NSLog(@"数据加载失败!");
+    [self alert:@"数据加载失败" message:@"你的网络好像出现了问题，请检查之后再试!"];
 }
 
 
@@ -228,7 +265,7 @@
     int randomNum = [self getRandomNumber:1 to:3];
     
     for (int i = 0; i < quesArray.count-randomNum; i++) {
-        SAPopularQuestionModel *quesModel = [SAPopularQuestionModel quesWithDict:quesArray[(NSInteger)i]];
+        SAPopularQuestionModel *quesModel = [SAPopularQuestionModel quesWithDict:quesArray[(NSUInteger)i]];
         // quesArray用于存放quesModel
         [self.quesArray addObject:quesModel];
     }
@@ -415,29 +452,31 @@
     }
 }
 
-/**
- *  这个要被删除 了
- *
- *  @param model SAPopularModel --- 暂时好像也没用
- *
- *  @return cellHeight
- */
-- (double)getHeight:(SAPopularModel *)model {
-    UIImage *image = [UIImage imageNamed:model.cellBackgroundImgName];
-    return (image.size.height/2+20);
+
+#pragma mark - cell点击
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        self.hidesBottomBarWhenPushed = YES;
+        TimelineViewController* vc = [[TimelineViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+    }
+    
+    else if (indexPath.section == 1) {
+        self.hidesBottomBarWhenPushed = YES;
+        CourseController* courseController = [[CourseController alloc] init];
+        [self.navigationController pushViewController:courseController animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+    }
+    
+    else if (indexPath.section == 2) {
+        self.hidesBottomBarWhenPushed = YES;
+        SourceSubViewController* sourceSubViewController = [[SourceSubViewController alloc] init];
+        [self.navigationController pushViewController:sourceSubViewController animated:YES];
+        self.hidesBottomBarWhenPushed = NO;
+    }
 }
 
-/**
- *  取得classCell的高度 --- 暂时好像也没用
- *
- *  @param model <#model description#>
- *
- *  @return <#return value description#>
- */
-- (double)getClassCellHeight:(SAPopularClassModel *)model{
-    UIImage *image = [UIImage imageNamed:model.bg_image];
-    return (image.size.height/2+20);
-}
 
 /**
  *  设置section的header
@@ -642,6 +681,7 @@
     self.hidesBottomBarWhenPushed = NO;
 }
 
+//队伍按钮点击事件
 -(void)teamButtonClicked:(UIButton *)btn {
     NSDictionary *dict = [SAUserDataManager readUser];
     [JMSGUser loginWithUsername:[NSString stringWithFormat:@"%@", dict[@"username"]] password:dict[@"password"] completionHandler:^(id resultObject, NSError *error) {
@@ -650,6 +690,43 @@
         [self.navigationController pushViewController:teamViewController animated:YES];
         self.hidesBottomBarWhenPushed = NO;
     }];
+}
+
+#pragma mark - 关于加载失败的操作
+- (void)alert:(NSString *)title message:(NSString *)msg {
+    __weak typeof(self) weakSelf = self;
+    [JCAlertView showTwoButtonsWithTitle:title Message:msg ButtonType:JCAlertViewButtonTypeCancel ButtonTitle:@"算了" Click:^{
+        [weakSelf deleteMaskView];
+    } ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"重试" Click:^{
+        [weakSelf sendRequest];
+    }];
+}
+
+- (void)deleteMaskView {
+    [self endLoading];
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:.3 animations:^{
+        weakSelf.maskView.alpha = 0;
+    } completion:^(BOOL finished) {
+        // 删除视图
+        [weakSelf.maskView removeFromSuperview];
+    }];
+}
+
+- (UIView *)maskView {
+    if (!_maskView) {
+        _maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, (SCREEN_HEIGHT-100))];
+        _maskView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.4];
+    }
+    return _maskView;
+}
+
+- (void)startLoading {
+    [SVProgressHUD show];
+}
+
+- (void)endLoading {
+    [SVProgressHUD dismiss];
 }
 
 @end

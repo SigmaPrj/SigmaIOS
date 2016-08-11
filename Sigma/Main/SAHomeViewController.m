@@ -72,6 +72,44 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - NSNotificationCenter
+- (void)playbackStateChanged
+{
+    MPMoviePlaybackState playbackState = [self.moviePlayer playbackState];
+    if (playbackState == MPMoviePlaybackStateStopped || playbackState == MPMoviePlaybackStatePaused) {
+        [self.moviePlayer play];
+    }
+}
+
+
+#pragma mark - setter and getter
+- (MPMoviePlayerController *)moviePlayer
+{
+    if (!_moviePlayer) {
+
+        NSString *urlStr = [[NSBundle mainBundle]pathForResource:@"bg.mp4" ofType:nil];
+
+        NSURL *url = [NSURL fileURLWithPath:urlStr];
+
+        _moviePlayer = [[MPMoviePlayerController alloc] initWithContentURL:url];
+
+        [_moviePlayer setShouldAutoplay:YES];
+
+        _moviePlayer.movieSourceType = MPMovieSourceTypeFile;
+        [_moviePlayer setFullscreen:YES];
+
+        [_moviePlayer setRepeatMode:MPMovieRepeatModeOne];
+        _moviePlayer.controlStyle = MPMovieControlStyleNone;
+        _moviePlayer.view.frame = [UIScreen mainScreen].bounds;
+
+        [self.view addSubview:self.moviePlayer.view];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playbackStateChanged) name:MPMoviePlayerLoadStateDidChangeNotification object:nil];
+
+    }
+    return _moviePlayer;
+}
+
 - (void)setupUI {
 
     // 添加logo
@@ -89,9 +127,9 @@
     // 添加登录按钮
     [self.alphaView addSubview:self.signInBtn];
 
-    [self.moviePlayer.view addSubview:self.alphaView];
-    
-    [self.view addSubview:_moviePlayer.view];
+    [self.moviePlayer.view bringSubviewToFront:self.alphaView];
+
+    [self.view addSubview:self.alphaView];
 }
 
 - (UIImageView *)logoView {
@@ -179,30 +217,30 @@
     return _avaudioSession;
 }
 
-- (MPMoviePlayerController *)moviePlayer {
-    if (!_moviePlayer) {
-        // 播放音频
-        NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"bg.mp4" ofType:nil];
-        
-        NSURL *url = [NSURL fileURLWithPath:urlStr];
-        
-        _moviePlayer = [[MPMoviePlayerController alloc]initWithContentURL:url];
-        //    _moviePlayer.controlStyle = MPMovieControlStyleDefault;
-        [_moviePlayer play];
-        [_moviePlayer.view setFrame:self.view.bounds];
-        _moviePlayer.shouldAutoplay = YES;
-        [_moviePlayer setControlStyle:MPMovieControlStyleNone];
-        [_moviePlayer setFullscreen:YES];
-        
-        [_moviePlayer setRepeatMode:MPMovieRepeatModeOne];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(playbackStateChanged)
-                                                     name:MPMoviePlayerPlaybackStateDidChangeNotification
-                                                   object:_moviePlayer];
-    }
-    return _moviePlayer;
-}
+//- (MPMoviePlayerController *)moviePlayer {
+//    if (!_moviePlayer) {
+//        // 播放音频
+//        NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"bg.mp4" ofType:nil];
+//
+//        NSURL *url = [NSURL fileURLWithPath:urlStr];
+//
+//        _moviePlayer = [[MPMoviePlayerController alloc]initWithContentURL:url];
+//        //    _moviePlayer.controlStyle = MPMovieControlStyleDefault;
+//        [_moviePlayer play];
+//        [_moviePlayer.view setFrame:self.view.bounds];
+//        _moviePlayer.shouldAutoplay = YES;
+//        [_moviePlayer setControlStyle:MPMovieControlStyleNone];
+//        [_moviePlayer setFullscreen:YES];
+//
+//        [_moviePlayer setRepeatMode:MPMovieRepeatModeOne];
+//
+//        [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(playbackStateChanged)
+//                                                     name:MPMoviePlayerPlaybackStateDidChangeNotification
+//                                                   object:_moviePlayer];
+//    }
+//    return _moviePlayer;
+//}
 
 - (void)addLabelsToScrollView {
     NSArray *labelsTitle = @[
@@ -223,41 +261,41 @@
     }
 }
 
--(void)playbackStateChanged{
-    //取得目前状态
-    MPMoviePlaybackState playbackState = [_moviePlayer playbackState];
-
-    //状态类型
-    switch (playbackState) {
-        case MPMoviePlaybackStateStopped:
-            [_moviePlayer play];
-            break;
-
-        case MPMoviePlaybackStatePlaying:
-            NSLog(@"播放中");
-            break;
-
-        case MPMoviePlaybackStatePaused:
-            [_moviePlayer play];
-            break;
-
-        case MPMoviePlaybackStateInterrupted:
-            NSLog(@"播放被中断");
-            break;
-
-        case MPMoviePlaybackStateSeekingForward:
-            NSLog(@"往前快转");
-            break;
-
-        case MPMoviePlaybackStateSeekingBackward:
-            NSLog(@"往后快转");
-            break;
-
-        default:
-            NSLog(@"无法辨识的状态");
-            break;
-    }
-}
+//-(void)playbackStateChanged{
+//    //取得目前状态
+//    MPMoviePlaybackState playbackState = [_moviePlayer playbackState];
+//
+//    //状态类型
+//    switch (playbackState) {
+//        case MPMoviePlaybackStateStopped:
+//            [_moviePlayer play];
+//            break;
+//
+//        case MPMoviePlaybackStatePlaying:
+//            NSLog(@"播放中");
+//            break;
+//
+//        case MPMoviePlaybackStatePaused:
+//            [_moviePlayer play];
+//            break;
+//
+//        case MPMoviePlaybackStateInterrupted:
+//            NSLog(@"播放被中断");
+//            break;
+//
+//        case MPMoviePlaybackStateSeekingForward:
+//            NSLog(@"往前快转");
+//            break;
+//
+//        case MPMoviePlaybackStateSeekingBackward:
+//            NSLog(@"往后快转");
+//            break;
+//
+//        default:
+//            NSLog(@"无法辨识的状态");
+//            break;
+//    }
+//}
 
 
 -(void)buttonClickHandler:(UIButton *)btn {

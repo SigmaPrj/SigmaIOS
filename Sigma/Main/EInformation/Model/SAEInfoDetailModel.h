@@ -10,22 +10,29 @@
 
 @interface SAEInfoDetailModel : NSObject
 
-@property(nonatomic, copy) NSString* headImgName;
-@property(nonatomic, copy) NSString* title;
-@property(nonatomic, copy) NSDate* applyDate;
-@property(nonatomic, copy) NSDate* agendaDate;
-@property(nonatomic, copy) NSString* mainSponsor;
-@property(nonatomic, copy) NSString* secSponsor;
-@property(nonatomic, assign) int collctionNum;
+@property(nonatomic, assign) int news_id;
+@property(nonatomic, copy) NSString* news_title;
+@property(nonatomic, copy) NSString* news_desc;
+@property(nonatomic, copy) NSString* news_img;
+@property(nonatomic, assign) int news_type;
 
-@property(nonatomic, copy) NSString* competitionDetail;
-@property(nonatomic, copy) NSString* competitionParticipant;
-@property(nonatomic, copy) NSString* awardsType;
-
-// 这里应该还要有报名的规则，比如是否允许个人参赛，是否要组队，以及是否有导师
+@property(nonatomic, copy) NSString* publish_date; // 发布时间
+@property(nonatomic, copy) NSString* last_look_date; // 上次被查看时间
 
 
+@property(nonatomic, copy) NSString* start_date; // 开始时间
+@property(nonatomic, copy) NSString* end_date; // 结束时间
 
+@property(nonatomic, assign) int allow_personal; // 是否允许个人报名
+@property(nonatomic, assign) int allow_team; // 是否允许组队报名
+@property(nonatomic, assign) int allow_teacher; // 是否需要导师
+
+@property(nonatomic, assign) int team_min_number; // 组队最小参与人数
+@property(nonatomic, assign) int team_max_number; // 组队最大参与人数
+
+@property(nonatomic, assign) int news_save_number; // 收藏资讯数量
+@property(nonatomic, assign) int news_look_number; // 查看资讯数量
+@property(nonatomic, assign) int news_join_number; // 参与活动人数数量
 
 // 对象方法，初始化
 - (instancetype)initWithDict:(NSDictionary *)dict;

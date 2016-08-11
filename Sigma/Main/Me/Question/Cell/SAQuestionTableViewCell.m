@@ -16,10 +16,10 @@
 
 @interface SAQuestionTableViewCell ()
 
-@property(nonatomic, strong)UIImageView* headImgView;
+//@property(nonatomic, strong)UIImageView* headImgView;
 @property(nonatomic, strong)UILabel* titleLabel;
 @property(nonatomic, strong)UILabel* detailLabel;
-@property(nonatomic, strong)UILabel* popularityLabel;
+//@property(nonatomic, strong)UILabel* popularityLabel;
 
 @end
 
@@ -45,22 +45,22 @@
     self.layer.masksToBounds = YES;
     [self.contentView addSubview:maskView];
     
-    [maskView addSubview:self.headImgView];
+//    [maskView addSubview:self.headImgView];
     [maskView addSubview:self.titleLabel];
     [maskView addSubview:self.detailLabel];
-    [maskView addSubview:self.popularityLabel];
+//    [maskView addSubview:self.popularityLabel];
 }
 
--(UIImageView*)headImgView{
-    
-    if (!_headImgView) {
-        _headImgView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.titleLabel.frame), CGRectGetMaxY(self.titleLabel.frame)+PADDING, IMG_SIZE, IMG_SIZE)];
-        _headImgView.layer.cornerRadius = 10.f;
-        _headImgView.layer.masksToBounds = YES;
-        
-    }
-    return _headImgView;
-}
+//-(UIImageView*)headImgView{
+//    
+//    if (!_headImgView) {
+//        _headImgView = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.titleLabel.frame), CGRectGetMaxY(self.titleLabel.frame)+PADDING, IMG_SIZE, IMG_SIZE)];
+//        _headImgView.layer.cornerRadius = 10.f;
+//        _headImgView.layer.masksToBounds = YES;
+//        
+//    }
+//    return _headImgView;
+//}
 
 -(UILabel*)titleLabel{
     
@@ -71,31 +71,31 @@
         [_titleLabel setTextColor:[UIColor colorWithRed:74/255. green:81/255. blue:101/255. alpha:1.0]];
         
         
-        [_titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14.f]];
+        [_titleLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:15.f]];
     }
     return _titleLabel;
 }
 
--(UILabel*)popularityLabel{
-    
-    if (!_popularityLabel) {
-        _popularityLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.headImgView.frame)+PADDING/2, CGRectGetMaxY(self.headImgView.frame)+PADDING/2, IMG_SIZE-PADDING, MARGIN)];
-        _popularityLabel.backgroundColor = [UIColor colorWithRed:55/255. green:144/255. blue:248/255. alpha:1.0];
-        [_popularityLabel setTextColor:[UIColor whiteColor]];
-        [_popularityLabel setFont:[UIFont systemFontOfSize:11.f]];
-        
-        _popularityLabel.layer.cornerRadius = 5.f;
-        _popularityLabel.layer.masksToBounds = YES;
-        
-        _popularityLabel.textAlignment = NSTextAlignmentCenter;
-    }
-    return _popularityLabel;
-}
+//-(UILabel*)popularityLabel{
+//    
+//    if (!_popularityLabel) {
+//        _popularityLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.headImgView.frame)+PADDING/2, CGRectGetMaxY(self.headImgView.frame)+PADDING/2, IMG_SIZE-PADDING, MARGIN)];
+//        _popularityLabel.backgroundColor = [UIColor colorWithRed:55/255. green:144/255. blue:248/255. alpha:1.0];
+//        [_popularityLabel setTextColor:[UIColor whiteColor]];
+//        [_popularityLabel setFont:[UIFont systemFontOfSize:11.f]];
+//        
+//        _popularityLabel.layer.cornerRadius = 5.f;
+//        _popularityLabel.layer.masksToBounds = YES;
+//        
+//        _popularityLabel.textAlignment = NSTextAlignmentCenter;
+//    }
+//    return _popularityLabel;
+//}
 
 -(UILabel*)detailLabel{
     
     if (!_detailLabel) {
-        _detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(PADDING+CGRectGetMaxX(self.headImgView.frame), CGRectGetMaxY(self.titleLabel.frame), SCREEN_WIDTH-CGRectGetMaxY(self.headImgView.frame)-MARGIN, 100)];
+        _detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.titleLabel.frame), CGRectGetMaxY(self.titleLabel.frame), SCREEN_WIDTH-MARGIN*3, 100)];
         _detailLabel.backgroundColor = [UIColor clearColor];
         [_detailLabel setTextColor:[UIColor grayColor]];
         
@@ -109,10 +109,10 @@
 
 
 -(void)showQuestionCell{
-    self.headImgView.image = [UIImage imageNamed:self.data.headImgName];
+//    self.headImgView.image = [UIImage imageNamed:self.data.headImgName];
     self.titleLabel.text=self.data.title;
     self.detailLabel.text=self.data.detail;
-    self.popularityLabel.text=self.data.popularity;
+//    self.popularityLabel.text=self.data.popularity;
 }
 
 @end

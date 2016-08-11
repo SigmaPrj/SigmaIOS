@@ -16,6 +16,7 @@
 #import "SAHomeViewController.h"
 #import "SAAnimationNavController.h"
 
+#import "CacheManagement.h"
 #import <MessageUI/MessageUI.h>
 #import <JMessage/JMessage.h>
 
@@ -47,7 +48,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self setLeftNavigationItemWithTitle:nil imageName:@"back.png"];
+    
     self.dataArray1 = [[SASettingViewEngine shareInstance] dataSection1];
     self.dataArray2 = [[SASettingViewEngine shareInstance] dataSection2];
     self.dataArray3 = [[SASettingViewEngine shareInstance] dataSection3];
@@ -175,6 +177,25 @@
     }
 }
 
+- (void)clearCacheHandler{
+    NSLog(@"%@",[CacheManagement calculateCacheSize]);
+    NSMutableString* cacheSize=[[NSMutableString alloc]initWithString:@"缓存数据有助于再次浏览或离线查看\n缓存大小:"];
+    [cacheSize appendString:[CacheManagement calculateCacheSize]];
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"你确定要清除缓存吗？" message:cacheSize preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* cancleAction=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *cancleAction){
+        NSLog(@"Cancle");
+    }];
+    
+    UIAlertAction* yesAction=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *yesAction){
+        NSLog(@"Yes");
+        [CacheManagement clearCache];
+    }];
+    [alert addAction:cancleAction];
+    [alert addAction:yesAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 #pragma mark- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     switch (section) {
@@ -270,17 +291,6 @@
         switch (indexPath.row) {
             case 0:
             {
-//                NSMutableString *mailUrl = [[NSMutableString alloc]init];
-//                [mailUrl appendString:@"mailto:411311603@qq.com"];
-//                //添加主题
-//                [mailUrl appendString:@"?subject=意见反馈"];
-//                
-//                //添加邮件内容
-//                [mailUrl appendString:@"&body=xx部分存在问题"];
-//                
-//                NSString* email = [mailUrl stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-//                [[UIApplication sharedApplication] openURL: [NSURL URLWithString:email]];
-
                 [self showMailView:[NSArray arrayWithObject: @"411311603@qq.com"] subject:@"Feedback" body:@"Problem"];
             }
                 break;
@@ -302,18 +312,7 @@
         switch (indexPath.row) {
             case 0:
             {
-                UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"你确定要清除缓存吗？" message:@"缓存数据有助于再次浏览或离线查看" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction* cancleAction=[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *cancleAction){
-                    NSLog(@"Cancle");
-                }];
-                
-                UIAlertAction* yesAction=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *yesAction){
-                    NSLog(@"Yes");
-                }];
-                [alert addAction:cancleAction];
-                [alert addAction:yesAction];
-                
-                [self presentViewController:alert animated:YES completion:nil];
+                [self clearCacheHandler];
             }
                 break;
             case 1:
@@ -438,7 +437,6 @@
         
         
         UIAlertAction* yesAction=[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *yesAction){
-
             // 退出 极光IM
             [JMSGUser logout:^(id resultObject, NSError *error) {
                 if (!error) {

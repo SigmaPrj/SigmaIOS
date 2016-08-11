@@ -78,7 +78,7 @@ typedef NS_ENUM(int, JSMSAuthCodeRequestError) {
     
 };
 
-static NSString *const KEY_APP_KEY = @"94426bda4a12dd1fe5221375";
+static NSString *const KEY_APP_KEY = @"8d7d0013d3918d7c0e5acc0b";
 
 
 #endif /* JSMSConstant_h */

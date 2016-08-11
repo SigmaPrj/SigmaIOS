@@ -26,7 +26,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.tableView deselectRowAtIndexPath:(self.tableView).indexPathForSelectedRow animated:NO];
+
+    [self.tableView deselectRowAtIndexPath:(self.tableView).indexPathForSelectedRow animated:YES];
+
 }
 
 #pragma mark - Table view data source
@@ -67,11 +69,16 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
+
     Story *story = [((TimelineDataSource *) self.dataSource) storyAtIndexPath:indexPath];
     
     NSNotification *notification = [NSNotification notificationWithName:kStoryShouldShowNotification object:nil userInfo:@{kStoryUserInfoKey: story}];
     [[NSNotificationCenter defaultCenter] postNotification:notification];
+
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
+
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

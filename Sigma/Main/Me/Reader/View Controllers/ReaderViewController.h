@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Story.h"
+#import "SAViewController.h"
 
-@interface ReaderViewController : UIViewController
+@interface ReaderViewController : SAViewController
 
 @property (weak, nonatomic) Story *story;
 

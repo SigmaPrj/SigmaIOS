@@ -73,6 +73,10 @@ static NSString* CellIdentifier = @"UICollectionViewCell";
 //每个UICollectionView展示的内容
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     SourceHeadCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, cell.frame.size.width, cell.frame.size.height)];
+    NSString* imageName = [NSString stringWithFormat:@"Resource%ld.png",indexPath.row+1];
+    [imageView setImage:[UIImage imageNamed:imageName]];
+    [cell addSubview:imageView];
     
     cell.backgroundColor = COLOR_RGB(242, 242, 242);
     

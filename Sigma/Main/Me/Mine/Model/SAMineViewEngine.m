@@ -10,6 +10,7 @@
 
 #import "SAUser.h"
 #import "SAMineCell.h"
+#import "SAUserDataManager.h"
 
 @interface SAMineViewEngine()
 
@@ -60,9 +61,13 @@
 }
 
 -(void)mineSetUser:(SAUser*)user{
-    _user.headImageName=@"Head_Img_Of_HeaderView";
-    _user.userName=@"Tsezihin";
+    NSDictionary* dic=[SAUserDataManager readUser];
+//    NSLog(@"%@",dic);
+    _user.headImageName=[dic objectForKey:@"image"];
+    _user.userName=[dic objectForKey:@"nickname"];
     _user.level=1;
+
+    
     
     _user.feeds=10;
     _user.numberOfFollowers=20;

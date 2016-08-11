@@ -92,7 +92,7 @@
     if (!_cellBackgroundImg) {
         
         int resourcebgnum = [self getRandomNumber:1 to:9];
-        NSString* imagename = [NSString stringWithFormat:@"resource%d",resourcebgnum];
+        NSString* imagename = [NSString stringWithFormat:@"terresource%d",resourcebgnum];
         _cellBackgroundImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:imagename]];
         _cellBackgroundImg.frame = CGRectMake(15, 0, SCREEN_WIDTH-30, _cellBackgroundImg.image.size.height/2);
         
@@ -116,7 +116,7 @@
 //        [_avataImage setImage:[UIImage imageNamed:self.data.AvataImgName]];
         
         NSURL *url = [[NSURL alloc] initWithString:self.resourcedata.avata];
-        [_avataImage sd_setImageWithURL:url];
+        [_avataImage sd_setImageWithURL:url placeholderImage:nil options:SDWebImageRetryFailed|SDWebImageProgressiveDownload];
         
         // img显示为圆形
         _avataImage.layer.cornerRadius = _avataImage.frame.size.width/2;

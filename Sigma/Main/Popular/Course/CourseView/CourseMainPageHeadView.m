@@ -23,6 +23,8 @@
 //scrollview当前的页面
 @property(nonatomic,assign)int currentPage;
 
+@property(nonatomic,strong)UIPageControl* pageView;
+
 @end
 
 @implementation CourseMainPageHeadView
@@ -42,6 +44,8 @@
     self.scrollViewImageArray = [[[CourseEngine shareInstances] scrollViewWithData] mutableCopy];
     
     [self scrollWithImage];
+    
+    [self addSubview:self.pageView];
 }
 
 //延时加载scollview
@@ -64,6 +68,17 @@
     }
     return _scrollView;
 }
+//UIPageControl的get方法
+-(UIPageControl*)pageView{
+    if(_pageView == nil){
+        _pageView = [[UIPageControl alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-300)/2, 150-24, 300, 30)];
+        _pageView.backgroundColor = [UIColor clearColor];
+        _pageView.numberOfPages = 4;
+        _pageView.currentPage = 0;
+    }
+    return _pageView;
+}
+
 
 -(void)scrollWithImage{
     self.scrollView.contentSize = CGSizeMake(SCREEN_WIDTH*(self.scrollViewImageArray.count), SCROLL_HEIGHT);
@@ -84,7 +99,11 @@
 #pragma mark - UIScrollViewDelegate
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     CGFloat pageWidth = scrollView.frame.size.width;
-    self.currentPage = (int)(floor((scrollView.contentOffset.x - pageWidth/2))/pageWidth+1);
+//    self.currentPage = (int)(floor((scrollView.contentOffset.x - pageWidth/2))/pageWidth+1);
+    //计算当前的滑动页码数
+    int page = (int)(floor((scrollView.contentOffset.x - pageWidth/2))/pageWidth+1);
+    self.currentPage = page;
+    self.pageView.currentPage = page;
 }
 
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
@@ -96,11 +115,15 @@
 }
 
 
+
 #pragma mark -
 #pragma mark 定时器操作
 - (void)startTimer
 {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(changeScrollViewIndex) userInfo:nil repeats:YES];
+    _timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(changeScrollViewIndex) userInfo:nil repeats:YES];
+    // 将定时器放入事件循环中
+    NSRunLoop *mainRunLoop = [NSRunLoop mainRunLoop];
+    [mainRunLoop addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)stopTimer
@@ -110,7 +133,7 @@
 }
 
 - (void)changeScrollViewIndex {
-    int index = self.currentPage;
+    int index = (int)self.currentPage;
     if ((index+1) >= self.scrollViewImageArray.count) {
         [UIView animateWithDuration:0.4 delay:0.0 options:(UIViewAnimationOptions) UIViewAnimationCurveEaseInOut animations:^{
             self.scrollView.contentOffset = CGPointMake(0, 0);

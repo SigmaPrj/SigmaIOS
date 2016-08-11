@@ -157,6 +157,9 @@
     cell.frameModel = self.dynamicArray[(NSUInteger)indexPath.row];
     cell.delegate = self;
 
+//    NSIndexPath *indexPath = NSIndexPath indexPathForRow:<#(NSInteger)#> inSection:<#(NSInteger)#>
+//    [tableView insertRowsAtIndexPaths:@[] withRowAnimation:UITableViewRowAnimationTop]
+    
     return cell;
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "CategoryViewCell.h"
-#import "CategoryInfo.h"
+#import "CategoryDataInfo.h"
 
 //定义第一列图片的横坐标
 #define FIRSTLINE_IMAGEX 20*(SCREEN_WIDTH/SCREEN_HEIGHT)
@@ -325,25 +325,24 @@
 //将cell中的内容显示出来
 -(void)showCategoryCell{
     self.cellNameLabel.text = self.categoryInfor.cellName;
-    [self.imageButton1 setImage:[UIImage imageNamed:self.categoryInfor.imageName1] forState:UIControlStateNormal];
+    NSURL* url1 = [NSURL URLWithString:self.categoryInfor.imageName1];
+    [self.imageButton1 setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url1]] forState:UIControlStateNormal];
     self.desLabel1.text = self.categoryInfor.desLabel1;
-    self.numLabel1.text = [NSString stringWithFormat:@"%d",self.categoryInfor.numLabel1];
-    [self.imageButton2 setImage:[UIImage imageNamed:self.categoryInfor.imageName2] forState:UIControlStateNormal];
+    NSURL* url2 = [NSURL URLWithString:self.categoryInfor.imageName2];
+    [self.imageButton2 setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url2]] forState:UIControlStateNormal];
     self.desLabel2.text = self.categoryInfor.desLabel2;
-    self.numLabel2.text = [NSString stringWithFormat:@"%d",self.categoryInfor.numLabel2];
-    [self.imageButton3 setImage:[UIImage imageNamed:self.categoryInfor.imageName3] forState:UIControlStateNormal];
+    NSURL* url3 = [NSURL URLWithString:self.categoryInfor.imageName3];
+    [self.imageButton3 setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url3]] forState:UIControlStateNormal];
     self.desLabel3.text = self.categoryInfor.desLabel3;
-    self.numLabel3.text = [NSString stringWithFormat:@"%d",self.categoryInfor.numLabel3];
-    [self.imageButton4 setImage:[UIImage imageNamed:self.categoryInfor.imageName4] forState:UIControlStateNormal];
+    NSURL* url4 = [NSURL URLWithString:self.categoryInfor.imageName4];
+    [self.imageButton4 setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url4]] forState:UIControlStateNormal];
     self.desLabel4.text = self.categoryInfor.desLabel4;
-    self.numLabel4.text = [NSString stringWithFormat:@"%d",self.categoryInfor.numLabel4];
-    [self.imageButton5 setImage:[UIImage imageNamed:self.categoryInfor.imageName5] forState:UIControlStateNormal];
+    NSURL* url5 = [NSURL URLWithString:self.categoryInfor.imageName5];
+    [self.imageButton5 setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url5]] forState:UIControlStateNormal];
     self.desLabel5.text = self.categoryInfor.desLabel5;
-    self.numLabel5.text = [NSString stringWithFormat:@"%d",self.categoryInfor.numLabel5];
-   [self.imageButton6 setImage:[UIImage imageNamed:self.categoryInfor.imageName6] forState:UIControlStateNormal];
+    NSURL* url6 = [NSURL URLWithString:self.categoryInfor.imageName6];
+    [self.imageButton6 setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:url6]] forState:UIControlStateNormal];
     self.desLabel6.text = self.categoryInfor.desLabel6;
-    self.numLabel6.text = [NSString stringWithFormat:@"%d",self.categoryInfor.numLabel6];
-
 }
 
 

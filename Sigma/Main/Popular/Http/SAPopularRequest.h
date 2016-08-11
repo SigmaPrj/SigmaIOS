@@ -20,5 +20,8 @@
 // 请求热门资源
 + (void) requestResourceData;
 
++ (void) requestHotQuestionData:(NSDictionary*)dict;
+
++ (void) requestHotResourceData:(NSDictionary*)dict;
 
 @end

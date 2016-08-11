@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class SourceInfo;
+@class SourceMainPageInfo;
 
 
 @interface SourceTableViewCell : UITableViewCell
 
-@property(nonatomic,strong)SourceInfo* dataInfo;
+@property(nonatomic,strong)SourceMainPageInfo* sourceMainPageInfo;
 
 //将cell中的数据显示出来
 -(void)showSourceCell;

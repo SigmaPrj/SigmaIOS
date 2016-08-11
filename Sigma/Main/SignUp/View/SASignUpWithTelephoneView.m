@@ -148,7 +148,7 @@
 
 - (void)registerBtnClicked:(UIButton *)btn {
     // 手机注册
- /*   if (self.codeTime == 0) {
+    if (self.codeTime == 0) {
         [JCAlertView showOneButtonWithTitle:@"注册提示" Message:@"你还没有请求验证码,或验证码已经过期" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{
         }];
     } else {
@@ -163,10 +163,10 @@
                 [JCAlertView showOneButtonWithTitle:@"注册提示" Message:@"短信验证码不正确" ButtonType:JCAlertViewButtonTypeDefault ButtonTitle:@"知道了" Click:^{}];
             }
         }];
-    }*/
-    if ([self.delegate respondsToSelector:@selector(phoneRegisterBtnClicked: phone:)]) {
-        [self.delegate phoneRegisterBtnClicked:self phone:self.phoneTextField.text];
     }
+//    if ([self.delegate respondsToSelector:@selector(phoneRegisterBtnClicked: phone:)]) {
+//        [self.delegate phoneRegisterBtnClicked:self phone:self.phoneTextField.text];
+//    }
 }
 
 - (void)codeBtnClicked:(UIButton *)btn {

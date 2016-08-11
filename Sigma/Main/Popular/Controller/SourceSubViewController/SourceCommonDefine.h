@@ -13,10 +13,10 @@
 #define HEADVIEW_HEIGHT 220*(SCREEN_WIDTH/SCREEN_HEIGHT)
 
 //定义UICollectionViewCell的个数
-#define CELL_NUM 1
+#define CELL_NUM 5
 
 //定义section的个数
-#define SECTION_NUM 3
+#define SECTION_NUM 1
 
 //定义UICollectionViewDelegateFlowLayout每个item的大小
 #define ITEM_WIDTH (SCREEN_WIDTH-30*(SCREEN_WIDTH/SCREEN_HEIGHT))/2
@@ -29,7 +29,7 @@
 #define COLLECTIONVIEW_RIGHT 10*(SCREEN_WIDTH/SCREEN_HEIGHT)
 
 //定义source界面中的cell的高度
-#define CELL_HEIGHT 220*(SCREEN_WIDTH/SCREEN_HEIGHT)
+#define CELL_HEIGHT 260*(SCREEN_WIDTH/SCREEN_HEIGHT)
 
 //定义category界面中headview的高度
 #define CATEGORYHEAD_HEIGHT 80*(SCREEN_WIDTH/SCREEN_HEIGHT)

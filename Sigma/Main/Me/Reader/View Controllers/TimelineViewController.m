@@ -29,7 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setLeftNavigationItemWithTitle:nil imageName:@"back.png"];
+
     self.navigationItem.title = @"热门问答";
 
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -69,6 +70,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+    [self setHidesBottomBarWhenPushed:YES];
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -99,6 +103,9 @@
     ReaderViewController *readerVC = [[ReaderViewController alloc] init];
     readerVC.story = (aNotification.userInfo)[kStoryUserInfoKey];
     
+
+    [readerVC setHidesBottomBarWhenPushed:YES];
+
     [self showViewController:readerVC sender:self];
 }
 

@@ -14,6 +14,6 @@
 
 //-(void)initData;
 
--(void)initData:(NSArray*)dictArray;
+//-(void)initData:(NSArray*)dictArray;
 
 @end
